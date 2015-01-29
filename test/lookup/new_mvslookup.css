@@ -1,0 +1,5160 @@
+﻿
+
+
+
+
+
+
+
+body,
+input,
+select,
+textarea,
+table.ms-crm-Loading
+{
+font-family:Segoe UI, Tahoma, Arial;
+font-size: 11px;
+}
+
+td
+{
+font-size: 11px;
+}
+
+th
+{
+font-size: 11px;
+font-weight: normal;
+}
+
+a,
+a:link img,
+a:link,
+a:visited img,
+a:visited,
+a:active img,
+a:active,
+a:hover img,
+a:hover
+{
+font-weight: normal;
+text-decoration: none;
+}
+
+h2
+{
+font-size: 16px;
+}
+button
+{
+font-size: 11px;
+}
+
+
+
+
+.ms-crm-Emphasis-Strong,
+.ms-crm-Bold-Header,
+.ms-crm-Column-SelectWidth,
+.ms-crm-Field-Label-Print,
+.ms-crm-Gantt-Progress-Label,
+.ms-crm-List-IndexItem,
+.ms-crm-List-PreviewLabel,
+.ms-crm-List-SelectedIndex,
+.ms-crm-MastHead-SignIn-User,
+.ms-crm-Unblock-Content-Link,
+.ms-crm-Wsdl-Title,
+A.ms-crm-Cal-Week-Header,
+A.ms-crm-Cal-Week-Header:active,
+A.ms-crm-Cal-Week-Header:hover,
+A.ms-crm-Cal-Week-Header:link,
+A.ms-crm-Cal-Week-Header:visited,
+A.ms-crm-TaskTree:active,
+A.ms-crm-TaskTree:hover,
+A.ms-crm-TaskTree:link,
+A.ms-crm-TaskTree:visited,
+div.formproperties_div,
+div.ganttBlockSelected,
+DIV.ms-crm-AddUsers-Licensing-AccessModeLabel,
+DIV.ms-crm-Cal-Week-Header,
+DIV.ms-crm-GettingStarted-Title,
+GanttControlFrame_label,
+Input.wfStageDescription,
+legend.ms-crm-recurrence-dialog-section-title,
+SPAN.attachment,
+span.bodyheader,
+span.location,
+SPAN.ms-crm-AdvFind-Message,
+SPAN.ms-crm-Menu-Group,
+SPAN.ms-crm-Menu-Group-Opened,
+SPAN.ms-crm-Menu-Group-Hovered,
+SPAN.ms-crm-NextButton,
+SPAN.ms-crm-WizardForm-Header-Title,
+td.am,
+TD.ms-crm-AdvFind-Label,
+TD.ms-crm-AdvFind-TitleLabel,
+TD.ms-crm-Form-Section,
+TD.ms-crm-Form-StatusBar,
+td.ms-crm-Menu-Title,
+TD.noteCreatedField,
+TD.noteSubjectField,
+td.pm,
+td.zoomheader,
+TEXTAREA.wfStageDescriptionReadOnly,
+TEXTAREA.wfStepDescriptionReadOnly,
+TD.ms-crm-Form-Footer TD.ms-crm-Field-Data-Print,
+TR.feEntityHeadingText
+{
+font-weight: bold;
+}
+
+TABLE.headerContainerTable ms-crm-Field-Label-Print,
+TABLE.headerContainerTable ms-crm-Field-Data-Print,
+TD.ms-crm-Form-Footer TD.ms-crm-Field-Label-Print,
+.ms-crm-Emphasis-None,
+span.InformationItem
+{
+font-weight: normal;
+}
+
+.ms-crm-Menu-Text
+{
+font-size: 11px;
+}
+
+.ms-crm-Error-Header
+{
+font-size: 14px;
+font-weight: bold;
+}
+DIV.ms-crm-Dialog-Header-Title
+{
+font-weight:	bold;
+font-size:		13px;
+}
+.ms-crm-Field-Required
+{
+font-weight:	normal;
+}
+.ms-crm-Field-Recommended
+{
+font-weight:		normal;
+}
+.ms-crm-NavHeader-Title,
+.ms-crm-ContextHeader-Title,
+.ms-crm-Setting-ContextHeader-Title,
+.ms-crm-Dialog-Title-Reversed
+
+{
+font-weight:    bold;
+font-size:      14px;
+}
+TABLE.popupMenu
+{
+font-size: 11px;
+}
+span.ms-crm-Form-Title
+{
+font-size:		11px;
+font-weight:	bold;
+}
+span.ms-crm-solution-title
+{
+font-size:		11px;
+font-weight:	bold;
+}
+.ms-crm-Form-Breadcrumb
+{
+font-size:		18px;
+font-weight:	bold;
+}
+
+
+
+
+
+li.ms-crm-Tab
+{
+font-size: 11px;
+}
+td.wizHead
+{
+font-weight: bold;
+font-size: 10px;
+}
+
+
+
+
+.ms-crm-Error-AdditionalInformation
+{
+font-weight:bold;
+font-size:10px;
+}
+TD.ms-crm-Dialog-Error-Title
+{
+font-weight:	bold;
+font-size:		14px;
+font-family:    Segoe UI, Tahoma, Arial;
+}
+TD.ms-crm-Dialog-Error-Body
+{
+font-size:		11px;
+font-family:    Segoe UI, Tahoma, Arial;
+}
+A.ms-crm-Dialog-Error-Link,
+A.ms-crm-Dialog-Error-Link:hover
+{
+font-size:		11px;
+font-family:    Segoe UI, Tahoma, Arial;
+}
+td.ms-crm-Grid-Title-Print
+{
+font-size: 16px;
+font-weight: bold;
+}
+TD.ms-crm-MastHead-SignIn
+{
+font-size: 11px;
+}
+div.aboutdefault_div_warnings
+{
+font-size:10px;
+font-weight: normal;
+}
+div.Articlesedit_article_div_secEdit
+{
+font-size: 9pt;
+}
+td.ms-crm-StatusBar-Copyright
+{
+font-size:          9px;
+}
+table.ms-crm-ViewForm-Header
+{
+font-size:			11px;
+}
+td.ms-crm-SignIn-Banner
+{
+font-size:18px;
+font-weight: bold;
+}
+
+TH.ms-crm-Group-Links,
+TH.ms-crm-Group,
+A.ms-crm-Nav-Group-Heading,
+A.ms-crm-Nav-Group-Heading:link,
+A.ms-crm-Nav-Group-Heading:visited,
+A.ms-crm-Nav-Group-Heading:active,
+A.ms-crm-Nav-Group-Heading:hover,
+NOBR.ms-crm-Nav-Group-Heading
+{
+font-weight: bold;
+font-size: 11px;
+}
+A.ms-crm-Nav-Area,
+A.ms-crm-Nav-Area:link,
+A.ms-crm-Nav-Area:visited,
+A.ms-crm-Nav-Area:active,
+A.ms-crm-Nav-Area:hover
+{
+font-weight: bold;
+font-size: 11px;
+}
+
+TR.ms-crm-MiniCal-Nav,
+TD.ms-crm-MiniCal-DayOfWeek,
+TD.ms-crm-MiniCal-Week-Number,
+TD.ms-crm-MiniCal-Day,
+TD.ms-crm-MiniCal-TodayBar,
+TD.ms-crm-MiniCal-TodayBar-Hovered,
+DIV.ms-crm-MiniCal-TodayBar
+{
+font-size: 8pt;
+}
+input.ms-crm-SelectBox
+{
+font-size: 11px;
+}
+SELECT.ms-crm-SelectBox,
+SELECT.ms-crm-SelectBox-WorkflowDesigner
+{
+font-size:			11px;
+}
+.subtitle
+{
+font-size: 14px;
+font-weight: bold;
+}
+A.linktitle,
+A.linktitle:link,
+A.linktitle:visited,
+A.linktitle:active,
+A.linktitle:hover
+{
+font-size: 14px;
+font-weight: bold;
+}
+
+A.linktitlesm,
+A.linktitlesm:link,
+A.linktitlesm:visited,
+A.linktitlesm:active,
+A.linktitlesm:hover
+{
+font-size: 11px;
+font-weight: bold;
+}
+
+div.linkhelp
+{
+font-size: 11px;
+}
+
+TEXTAREA.ms-crm-Note-Text
+{
+font-size: 8pt;
+}
+
+DIV.Notification
+{
+font-size:			8pt;
+}
+TD.CategoryHeadingText
+{
+font-size:		8pt;
+}
+TD.CategoryBody
+{
+font-size:			8pt;
+}
+TD.RelatedInformationTitle
+{
+font-weight:bold;
+font-size:11px;
+}
+DIV.AreaHeading
+{
+font-size:			8pt;
+font-weight:		bold;
+}
+SELECT.ContextSelect
+{
+font-size:			8pt;
+}
+DIV.InformationLoading
+{
+font-size:		8pt;
+}
+DIV.InformationMessage
+{
+font-size:		8pt;
+}
+
+
+div.info
+{
+font-size: 16px;
+font-weight: normal;
+}
+div.release
+{
+font-weight: bold;
+font-size: 12px;
+}
+span.norm
+{
+font-weight:normal;
+font-size:11px;
+}
+body.ms-crm-Cal-Body
+{
+font-size:			11px;
+}
+td.ms-crm-ArticleComment-Title
+{
+font-size: 8pt;
+font-weight: bold;
+}
+td.ms-crm-ArticleComment-Body
+{
+font-size: 8pt;
+}
+td.ms-crm-ArticleComment-Info
+{
+font-size: 7pt;
+}
+div.ms-crm-Help-ErrorMessage
+{
+font-weight:bold;
+font-size:16px;
+}
+span.ms-crm-Viz-Name,
+span.ms-crm-Viz-Name-hover,
+span.ms-crm-Viz-Name-select,
+label.ms-crm-viz-hd,
+.ms-crm-Help-Toc-Heading
+{
+font-size: 13px;
+}
+.ms-crm-Gantt-Progress-Cancel
+{
+font-size:9;
+}
+span.calendarTitle
+{
+font-size:			8pt;
+font-weight:		bold;
+}
+div.ganttHeaderTop
+{
+font-weight: bold;
+font-size: 10px;
+}
+body.ganttFrame
+{
+font-size: 6pt;
+}
+div.ganttHeaderBottom
+{
+font-size: 9px;
+}
+.ms-crm-Salesperson-Error
+{
+font-size:12px;
+}
+TABLE.example
+{
+font-size:			5px;
+}
+TD.example
+{
+font-size:			3px;
+}
+TABLE.gridheader
+{
+font-size:			11px;
+}
+TABLE.visualizationImageTable
+{
+font-family:        Tahoma, Verdana, Arial;
+}
+tr.gridheader
+{
+font-size:			11px;
+}
+.ms-crm-File-Upload
+{
+font-size:			8pt;
+}
+.ms-crm-SubjectTree-Label
+{
+font-size:12px;
+font-weight:bold;
+}
+div.manageAttribute_div_SchemaName
+{
+font-size:8pt;
+}
+input.icon
+{
+font-size:		8pt;
+}
+div.ms-crm-ViewManager
+{
+font-size:11px;
+}
+div.secTitle
+{
+font-weight:bold;
+font-size: 11px;
+}
+div.WizardTitle
+{
+font-weight: bold;
+font-size: 11px;
+}
+TD.ms-crm-WizardForm-Header-Title
+{
+font-size: 14px;
+}
+A.ms-crm-InlineTabHeaderText,
+A.ms-crm-InlineTabHeaderText:link,
+A.ms-crm-InlineTabHeaderText:visited,
+A.ms-crm-InlineTabHeaderText:active,
+A.ms-crm-InlineTabHeaderText:hover
+{
+font-size: 14px;
+font-weight: bold;
+}
+
+DIV.ms-crm-Tab-Print
+{
+font-size:			11pt;
+font-weight:		bolder;
+}
+INPUT.DashboardName
+{
+font-weight: bold;
+font-size: 14px;
+}
+LABEL.DashboardNameHint
+{
+font-size: 14px;
+}
+
+
+
+
+body
+{
+direction: LTR;
+margin:	0px;
+border: 0px;
+cursor: default;
+
+}
+
+table
+{
+cursor: default;
+}
+
+a,
+a:link img,
+a:visited img,
+a:active img,
+a:hover img
+{
+border: none;
+}
+
+ul
+{
+margin:		0px;
+padding:	0px;
+list-style:	none;
+}
+
+button
+{
+line-height: 18px;
+height: 20px;
+width: 84px;
+text-align: center;
+cursor: pointer;
+border-width: 1px;
+border-style: solid;
+background-repeat: repeat-x;
+padding-left: 5px;
+padding-right: 5px;
+}
+
+a,
+a:link img,
+a:link,
+a:visited img,
+a:visited,
+a:active img,
+a:active,
+a:hover img,
+a:hover
+a:hover img,
+input,
+textarea,
+select
+{
+color: #000000;
+}
+
+
+.ms-cui-ct-ul .ms-cui-tt-a
+{
+border-top: none !important;
+padding-top:1px;
+}
+
+.ms-crm-settings-leftNav
+{
+border:1px solid #a4abb2;
+height:100%;
+width:100%;
+}
+
+div.ms-crm-settings-leftNav
+{
+padding-top:9px;
+overflow-x:hidden;
+overflow-y:auto;
+}
+
+h2
+{
+color: #aa0000;
+}
+
+nobr
+{
+width: 100%;
+overflow: hidden;
+text-overflow: ellipsis;
+}
+
+INPUT.ms-crm-ReadOnly,
+TEXTAREA.ms-crm-ReadOnly,
+DIV.ms-crm-ReadOnly,
+SPAN.ms-crm-ReadOnly
+{
+background-color:	#f7f8f9;
+color:				#000000;
+}
+
+body.stage
+{
+
+
+overflow : auto ;
+
+background-repeat: repeat-x;
+background-image: url(/_imgs/app_back.png);
+
+padding-top: 4px;
+padding-bottom: 4px;
+
+
+padding-right: 4px;
+
+
+}
+
+table.stdTable
+{
+width: 100%;
+height: 100%;
+table-layout: fixed;
+}
+
+.autoellipsis
+{
+width:100%;
+overflow:hidden;
+text-overflow:ellipsis;
+/*behavior: url(/_static/_common/styles/autotooltip.htc);*/
+}
+
+.ms-crm-TextAlign-LeadingEdge,
+.ms-crm-FieldLabel-LeftAlign,
+col.workflowTemplatePage_col_left,
+quote_dlg_close_Num,
+td.AppContractCalendar_Render_td,
+td.dlg_addtocampaign_td_AddList,
+td.dlg_addtocampaign_td_spacer,
+td.dlg_camailmerge_td_ownership,
+td.dlg_deactivate_td_status,
+td.dlg_deactivatecampactivity_td_EndDate,
+td.dlg_deactivatecampactivity_td_StartDate,
+td.dlg_deactivatecampactivity_td_status,
+td.dlg_listcaassociation_td_AddList,
+td.dlg_listcaassociation_td_spacer,
+td.dlg_setstate_asyncoperation_td,
+td.dlg_setstate_td_LblStatus,
+td.HtmlBar_AddTextButton_td,
+td.ImportCustomizationsForm_td_BtnUploadFile,
+td.ImportWizard_td_PageContainer,
+td.invoice_dlg_close_td_InvNum,
+td.LangTranslationsImport_td,
+td.MiniCampaign_td_OwnerGroup,
+td.MiniCampaign_td_PageHeader1,
+td.ms-crm-Dialog-Footer-Left,
+TD.ms-crm-VisualizationNameLabel,
+td.notes_htc_td_create,
+td.NotesDataControl_Render_td,
+td.NotesDataControl_Render_td2,
+td.personalsettings_td_AdminDisb,
+td.personalsettings_td_HosterTitle,
+td.personalsettings_td_MinSyncPeriod,
+td.personalsettings_td_RunPerMins,
+td.personalsettings_td_RunSchSync,
+td.personalsettings_td_SQMAccept,
+td.personalsettings_td_SyncClient,
+td.personalsettings_td_SyncStart,
+td.personalsettings_td_SyncTitle,
+td.quote_dlg_accept_td_QuoteNum,
+td.quote_dlg_accept_td_RevNum,
+td.relRoleEdit_edit_td_HeadSpacer,
+td.report_viewer_td_BtnEditFilter,
+td.RoleDetailPage_RenderCustomEntityPrivilegeRows_td,
+td.roles_edit_td_RecordType,
+td.salesord_dlg_close_td_OrdNum,
+td.sqmsettings_td_AcceptBox,
+td.systemsettings_td_Mins,
+td.SystemWideDuplicateDetection_td_btnhelp,
+td.SystemWideDuplicateDetection_td_headerwrapper,
+td.TimeSheet_Render_td,
+td.TimeSheet_Render_td2,
+td.TimeSheet_Render_td3,
+td.workflowTemplatePage_td_buttonsleft,
+td.workflowTemplatePage_td_left,
+th
+{
+
+text-align: left;
+
+}
+
+.ms-crm-TextAlign-TrailingEdge,
+.ms-crm-FieldLabel-RightAlign,
+col.fieldprops_col_3,
+col.formedit_section_col_3,
+col.Menu_Render_col,
+prtylist_resolve_BtnQuickCreate,
+td.AppAttachment_Render_td4,
+td.AppAttachment_Render_td5,
+td.AppFilterEditor_Render_td,
+td.attrMap_td_MapFile,
+td.contract_edit_td_AllotType,
+td.contracts_edit_td_AllotType,
+td.dlgs_timesheet_td_BtnCap,
+td.GanttControlFrame_td_EndDateSec,
+td.home_debug_td_ImgDebugInfo,
+td.hp_news_td_SpanAnnouncments,
+td.ImportFieldMap_td_ID2,
+td.MiniCampaign_td_spacer,
+TD.ms-crm-AddUsers-Restart,
+td.ms-crm-Dialog-Footer-Right,
+td.ms-crm-NumbersAndDates,
+TD.ms-crm-PaneChevron,
+td.notes_htc_td_edit,
+td.NotesDataControl_Render_td3,
+td.opp_dlg_reopen_td_buttons,
+td.quote_dlg_accept_td_Revenue,
+td.rsc_resourcerule_td_toggle,
+td.ScheduleWizard_td_BtnEditFilter,
+td.ScheduleWizard_td_Text,
+td.SystemWideDuplicateDetection_td_header,
+td.SystemWideDuplicateDetection_td_ImgWizHead,
+td.workflowTemplatePage_td_buttonsright,
+td.workflowTemplatePage_td_right,
+tr.attachement_edit_tr_BtnClose,
+tr.attrMap_tr_buttons,
+tr.ImportWizard_tr_Buttons,
+tr.MiniCampaign_tr_MCButtons,
+tr.notes_edit_tr_BtnClose,
+tr.SystemWideDuplicateDetection_tr_buttons,
+tr.SystemWideDuplicateDetection_tr_header,
+tr.ViewDuplicates_tr_Buttons
+{
+
+text-align: right;
+
+}
+
+img.ms-crm-RTL-Flip,
+img.addFields_img_barUp,
+img.bar_Find_img_find,
+img.changeschedule_img_clear,
+img.changeschedule_img_exception,
+img.changeschedule_img_newpattern,
+img.changeschedule_img_wholepattern,
+img.dlg_merge_img_boxLeft,
+img.errorHandler_img_boxOnLeft,
+img.errorHandler_img_BoxRight,
+img.home_appbook_img_ico24caltodaymenu,
+img.ms-crm-AdHocWizard-PreviewImage,
+img.ms-crm-Home-Cal-RefreshPadding,
+img.ms-crm-InlineTabExpander,
+img.subjectEditor_img_subjWatermark
+{
+
+}
+
+.ms-crm-VerticalAlign-Top,
+.ms-crm-Salesperson-Error,
+IMG.ms-crm-AlignToSpan,
+TD.Freq_Body,
+TD.Freq_DetailBody,
+td.inlabel,
+TD.ms-crm-Field-Print,
+td.outlabel,
+TR.ms-crm-Form-Title,
+TR.ms-crm-SettingsPage
+{
+vertical-align: top;
+}
+
+.ms-crm-LeadingEdge-Padding-2px,
+.ms-crm-List-RightMarker,
+td.home_workplace_td_ImgBK,
+td.productManager_td_links,
+td.productManager_td_PriceList,
+td.productManager_td_Products,
+td.productManager_td_UnitGroup
+{
+
+padding-left: 2px;
+
+}
+
+.ms-crm-TrailingEdge-Margin-4px,
+img.dlg_create_RenderListItem_img,
+img.dlg_template_target_img_CCItem,
+img.dlg_template_target_img_ReItem,
+img.dlg_template_target_img_ToItem,
+img.MiniCampaignPage_RenderListItem_img
+{
+
+margin-right: 4px;
+
+}
+
+.ms-crm-LeadingEdge-Padding-4px,
+IMG_lu_htc_b,
+td.AddColumns_td_SelectAll,
+td.addfields_td_SelectAll,
+td.DateTimeUI_RenderTimeControl_td2,
+td.viewmanager_td_ImgBarBK,
+td.workflowTemplatePage_td_header
+{
+
+padding-left: 4px;
+
+}
+
+
+td.DateTimeUI_RenderDateControl_td
+{
+
+padding-right: 4px;
+
+}
+
+.ms-crm-TrailingEdge-Margin-5px,
+img.form_properties_img_BackOffice,
+img.form_properties_img_Security,
+img.form_properties_ImgLabel,
+img.LookupDataPage_RenderHeadings_img,
+img.LookupSubjectPage_ConfigurePage_img
+{
+
+margin-right:5px;
+
+}
+
+.ms-crm-LeadingEdge-Padding-5px,
+DIV.ms-crm-Dialog-Header-Title,
+table.home_camps_table,
+table.home_cases_table_QuickFind,
+table.home_import_table,
+table.home_minicamps_table,
+table.homepage_table,
+table.RelRoleMgr_home_table,
+td.attrMap_td_headerLabel,
+TD.control,
+td.dlg_closecase_td_CloseCase,
+td.dlg_merge_td_MergeRecordTwo,
+td.dlg_merge_td_RecordOne,
+td.dlg_merge_td_SubRecord,
+TD.ms-crm-AddUsers-Licensing-AccessMode,
+TD.ms-crm-Dialog-Lookup-ListColumn,
+TD.ms-crm-Select-TD,
+textbox.DetailPage_ConfigurePage_textbox,
+TD.ms-crm-db-padding2,
+TH.ms-crm-Dialog-Lookup-ListColumn
+{
+
+padding-left: 5px;
+
+}
+
+span.#crmMenuBar
+{
+border-width: 1px;
+border-style: solid;
+border-bottom: none;
+}
+
+table.home_import_table,
+table.homepage_table
+{
+border-width: 1px;
+border-style: solid;
+border-bottom: none;
+}
+
+td.homepage_menubar
+{
+border-left-width: 1px;
+border-left-style: solid;
+border-right-width: 1px;
+border-right-style: solid;
+}
+
+.ms-crm-TrailingEdge-Padding-5px,
+td.attributeList_td_Filter,
+td.bar_Find_td_Text,
+td.dlg_query_build_td_RecordType,
+td.dlg_query_build_td_ViewSelector,
+td.EmaltempMgr_home_td_AppViewSelector,
+td.entityList_td_Filter,
+td.home_activities_td_TypeSelLbl,
+td.home_biz_td_AppViewSelector,
+td.home_discounttype_td_Value,
+td.home_import_td_ViewLbl,
+td.home_pricelevel_td_Value,
+td.home_product_td_Value,
+td.home_resource_groups_td_AppViewSelector,
+td.home_resource_td_AppViewSelector,
+td.home_service_td_AppViewSelector,
+td.home_site_td_AppViewSelector,
+td.home_uomschedule_td_Value,
+td.home_user_td_AppViewSelector,
+td.homepage_td,
+td.ImportCustomizationsForm_td,
+td.KBTempMgr_home_td_Value,
+td.relationshipList_td_EntityRoleFilter,
+td.relationshipList_td_FilterType,
+td.RelRoleMgr_home_td_Value,
+td.Solution_home_td_AppViewSelector,
+td.uiElements_td_FilterLabel
+{
+
+padding-right: 5px;
+
+}
+
+.ms-crm-LeadingEdge-Padding-10px,
+col.AppGridPrintUIProvider_RenderColumnHeader_col2,
+col.ms-crm-List-DataColumn,
+td.AppGridFilterSelector_Render_td,
+td.createMapping_td_RightColumn,
+td.dlg_bulkemail_td_TemplateListStart,
+td.DuplicateRuleCondition_td_Status,
+td.ImportFieldMap_td_EntityType,
+td.ImportFieldMap_td_ImpFileName,
+td.ImportFieldMap_td_PageGrid2,
+td.manageAttribute_td_RightColumn,
+td.manageEntity_td_RightColumn,
+td.ms-crm-DrillDown-homeback-cell,
+TD.ms-crm-workflowTemplateForm-Section,
+td.SystemWideDuplicateDetection_td_ddPageBody1,
+td.SystemWideDuplicateDetection_td_ddPageBody4,
+td.SystemWideDuplicateDetection_td_page1
+{
+
+padding-left: 10px;
+
+}
+
+.ms-crm-TrailingEdge-Padding-10px,
+td.createMapping_td_LeftColumn,
+td.home_activities_td_TypeSel,
+td.home_activities_td_ViewSel,
+td.home_asyncoperation_td_EntitySelector,
+td.home_rules_td_EntityTypeLabelCode,
+td.manageAttribute_td_LeftColumn,
+td.manageEntity_td_LeftColumn,
+td.ViewDuplicates_td_Buttons
+{
+
+padding-right: 10px;
+
+}
+
+.ms-crm-LeadingEdge-Padding-13px,
+col.ImportFieldMap_col_1,
+col.ImportFieldMap_col_2,
+col.ImportFieldMap_col_ValueMapping1,
+col.ImportFieldMap_col_ValueMapping2
+{
+
+padding-left: 13px;
+
+}
+
+.ms-crm-TrailingEdge-Padding-15px,
+td.dlg_bulkemail_td_ActivitySender,
+td.ImportWizard_td_Buttons,
+td.MiniCampaign_td_Buttons,
+td.SystemWideDuplicateDetection_td_buttons,
+td.SystemWideDuplicateDetection_td_Buttons,
+td.workflowTemplatePage_td_buttons
+{
+
+padding-right: 15px;
+
+}
+
+.ms-crm-HorizontalPadding-15px,
+td.ImportWizard_td_iPageBody3_HeaderDeDup,
+td.ImportWizard_td_iwPageBod3_AssignTo,
+td.ImportWizard_td_iwPageBody1_HeaderDataFile,
+td.ImportWizard_td_iwPageBody1_Spacer,
+td.ImportWizard_td_iwPageBody2_Spacer,
+td.ImportWizard_td_iwPageBody2_UpdateNotif,
+td.ImportWizard_td_iwPageBody3_Spacer,
+td.ImportWizard_td_iwPageBody4_Spacer,
+td.ImportWizard_td_iwPagrBody1_Info,
+td.ImportWizard_td_ReviewAutoName,
+tr.ViewDuplicates_tr_DupListIFrame,
+tr.ViewDuplicates_tr_DupSrcSysWide,
+tr.ViewDuplicates_tr_IframeCont
+{
+padding-left: 15px;
+padding-right: 15px;
+}
+
+.ms-crm-LeadingEdge-Padding-20px,
+col.contracttypemanager_edit_col_3,
+col.contracttypemanager_print_col_3,
+col.FormSection_WriteColumnHeaders_col,
+col.personalsettings_col_3,
+col.personalsettings_col_3tab2,
+col.personalsettings_col_3tabEmail,
+span.personalsettings_span_Password,
+span.personalsettings_span_UserName,
+td.attrMap_td_gridHeader,
+td.dlg_cancel_td_Cancel,
+td.dlg_clone_td,
+td.dlg_renew_td,
+tr.ViewDuplicates_tr_CreateOnline,
+tr.ViewDuplicates_tr_IgnoreOffline
+{
+
+padding-left: 20px;
+
+}
+
+.ms-crm-MaxWidth,
+BUTTON.listEdit_button,
+Button.w100,
+NOBR.ms-crm-Nav-Subitem-Title,
+SPAN.Freq_FrequencyDetail,
+TABLE.ms-crm-Cal-DeleteIcon,
+TABLE.ms-crm-VisualizationPaneDesigner-TableAttributesSelector
+{
+width: 100%;
+}
+
+.ms-crm-MaxHeight-MaxWidth,
+#WorkflowDynamicDataArea,
+DIV.InformationContents,
+DIV.ms-crm-Form-Area,
+DIV.ms-crm-Form-Area-Customize,
+FORM.ms-crm-AddUsers-DomainsAndGroups,
+IFRAME.container,
+IFRAME.ms-crm-Dialog-Lookup-Results,
+table.ganttCalendar,
+TABLE.ms-crm-Cal-Month-Day-Info,
+TABLE.ms-crm-Form-Area,
+TABLE.ms-crm-Roles-Form-Layout,
+TABLE.ms-crm-SettingsPage,
+TABLE.TimeSheetFrameTable,
+TD.CategoryList,
+TD.ms-crm-Form-Area
+{
+height: 100%;
+width: 100%;
+
+}
+
+.ms-crm-HandCursor,
+IMG.calCollapse,
+IMG.calExpand,
+IMG.Heading,
+IMG.ms-crm-AdvFind-ButtonImage,
+TD.hand,
+th.ms-crm-List-Sortable,
+tr.wizItem
+{
+cursor: hand;
+}
+
+.ms-crm-WhiteBackground,
+BODY.ms-crm-Nav,
+BODY.NotesData,
+div.ganttBlockAppointmentStatus1,
+div.ganttBlockAppointmentStatus2,
+TD.ms-crm-Cal-Month-Day-Current,
+UL.simpleTree
+{
+background-color: #ffffff;
+}
+
+.ms-crm-QuickFindSpacer,
+span.emailTemplateMgr_home_span_QuickFindSpacer,
+span.home_apptbook_span_QuickFindSpacer,
+span.home_camps_span_QuickFindSpacer,
+span.home_cases_span_QuickFindSpacer,
+span.home_discounttype_span_Spacer,
+span.home_import_span_spacer,
+span.home_minicamps_span_QuickFindSpacer,
+span.home_pricelevel_span_spacer,
+span.home_product_span_Spacer,
+span.home_reports_span_spacer,
+span.home_resource_groups_span_QuickFindSpacer,
+span.home_resource_span_QuickFindSpacer,
+span.home_service_span_QuickFindSpacer,
+span.home_site_span_QuickFindSpacer,
+span.home_solution_span_Spacer,
+span.home_uomschedule_span_Spacer,
+span.home_user_span_Spacer,
+span.homepage_span,
+span.KBTempMgr_home_span_Spacer,
+span.relationshipList_span_spacer,
+span.RelRoleMgr_home_span_spacer
+{
+height: 30px;
+
+margin-left: 8px;
+
+width: 8px;
+}
+
+.ms-crm-Empty,
+.ms-crm-List-DefaultIndex,
+A.ms-crm-Nav-Group-Heading-Hidden,
+A.ms-crm-Nav-Group-Heading-Hidden:link,
+A.ms-crm-Nav-Group-Heading-Hidden:visited,
+A.ms-crm-Nav-Group-Heading-Hidden:active,
+A.ms-crm-Nav-Group-Heading-Hidden:hover,
+a.ms-crm-navtree-subarea-linkrest,
+a.ms-crm-navtree-subarea-link-rest:link,
+a.ms-crm-navtree-subarea-link-rest:visited,
+a.ms-crm-navtree-subarea-link-rest:active,
+a.ms-crm-navtree-subarea-link-rest:hover,
+body.displayStringList_body,
+div.secton_header,
+LI.simpleTree,
+SPAN.Context,
+td.AppQuickFind_Render_td,
+TD.feAFControls,
+TD.popupMnuItem,
+tr.htmlBar,
+TR.mergeheader,
+TR.ms-crm-Group,
+UL.ms-crm-NavBar-Group-Subareas
+{
+}
+
+td.GanttControlFrame_td_FromDateSec,
+td.ImportFileChoose_td_InnerTable,
+td.rsc_creategroup_td_GrpName,
+td.SystemWideDuplicateDetection_td_MainWrapper,
+td.ViewDuplicates_td_container,
+td.workplan_edit_td_caption,
+td.workplan_edit_td_same
+{
+
+text-align: left;
+
+width: 185px;
+}
+
+td.dlg_query_build_td_ActionMain,
+td.dlg_query_build_td_BackBtn,
+td.dlg_query_build_td_BtnAction,
+td.dlg_query_build_td_RunQuery,
+td.SystemWideDuplicateDetection_td_btn
+{
+padding-bottom: 5px;
+
+padding-right: 10px;
+text-align: right;
+
+
+}
+
+A.help_link,
+A.help_link:active,
+A.help_link:hover,
+A.help_link:visited,
+A.helptoc_link:hover,
+a.ImportMapViewLink,
+a.ImportMapViewLink:link,
+a.ImportMapViewLink:visited,
+A.ms-crm-gridurl:active,
+A.ms-crm-gridurl:link,
+A.ms-crm-gridurl:visited,
+A.ms-crm-Link:hover
+{
+color: #0000FF;
+text-decoration: underline;
+}
+
+td.home_activities_td_ViewByDate,
+td.home_activities_td_ViewSelLbl,
+td.home_asyncoperation_td_TeamSelectLabel,
+td.home_role_td_SelBusinessUnit,
+td.home_team_td_AppViewSelector,
+td.QueMgr_home_td_AppViewSel
+{
+
+text-align: right;
+padding-right: 5px;
+
+}
+
+td.emailtemplateForm_td_TemplateListStart,
+td.MiniCampaign_td_ActivitiesOwn,
+td.MiniCampaign_td_ChooseActivity,
+td.MiniCampaign_td_MSGDetails,
+td.MiniCampaign_td_PageBody1,
+td.MiniCampaign_td_PageBody2
+{
+padding: 0px 10px;
+}
+
+td.ms-crm-MiniCampaign-Main
+{
+vertical-align: top;
+padding-bottom: 10px;
+padding-top: 10px;
+border-bottom-width: 1px;
+border-bottom-style: solid;
+}
+td.SystemWideDuplicateDetection_td_ddPageBody3,
+td.SystemWideDuplicateDetection_td_ddPageBody3_SysWide,
+td.SystemWideDuplicateDetection_td_page3,
+td.SystemWideDuplicateDetection_td_SpecifyName,
+td.SystemWideDuplicateDetection_td_starttime
+{
+
+padding-left: 15px;
+padding-right: 20px;
+
+}
+
+td.home_camps_td_Label,
+td.home_cases_td_Label,
+td.home_minicamps_td_Label,
+td.home_reports_td_ViewSelector
+{
+
+padding-right: 5px;
+
+}
+
+
+
+
+
+
+A.simpleTree
+{
+cursor:hand;
+vertical-align: top;
+}
+IMG.simpleTree
+{
+padding-bottom: 2px;
+vertical-align: top;
+
+margin-right: 5px;
+
+}
+
+.selectedItem
+{
+border: solid 1px #6893cf;
+}
+.ms-crm-SelectOn,
+.selectedItem
+
+{
+background-color: #a7cdf0;
+}
+
+
+.ms-crm-GlowOn
+{
+background-color: #c4ddff;
+}
+
+SPAN.simpleTree
+{
+vertical-align: middle;
+width: 100%;
+}
+
+INPUT.ms-crm-Dialog-Lookup-QuickFind
+{
+background-color: #ffffff;
+behavior: url(/_static/_common/scripts/hintText.htc);
+width:100%;
+height: 20px;
+padding: 2px 5px;
+}
+LABEL.ms-crm-Dialog-Lookup-QuickFindHint
+{
+display: none;
+position: absolute;
+padding: 4px 5px;
+color: #7e7e7e;
+overflow: hidden;
+height: 20px;
+}
+
+A.ms-crm-FindButton
+{
+border: 0px;
+padding: 0px;
+margin: 0px;
+width: 21px;
+height: 20px;
+}
+TR.quickFindControl
+{
+behavior: url(/_static/_common/styles/quickfindcontrol.htc);
+}
+
+TD.ms-crm-Dialog-Lookup-Types
+{
+padding: 5px 5px;
+}
+
+DIV.ms-crm-SettingsPage
+{
+padding: 10px;
+width: 100%;
+height: 100%;
+background-color: #ffffff;
+border:	1px solid #15428b;
+overflow-x:hidden;
+overflow-y:auto;
+}
+TABLE.homeChartPaneTable,
+IFRAME.chartIframe
+{
+width: 99.9%;
+height: 99.9%;
+}
+
+TD.chartContainer
+{
+
+padding-left: 1px;
+
+}
+IMG.chartButtonImageLast
+{
+margin-top:		5px;
+
+margin-left:		0px;
+margin-right:		10px;
+
+}
+IMG.chartButtonImage
+{
+margin-top:		5px;
+
+margin-left:		0px;
+margin-right:		1px;
+
+}
+img.imgHomeChartListSettings
+{
+vertical-align: middle;
+margin-right: 5px;
+}
+.homeChartListHeaderText
+{
+font-family: Tahoma;
+font-size: 11px;
+font-weight: bold;
+color: #15428B;
+}
+.homeChartListLinkText
+{
+font-family: Tahoma;
+font-size: 11px;
+color: #15428B;
+}
+TD.ms-crm-SettingsPage
+{
+padding: 0px;
+}
+.ms-crm-Queue-Container
+{
+background-color: #ffffff;
+border: 1px solid #bbd4f6;
+padding: 4px;
+}
+
+TABLE.ms-crm-Group-Links
+{
+border:	1px solid #6699cc;
+background-color: #d6e8ff;
+width: 100%;
+background-image: url(/_imgs/formnav_header_back.gif);
+background-repeat: repeat-x;
+}
+TABLE.ms-crm-Group
+{
+border:	1px solid #6699cc;
+background-color: #ffffff;
+width: 100%;
+background-image: url(/_imgs/nav_header_back.gif);
+background-repeat: repeat-x;
+}
+TH.ms-crm-Group-Links,
+TH.ms-crm-Group
+{
+color: #15428b;
+padding: 8px;
+}
+TD.ms-crm-Group
+{
+padding: 0px 8px 8px 8px;
+}
+TABLE.ms-crm-storageBar
+{
+border: 1px solid #000000;
+padding: 1px;
+height: 12px;
+width: 120px;
+}
+TD.ms-crm-storageBarWarn
+{
+background-color: red;
+margin: 1px;
+}
+TD.ms-crm-storageBarOK
+{
+background-color: green;
+margin: 1px;
+}
+DIV.ms-crm-Syshealth-Spacer,
+td.viewmanager_td_NotSysView
+{
+padding: 5px;
+}
+
+DIV.ms-crm-LeftSideBox
+{
+
+float: left;
+padding-right: 5px;
+
+}
+
+hr.ms-crm-Notification-Spacer
+{
+border: 0px;
+color: #777777;
+background-color: #777777;
+height: 1px;
+}
+
+A.ms-crm-Link,
+A.ms-crm-Link:link,
+A.ms-crm-Link:visited,
+A.ms-crm-Link:active
+{
+color: #15428b;
+}
+
+.ms-crm-DisplayNone
+{
+display:none;
+}
+
+.ms-crm-Hidden-List,
+.ms-crm-Hidden,
+.ms-crm-Hidden-NoBehavior
+{
+position:absolute;
+left:0px;
+top:-9000px;
+width:0px;
+height:0px;
+}
+.ms-crm-Hidden,
+.ms-crm-Hidden-NoBehavior
+{
+overflow:hidden;
+}
+
+DIV.ms-crm-Dialog-Notification-Bar
+{
+margin:			0px 10px;
+}
+TD.homeChartPaneContainer
+{
+height: 40%;
+}
+DIV.chartButtonDiv
+{
+background-color: #ffffff;
+
+text-align:right;
+
+}
+.ms-crm-opacity
+{
+filter:alpha(opacity=100);
+}
+.ms-crm-flyout
+{
+padding-left:3px;
+border: none;
+font-family:Tahoma;
+font-size: 11px;
+color: #15428B;
+}
+
+
+.ms-crm-Code
+{
+direction:ltr;
+}
+
+.ms-crm-ContextMenu
+{
+display:none;
+background-Color:menu;
+border: 2px outset;
+}
+
+.ms-crm-Error-Header
+{
+color: #000000;
+margin-bottom: 4px;
+}
+
+TD.ms-crm-Form-Section
+{
+width:				100%;
+color:				#000000;
+padding-bottom:		2px;
+text-overflow:		ellipsis;
+overflow:			hidden;
+}
+.dlgLabel
+{
+color: #666666;
+}
+td.ms-crm-ArticleComment-Icon
+{
+padding-top:2px;
+
+padding-right:5px;
+
+}
+
+td.ms-crm-ArticleComment-Body,
+td.ms-crm-ArticleComment-Title
+{
+color: #0000bb;
+}
+
+td.ms-crm-ArticleComment-Info
+{
+padding-top: 5px;
+}
+div.ms-crm-Help-ErrorMessage
+{
+color:#aaaaaa;
+}
+.ms-crm-File-Upload
+{
+width:100%;
+height:19px;
+padding-top:2px;
+}
+.ms-crm-SubjectTree-Label
+{
+width:100%;
+color:#37377C;
+border-bottom:solid 1px #D4D4D0;
+}
+.ms-crm-Wsdl-Title
+{
+width: 160px;
+line-height:18px;
+}
+.ms-crm-Wsdl-Data
+{
+width: 200px;
+line-height:18px;
+}
+div.ms-crm-ViewManager
+{
+text-align:center;
+color:#999999;
+background-color:#ffffff;
+width:100%;
+height:100%;
+overflow-x:auto;
+overflow-y:scroll;
+}
+div.secTitle
+{
+border-bottom:1px solid #999999;
+color:#222244;
+}
+.ms-crm-Column-SelectWidth
+{
+margin-top:12px;
+border-bottom:1px solid #999999;
+}
+
+.ms-crm-FieldLabel-CenterAlign,
+table.ms-crm-Share-Header TH
+{
+text-align: center;
+}
+
+TD.ms-crm-Form-LargeIcon
+{
+text-align: center;
+width: 84px;
+
+padding-left:8px;
+padding-right:10px;
+
+}
+
+TD.ms-crm-Form-LargeIcon-default
+{
+width: 44px;
+padding-left:6px;
+padding-right:6px;
+
+}
+
+TD.ms-crm-Form-LargeIcon-default IMG
+{
+position: relative;
+top: 5px;
+}
+
+TD.ms-crm-Form-LargeIcon IMG
+{
+position: relative;
+top: 8px;
+}
+
+
+
+
+
+.ms-crm-Form-Breadcrumb
+{
+line-height:	24px;
+vertical-align:	bottom;
+}
+
+IMG.ms-crm-Upgraded-Ribbon-Image16
+{
+width:		16px;
+height:		16px;
+}
+
+IMG.ms-crm-Upgraded-Ribbon-Image32
+{
+padding:	8px;
+width:		16px;
+height:		16px;
+}
+
+img.bidi
+{
+
+}
+
+h4.ms-crm-Form
+{
+font-size : 11px;
+font-weight: bold;
+
+margin-top : 0px;
+margin-bottom : 0px;
+}
+
+h3.ms-crm-Form
+{
+font-size : 13px;
+
+margin-top : 0px;
+margin-bottom : 0px;
+}
+
+h2.ms-crm-Form
+{
+font-size : 14px;
+
+margin-top : 0px;
+margin-bottom : 0px;
+}
+
+h1.ms-crm-Form,
+h1.ms-crm-Form-Print
+{
+font-size : 16px;
+
+color : #000000;
+
+margin-top : 0px;
+margin-bottom : 0px;
+}
+div.downloadfailure_div_position,
+div.uploadfailure_div_main
+{
+color: #ffffff;
+position:relative;
+top:-303;
+z-index:100;
+
+left:-150px;
+
+}
+div.opp_dlg_reopen_div_status
+{
+
+position:absolute;
+top:80px;
+left:12px;
+display:none;
+width:370px;
+height:20px;
+border:1px solid #000000;
+
+}
+div.opp_dlg_reopen_div_fill
+{
+
+display:none;
+width:0px;
+position:absolute;
+top:80px;
+left:11px;
+height:20px;
+background-color:#000099;
+
+}
+
+td.errorHandler_td
+{
+color:#ffffff;
+padding-top:9px;
+
+padding-left:22px;
+
+}
+.ms-crm-Error-AdditionalInformation
+{
+vertical-align:middle;
+background-color:#889DC2;
+color:#ffffff;
+}
+.ms-crm-Dialog-Title-Reversed,
+.ms-crm-Dialog-Description-Reversed
+{
+color: #ffffff;
+}
+td.errorHandler_td_middle
+{
+
+text-align:right;
+padding:3px;
+padding-right:23px;
+
+}
+td.unsupported_td,
+td.unsupportedSecurity_td,
+td.unsupportedXmlDom_td
+{
+color: #000000;
+
+padding-left:10px;
+
+}
+td.dlg_camailmerge_td_SupplyDesc
+{
+
+padding-top: 10px;
+padding-left:2px;
+
+}
+td.dlg_camailmerge_td_Unsubscribe
+{
+
+padding-top: 5px;
+padding-left:2px;
+
+}
+td.dlg_camailmerge_td_MailMergeOwnership
+{
+
+padding-right:15px;
+padding-top:25px;
+
+}
+td.dlg_camailmerge_td_OwnershipDesc
+{
+
+padding-right: 10px;
+padding-left:2px;
+padding-top:2px;
+
+}
+td.dlg_merge_td_SelectData
+{
+
+padding-left:5px;
+
+background-color:Menu;
+font-family:MenuText;
+}
+span.dlg_setstate_asyncoperation_span,
+td.workflowTemplatePage_td_selectPrimeEntity
+{
+
+padding-right:6px;
+
+}
+td.workflowTemplatePage_td_radLbl,
+th.dlg_share_th_CMD
+{
+
+padding-left:3px;
+
+}
+tr.navbarpage_tr
+{
+
+height:23px;
+padding-left:6px;
+color:#3366CC;
+text-decoration:none;
+
+}
+tr.ms-crm-Nav-Area-Customize
+{
+cursor:hand;
+height:23px;
+color:#3366CC;
+text-decoration:none;
+
+padding-left: 6px;
+
+}
+.ms-crm-Nav-Area-Customize-Item
+{
+border-top:1px solid #C6CEDC;
+}
+td.dlg_select_assignee_td_List,
+td.dlg_template_target_td_List,
+td.ImportFieldMap_td_FindMapDesc
+{
+
+padding-left: 16px;
+
+}
+td.AdvFind_td_FindBody,
+td.dlg_query_build_td_AdvFind
+{
+padding-bottom:10px;
+height:100%;
+}
+td.Action_td_AppCondition,
+td.Condition_td_AppCondition,
+td.DuplicateRuleCondition_td_AppCondition
+{
+height:100%;
+padding-bottom:10px;
+padding-left:10px;
+padding-right:10px;
+}
+div.EditFilter_div_main
+{
+
+padding-left:15px;
+padding-right:15px;
+padding-bottom:15px;
+padding-top:15px;
+
+}
+td.viewer_td_FilterEditor
+{
+
+padding-left:10px;
+padding-right:10px;
+margin-bottom:30px;
+height:100%;
+
+}
+tr.ViewDuplicates_tr_OlkGoOnline,
+tr.ViewDuplicates_tr_SelActViewDups,
+td.viewer_td_Warnings
+{
+padding-left:10px;
+padding-right:10px;
+}
+button.ms-crm-ReportViewer-Button
+{
+
+margin-left: 4px;
+
+}
+td.edit_article_td_KBEdit
+{
+
+border-bottom: 1px solid gray;
+border-left: 1px solid gray;
+
+}
+td.comments_td_XMLRender
+{
+
+border-left: solid 1px black;
+
+}
+td.bar_Find_td_RunBtn
+{
+padding-top: 1px;
+}
+div.home_debug_div_AdminPriv
+{
+
+width:100%;
+height:100%;
+overflow-y:scroll;
+padding-right:10px;
+
+}
+col.home_debug_col_2,
+col.home_debug_col_Header,
+col.home_debug_col_SectionHeader
+{
+
+padding-left:12px;
+
+}
+td.dlg_query_build_td_Member
+{
+padding-bottom:5px;
+}
+td.dlg_query_build_td_ManageMember
+{
+padding-bottom:7px;
+
+padding-left:20px;
+
+}
+span.dlg_query_build_span,
+span.dlg_query_build_span_QuickFindSpacer
+{
+height:30px;
+
+border-left:1px solid #cccccc;
+margin-left:8px;
+
+width:8px;
+}
+td.MiniCampaign_td_MCName
+{
+
+padding-left: 50px;
+padding-top: 5px;
+padding-bottom: 10px;
+padding-right: 10px;
+
+}
+tr.MiniCampaign_tr_ChooseTemplate,
+tr.MiniCampaign_tr_Unsubscribe
+{
+
+padding-left:10px;
+
+padding-top:15px;
+}
+tr.MiniCampaign_tr_SummaryTop
+{
+
+padding-left:10px;
+padding-right:15px;
+padding-bottom:5px;
+padding-top:15px;
+
+}
+td.MiniCampaign_td_MCName
+{
+padding: 0px 15px;
+overflow: hidden;
+text-overflow: ellipsis;
+}
+td.MiniCampaign_td_MCOwner,
+td.MiniCampaign_td_MCScope,
+td.MiniCampaign_td_MCType
+{
+padding: 0px 15px;
+}
+td.dlg_close_td_CloseOpp
+{
+
+padding-left:40px;
+
+}
+LABEL.ms-crm-MiniCampaign-LabelAbove
+{
+height: 18px;
+}
+td.SchedulingDialog_td_SearchTimeSep
+{
+padding: 0px 3px;
+}
+td.SchedulingDialog_td_RelInfoPane
+{
+padding: 0px 7px;
+}
+table.GanttControlFrame_table_AppGrid
+{
+
+margin-top:0px;
+padding-left:0px;
+z-index:101;
+margin-left:0px;
+width:100%;
+padding-top:0px;
+height:100%;
+
+}
+td.ResourcespecsEdit_td_TaskBox
+{
+
+padding:5px;
+padding-right:0px;
+
+}
+td.ResourcespecsEdit_td_TreeCell
+{
+
+padding:5px;
+padding-left:0px;
+padding-right:-5px;
+
+}
+ImportFieldMap_rd_ListLookup,
+td.ImportFieldMap_td_Partner
+{
+
+padding-left:5px;
+padding-right:15px;
+
+}
+table.ImportFieldMap_table_PicklistDiv
+{
+
+TABLE-LAYOUT:fixed;
+WIDTH:100%;
+height:95%;
+padding-left:14px;
+
+}
+table.ImportFileChoose_table_Upload
+{
+
+text-align:left;
+TABLE-LAYOUT:fixed;
+WIDTH:100%;
+padding-left:5px;
+
+}
+td.home_asyncoperation_td_EntitySelectorLabel
+{
+
+text-align:right;
+padding-left:10px;
+padding-right:5px;
+
+}
+span.home_territory_span_Spacer
+{
+
+margin-left:6px;
+width:1px;
+height:30px;
+
+}
+td.home_rules_td_EntityTypeSelector,
+td.home_rules_td_FindCriteria
+{
+
+padding-right:3px;
+
+}
+td.home_rules_td_EntityTypeLabel,
+td.home_rules_td_ViewSelectorLabel
+{
+
+text-align:right;
+padding-right:3px;
+
+}
+td.home_rules_td_EntityTypeLabelCode_Blank
+{
+
+padding-right:0px;
+
+}
+td.SystemWideDuplicateDetection_td_JobName
+{
+
+padding-left: 20px;
+padding-top: 5px;
+padding-bottom: 10px;
+
+}
+td.SystemWideDuplicateDetection_td_BtnHelp
+{
+
+text-align:left;
+padding-right:15px;
+padding-left:15px;
+
+}
+tr.ViewDuplicates_tr_MyRecRsrcStr
+{
+
+padding-left:15px;
+
+}
+tr.ViewDuplicates_tr_NotDupSrcSysWide
+{
+
+padding-left:15px;
+padding-right:15px;
+padding-bottom:17px;
+
+}
+td.ViewDuplicates_td_BtnHelp
+{
+
+text-align:left;
+padding-right:15px;
+padding-left:10px;
+
+}
+tr.ViewDuplicates_tr_CreateInOnline,
+tr.ViewDuplicates_tr_ManualMerge
+{
+padding-left:20px;
+padding-right:20px;
+}
+tr.ViewDuplicates_tr_LinkToExist,
+tr.ViewDuplicates_tr_AutoMerge
+{
+
+padding-left:20px;
+padding-right:60px;
+
+}
+div.addfields_div_FieldList
+{
+
+background-color: #ffffff;
+height: 150px;
+border-left: 1px solid #cccccc;
+overflow-y: scroll;
+overflow-x: hidden;
+
+}
+table.attrMap_table_header
+{
+margin-top:10px;
+
+margin-left:5px
+
+}
+table.attrMap_table_header2
+{
+
+margin-left:0px
+
+}
+td.attrMap_td_btnMap {
+
+margin-left:30px;
+
+}
+td.attrMap_td_LegendText {
+white-space:nowrap;
+overflow:hidden;
+text-overflow:ellipsis;
+
+margin-right:10px;
+
+}
+label.attrMap_label_LegendLabel {
+white-space:nowrap;
+overflow:hidden;
+text-overflow:ellipsis;
+
+text-align:left;
+
+}
+
+td.Tools_formeditor_td_Editor
+{
+background-color:#d8e8ff;
+padding-top:0px;
+padding-bottom:10px;
+
+vertical-align:top;
+padding-left:7px;
+padding-right:10px;
+
+}
+td.Tools_formeditor_td_TaskBox
+{
+padding-top:0px;
+padding-bottom:10px;
+
+padding-left:0px;
+padding-right:10px;
+
+}
+div.ImportWizard_div_ErrorCode
+{
+padding:15px;
+}
+td.kbtemplateeditor_td_AreaForm
+{
+padding:20px;
+vertical-align:top;
+padding-right:20px;
+}
+td.OfflineFilter_td_tab0
+{
+
+padding-left:10px;
+padding-right:10px;
+height:100%;
+
+}
+productManager_body,
+td.SubjectEditor_td_SubTitle
+{
+
+padding-left:13px;
+padding-right:15px;
+
+}
+td.SubjectEditor_td_Container
+{
+
+padding:10px;
+padding-top:0px;
+padding-left:14px;
+padding-bottom:20px;
+
+}
+div.manageAttribute_div_Info
+{
+display:inline;
+}
+
+div.AddColumns_div_FieldList
+{
+
+background-color: #ffffff;
+height: 100%;
+border-right: 1px solid #cccccc;
+border-left: 1px solid #cccccc;
+border-bottom: 1px solid #cccccc;
+overflow-y: scroll;
+overflow-x: hidden;
+
+}
+td.viewmanager_td_Editor
+{
+
+padding:20px;
+vertical-align:top;
+padding-right:10px;
+
+}
+td.viewmanager_td_SysView
+{
+
+padding:20px;
+padding-left:10px;
+
+}
+table.home_activities_table_TypeSel
+{
+
+padding-left:5px;
+padding-top:7px;
+text-align:left;
+
+}
+td.home_activities_td_QuickFind
+{
+
+padding-right:11px;
+
+}
+td.home_activities_td_DateSel
+{
+
+text-align:right;
+padding-right:10px;
+
+}
+
+td.ms-crm-Home-Cal-Header
+{
+padding: 3px 10px;
+}
+td.ms-crm-Home-Cal-Refresh
+{
+padding: 3px 10px;
+}
+table.ms-crm-Home-Cal-Body
+{
+border-width:1px;
+border-style: solid;
+}
+td.ms-crm-Home-Cal-View
+{
+
+padding:10px;
+padding-right:0px;
+
+}
+div.ms-crm-Home-Cal-MiniCal
+{
+background-color:#d6e8ff;
+}
+TD.ms-crm-CalendarViews
+{
+height: 15px;
+padding: 1px;
+}
+TD.ms-crm-CalendarView-Selected
+{
+padding: 0px;
+height: 15px;
+border-width: 1px;
+border-style: solid;
+}
+TD.ms-crm-CalendarView-Hover
+{
+padding: 0px;
+height: 15px
+background-repeat: repeat-x;
+border-width: 1px;
+border-style: solid;
+}
+SPAN.ms-crm-AlignTo16Image
+{
+height: 15px;
+padding: 1px 6px;
+vertical-align: top;
+}
+div.ms-crm-Home-Cal-CreateNew-Title
+{
+display:none;
+
+text-align:left;
+
+}
+table.ms-crm-Home-Cal-CreateNew-Items
+{
+border-top-width: 1px;
+border-top-style: solid;
+}
+tr.ms-crm-Home-Cal-Action-Hovered
+{
+background-color: #466094;
+color: #ffffff;
+}
+div.ms-crm-Home-Cal-Views-Title
+{
+border-bottom-width: 1px;
+border-bottom-style: solid;
+margin-bottom:6px;
+
+text-align:left;
+
+}
+table.ms-crm-Home-Cal-Views-Items
+{
+color:#000000;
+}
+table.form_properties_table_content,
+table.form_properties_table_Security
+{
+margin-top:4px;
+
+margin-left:20px;
+
+table-layout:fixed;
+width:100%;
+}
+div.OfflineViewer_div_BtnViewReport
+{
+margin: 10px;
+}
+table.ms-crm-OfflineViewer
+{
+height: 100%;
+border-collapse: collapse;
+width: 100%;
+}
+td.ms-crm-OfflineViewer
+{
+background-color: #c4ddff;
+border: 1px solid #6693CF;
+}
+span.SchedulingDialog_span_DatesForDaysArea
+{
+
+display:none;
+margin-left:7px;
+
+}
+GanttControlFrame_label
+{
+color:#000000;
+
+margin-left:10px;
+
+}
+.ms-crm-Gantt-Progress-Label
+{
+vertical-align:top;
+color:#666666;
+}
+home_apptbook_label_View
+{
+
+margin-left:5px;
+width:40px;
+color:#000000;
+
+}
+table.AdvancedProperties_table,
+table.AdvancedProperties_table_Title
+{
+
+margin-left:10px;
+
+margin-top:10px;
+}
+td.downloadfailure_td_message,
+td.uploadfailure_td_message
+{
+padding-top:20px;
+
+text-align:left;
+
+}
+td.report_viewer_td_buttons
+{
+padding-left = 5px ;
+padding-right = 5px ;
+
+right:5px;
+bottom:5px;
+height:25px;
+text-align:right;
+
+}
+td.dlg_lookupaddress_td_Buttons,
+td.dlg_mailmerge_td_Buttons
+{
+border-top:1px solid #ffffff;
+
+text-align:right;
+
+}
+div.errorHandler_div_info
+{
+
+text-align:left;
+padding:7px;
+height:82px;
+overflow:auto;
+
+}
+img.lookupsubject_img_role
+{
+
+margin-right: 3px;
+
+}
+td.dlg_merge_td_Title
+{
+vertical-align: middle;
+background-color: ThreeDLightShadow;
+}
+td.ms-crm-Nav-Groups
+{
+
+border-right:1px solid #6893cf;
+
+}
+td.ms-crm-Nav-Areas
+{
+border-right:1px solid #6693cf;
+border-top:1px solid #6693cf;
+border-left:1px solid #6693cf;
+}
+td.KBSearch_td_ArticleFind
+{
+
+padding:8px;
+padding-top:0px;
+border-top:1px solid #C5C1B1;
+border-left:1px solid #C5C1B1;
+border-bottom:1px solid #C5C1B1;
+
+}
+td.KBSearch_td_BtnViewArticle
+{
+
+text-align:right;
+padding-top:5px;
+
+}
+div.ms-crm-Grouping-Box
+{
+padding: 9px;
+width: 100%;
+height: 100%;
+border: 1px solid #bbd4f6;
+background-color: #d6e8ff;
+}
+td.ms-crm-Articles-LeftPane
+{
+background-color: #d6e8ff;
+background-image: url(/_imgs/formnav_header_back.gif);
+background-repeat: repeat-x;
+padding:8px;
+border-top:1px solid #6699cc;
+border-bottom:1px solid #6699cc;
+
+border-left:1px solid #6699cc;
+
+}
+
+div.home_managekb_div
+{
+
+height:97%;
+width:8px;
+border-left:1px solid #6489D4;
+border-bottom:1px solid #6489D4;
+background-color:#EEF0F6;
+
+}
+td.home_managekb_td_Spacer
+{
+
+border-left:1px solid #6489D4;
+
+}
+td.ImportFileChoose_td_Spacer1
+{
+
+border-left:#cbcbcb 1px solid;
+border-top:#cbcbcb 1px solid;
+
+}
+td.ImportFileChoose_td_Spacer2
+{
+
+border-top:#cbcbcb 1px solid;
+border-right:#cbcbcb 1px solid;
+
+}
+div.UnmappedColumnDlg_div_FlieldList
+{
+
+background-color: #ffffff;
+height:150;
+border-right: 1px solid #cccccc;
+border-left: 1px solid #cccccc;
+border-bottom: 1px solid #cccccc;
+overflow-y: scroll;
+overflow-x: visible;
+
+}
+div.manageAttribute_div_SchemaName
+{
+border:1px solid #6699cc;
+border-right:none;
+height:19px;
+padding-top:1px;
+
+}
+td.home_workplace_td_Container
+{
+
+height: 22px;
+border-left: 1px solid #DCD9C8;
+
+}
+td.AppAttachment_Render_td
+{
+
+padding-left:6px;
+border-bottom:1px solid #B6B6B6;
+
+}
+td.AppAttachment_Render_td2
+{
+
+padding-left:7px;
+border-top:1px solid #ffffff;
+
+}
+td.AppHtmlAppAttachment_Render_td3
+{
+
+border:1px solid #6699cc;
+background-color:#ffffff;
+padding-left:4px;
+
+}
+
+TABLE#AppGridFilterContainer
+{
+border-top-width: 1px;
+border-top-style: solid;
+height: 24px;
+}
+
+col.ms-crm-List-NonDataColumn,
+col.ms-crm-List-PreviewGlyphColumn,
+col.ms-crm-List-CheckBoxColumn,
+col.ms-crm-List-RowIconColumn
+{
+
+padding-left:0px;
+
+}
+
+col.ms-crm-List-SortedColumn
+{
+background-color:#EFF2F6!important;
+}
+
+td.LookupList_RenderSearchHeader_td
+{
+
+width:100%;
+text-align:left;
+
+}
+button.LookupList_RenderSearchHeader_button
+{
+
+margin-left:4px;
+width:100%;
+
+}
+table.LookupList_RenderSearchHeader_table
+{
+
+padding-left:4px;
+padding-right:4px;
+padding-top:4px;
+
+}
+td.HtmlBar_AddSpacer_td
+{
+
+padding-left:4px;
+width:10px;
+
+}
+div.HtmlBar_AddSpacer_div
+{
+
+border-left:1px solid #C5C2B8;
+
+}
+td.TaskBox_Render_td
+{
+
+width:22px;
+padding-left:4px;
+border-right:0px;
+
+}
+col.TaskBox_Render_col
+{
+
+padding-left:1px;
+
+}
+col.EntityPrintPage_AddContractsCalendar_col
+{
+
+PADDING-LEFT: 20px;
+
+}
+td.KBTemplateEditorPage_ConfigureMenus_td
+{
+
+padding:20px;
+padding-left:0px;
+
+}
+td.AppArticleFind_Render_td
+{
+
+padding-top:15px;
+text-align:right;
+
+}
+input.MergeFormSectionRow_Render_input,
+input.MergeFormSectionRow_Render_input2
+{
+border:none;
+height:100%;
+
+margin-left:-5px;
+
+width:100%;
+}
+span.ms-crm-Unblock-Content-Link
+{
+cursor:hand;
+color:#0000ff;
+
+margin-left:5px;
+
+}
+tr.AppCondition_RenderControlHTML_tr
+{
+
+text-align:left;
+background-color:#dddddd;
+
+}
+td.Lookup_RenderButton_td
+{
+
+text-align:right;
+
+width=21;
+}
+span.ms-crm-Filter-Label
+{
+color:#000000;
+padding-right:6px;
+}
+td.CommandBarPopup_RenderForCrmMenu_td
+{
+
+border:1px solid #ffffff;
+border-right:0px;
+
+}
+table.dlg_camailmerge_table_Main,
+td.AppHtmlBarControl_RenderKbTemplateEditorControls_td,
+td.BarControl_RenderKbTemplateEditorControls_td
+{
+padding-left:5px;
+padding-right:5px;
+}
+col.select_htc_col
+{
+
+padding-left:5px;
+cursor:default;
+
+}
+th.ViewForm_AddFields_th_gridheader,
+td.UnmappedColumnDlg_td_gridheader,
+td.viewManager_js_td
+{
+cursor:hand;
+
+padding-left:8px;
+
+}
+TR.ms-crm-ColumnEditor-Header
+{
+border-bottom: 1px solid #999999;
+height:21px;
+background-color:#f0f0f0;
+}
+TR.ms-crm-ColumnEditor-Footer
+{
+border-top: 1px solid #999999;
+height:21px;
+background-color:#f0f0f0;
+}
+img.select_htc_img_selectOff
+{
+
+cursor:hand;
+}
+tr.workflowTemplatePage_tr_bottombutton,
+tr.workflowTemplatePage_tr_grid_properties,
+tr.workflowTemplatePage_tr_header
+{
+height: 40px;
+}
+tr.workflowTemplatePage_tr_param
+{
+height: 22px
+
+}
+tr.workflowTemplatePage_tr_top
+{
+height: 88px;
+}
+tr.workflowTemplatePage_tr_type
+{
+height: 57px;
+}
+tr.workflowTemplatePage_tr_option,
+tr.workflowTemplatePage_tr_tmpl
+{
+vAlign:bottom;
+height: 19px;
+}
+
+tr.workflowTemplatePage_tr_grid
+{
+height: 244px;
+}
+
+td.workflowTemplatePage_td_param
+{
+
+padding-left: 8px
+text-align: left;
+
+}
+td.workflowTemplatePage_td_selectWFEntity
+{
+
+padding-left: 10px
+text-align: left;
+padding-left: 16px;
+
+}
+td.workflowTemplatePage_td_templateGrid
+{
+
+padding-right: 23px;
+padding-left:  34px;
+border: 0px solid #333333;
+
+}
+DIV.ms-crm-WorkflowTemplate-Header-Title
+{
+padding-right:	8px;
+padding-left:	8px;
+}
+DIV.ms-crm-WorkflowTemplate-Header-Desc
+{
+padding-top:	4px;
+
+padding-left:	27px;
+
+}
+DIV.ms-crm-ReportProperty-TypeSection
+{
+display: none;
+line-height: 2.5em;
+}
+
+body.ms-crm-Dialog-Body,
+body.ms-crm-ErrorDialog
+{
+
+}
+
+body.ms-crm-ErrorDialog2
+{
+
+background-color: #ffffff;
+}
+div.formproperties_div
+{
+height: 20px;
+background-color: #efefeb;
+border: 1px solid #9fa090;
+padding-top: 2px;
+padding-bottom: 2px;
+filter: progid:DXImageTransform.Microsoft.Gradient(GradientType=1, StartColorStr=#e5e3d5, EndColorStr=#D6D5C9);
+
+text-align: left;
+padding-left: 6px;
+
+}
+td.ms-crm-Grid-Title-Print
+{
+color: #ffffff;
+background-color: #63769B;
+
+padding-left: 5px;
+
+}
+TABLE.ms-crm-MastHead
+{
+width: 100%;
+height: 100%;
+background-image: url(/_imgs/mast_back.gif);
+background-repeat: repeat-x;
+background-color: #39497A;
+
+background-position: top left;
+
+}
+TD.ms-crm-MastHead-Logo
+{
+height: 58px;
+background-repeat: no-repeat;
+padding: 0px 15px;
+
+background-position: top left;
+background-image: url(/_imgs/masthead.jpg);
+
+}
+TD.ms-crm-MastHead-Logo-Live
+{
+height: 58px;
+background-repeat: no-repeat;
+padding: 0px 15px;
+
+background-position: top left;
+background-image: url(/_imgs/masthead_live.jpg);
+
+}
+TD.ms-crm-MastHead-SignIn
+{
+color: #d6e8ff;
+vertical-align: top;
+padding: 5px 4px;
+
+text-align:right;
+
+}
+.ms-crm-MastHead-SignIn-User,
+SPAN.ms-crm-MastHead-SignIn,
+SPAN.ms-crm-MastHead-SignOut
+{
+display: block;
+}
+
+SPAN.ms-crm-MastHead-UserInfo
+{
+overflow : hidden;
+text-overflow : ellipsis;
+white-space : nowrap;
+
+width : 187px;
+}
+
+A.ms-crm-MastHead-UserInfo-Other,
+SPAN.ms-crm-MastHead-UserInfo-Other
+{
+color : #FFFFFF;
+}
+
+A.ms-crm-MastHead-UserInfo-Record,
+SPAN.ms-crm-MastHead-UserInfo-Record
+{
+color : #000000;
+}
+
+.ms-crm-MastHead-SignIn-Org
+{
+display: block;
+width: 187px;
+}
+
+A.ms-crm-MastHead-SignOut-Link:hover
+{
+text-decoration : underline ;
+cursor: hand;
+}
+SPAN.ms-crm-MastHead-Button
+{
+padding: 2px 4px 0px 4px;
+}
+A IMG.ms-crm-MastHead-Button
+{
+border-style: none;
+border-width: 0px;
+margin: 1px;
+}
+A IMG.ms-crm-MastHead-Button:hover
+{
+border-style: solid;
+border-width: 1px;
+margin: 0px;
+background-color: #FDEEB3;
+border-color: #F1C43F;
+}
+A IMG.ms-crm-MastHead-Button-Selected
+{
+border-style: solid;
+border-width: 1px;
+margin: 0px;
+background-color: #FFD86C;
+border-color: #C2821B;
+}
+A IMG.ms-crm-MastHead-Button-Selected:hover
+{
+border-style: solid;
+border-width: 1px;
+margin: 0px;
+background-color: #FFED95;
+border-color: #C28A30;
+}
+TABLE.ms-crm-NavHeader
+{
+border-bottom:1px solid #485674;
+
+border-right:1px solid #6893CF;
+
+}
+.ms-crm-NavHeader-Title,
+.ms-crm-Setting-ContextHeader-Title,
+.ms-crm-ContextHeader-Title
+{
+background-repeat: repeat-x;
+height:         26px;
+vertical-align: middle;
+color:          #15428b;
+overflow:       hidden;
+text-overflow:  ellipsis;
+padding:		0px 10px;
+}
+.ms-crm-ContextHeader-Title
+{
+border-bottom-width:1px;
+border-bottom-style:  solid;
+}
+
+td.ms-crm-Setting-ContextHeader-Title
+{
+border-width:1px;
+border-style:  solid;
+border-bottom: none;
+
+}
+
+td.ms-crm-Context-cell
+{
+border-width:1px;
+border-style:  solid;
+}
+
+body.aboutdefault_body
+{
+
+margin:				0px;
+cursor:				hand;
+background-color:	#E3EFFF;
+}
+div.aboutdefault_div_warnings
+{
+height: 150px;
+color: #222222;
+overflow-y: auto;
+scrollbar-highlight-color: #DDDBCD;
+scrollbar-shadow-color: #C0BEB1;
+scrollbar-track-color: #F3F1E3;
+padding-left: 10px;
+padding-right: 10px;
+}
+td.BizRolesedit_td_r
+{
+
+border-left: 1px solid;
+cursor: hand;
+text-align: center;
+
+}
+td.BizRolesedit_td_u,
+td.relationshiproleeditor_edit_td_item
+{
+
+border-left: 1px solid;
+
+text-align: center;
+}
+div.Articlesedit_article_div_secEdit
+{
+margin-right: 8px;
+margin-top: 8px;
+margin-left: 8px;
+}
+td.ms-crm-StatusBar-Copyright
+{
+background-color:   #365484;
+color:              #ffffff;
+height:             23px;
+cursor:             hand;
+text-decoration:    underline;
+padding-right:      5px;
+padding-left:       5px;
+}
+
+body.Helptoc_body
+{
+background-color: #e3efff;
+
+border-right: 2px solid #999999;
+
+}
+
+td.help_chapter
+{
+border-top:1px solid #bbbbbb;
+
+
+border-right:1px solid #bbbbbb;
+
+}
+
+A.helptoc_link:active
+{
+color : #3366cc;
+}
+
+A.helptoc_link:visited
+{
+color : #800080;
+}
+
+body.home_debug_body
+{
+
+padding: 15px;
+padding-right:0px;
+
+}
+body.homepage_news_body
+{
+
+background-color: #ffffff;
+margin-right: 0px;
+
+}
+td.camps_edit_td_leftBar
+{
+
+width:              190px;
+text-align:         right;
+vertical-align:     top;
+padding-top:        10px;
+background-color:   #ffffff;
+
+}
+body.ResourceSchedules_body
+{
+
+filter: progid:DXImageTransform.Microsoft.Gradient(GradientType=1, StartColorStr=#D6D5C9, EndColorStr=#e5e3d5);
+}
+table.ms-crm-ViewForm-Header
+{
+background-color:	#f0f0f0;
+width:				100%;
+height:				22px;
+border:				1px solid #dbdac9;
+border-bottom:		1px solid #c5c1b1;
+table-layout:		fixed;
+}
+td.ms-crm-ViewForm-Spacer
+{
+width:				2px;
+}
+td.ms-crm-SignIn-Banner
+{
+color:			#6693cf;
+height:			82px;
+vertical-align:	bottom;
+}
+
+table.ms-crm-Share-Header
+{
+width: 100%;
+height: 21px;
+background-color: #F0F0F0;
+table-layout: fixed;
+}
+
+table.ms-crm-Share-Header TH.user-Header
+{
+
+text-align:left;
+padding-left:8px;
+
+}
+
+td.systemsettings_td_trackingpref
+{
+direction:ltr;
+}
+
+td.systemsettings_td_smfilter
+{
+direction:ltr;
+}
+
+DIV.ms-crm-List-PreviewDialog
+{
+cursor: default;
+border: 1px solid #6699CC;
+height: 100%;
+width: 100%;
+overflow: hidden;
+}
+TD.ms-crm-gridPaneSepHor,
+TR.ms-crm-gridPaneSepVer,
+DIV.ms-crm-Splitter,
+DIV.ms-crm-Splitter-Fixed
+{
+background-repeat: repeat-x;
+background-image: url(/_imgs/app_back.png);
+background-color : #CFD4DA;
+}
+
+DIV.ms-crm-Splitter,
+DIV.ms-crm-Splitter-Fixed
+{
+width : 3px;
+height : 0px;
+}
+DIV.ms-crm-SplitterMotion,
+DIV.ms-crm-SplitterMotion-Fixed
+{
+z-index : 1000;
+width : 3px;
+display : none;
+}
+
+DIV.ms-crm-Splitter,
+DIV.ms-crm-SplitterMotion
+{
+position: absolute;
+}
+
+DIV.ms-crm-Splitter-Fixed
+{
+position : fixed;
+}
+
+DIV.ms-crm-SplitterMotion-Fixed
+{
+position: fixed;
+background-image : none;
+background-color : #A5ACB5;
+}
+
+A.ms-crm-Splitter
+{
+tabIndex : 0;
+}
+
+IMG.ms-crm-Splitter
+{
+height : 19px !important;
+width : 3px !important;
+vertical-align : middle;
+cursor : col-resize;
+}
+
+TABLE.ms-crm-Splitter
+{
+cursor : col-resize;
+}
+
+TR.ms-crm-Splitter
+{
+vertical-align: middle;
+}
+
+IMG.subGrid_Entity_icon
+{
+
+margin-left:4px;
+
+}
+
+IMG.associatedGrid_Entity_icon,
+IMG.subGrid_Entity_icon
+{
+
+margin-right:4px;
+
+}
+
+
+span.ms-crm-Form-NoNav-Title
+{
+line-height:	16px;
+vertical-align:	bottom;
+}
+
+span.ms-crm-Form-Entity-Title
+{
+font-weight: bold;
+}
+
+span.ms-crm-View-Entity-Name
+{
+font-size : 14px;
+font-weight: normal;
+height: 24px;
+margin-top: 2px;
+padding-left: 2px;
+padding-right: 2px;
+}
+
+span.ms-crm-Viz-Name,
+span.ms-crm-Viz-Name-hover,
+span.ms-crm-Viz-Name-select,
+span.ms-crm-View-Name,
+span.ms-crm-View-Name-hover,
+span.ms-crm-View-Name-select
+{
+cursor:hand;
+height:	20px;
+line-height:	20px;
+vertical-align:	top;
+
+
+padding-left: 6px;
+
+
+color : #00000;
+}
+span.ms-crm-View-Name,
+span.ms-crm-View-Name-hover,
+span.ms-crm-View-Name-select
+{
+font-size : 14px;
+font-family: Segoe UI, Tahoma, Arial;
+font-weight: bold;
+}
+
+A.ms-crm-View-Name,
+A.ms-crm-View-Name:link,
+A.ms-crm-View-Name:visited,
+{
+height: 24px;
+border: 1px solid transparent;
+}
+
+
+A.ms-crm-View-Name:hover,
+A.ms-crm-View-Name-hover:link,
+A.ms-crm-View-Name-hover:hover
+{
+height: 24px;
+border-width: 1px;
+border-style: solid;
+}
+
+IMG.ms-crm-View-icon
+{
+margin-top: -1px;
+}
+
+A.ms-crm-View-Name:active,
+A.ms-crm-View-Name-hover:active,
+A.ms-crm-View-Name-hover:visited,
+A.ms-crm-View-Name-select,
+A.ms-crm-View-Name-select:link,
+A.ms-crm-View-Name-select:visited,
+A.ms-crm-View-Name-select:hover,
+A.ms-crm-View-Name-select:active
+{
+height: 24px;
+border-width: 1px;
+border-style: solid;
+}
+
+
+.storeuserData
+{
+behavior: url(#default#userData);
+}
+
+A.default-link:link,
+A.default-link:visited,
+A.default-link:active
+{
+color:#03c;
+}
+
+A.default-link:hover
+{
+text-decoration: underline;
+}
+fieldset.ms-crm-radio-fieldset
+{
+border:none;
+}
+legend.ms-crm-radio-fieldset
+{
+padding:	0px;
+position:absolute;
+top:-20px;
+left:0px;
+}
+DIV.ms-crm-db-padding
+{
+
+text-align: left;
+padding-left:3px;
+
+}
+TD.ms-crm-db-padding1
+{
+
+padding-right:0px;
+
+
+}
+
+DIV.mscrm-sharepoint-LoadingDiv
+{
+background-color: #FFFFFF;
+filter: alpha(opacity=80);
+height: 100%;
+position: absolute;
+left: 0px;
+top: 0px;
+}
+
+
+
+
+body.ms-crm-Setting-Context-top,
+body
+{
+	background-color:#E9EDF1;
+	scrollbar-3dlight-color:#A5ACB5;
+	scrollbar-arrow-color:#3B3B3B;
+	scrollbar-base-color:#E9EDF1;
+	scrollbar-darkshadow-color:#A5ACB5;
+	scrollbar-face-color:#E9EDF1;
+	scrollbar-highlight-color:#E9EDF1;
+	scrollbar-shadow-color:#E9EDF1;
+	scrollbar-track-color:#E3E8ED;
+
+}
+
+div.ms-crm-TopBarContainerGlobal
+{
+	background-color:#FFFFFF;
+	background-image:url(../../_imgs/theme/Outlook14Silver/Masthead.png);
+
+}
+
+div.ms-crm-TopBarContainerForm
+{
+	background-image:url(../../_imgs/theme/Outlook14Silver/form_masthead.png);
+
+}
+
+table.htmlBar
+{
+	background-color:#EFF2F6;
+	border-color:#A5ACB5;
+
+}
+
+SPAN.htmlBtnHideable
+{
+	color:#000000;
+
+}
+
+TR.ms-crm-AdvFind-TitleArea
+{
+	background-color:#E9EDF1;
+
+}
+
+SPAN.ms-crm-AdvFind-EmptyField,
+DIV.ms-crm-AdvFind-FilterField
+{
+	border-color:#C6CBD2;
+
+}
+
+td.ms-crm-Context-cell,
+td.ms-crm-ContextHeader-Title,
+td.ms-crm-Setting-ContextHeader-Title,
+td.ms-crm-Context-cell,
+table.home_import_table,
+td.homepage_menubar,
+span.#crmMenuBar,
+IFRAME.noteData,
+table.homepage_table,
+DIV.feFilterEditor,
+DIV.feAFControls,
+div.editPage,
+DIV.editor,
+TABLE.ms-crm-AdvFind-Title-table-WithTopBorder,
+TABLE.ms-crm-AdvFind-Title-table,
+TABLE.ms-crm-AdvFindControl,
+SPAN.ms-crm-AdvFind-Detailed,
+.ms-crm-PaneControl-LeftRight-footer,
+.ms-crm-PaneControl-TopDown-footer,
+TD.ms-crm-gridPaneSepHor,
+TD.ms-crm-gridPaneSepVerTD,
+TD.ms-crm-gridPaneSepMotionHorTD,
+table.ms-crm-CompCntrlBrdr,
+td.dashboard-brdr,
+.ms-crm-control-SideStrip,
+DIV.listEdit_valuelist,
+IFRAME.ms-crm-Email-Body,
+IFRAME.ms-crm-Custom,
+div.ms-crm-DataField,
+div.ms-crm-ToolBar-Shadow
+{
+	border-color:#A5ACB5;
+
+}
+
+TD.ms-crm-Cal-Day-Time
+{
+	background-color:#EFF2F6;
+
+}
+
+table.ms-crm-Home-Cal-Body
+{
+	background-color:#F6F8FA;
+
+	border-color:#A5ACB5;
+
+}
+
+div.ms-crm-Home-Cal-CreateNew-Title,
+td.ms-crm-Home-Cal-Header
+{
+	color:#3B3B3B;
+
+}
+
+div.ms-crm-Home-Cal-Views-Title
+{
+	color:#3B3B3B;
+
+	border-color:#DBDEE1;
+
+}
+
+TD.ms-crm-Cal-Month-Nav,
+Div.ms-crm-Cal-Week-Header
+{
+	border-color:#DBDEE1;
+
+}
+
+table.ms-crm-Home-Cal-CreateNew-Items,
+body.ms-crm-Cal-Body
+{
+	color:#000000;
+
+	border-color:#DBDEE1;
+
+}
+td.ganttHeaderRowBottom,
+div.ganttHeaderTop,
+td.ganttSheet,
+td.gridSpacer
+{
+	border-color:#C6CBD2;
+
+}
+
+hr.separator
+{
+	color:#C6CBD2;
+
+}
+
+table#ganttPageBodyTable,
+td.calendarPane
+{
+	background-color:#EFF2F6;
+
+}
+
+td.gridSpacer,
+td.ganttHeaderRowTop,
+td.ganttHeaderRowBottom,
+td.bottomSpacerBar
+{
+	background-color:#F6F8FA;
+
+}
+
+TABLE.ms-crm-Cal-Month-DayOfWeek-Header
+{
+	background-color:#EFF2F6;
+
+}
+TD.ms-crm-Cal-Month-Day-NotCurrent
+{
+	background-color:#C0C0C0;
+
+}
+
+TD.ms-crm-Cal-Month-Day,
+TD.ms-crm-Cal-Month-DayOfWeek
+{
+	border-color:#C6CBD2;
+
+}
+
+table.ms-crm-MenuBar
+{
+	background-image:url(form_toolbar_back.png);
+
+}
+
+UL.ms-crm-MenuList,
+div.ms-crm-Standard-Popup,
+SPAN.ms-crm-Menu-Group,
+SPAN.ms-crm-Menu-Group-Opened,
+SPAN.ms-crm-Menu-Group-Hovered
+{
+	background-image:url(new_RightClickMenuChannel.png);
+
+}
+
+button
+{
+	border-color:#666666;
+	background-image:url(new_ButtonNormalGradient.png);
+
+}
+
+BUTTON.ms-crm-Button-Hover
+{
+	border-color:#336699;
+	background-image:url(new_ButtonSelectedGradient.png);
+
+}
+
+DIV.feEntityHeadingBar,
+TD.ms-crm-WizardForm-Footer,
+.ms-crm-PaneControl-LeftRight-footer,
+.ms-crm-PaneControl-TopDown-footer,
+TD.ms-crm-gridPaneSepMotionHorTD,
+DIV.ms-crm-gridPaneSepMotionHorDiv,
+div.ms-crm-gridPaneSepDivVer,
+.ms-crm-control-SideStrip,
+DIV.ms-crm-WizardForm-Main,
+table.ms-crm-Form-Title,
+TABLE.ms-crm-Form-Title-NoNav,
+TABLE.ms-crm-Form-Layout
+{
+	background-color:#E9EDF1;
+
+}
+
+span.ms-crm-Form-Entity-Name
+{
+	color:#3B3B3B;
+
+}
+
+.ms-crm-Form-Breadcrumb,
+h1.ms-crm-Form
+{
+	color:#3B3B3B;
+
+}
+
+h2.ms-crm-Form
+{
+	color:#1261E1;
+
+}
+
+h3.ms-crm-Form
+{
+	color:#3B3B3B;
+
+}
+
+TD.ms-crm-Form-SectionBar
+{
+	border-bottom-color:#C0C0C0;
+
+}
+
+BODY.NotesData hr
+{
+	color:#C0C0C0;
+
+}
+
+.noteHeaderSelected
+{
+	background-color:#A7CDF0;
+
+}
+
+TD.noteCreatedField,
+TD.ms-crm-Field-Required,DIV.ms-crm-Field-Required,TD.ms-crm-Field-Recommended,DIV.ms-crm-Field-Recommended,TD.ms-crm-Field-Normal,DIV.ms-crm-Field-Normal
+{
+	color:#3B3B3B;
+
+}
+TABLE.ms-crm-Form-Body
+{
+	background-color:#F6F8FA;
+	border-color:#A5ACB5;
+
+}
+
+TABLE.ms-crm-Form-Page-Table
+{
+	background-color:#F6F8FA;
+	border-color:#A5ACB5;
+
+	background-image:url(new_FormHeaderGradientTop.png);
+
+}
+
+TABLE.headerContainerTable .ms-crm-Field-Label-Print,
+TD.ms-crm-Form-Footer TD.ms-crm-Field-Label-Print,
+.ms-crm-Form-Title-Label
+{
+	color:#656669;
+
+}
+
+TABLE.headerContainerTable .ms-crm-Field-Data-Print,
+TD.ms-crm-Form-Footer TD.ms-crm-Field-Data-Print,
+.ms-crm-Form-Title-Data
+{
+	color:#000000;
+
+}
+
+.ms-crm-Field-Label-Print
+{
+	color:#3B3B3B;
+
+}
+
+.ms-crm-Field-Data-Print
+{
+	color:#000000;
+
+}
+
+DIV.ms-crm-Form-Information-Title
+{
+	background-color:#EFF2F6;
+	border-bottom-color:#A1A5AA;
+
+}
+
+BODY.NotesData,
+div.ms-crm-InlineTab
+{
+	background-color:#F6F8FA;
+
+}
+
+ul.ms-crm-TabBar
+{
+	border-left-color:#A5ACB5;
+
+}
+/*
+li.ms-crm-Tab
+{
+	border-top-color:#A5ACB5;
+	border-bottom-color:#A5ACB5;
+	border-left-color:#F6F8FA;
+	border-right-color:#A5ACB5;
+	background-image:url(../../_imgs/theme/Outlook14Silver/TabGradient.gif);
+
+}
+*/
+
+li.ms-crm-Tab-Selected
+{
+	background-color:#F6F8FA;
+	border-bottom-color:#F6F8FA;
+	background-image:none;
+
+}
+
+div.ms-crm-Tab
+{
+	border-bottom-color:#A5ACB5;
+	border-left-color:#A5ACB5;
+	border-right-color:#A5ACB5;
+
+}
+
+TD.ms-crm-MiniCal-Header,
+DIV.ms-crm-MiniCal-TodayBar,
+TD.ms-crm-MiniCal-TodayBar,
+TD.ms-crm-MiniCal-DayOfWeek,
+TD.ms-crm-MiniCal-Week-Number,
+TD.ms-crm-MiniCal-Day
+{
+	background-color:#F6F8FA;
+
+}
+
+TD.ms-crm-MiniCal-Month,
+TD.ms-crm-MiniCal-TodayBar-Hovered
+{
+	border-color:#DBDEE1;
+
+}
+
+
+TR.ms-crm-Form-Background
+{
+
+
+
+}
+
+TR.ms-crm-Form-FormFrameBkgd
+{
+	background-color:#F6F8FA;
+
+}
+
+TR.ms-crm-TitleRowBkgd
+{
+	background-color:#D2D5D9;
+
+}
+
+TR.ms-crm-Form-FieldAlternateFieldBkgd
+{
+	background-color:#FFFFFF;
+
+}
+
+TD.BizRolesedit_td_u,
+TD.BizRolesedit_td_r
+{
+	border-left-color:#C0C0C0;
+	border-right-color:#C0C0C0;
+
+}
+
+.ms-crm-ChartText
+{
+	color:#000000;
+
+}
+
+.ms-crm-StatusLabel
+{
+	color:#3B3B3B;
+
+}
+
+A.ms-crm-Nav-Group-Heading,
+A.ms-crm-Nav-Group-Heading:link,
+A.ms-crm-Nav-Group-Heading:visited,
+A.ms-crm-Nav-Group-Heading:active,
+A.ms-crm-Nav-Group-Heading:hover,
+A.ms-crm-Nav-Subarea-Link,
+A.ms-crm-Nav-Subarea-Link:link,
+A.ms-crm-Nav-Subarea-Link:visited,
+A.ms-crm-Nav-Subarea-Link:active,
+NOBR.ms-crm-Nav-Group-Heading
+{
+	color:#3B3B3B;
+
+}
+
+TD.ms-crm-Form-HeaderContainer
+{
+	border-bottom-color:#A5ACB5;
+
+}
+TD.ms-crm-Form-Footer
+{
+	border-top-color:#A5ACB5;
+
+}
+LI.ms-crm-ImageStrip-wunderbar_sel  NOBR.ms-crm-NavBar-Area-Title
+{
+	color:#000000;
+
+}
+
+TR.associatedGrid_viewRow
+{
+	background-color:#B0E9FD;
+
+}
+
+DIV.ms-crm-Category-List,
+TD.CategoryBody
+{
+	background-color:#FFFFFF;
+	border-color:#A5ACB5;
+
+}
+
+
+LI.ms-crm-AVS-MenuItem-qrk,
+
+LI.ms-crm-VS-MenuItem-qrk,
+SPAN.ms-crm-CM-MenuItem-Icon-Rest-qrk,
+A.ms-crm-RS-MenuItem-Anchor-qrk,
+A.ms-crm-VS-MenuItem-Anchor-qrk,
+DIV.ms-crm-VS-MenuItem-Separator-qrk-h,
+span.ms-crm-CMsub-MenuItem-Sep-Rest,
+NOBR.ms-crm-CMsub-MenuItem-Title-Rest,
+SPAN.ms-crm-CMsub-MenuItem-Icon-Rest,
+SPAN.ms-crm-CMsub-MenuItem-Aux-Rest
+{
+	background-color:#FFFFFF;
+	border-color:#FFFFFF;
+
+}
+
+SPAN.ms-crm-Menu-Label-Opened
+{
+	background-color:#FFD86C;
+	border-color:#C2821B;
+
+}
+
+SPAN.ms-crm-Menu-Label-Hovered
+{
+	background-color:#FDEEB3;
+	border-color:#F1C43F;
+
+}
+
+div.ms-crm-Standard-Item-Glow
+{
+	border-color:#61A6E4;
+
+}
+
+span.ms-crm-View-Name-hover,
+span.ms-crm-View-Name-select
+{
+	background-color:#FFFFFF;
+
+}
+
+A.ms-crm-View-Name:hover,
+A.ms-crm-View-Name-hover:link,
+A.ms-crm-View-Name-hover:hover
+{
+	background-color:#FFFFFF;
+	border-color:#61A6E4;
+
+}
+
+A.ms-crm-View-Name:active,
+A.ms-crm-View-Name-hover:active,
+A.ms-crm-View-Name-hover:visited,
+A.ms-crm-View-Name-select,
+A.ms-crm-View-Name-select:link,
+A.ms-crm-View-Name-select:visited,
+A.ms-crm-View-Name-select:hover,
+A.ms-crm-View-Name-select:active
+{
+	background-color:#FFFFFF;
+	border-color:#237CCD;
+
+}
+/*
+SPAN.ms-crm-CMsub-MenuItem-Aux-Hover,
+span.ms-crm-CMsub-MenuItem-Sep-Hover,
+SPAN.ms-crm-CMsub-MenuItem-Icon-Hover,
+NOBR.ms-crm-CMsub-MenuItem-Title-Hover,
+SPAN.ms-crm-in-CM-MenuItem-Icon-Hover,
+SPAN.ms-crm-in-CM-MenuItem-Sep-Hover,
+NOBR.ms-crm-in-CM-MenuItem-Title-Hover,
+SPAN.ms-crm-CM-MenuItem-Icon-Hover,
+SPAN.ms-crm-CM-MenuItem-Icon-Hover-qrk,
+span.ms-crm-CM-MenuItem-Sep-Hover,
+span.ms-crm-CM-MenuItem-Sep-Hover-qrk,
+NOBR.ms-crm-CM-MenuItem-Title-Hover,
+NOBR.ms-crm-CM-MenuItem-Title-Hover-qrk
+{
+	background-image:url(../../_imgs/theme/Outlook14Silver/contextmenu_hover_18.png);
+
+}
+
+div.ms-crm-Standard-Item-Glow,
+NOBR.ms-crm-SVS-MenuItem-Title-Hover-qrk,
+NOBR.ms-crm-BVS-MenuItem-Title-Hover-qrk,
+NOBR.ms-crm-TVS-MenuItem-Title-Hover-qrk,
+LI.ms-crm-AVS-MenuItem-Hover-qrk,
+SPAN.ms-crm-MenuItem-Label-Opened,
+SPAN.ms-crm-MenuItem-Label-Hovered,
+SPAN.ms-crm-MenuItem-Label-Opened,
+SPAN.ms-crm-MenuItem-Label-Hovered,
+TR.ms-crm-DE-PreviewSelector,
+LI.ms-crm-RV-MenuItem-Hover,
+LI.ms-crm-RV-view-item-MenuItem-Hover,
+A.ms-crm-RV-MenuItem-Aux-Hover,
+A.ms-crm-RV-view-item-MenuItem-Aux-Hover,
+SPAN.ms-crm-AVS-MenuItem-Icon-Hover-qrk,
+span.ms-crm-AVS-MenuItem-Sep-Hover-qrk,
+NOBR.ms-crm-AVS-MenuItem-Title-Hover-qrk,
+SPAN.ms-crm-VS-MenuItem-Icon-Hover-qrk,
+span.ms-crm-VS-MenuItem-Sep-Hover-qrk,
+NOBR.ms-crm-VS-MenuItem-Title-Hover-qrk,
+A.ms-crm-RS-MenuItem-Anchor-Hover-qrk,
+NOBR.ms-crm-FS-MenuItem-Title-Hover-qrk,
+LI.ms-crm-LK-MenuItem-Hover-qrk,
+LI.ms-crm-LK-MenuItem-Selected-qrk
+{
+	background-image:url(../../_imgs/theme/Outlook14Silver/contextmenu_hover_20.png);
+
+}
+*/
+SPAN.ms-crm-CMsub-MenuItem-Aux-Hover,
+SPAN.ms-crm-CMsub-MenuItem-Icon-Hover,
+SPAN.ms-crm-MenuItem-Label-Opened,
+SPAN.ms-crm-MenuItem-Label-Hovered,
+SPAN.ms-crm-MenuItem-Label-Opened,
+SPAN.ms-crm-MenuItem-Label-Hovered,
+A.ms-crm-RS-MenuItem-Anchor-Hover-qrk,
+SPAN.ms-crm-in-CM-MenuItem-Icon-Rest,
+LI.ms-crm-RV-MenuItem-Hover,
+LI.ms-crm-RV-view-item-MenuItem-Hover,
+A.ms-crm-RV-MenuItem-Aux-Hover,
+A.ms-crm-RV-view-item-MenuItem-Aux-Hover,
+SPAN.ms-crm-AVS-MenuItem-Icon-Hover-qrk,
+SPAN.ms-crm-VS-MenuItem-Icon-Hover-qrk,
+SPAN.ms-crm-in-CM-MenuItem-Icon-Hover,
+SPAN.ms-crm-CM-MenuItem-Icon-Hover,
+SPAN.ms-crm-CM-MenuItem-Icon-Hover-qrk
+{
+	border-top-color:#61A6E4;
+	border-bottom-color:#61A6E4;
+	border-left-color:#61A6E4;
+
+}
+
+SPAN.ms-crm-AVS-MenuItem-Aux-Hover-qrk,
+SPAN.ms-crm-CMsub-MenuItem-Aux-Hover,
+SPAN.ms-crm-MenuItem-Label-Opened,
+SPAN.ms-crm-MenuItem-Label-Hovered,
+SPAN.ms-crm-MenuItem-Label-Opened,
+SPAN.ms-crm-MenuItem-Label-Hovered,
+NOBR.ms-crm-VS-MenuItem-Title-Hover-qrk,
+A.ms-crm-RS-MenuItem-Anchor-Hover-qrk,
+LI.ms-crm-RV-MenuItem-Hover,
+LI.ms-crm-RV-view-item-MenuItem-Hover,
+A.ms-crm-RV-MenuItem-Aux-Hover,
+A.ms-crm-RV-view-item-MenuItem-Aux-Hover,
+NOBR.ms-crm-in-CM-MenuItem-Title-Hover,
+NOBR.ms-crm-CM-MenuItem-Title-Hover,
+NOBR.ms-crm-CM-MenuItem-Title-Hover-qrk
+{
+	border-top-color:#61A6E4;
+	border-bottom-color:#61A6E4;
+	border-right-color:#61A6E4;
+
+}
+
+span.ms-crm-AVS-MenuItem-Sep-Hover-qrk,
+NOBR.ms-crm-AVS-MenuItem-Title-Hover-qrk,
+NOBR.ms-crm-CMsub-MenuItem-Title-Hover,
+span.ms-crm-CMsub-MenuItem-Sep-Hover,
+span.ms-crm-VS-MenuItem-Sep-Hover-qrk,
+LI.ms-crm-RV-MenuItem-Hover,
+LI.ms-crm-RV-view-item-MenuItem-Hover,
+span.ms-crm-in-CM-MenuItem-Sep-Hover,
+span.ms-crm-CM-MenuItem-Sep-Hover,
+span.ms-crm-CM-MenuItem-Sep-Hover-qrk
+{
+	border-top-color:#61A6E4;
+	border-bottom-color:#61A6E4;
+
+}
+
+span.ms-crm-CMsub-MenuItem-Sep,
+SPAN.ms-crm-AVS-MenuItem-Separator-hm-qrk,
+SPAN.ms-crm-AVS-MenuItem-Separator-hl-qrk,
+SPAN.ms-crm-AVS-header-MenuItem-Sep-qrk,
+SPAN.ms-crm-AVS-MenuItem-Sep-Rest-qrk,
+SPAN.ms-crm-VS-MenuItem-Separator-hm-qrk,
+SPAN.ms-crm-VS-MenuItem-Separator-hl-qrk,
+span.ms-crm-TVS-MenuItem-Sep-Hover-qrk,
+span.ms-crm-BVS-MenuItem-Sep-Hover-qrk,
+span.ms-crm-SVS-MenuItem-Sep-Hover-qrk,
+SPAN.ms-crm-VS-header-MenuItem-Sep-qrk,
+SPAN.ms-crm-SVS-MenuItem-Sep-Rest-qrk,
+SPAN.ms-crm-BVS-MenuItem-Sep-Rest-qrk,
+SPAN.ms-crm-TVS-MenuItem-Sep-Rest-qrk,
+SPAN.ms-crm-VS-MenuItem-Sep-Rest-qrk,
+SPAN.ms-crm-CM-MenuItem-Separator-hl,
+span.ms-crm-CM-header-MenuItem-Sep-Rest,
+span.ms-crm-CM-header-MenuItem-Sep-Hover,
+SPAN.ms-crm-in-CM-MenuItem-Sep-Rest,
+span.ms-crm-CM-MenuItem-Sep-Rest,
+span.ms-crm-CM-MenuItem-Sep-Rest-qrk,
+SPAN.ms-crm-CM-MenuItem-Separator-hm
+{
+	background-color:#E2E4E7;
+
+}
+
+LI.ms-crmAVS-MenuItem-Selected-qrk,
+TD.ms-crm-CalendarView-Selected,
+span.ms-crm-CMsub-MenuItem-Sep-Selected,
+NOBR.ms-crm-CMsub-MenuItem-Title-Selected,
+SPAN.ms-crm-CMsub-MenuItem-Icon-Selected,
+SPAN.ms-crm-CMsub-MenuItem-Aux-Selected,
+SPAN.ms-crm-AVS-MenuItem-Icon-Selected-qrk,
+NOBR.ms-crm-AVS-MenuItem-Title-Selected-qrk,
+SPAN.ms-crm-AVS-MenuItem-Sep-Selected-qrk,
+SPAN.ms-crm-VS-MenuItem-Icon-Selected-qrk,
+NOBR.ms-crm-VS-MenuItem-Title-Selected-qrk,
+SPAN.ms-crm-VS-MenuItem-Sep-Selected-qrk,
+A.ms-crm-RS-MenuItem-Anchor-Selected-qrk
+{
+	background-color:#A7CDF0;
+	border-color:#A7CDF0;
+
+}
+
+A.ms-crm-Nav-Subitem-Link,
+A.ms-crm-Nav-Subitem-Link:link,
+A.ms-crm-Nav-Subitem-Link:visited,
+A.ms-crm-Nav-Subitem-Link:active
+{
+	color:#3B3B3B;
+
+}
+
+A.ms-crm-Nav-Subarea-Selected,
+A.ms-crm-Nav-Subarea-Selected:link,
+A.ms-crm-Nav-Subarea-Selected:visited,
+A.ms-crm-Nav-Subarea-Selected:active
+{
+	background-color:#A7CDF0;
+	border-color:#A7CDF0;
+
+}
+
+A.ms-crm-Nav-Subitem-Selected,
+A.ms-crm-Nav-Subitem-Selected:link,
+A.ms-crm-Nav-Subitem-Selected:visited,
+A.ms-crm-Nav-Subitem-Selected:active
+{
+	background-color:#A7CDF0;
+	border-color:#A7CDF0;
+
+}
+/*
+LI.ms-crm-NavBar-Subarea-Hovered,
+A.ms-crm-Nav-Subarea-Hovered,
+TD.ms-crm-CalendarView-Hover
+{
+	border-color:#61A6E4;
+	background-image:url(../../_imgs/theme/Outlook14Silver/nav_hover_highlight.png);
+
+}
+
+A.ms-crm-Nav-Subitem-Hovered,
+A.ms-crm-Nav-Subitem-Link:hover,
+A.ms-crm-Nav-Subitem-Selected:hover
+{
+	border-color:#3B3B3B;
+	background-image:url(../../_imgs/theme/Outlook14Silver/nav_hover_highlight.png);
+
+}
+*/
+TD.ms-crm-Dialog-Header
+{
+	background-color:#FFFFFF;
+	border-bottom-color:#A4ABB2;
+
+}
+
+table.ms-crm-MiniCampaign-Header,
+tr.ms-crm-MiniCampaign-Header
+{
+	background-color:#FFFFFF;
+	border-bottom-color:#A4ABB2;
+
+	color:#000000;
+
+}
+
+TD.ms-crm-WizardForm-Header-Title h2,
+DIV.ms-crm-Dialog-Header-Title
+{
+	color:#000000;
+
+}
+
+DIV.ms-crm-Dialog-Header-Desc
+{
+	color:#000000;
+
+}
+
+td.ms-crm-MiniCampaign-Main,
+DIV.ms-crm-WizardForm-Main,
+TD.ms-crm-Dialog-Main,
+DIV.ms-crm-Dialog-Main,
+body.ms-crm-ErrorDialog,
+body.ms-crm-Dialog-Body
+{
+	color:#000000;
+	background-color:#E9EDF1;
+	border-bottom-color:#A4ABB2;
+
+}
+
+TD.ms-crm-Dialog-Buttons,
+TD.ms-crm-Dialog-Footer
+{
+	background-color:#E9EDF1;
+	border-top-color:#FFFFFF;
+
+}
+
+td.wizHead
+{
+	color:#000000;
+	background-color:#EFF2F6;
+
+}
+
+table.ms-crm-ActionBar
+{
+	border-color:#A5ACB5;
+	background-image:url(new_GridToolbarBkgd.png);
+
+}
+
+.ms-crm-List-Index
+{
+	color:#3B3B3B;
+	background-color:#F1F3F5;
+	border-top-color:#A1A5AA;
+
+}
+
+table.ms-crm-ListControl
+{
+	border-color:#A5ACB5;
+}
+
+.ms-crm-List-IndexItem,
+.ms-crm-List-SelectedIndex
+{
+	color:#15428B;
+
+}
+
+table.ms-crm-List-StatusBar
+{
+	background-color:#F1F3F5;
+	border-top-color:#C0C0C0;
+
+}
+
+.ms-crm-List-StatusBar-Label
+{
+
+}
+
+.ms-crm-List-Paging
+{
+	color:#666666;
+
+}
+
+.ms-crm-List-DataArea,
+.ms-crm-List-DataAreaEx
+{
+	background-color:#FFFFFF;
+
+}
+
+.ms-crm-List-Header
+{
+	background-color:#F6F8FA;
+	border-bottom-color:#A1A5AA;
+	background-image:url(new_GridColumnGradient.png);
+
+}
+
+.ms-crm-List-Title
+{
+	background-color:#EFF2F6;
+
+}
+
+.ms-crm-list-TitleFilter
+{
+	background-color:#D9DEE4;
+
+}
+.ms-crm-list-Separator-line
+{
+	background-image:url(new_GridTitleBarHorzLine.png);
+
+}
+
+TABLE#AppGridFilterContainer
+{
+	background-color:#D9DEE4;
+	border-top-color:#A1A5AA;
+
+}
+
+TR.ms-crm-List-SelectedMultilineRow,
+TR.ms-crm-List-SelectedRow
+{
+	background-color:#A7CDF0;
+
+}
+
+TR.ms-crm-List-HoveredMultilineRow,
+TR.ms-crm-List-HoveredRow
+{
+	background-color:#CEE3F6;
+
+}
+
+span.ms-crm-View-Entity-Name
+{
+	color:#3B3B3B;
+
+}
+
+span.ms-crm-View-Name
+{
+	color:#000000;
+
+}
+span.ms-crm-View-Name-hover
+{
+	background-color:#FFFFFF;
+
+}
+
+td.home_camps_td_Label,
+td.home_cases_td_Label,
+td.home_minicamps_td_Label,
+td.home_reports_td_ViewSelector
+{
+	color:#000000;
+
+}
+
+TD.ms-crm-Form-LeftBar
+{
+	border-top-color:#A5ACB5;
+	border-left-color:#A5ACB5;
+	border-right-color:#A5ACB5;
+
+}
+
+div.linkhelp
+{
+	color:#3B3B3B;
+
+}
+
+A.ms-crm-Link:hover
+{
+
+}
+
+A.ms-crm-Link,
+A.ms-crm-Link:link,
+A.ms-crm-Link:visited,
+A.ms-crm-Link:active
+{
+	color:#3B3B3B;
+
+}
+
+td.ms-crm-Setting-ContextHeader-Title,
+.ms-crm-NavHeader-Title,
+.ms-crm-ContextHeader-Title
+{
+	color:#000000;
+	background-color:#EFF2F6;
+	border-bottom-color:#DBDEE1;
+
+}
+
+.content
+{
+	background-color:#FFFFFF;
+	border-color:#A5ACB5;
+
+}
+
+.navigationsubtitle
+{
+	color:#3B3B3B;
+	border-bottom-color:#C0C0C0;
+
+}
+
+DIV.RelatedInformationPane
+{
+	background-color:#E9EDF1;
+	border-color:#E9EDF1;
+
+}
+
+A.ms-crm-FormSelector,
+DIV.ms-crm-FormSelector
+{
+	color:#3B3B3B;
+
+}
+
+A.ms-crm-FormSelector,
+A.ms-crm-FormSelector:link,
+A.ms-crm-FormSelector:visited
+{
+	border-color:#AAB3BD;
+
+}
+
+A.ms-crm-FormSelector:hover
+{
+	background-color:#FFF6D7;
+	border-color:#F4AE13;
+
+}
+
+A.ms-crm-FormSelector-Opened,
+A.ms-crm-FormSelector-Opened:link,
+A.ms-crm-FormSelector-Opened:visited,
+A.ms-crm-FormSelector-Opened:hover
+{
+	background-color:#FFDC63;
+	border-color:#F4AE13;
+
+}
+
+NOBR.ms-crm-FormSelector-SubItem
+{
+	color:#1261E1;
+
+}
+
+A.ms-crm-FormSelector-SubItem-Selected,
+A.ms-crm-FormSelector-SubItem-Selected:link,
+A.ms-crm-FormSelector-SubItem-Selected:visited,
+A.ms-crm-FormSelector-SubItem-Selected:active
+{
+	background-color:#A7CDF0;
+	border-color:#A7CDF0;
+
+}
+
+A.ms-crm-FormSelector-SubItem-Hovered
+{
+	border-color:#61A6E4;
+	background-image:url(new_FormTabLinkGradient.png);
+
+}
+
+UL.ms-crm-Nav-LeftBar
+{
+	background-color:#E9EDF1;
+
+}
+
+A.recnav-up,
+A.recnav-down,
+A.recnav-dropdown
+{
+	border-color:#AAB3BD;
+
+}
+
+A.linktitle,
+A.linktitle:link,
+A.linktitle:visited,
+A.linktitle:active,
+A.linktitle:hover
+{
+	color:#000000;
+
+}
+/*
+diaolg.css
+*/
+
+
+
+BODY
+{
+overflow: hidden;
+behavior: url(../../_static/_common/styles/dialogs.htc);
+}
+
+INPUT
+{
+width:			100%;
+height:			19px;
+}
+
+INPUT.radio
+{
+width:			16px;
+border:			0px;
+cursor:			hand;
+}
+
+INPUT.checkbox
+{
+height:			12px;
+width:			16px;
+border:			0px;
+cursor:			hand;
+}
+
+LABEL
+{
+cursor:			hand;
+}
+
+DIV.ms-crm-Dialog-Main
+{
+height:			100%;
+vertical-align:	top;
+padding-left:	5px;
+padding-right:	5px;
+padding-bottom: 5px;
+padding-top:	5px;
+overflow:		auto;
+border-bottom-style: solid;
+border-bottom-width: 1px;
+}
+
+
+
+
+TD.ms-crm-Dialog-Main
+{
+height:			100%;
+vertical-align:	top;
+border-bottom-style: solid;
+border-bottom-width: 1px;
+padding:		15px;
+}
+
+div.ms-crm-DataField
+{
+background-color: #ffffff;
+height: 115px;
+width: 342px;
+border-width: 1px;
+border-style: solid;
+overflow-y: auto;
+overflow-x: auto;
+}
+
+TD.ms-crm-Dialog-Buttons
+{
+
+text-align:		right;
+
+padding:		10px;
+height:			32px;
+}
+
+TD.ms-crm-Dialog-Header
+{
+border-bottom-style: solid;
+border-bottom-width: 1px;
+height:			51px;
+vertical-align:	top;
+padding:		5px;
+}
+
+TD.ms-crm-Field-Normal
+{
+padding-top:	5px;
+overflow:		hidden;
+text-overflow:	ellipsis;
+
+}
+
+INPUT.radio.ms-crm-Dialog-ListItemSelect
+{
+position:absolute;
+z-index:-1;
+border:none;
+width:auto;
+hidefocus=true;
+}
+LI.ms-crm-Dialog-ListHeader
+{
+width: 100%
+border-bottom: 1px solid #aca899;
+}
+LI.ms-crm-Dialog-ListItem
+{
+cursor: hand;
+padding: 3px;
+
+padding-left:0.5em;
+
+margin: 2px;
+}
+
+UL.ms-crm-Dialog-List
+{
+margin:		0px;
+list-style:	none;
+}
+
+DIV.ms-crm-Dialog-List
+{
+height:				100%;
+overflow-y:			scroll;
+background-color:	#FFFFFF;
+border:				1px solid #949E9C;
+}
+DIV.ms-crm-Dialog-List-Layered
+{
+padding: 6px;
+}
+
+DIV.ms-crm-Dialog-ScrollableList
+{
+height:				100%;
+width:				100%;
+overflow:			auto;
+background-color:	#FFFFFF;
+border:				1px solid #949E9C;
+}
+
+DIV.ms-crm-Dialog-ScrollableArea
+{
+height:				100%;
+width:				100%;
+overflow:			auto;
+}
+
+TD.ms-crm-Dialog-Footer
+{
+height:			30px;
+padding:		10px;
+border-top-style: solid;
+border-top-width: 1px;
+}
+
+DIV.ms-crm-Dialog-Header-Desc
+{
+padding-top:	4px;
+
+padding-left:	5px;
+
+}
+
+DIV.ms-crm-Dialog-Desc
+{
+padding-top:	4px;
+
+padding-left:	6px;
+
+}
+
+DIV.ms-crm-Tab
+{
+padding:		10px;
+}
+
+
+ms-crm-Dialog-BackgroundEx
+{
+background-color:#E3EFFF;
+}
+
+LI.ms-crm-Dialog-ListItem-ImportMap
+{
+cursor: hand;
+padding: 3px;
+border-bottom: 1px solid #C4DDFF;
+height:22px;
+white-space:nowrap;
+overflow:hidden;
+text-overflow:ellipsis;
+max-height:20px;
+
+padding-left:0.5em;
+
+}
+
+TD.ms-crm-Dialog-Info-Icon
+{
+padding-left: 0px;
+padding-right: 2px;
+}
+
+TD.ms-crm-Dialog-Error-Icon
+{
+padding-left: 12px;
+padding-right: 12px;
+}
+
+TABLE.ms-crm-Dialog-Error
+{
+margin-top: 24px;
+}
+
+DIV.ms-crm-Dialog-Error-Main
+{
+height:			100%;
+vertical-align:	top;
+padding-bottom: 5px;
+overflow:		auto;
+}
+
+TD.ms-crm-Dialog-Error-Footer
+{
+height:			30px;
+padding-left:	8px;
+padding-right:	8px;
+padding-bottom: 8px;
+}
+
+A.ms-crm-Dialog-Error-Link
+{
+color:#3366CC;
+text-decoration: none;
+}
+
+A.ms-crm-Dialog-Error-Link:hover
+{
+color:#0000FF;
+text-decoration: underline;
+}
+
+/* appgrid.css*/
+table.ms-crm-ListControl
+{
+
+border-width: 1px;
+border-style: solid;
+height: 100%;
+width: 100%;
+table-layout: fixed;
+background-color:#FFFFFF;
+}
+table.ms-crm-PersonalSettingListControl
+{
+
+border-width: 1px;
+border-style: solid;
+height: 96%;
+width: 100%;
+table-layout: fixed;
+background-color:#FFFFFF;
+}
+table.ms-crm-ListControlEx
+{
+
+height: 100%;
+width: 100%;
+table-layout: fixed;
+background-color:#FFFFFF;
+}
+.ms-crm-List-Data
+{
+table-layout: fixed;
+width: 100%;
+
+}
+
+.ms-crm-ListArea
+{
+height: 100%;
+width: 100%;
+table-layout: fixed;
+background-color:#FFFFFF;
+}
+
+.ms-crm-List-DataBody
+{
+HEIGHT:100%;
+}
+
+.ms-crm-List-DataBodyEx
+{
+HEIGHT:auto;
+}
+
+.ms-crm-List-DataArea
+{
+OVERFLOW-X:auto;
+OVERFLOW-Y:auto;
+width:100%;
+height:100%;
+}
+
+.ms-crm-List-DataAreaEx
+{
+OVERFLOW-X:auto;
+width:100%;
+height:100%;
+}
+
+.ms-crm-List-RefreshButton
+{
+table-layout:		fixed;
+height:				20px;
+width:				16px;
+margin-bottom:		-20px;
+position:			relative;
+display:			none;
+}
+
+.ms-crm-List-Paging
+{
+
+text-align: right;
+
+}
+
+a.toolbarbutton,
+a.toolbarbutton:active img,
+a.toolbarbutton:hover img,
+a.toolbarbutton:link img,
+a.toolbarbutton:visited img
+{
+text-decoration: none;
+border: none;
+}
+
+td.ms-crm-List-Sortable
+{
+
+}
+
+img.ms-crm-List-Sortable
+{
+vertical-align: middle;
+visibility: hidden;
+
+}
+
+table.ms-crm-List-UnSortable,
+table.ms-crm-List-Sortable
+{
+height:100%;
+width:100%;
+table-layout: fixed;
+}
+table.ms-crm-List-Sortable
+{
+cursor:hand;
+}
+
+label.ms-crm-List-Sortable
+{
+text-overflow:ellipsis;
+overflow:hidden;
+white-space:nowrap;
+
+}
+
+.ms-crm-List-Header
+{
+width: 100%;
+height: 21px;
+table-layout: fixed;
+border-bottom-width:1px;
+border-bottom-style:solid;
+}
+
+.ms-crm-List-DataColumnHeader,
+.ms-crm-List-StatusBar-Label
+{
+
+padding-left: 8px;
+
+}
+
+tr.ms-crm-List-Title
+{
+
+padding-left: 8px;
+padding-right: 2px;
+
+}
+
+tr.ms-crm-list-TitleFilter
+{
+
+padding-left: 8px;
+
+}
+
+.ms-crm-list-Separator-line
+{
+height: 1px;
+}
+.ms-crm-List-MultilineRow,
+.ms-crm-List-Row
+{
+padding-top: 1px;
+margin-bottom: 1px;
+border-bottom: 1px solid #DBDEE1;
+}
+
+.ms-crm-List-Row
+{
+height: 21px;
+}
+
+.ms-crm-List-MultilineRow
+{
+vertical-align: top;
+}
+
+INPUT.ms-crm-RowCheckBox
+{
+margin-top: 1px;
+border: 0px;
+width: 16px;
+cursor: hand;
+}
+
+.ms-crm-List-DataCell
+{
+border-top: none;
+border-left: none;
+border-right: none;
+
+border-bottom: 1px solid #DBDEE1;
+}
+
+td.ms-crm-List-Disabled
+{
+border-bottom: 1px solid #dddddd;
+cursor:default;
+color: #999999;
+}
+
+.ms-crm-List-ResizeBar
+{
+cursor:		col-resize;
+
+}
+
+tr.ms-crm-List-StatusBar
+{
+height: 22px;
+}
+
+table.ms-crm-List-StatusBar
+{
+width: 100%;
+height: 22px;
+table-layout: fixed;
+border-top-width: 1px;
+border-top-style: solid;
+}
+
+.ms-crm-List-Index
+{
+width: 100%;
+cursor:	hand;
+text-align: center;
+table-layout: fixed;
+border-top-width: 1px;
+border-top-style: solid;
+height: 20px;
+padding-top:4px;
+
+}
+
+.ms-crm-List-Message
+{
+table-layout: fixed;
+padding:1;
+width:100%;
+height:100%;
+text-align:center;
+COLOR: #999999;
+
+}
+
+.ms-crm-List-MessageText
+{
+text-align:center;
+COLOR: #999999;
+}
+
+A.ms-crm-List-LoadOnDemand
+{
+cursor: hand;
+text-decoration: underline;
+color: #0000ff;
+text-align: center;
+}
+
+.ms-crm-List-PreviewLabel,
+TD.previewData
+{
+vertical-align:	top;
+overflow:		hidden;
+text-overflow:	ellipsis;
+
+}
+.ms-crm-List-Spacer
+{
+width: 2px;
+}
+
+TD.previewDataDatetime,
+TD.previewDataNum
+{
+vertical-align:	top;
+overflow:		hidden;
+text-overflow:	ellipsis;
+
+direction:		ltr;
+
+}
+
+SPAN.previewDirSpan
+{
+direction:		ltr;
+
+}
+
+.ms-crm-List-PreviewRow
+{
+padding:	5px;
+height:		auto;
+}
+
+.ms-crm-List-Preview
+{
+width: 100%;
+border-left: 1px solid #cccccc;
+border-right: 1px solid #cccccc;
+border-bottom: 1px solid #999999;
+filter: progid:DXImageTransform.Microsoft.Gradient(GradientType=0, StartColorStr=#ffffff, EndColorStr=#EAF1FF);
+}
+
+IMG.ms-crm-PreviewImage
+{
+cursor: hand;
+
+}
+
+.ms-crm-List-PreviewCell
+{
+cursor: default;
+padding-bottom: 2px;
+border-bottom: 1px solid #dddddd;
+
+padding: 0px 0px 2px 17px;
+
+}
+
+TR.ms-crm-List-HoveredMultilineRow,
+TR.ms-crm-List-SelectedMultilineRow,
+TR.ms-crm-List-HoveredRow,
+TR.ms-crm-List-SelectedRow
+{
+padding-top: 1px;
+margin-bottom: 1px;
+color: #000000;
+border-bottom: 1px solid #DBDEE1;
+}
+
+TR.ms-crm-List-HoveredRow,
+TR.ms-crm-List-SelectedRow
+{
+height: 21px;
+}
+
+TR.ms-crm-List-HoveredMultilineRow,
+TR.ms-crm-List-SelectedMultilineRow
+{
+vertical-align: top;
+}
+
+NOBR.ms-crm-List-RowLine
+{
+width: 100%;
+overflow: hidden;
+text-overflow: ellipsis;
+height: 18px;
+}
+
+TR.ms-crm-List-SelectedRow A.ms-crm-List-LinkUnderlined,
+TR.ms-crm-List-HoveredRow A.ms-crm-List-LinkUnderlined,
+TR.ms-crm-List-HoveredMultilineRow A.ms-crm-List-LinkUnderlined,
+TR.ms-crm-List-SelectedMultilineRow A.ms-crm-List-LinkUnderlined
+TR.ms-crm-List-SelectedRow SPAN.gridLui,
+TR.ms-crm-List-HoveredRow SPAN.gridLui,
+TR.ms-crm-List-HoveredMultilineRow SPAN.gridLui,
+TR.ms-crm-List-SelectedMultilineRow SPAN.gridLui
+{
+text-decoration:	underline;
+cursor:				hand;
+}
+
+IMG.ms-crm-Lookup-Item
+{
+height:				16px;
+width:				16px;
+vertical-align:		top;
+
+margin-left:		2px;
+margin-right:		5px;
+
+}
+
+IMG.ms-crm-Lookup-PresenceItem
+{
+height:				12px;
+width:				12px;
+margin-top:			2px;
+vertical-align:		top;
+
+margin-left:		2px;
+margin-right:		5px;
+
+}
+
+col.ms-crm-List-NonDataColumnHeader
+{
+
+padding-left:0px;
+
+}
+
+nobr.num,
+nobr.datetime
+{
+direction: ltr;
+}

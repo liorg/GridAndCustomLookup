@@ -1,0 +1,222 @@
+﻿<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; CHARSET=utf-8">
+    <title>Look Up Record Form</title>
+
+    <link href="new_mvslookup.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <div style="width: 100%; height: 100%; overflow: auto ;direction:rtl">
+        <table style="width: 100%; height: 100%;" cellspacing="0" cellpadding="0">
+           
+            <tr>
+                <td colspan="2" style="height: 100%;">
+                    <div class="ms-crm-Dialog-Main">
+                        <div id="divWarning" style="height: 99%;">
+                            <table cellspacing="0" cellpadding="0" width="100%" height="100%">
+                                <tr>
+                                    <td>
+                                        <table height="100%" width="100%" id="tblFind" cellpadding="0" cellspacing="0">
+                                            <tr>
+                                                <td colspan="3" style="padding-top: 5px">
+                                                    <table cellspacing="0" cellpadding="0" id="crmGrid" class="ms-crm-ListControl">
+                                                        <tr>
+                                                            <td>
+                                                                <div style="height: 99.9%;">
+                                                                    <table cellspacing="0" cellpadding="0" class="ms-crm-ListArea">
+                                                                        <tr>
+                                                                            <td>
+                                                                                <div id="fixedrow" style="width: 100%; overflow-x: hidden;">
+                                                                                    <table cellspacing="0" cellpadding="0" id="crmGrid_gridBar" class="ms-crm-List-Header"
+                                                                                        summary="From each column header, you can sort and filter the records in that column."
+                                                                                        role="grid">
+                                                                                        <colgroup id="crmGrid_gridBarCols">
+                                                                                            <col width="32" class="ms-crm-List-NonDataColumnHeader">
+                                                                                            <col width="2">
+                                                                                            <col class="ms-crm-List-DataColumnHeader" width="300">
+                                                                                            <col width="2">
+                                                                                         
+                                                                                           
+                                                                                            <col width="0" style="display: none;">
+                                                                                            <col>
+                                                                                        </colgroup>
+                                                                                        <tr height="20">
+                                                                                            <td>
+                                                                                                &nbsp;
+                                                                                            </td>
+                                                                                            <td>
+                                                                                                <img id="bar_line" src="new_transparent_spacer.gif" class="ms-crm-ImageStrip-bar_line"
+                                                                                                    alt="">
+                                                                                            </td>
+                                                                                            <th field="title" fieldname="fullname" entityname="systemuser" renderertype="Crm.PrimaryField"
+                                                                                                class="ms-crm-List-Sortable" displaylabel="Full Name">
+                                                                                                <table cellpadding="0px" cellspacing="0px" class="ms-crm-List-Sortable">
+                                                                                                    <tr>
+                                                                                                        <td class="ms-crm-List-Sortable">
+                                                                                                            <a href="#" target="_self" style="cursor: hand" title="Sort by Full Name" tabindex="6">
+                                                                                                                <nobr>
+                                                                                                                <label class = "ms-crm-List-Sortable" >שם</label><img src="new_transparent_spacer.gif" class="ms-crm-List-Sortable ms-crm-ImageStrip-bar_up" alt=""></nobr>
+                                                                                                            </a>
+                                                                                                        </td>
+                                                                                                    </tr>
+                                                                                                </table>
+                                                                                            </th>
+                                                                                            <td>
+                                                                                                <img alt="" crmgrid="crmGrid" class="ms-crm-List-ResizeBar ms-crm-ImageStrip-resize"
+                                                                                                    src="new_transparent_spacer.gif">
+                                                                                            </td>
+                                                                                        
+                                                                                            <td>
+                                                                                            </td>
+                                                                                        </tr>
+                                                                                    </table>
+                                                                                </div>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr height="100%" valign="top">
+                                                                            <td>
+                                                                                <div id="crmGrid_divDataBody" class="ms-crm-List-DataBody">
+                                                                                    <table cellspacing="0" cellpadding="0" class="ms-crm-ListArea">
+                                                                                        <tr>
+                                                                                            <td id="tdDataArea" valign="top">
+                                                                                                <div id="crmGrid_divDataArea" expandable="0" class="ms-crm-List-DataArea">
+                                                                                                    <div>
+                                                                                                        <table class="ms-crm-List-Data" cellspacing="0" cellpadding="1" rules="rows"
+                                                                                                           summary="The list contains 3 records of the type User."
+                                                                                                            border="1" id="gridBodyTable" style="border-style: None; border-collapse: collapse;">
+                                                                                                            <col width="18" class="ms-crm-List-CheckBoxColumn">
+                                                                                                            <col width="16" class="ms-crm-List-RowIconColumn">
+                                                                                                            <col width="300" name="title" class="ms-crm-List-DataColumn">
+                                                                                                 
+                                                                                                             <col>
+                                                                                                            <col style="display: none" name="address1_fax">
+                                                                                                            
+                                                                                                            <thead>
+                                                                                                                <tr class="ms-crm-Hidden-List">
+                                                                                                                    <th class="ms-crm-Hidden-List">
+                                                                                                                        <th class="ms-crm-Hidden-List">
+                                                                                                                            <th class="ms-crm-Hidden-List">
+                                                                                                                               שם
+                                                                                                                            </th>
+                                                                                                                          
+                                                                                                                         
+                                                                                                                </tr>
+                                                                                                            </thead>
+                                                                                                            <tbody>
+                                                                                                                <tr class="ms-crm-List-Row" >
+                                                                                                                    <td class="ms-crm-List-DataCell" align="center">
+                                                                                                                        <input type="checkbox" class="ms-crm-RowCheckBox" 
+                                                                                                                        id="checkBox_&#123;3CC4280A-C9DB-DF11-8BFC-0800278260AF&#125;"
+                                                                                                                            tabindex="6" title="The record is not selected." 
+                                                                                                                           >
+                                                                                                                    </td>
+                                                                                                                    <td class="ms-crm-List-DataCell" align="center">
+                                                                                                                        <img src="new_icolu.gif" alt="" />
+                                                                                                              
+                                                                                                                    </td>
+                                                                                                                    <td class="ms-crm-List-DataCell">
+                                                                                                                        <nobr>ליאור גרוסמן</nobr>
+                                                                                                                    </td>
+                                                                                                                    <td class="ms-crm-List-DataCell">
+                                                                                                                        &nbsp;
+                                                                                                                    </td>
+                                                                                                                </tr>
+                                                                                                                 <tr class="ms-crm-List-Row" >
+                                                                                                                    <td class="ms-crm-List-DataCell" align="center">
+                                                                                                                        <input type="checkbox" class="ms-crm-RowCheckBox" 
+                                                                                                                        id="checkBox1"
+                                                                                                                            tabindex="6" title="The record is not selected." 
+                                                                                                                           >
+                                                                                                                    </td>
+                                                                                                                    <td class="ms-crm-List-DataCell" align="center">
+                                                                                                                        <img src="new_icolu.gif" alt="" />
+                                                                                                              
+                                                                                                                    </td>
+                                                                                                                    <td class="ms-crm-List-DataCell">
+                                                                                                                        <nobr>ליאור גרוסמן</nobr>
+                                                                                                                    </td>
+                                                                                                                    <td class="ms-crm-List-DataCell">
+                                                                                                                        &nbsp;
+                                                                                                                    </td>
+                                                                                                                </tr>
+                                                                                                            </tbody>
+                                                                                                        </table>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </td>
+                                                                                        </tr>
+                                                                                    </table>
+                                                                                </div>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr class="ms-crm-List-StatusBar">
+                                                                            <td>
+                                                                                <table cellspacing="0" cellpadding="0" id="gridStatusBar" class="ms-crm-List-StatusBar">
+                                                                                    <tr>
+                                                                                        <!--<td nowrap class="ms-crm-List-StatusBar-Label" id="crmGrid_RecordSelectInfo">
+                                                                                            <span id="crmGrid_FirstItem">0</span> - <span id="crmGrid_LastItem">0</span><span
+                                                                                                id="crmGrid_TotalCountInfo">&nbsp;of <span id="crmGrid_ItemsTotal">0</span></span><span
+                                                                                                    id="crmGrid_ItemsSelectedInfo">&nbsp;(<span id="crmGrid_ItemsSelected">0</span>
+                                                                                                    selected)</span><span id="crmGrid_RecordSelectEndMarker" style="visibility: hidden;">M</span>
+                                                                                        </td>-->
+                                                                                        <td nowrap id="crmGrid_PageInfo" class="ms-crm-List-Paging">
+                                                                                            <!--Insert Paging Code-->
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                </table>
+                                                                            </td>
+                                                                        </tr>
+                                                                    </table>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                           <!-- <tr style="padding-top: 10px;" height="40">
+                                                <td nowrap colspan="3">
+                                                    <button id="btnProperties" class="ms-crm-Button" onmouseover="Mscrm.ButtonUtils.hoverOn(this);"
+                                                        onmouseout="Mscrm.ButtonUtils.hoverOff(this);" tabindex="10" title="View the selected record&#39;s properties"
+                                                        diabled>
+                                                        Properties</button><span style="width: 5px;"></span>
+                                                    <button id="btnNew" class="ms-crm-Button" onmouseover="Mscrm.ButtonUtils.hoverOn(this);"
+                                                        onmouseout="Mscrm.ButtonUtils.hoverOff(this);" tabindex="11" title="Create a new record">
+                                                        New</button>
+                                                </td>
+                                            </tr>-->
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div id='divFillBg' style='display: none; position: absolute; top: 80px; left: 20px;
+                        height: 23px; width: 355px; background-color: #ffffff;'>
+                        &nbsp;
+                    </div>
+                    <div id='divFill' style='display: none; position: absolute; top: 80px; left: 20px;
+                        height: 23px; width: 0px; filter: progid:DXImageTransform.Microsoft.Gradient(GradientType=0, StartColorStr=#00ff00, EndColorStr=#00cc00);'>
+                        &nbsp;
+                    </div>
+                    <div id='divStatus' style='display: none; position: absolute; top: 80px; left: 19px;
+                        height: 23px; width: 357px;'>
+                        <img alt='' src='new_statusbar.gif' height='23' width='357'>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="ms-crm-Dialog-Footer ms-crm-Dialog-Footer-Left">
+                    &nbsp;
+                </td>
+                <td class="ms-crm-Dialog-Footer ms-crm-Dialog-Footer-Right">
+                    <button id="butBegin" class="ms-crm-Button" >
+                        אישור</button>&nbsp;
+                    <button id="cmdDialogCancel" class="ms-crm-Button" >
+                        ביטול</button>&nbsp;
+                    
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

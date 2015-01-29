@@ -1,0 +1,95 @@
+﻿
+body
+{
+    font-family: Tahoma, Arial;
+    font-size: 11px;
+}
+DIV.ms-crm-Lookup
+{
+    border-bottom: #e2e3ea 1px solid;
+    border-left: #e2e3ea 1px solid;
+    overflow-y: auto;
+    width: 100%;
+    word-wrap: break-word;
+    background: window;
+    height: 18px;
+    border-top: #abadb3 1px solid;
+    border-right: #e2e3ea 1px solid;
+    padding-top: 2px;
+}
+
+/* start jquery-ui-1.8.4.custom.css */
+.ui-icon-arrowthick-1-s { background-position: -64px -48px; }
+.ui-icon-arrowthick-1-n { background-position: 0 -48px; }
+.ui-icon { width: 16px; height: 16px; background-image: url(ui-icons_222222_256x240.png); }
+
+
+/* states and images */
+.ui-icon { display: block; text-indent: -99999px; overflow: hidden; background-repeat: no-repeat; }
+/* end jquery-ui-1.8.4.custom.css */
+
+.cnt
+{
+ top:0px;left:0px;position:absolute;white-space:nowrap;
+    padding:0px;margin:0px;top:0px; display:inline-block;*display:inline;zoom:0;outline:none;vertical-align: top;
+overflow: hidden; display: inline-block; cursor: default;
+
+}
+
+
+/** Minimal stand-alone css for dropdownchecklist support
+    We highly recommend using JQuery ThemeRoller instead  
+*/
+
+/* start ui.dropdownchecklist.standalone.css */
+
+.ui-dropdownchecklist {
+	font-size: medium;
+	color: black;
+}
+.ui-dropdownchecklist-selector {
+	height: 20px;
+	border: 1px solid #ddd;
+	background: #fff;
+}
+.ui-state-hover, .ui-state-active {
+	border-color: #5794bf;
+}
+.ui-dropdownchecklist-dropcontainer {
+	background-color: #fff;
+	border: 1px solid #999;
+}
+.ui-dropdownchecklist-item {
+}
+.ui-state-hover {
+	background-color: #39f;
+}
+.ui-state-disabled label {
+	color: #ccc;
+}
+.ui-dropdownchecklist-group {
+	font-weight: bold;
+	font-style: italic;
+}
+.ui-dropdownchecklist-indent {
+	padding-left: 7px;
+}
+/* Font size of 0 on the -selector and an explicit medium on -text required to eliminate 
+   descender problems within the containers and still have a valid size for the text */
+.ui-dropdownchecklist-selector-wrapper {
+	vertical-align: middle;
+	font-size: 0px;
+}
+.ui-dropdownchecklist-selector {
+	padding: 1px 2px 2px 2px;
+	font-size: 0px;
+}
+.ui-dropdownchecklist-text {
+	font-size: medium;
+	/* line-height: 20px; */
+}
+.ui-dropdownchecklist-group {
+	padding: 1px 2px 2px 2px;
+}
+/* end ui.dropdownchecklist.standalone.css */
+
