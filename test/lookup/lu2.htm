@@ -302,7 +302,7 @@
         </style>
     </head>
     <body style="background-color:rgb(246, 248, 250);" > 
-    <table  class="ms-crm-FormSection"  cellspacing="0" cellpadding="0" >
+    <table  class="ms-crm-FormSection" ellspacing="0" id="d"  cellpadding="0" >
                                                                              
 
                                                                                         <tbody>
@@ -340,15 +340,82 @@
                                                                                 </table>
         <script src="new_jquery_1.11.1" type="text/javascript"></script>
         <script>
-            function setIframeHeight() {
-                debugger;
-                var element = $(window);
-                if (window.parent != null) {
-                    window.parent.document.getElementById('IFRAME_lu1').parentNode.height = element.height();
-                    //window.parent.parent.frames[0].document.getElementById('IFRAME_lu1').parentNode.height = element.offset().top + element.height();
+//           document.onreadystatechange = function () {
+//        if (document.readyState == "complete") {
+//            getDataParam();
+//            setIframeHeight();
+//        }
+//    }
+    var elementId;
+    var iframeid;
+    var recid;
+    var configid;
+    function getDataParam() {
+        //Get the any query string parameters and load them
+        //into the vals array
+
+        var vals = new Array();
+        if (location.search != "") {
+            vals = location.search.substr(1).split("&");
+            for (var i in vals) {
+                vals[i] = vals[i].replace(/\+/g, " ").split("=");
+
+            }
+            //look for the parameter named 'data'
+            var found = false;
+            for (var i in vals) {
+                if (vals[i][0].toLowerCase() == "data") {
+                    parseDataValue(vals[i][1]);
+                    found = true;
+                    break;
                 }
             }
-            setIframeHeight();
+            if (!found) {
+                //noParams();
+            }
+        }
+        else {
+            //noParams();
+        }
+
+    }
+    function parseDataValue(datavalue) {
+        if (datavalue != "") {
+            var vals = new Array();
+            vals = decodeURIComponent(datavalue).split("&");
+            for (var i in vals) {
+                vals[i] = vals[i].replace(/\+/g, " ").split("=");
+                // alert(vals[i][0] + "=" + vals[i][1]);
+                if (vals[i][0] == 'id') {
+                    elementId = vals[i][1];
+                }
+                if (vals[i][0] == 'iframeid') {
+                    iframeid = vals[i][1];
+                }
+                if (vals[i][0] == 'configid') {
+                    configid = vals[i][1];
+                }
+
+            }
+        }
+    }
+            //?Data=IFRAME_lu1%3Dfrm2%26id%3Dpl2%26recid%3DSecond%20Value%26configid%3DThird%20Value
+            function setIframeHeight() {
+               // debugger;
+                var element = $("#d");
+                alert(iframeid);
+                if (window.parent != null) {
+                   // alert(element.height());
+                   // debugger;
+                    if (window.parent.document.getElementById(iframeid) != null) {
+                        window.parent.document.getElementById(iframeid).parentNode.style.height = element.height();  //"5px"; //element.height() / 2;
+                        //window.parent.parent.frames[0].document.getElementById('IFRAME_lu1').parentNode.height = element.offset().top + element.height();
+                    alert('change!!')
+                    }
+                }
+            }
+             getDataParam();
+             setIframeHeight();
         </script>                                                                   
     </html>
 
