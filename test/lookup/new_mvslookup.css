@@ -4662,7 +4662,8 @@ overflow:			auto;
 TD.ms-crm-Dialog-Footer
 {
 height:			30px;
-padding:		10px;
+
+padding:10px,10px,30px,10px;
 border-top-style: solid;
 border-top-width: 1px;
 }
