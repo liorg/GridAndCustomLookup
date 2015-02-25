@@ -3,5 +3,6 @@
 [
 {"name":"x1","details": {"method": "GetSelHealth","field": "new_salehealthitems" ,"listnersFields":[ {"name":"new_manufacture","type":"lu"} ]} },
 {"name":"x5","details": {"method": "GetSaleCare","field": "new_salecareitems","listnersFields":[ {"name":"new_manufacture","type":"lu"} ]}},
+{"name":"x7","details": {"method": "GetSaleAdditional","field": "new_sale_additionalitems","listnersFields":[ {"name":"new_manufacture","type":"lu"} ]}},
 ]
 }

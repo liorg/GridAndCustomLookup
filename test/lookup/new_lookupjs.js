@@ -7,6 +7,7 @@ var iHeight = '550';
 var bCenter = true;
 var bResize = true;
 var iWidth = '600';
+var dirtyData = [];
 $(function () {
     var crmItems = [];
     var params = parseQueryString();
@@ -14,33 +15,22 @@ $(function () {
         id = params["id"];
     if (params["data"] != null)
         dataType = getDataType(params["data"]);
-    //    $.ajax({ url: "new_configlu" }).done(function (data) {
-    //        data = eval("(" + data + ")");
-    //       //$.getJSON("new_configlu.xml" ,function (data) {
-    //        
     callConfig(function (data) {
         var finditem = jQuery.grep(data.items, function (obj) {
             return obj != null && obj.name === dataType;
         });
         url = getUrl(data.port, data.url);
         details = finditem[0].details;
-        loadData(url, details, id, function (xhr) {
-            errorHandler(xhr);
-            var xml = xhr.responseXML;
-            crmItems = xmlToJsonArray(xml);
-//            var isErrorNode = xml.selectSingleNode("//IsError");
-//            if (isErrorNode == null || isErrorNode.text == "true") {
-//                throw "error geting data webservice";
-//            }
-//            $(xml).find('Items').find('RecItem').each(function () {
-//                var id = $(this).find('Id').text();
-//                var isSelected = $(this).find('IsSelected').text() == "true" ? true : false;
-//                var name = $(this).find('Name').text();
-//                crmItems.push({ Id: id, isSelected: isSelected, Name: name });
-//            });
-            vm = new AppViewModel(crmItems);
-            ko.applyBindings(vm);
-            vm.descf();
+        loadData(url, details, id, true, function (xhr, isAjax) {
+            if (isAjax) {
+                errorHandler(xhr);
+                var xml = xhr.responseXML;
+                crmItems = xmlToJsonArray(xml);
+                vm = new AppViewModel(crmItems);
+                ko.applyBindings(vm);
+                vm.descf();
+                loadFilteredDirty(details);
+            }
         }
         );
     });
@@ -67,14 +57,15 @@ function AppViewModel(items) {
     var self = this;
     self.crmItems = ko.observableArray(items);
     self.opwenui = function () {
-        loadData(url, details, id, function (xhr) {
-            var crmItems = [];
-            errorHandler(xhr);
-            var xml = xhr.responseXML;
-             crmItems=xmlToJsonArray(xml);
-            vm.crmItems(crmItems);
-            vm.descf();
-
+        loadData(url, details, id, false, function (xhr, isAjax) {
+            if (isAjax) {
+                var crmItems = [];
+                errorHandler(xhr);
+                var xml = xhr.responseXML;
+                crmItems = xmlToJsonArray(xml);
+                vm.crmItems(crmItems);
+                vm.descf();
+            }
             var sFeatures = "dialogHeight: " + iHeight + "px; dialogWidth: " + iWidth + "px; ; center: " + bCenter + ";resizable: " + bResize + ";"; // status: " + bStatus + ";";
             window.showModalDialog("new_dialoguipl.htm", vm, sFeatures);
         })
@@ -92,12 +83,48 @@ function AppViewModel(items) {
         self.desc(temp);
         setParentXrm(details.field, tempId);
     };
-    self.reset = function () {
+    self.reset = function (oldData) {
+        self.crmItems(oldData);
+        self.descf();
     };
 }
+function checkDirtyFiltered(data) {
+    //debugger;
+    if (dirtyData == null)
+        loadFilteredDirty(data);
 
-function loadData(url, data, id, callback) {
+    if (dirtyData != null && dirtyData.length > 0 && data.listnersFields != null && data.listnersFields.length > 0) {
+        for (i = 0; i < data.listnersFields.length; i++) {
+            var finditem = jQuery.grep(dirtyData, function (obj) {
+                return obj != null && obj.name === data.listnersFields[i].name;
+            });
+            var value = getParentXrm(data.listnersFields[i].name, data.listnersFields[i].type);
+            if (finditem != null && finditem[0] != null && finditem[0].val != value) {
+                finditem[0].val = value;
+                return true;
+            }
+        }
+    }
+    return false;
+}
+
+function loadFilteredDirty(data) {
+    //debugger;
+    if (data.listnersFields != null && data.listnersFields.length > 0) {
+        for (i = 0; i < data.listnersFields.length; i++) {
+            var v = getParentXrm(data.listnersFields[i].name, data.listnersFields[i].type);
+            dirtyData.push({ "name": data.listnersFields[i].name, "val": v });
+        }
+    }
+}
+function loadData(url, data, id, isLoad, callback) {
+    //debugger;
     var xmlhttp = new XMLHttpRequest();
+    if (!isLoad && !checkDirtyFiltered(data)) {
+        callback(xmlhttp, false);
+        return;
+    }
+
     xmlhttp.open('POST', url, false);
     var filterFields = "";
     // build SOAP request
@@ -106,9 +133,7 @@ function loadData(url, data, id, callback) {
     if (data.listnersFields != null && data.listnersFields.length > 0) {
         for (i = 0; i < data.listnersFields.length; i++) {
             filterFields = filterFields + "<ParamKeyValuePair>";
-            // alert(data.listnersFields[i].name);
             var value = getParentXrm(data.listnersFields[i].name, data.listnersFields[i].type);
-            // alert(value);
             filterFields = filterFields + "<Key>" + data.listnersFields[i].name + "</Key>";
             filterFields = filterFields + "<Value>" + value + "</Value>";
             filterFields = filterFields + "<TypeObj>" + data.listnersFields[i].type + "</TypeObj>";
@@ -131,7 +156,7 @@ function loadData(url, data, id, callback) {
     xmlhttp.onreadystatechange = function () {
         if (xmlhttp.readyState == 4) {
             if (xmlhttp.status == 200)
-                callback(xmlhttp);
+                callback(xmlhttp, true);
         }
     }
     // Send the POST request

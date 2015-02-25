@@ -1,6 +1,6 @@
 ﻿function setParentXrm(k, s) {
     if (window.parent != null) {
-        debugger;
+        //debugger;
         if (!isCrm) {
             window.parent.document.getElementById(k).value = s;  // for moqing 
         }
@@ -11,9 +11,9 @@
 }
 
 function getParentXrm(k, t) {
-    debugger
+    //debugger
     if (window.parent != null) {
-        debugger;
+        //debugger;
         if (!isCrm) {
             if (window.parent.document.getElementById(k) != null)
                 return window.parent.document.getElementById(k).value;  // for moqing 
@@ -33,7 +33,6 @@ function callConfig(callback) {
     else
         callConfigAjax(callback);
 }
-
 // for crm
 function callConfigJson(callback) {
     $.getJSON(configUri, function (data) {
@@ -46,8 +45,4 @@ function callConfigAjax(callback) {
         data = eval("(" + data + ")");
         callback(data);
     });
-
-
-
 }
-
