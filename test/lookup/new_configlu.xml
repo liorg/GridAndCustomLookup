@@ -1,11 +1,7 @@
 ﻿{
 "url":"MVLookupService.asmx","port":"8080","items":
 [
-{"name":"x1","details": {"method": "GetSelHealth","field": "new_salehealthitems"} },
-{"name":"x2","details": {"method": "GetSalePersonalAccident","field": "new_salepersonalaccidentitems"}},
-{"name":"x3","details": {"method": "GetSaleCriticalIlless","field": "new_salecriticalillessitems"}},
-{"name":"x4","details": {"method": "GetSaleRisk","field": "new_saleriskitems"}},
-{"name":"x5","details": {"method": "GetSaleCare","field": "new_salecareitems"}},
-{"name":"x6","details": {"method": "GetSaleElementary","field": "new_saleelementaryitems"}},
+{"name":"x1","details": {"method": "GetSelHealth","field": "new_salehealthitems" ,"listnersFields":[ {"name":"new_manufacture","type":"lu"} ]} },
+{"name":"x5","details": {"method": "GetSaleCare","field": "new_salecareitems","listnersFields":[ {"name":"new_manufacture","type":"lu"} ]}},
 ]
 }

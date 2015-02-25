@@ -12,7 +12,8 @@ using LU;
 [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
 // To allow this Web Service to be called from script, using ASP.NET AJAX, uncomment the following line. 
 // [System.Web.Script.Services.ScriptService]
-public class MVLookupService : System.Web.Services.WebService {
+public class MVLookupService : System.Web.Services.WebService
+{
 
     public MVLookupService()
     {
@@ -21,14 +22,28 @@ public class MVLookupService : System.Web.Services.WebService {
     }
 
     [WebMethod]
-    public string HelloWorld(string s) {
+    public string HelloWorld(string s)
+    {
         return "Hello World " + s;
     }
 
     [WebMethod]
     public LUResponse GetSelHealth(LURequest r)
-    { 
-        List<RecItem> items=new List<RecItem>();
+    {
+        List<RecItem> items = new List<RecItem>();
+
+        if (r.Params != null)
+        {
+            var dat = (from p in r.Params where p.Key == "new_manufacture" select p.Value).FirstOrDefault();
+            if (dat != null)
+            {
+                if (dat == "1")
+                    items.Add(new RecItem { Id = Guid.NewGuid(), Name = "בריאות 1 שינוי 11111", IsSelected = true });
+                if (dat == "2")
+                    items.Add(new RecItem { Id = Guid.NewGuid(), Name = "בריאות 22222 שינוי 2222", IsSelected = true });
+            }
+
+        }
         items.Add(new RecItem { Id = Guid.NewGuid(), Name = "בריאות 1", IsSelected = true });
         items.Add(new RecItem { Id = Guid.NewGuid(), Name = "בריאות 2", IsSelected = false });
         items.Add(new RecItem { Id = Guid.NewGuid(), Name = "בריאות 3", IsSelected = true });
@@ -85,7 +100,7 @@ public class MVLookupService : System.Web.Services.WebService {
             Items = items
         };
     }
-   
+
     [WebMethod]
     public LUResponse GetSaleElementary(LURequest r)
     {
@@ -97,4 +112,15 @@ public class MVLookupService : System.Web.Services.WebService {
         };
     }
 
+
+    //[WebMethod]
+    //public LUResponse g(LURequest1 r)
+    //{
+    //    List<RecItem> items = new List<RecItem>();
+    //    items.Add(new RecItem { Id = Guid.NewGuid(), Name = "אלמנטרי 1", IsSelected = true });
+    //    return new LUResponse
+    //    {
+    //        Items = items
+    //    };
+    //}
 }
