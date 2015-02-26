@@ -9,7 +9,6 @@
         }
     }
 }
-
 function getParentXrm(k, t) {
     //debugger
     if (window.parent != null) {
@@ -28,21 +27,16 @@ function getParentXrm(k, t) {
     }
 }
 function callConfig(callback) {
-    if (isCrm)
-        callConfigJson(callback);
-    else
-        callConfigAjax(callback);
-}
-// for crm
-function callConfigJson(callback) {
-    $.getJSON(configUri, function (data) {
-        callback(data);
-    });
-}
-// for mock
-function callConfigAjax(callback) {
-    $.ajax({ url: configUri }).done(function (data) {
-        data = eval("(" + data + ")");
-        callback(data);
-    });
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.open('GET', configUri, false);
+    xmlhttp.onreadystatechange = function () {
+        if (xmlhttp.readyState == 4) {
+            if (xmlhttp.status == 200) {
+               // var data = JSON.parse(xmlhttp.responseText);
+                data = eval("(" + xmlhttp.responseText + ")");
+                 callback(data);
+            }
+        }
+    }
+    xmlhttp.send();
 }

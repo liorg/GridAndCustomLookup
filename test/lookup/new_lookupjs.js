@@ -8,6 +8,7 @@ var bCenter = true;
 var bResize = true;
 var iWidth = '600';
 var dirtyData = [];
+
 $(function () {
     var crmItems = [];
     var params = parseQueryString();
