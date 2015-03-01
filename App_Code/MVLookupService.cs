@@ -38,15 +38,15 @@ public class MVLookupService : System.Web.Services.WebService
             if (dat != null)
             {
                 if (dat == "1")
-                    items.Add(new RecItem { Id = Guid.NewGuid(), Name = "בריאות 1 שינוי 11111", IsSelected = true });
+                    items.Add(new RecItem { Id = Guid.Parse("78c2b02e-7f2d-472a-8a1b-25c4be2d5d3f"), Name = "בריאות 1 שינוי 11111", IsSelected = true });
                 if (dat == "2")
-                    items.Add(new RecItem { Id = Guid.NewGuid(), Name = "בריאות 22222 שינוי 2222", IsSelected = true });
+                    items.Add(new RecItem { Id = Guid.Parse("88c2b02e-7f2d-472a-8a1b-25c4be2d5d3f"), Name = "בריאות 22222 שינוי 2222", IsSelected = true });
             }
 
         }
-        items.Add(new RecItem { Id = Guid.NewGuid(), Name = "בריאות 1", IsSelected = true });
-        items.Add(new RecItem { Id = Guid.NewGuid(), Name = "בריאות 2", IsSelected = false });
-        items.Add(new RecItem { Id = Guid.NewGuid(), Name = "בריאות 3", IsSelected = true });
+        items.Add(new RecItem { Id = Guid.Parse("98c2b02e-7f2d-472a-8a1b-25c4be2d5d3f"), Name = "בריאות 1", IsSelected = true });
+        items.Add(new RecItem { Id = Guid.Parse("68c2b02e-7f2d-472a-8a1b-25c4be2d5d3f"), Name = "בריאות 2", IsSelected = false });
+        items.Add(new RecItem { Id = Guid.Parse("58c2b02e-7f2d-472a-8a1b-25c4be2d5d3f"), Name = "בריאות 3", IsSelected = true });
 
 
         return new LUResponse
@@ -59,9 +59,9 @@ public class MVLookupService : System.Web.Services.WebService
     public LUResponse GetSalePersonalAccident(LURequest r)
     {
         List<RecItem> items = new List<RecItem>();
-        items.Add(new RecItem { Id = Guid.NewGuid(), Name = "תאונות 1", IsSelected = true });
-        items.Add(new RecItem { Id = Guid.NewGuid(), Name = "תאונות 2", IsSelected = false });
-        items.Add(new RecItem { Id = Guid.NewGuid(), Name = "תאונות 3", IsSelected = true });
+        items.Add(new RecItem { Id = Guid.Parse("24858f86-46f8-4c92-a221-d43d933474f4"), Name = "תאונות 1", IsSelected = true });
+        items.Add(new RecItem { Id = Guid.Parse("34858f86-46f8-4c92-a221-d43d933474f4"), Name = "תאונות 2", IsSelected = false });
+        items.Add(new RecItem { Id = Guid.Parse("44858f86-46f8-4c92-a221-d43d933474f4"), Name = "תאונות 3", IsSelected = true });
         return new LUResponse
         {
             Items = items

@@ -8,7 +8,7 @@ var bCenter = true;
 var bResize = true;
 var iWidth = '600';
 var dirtyData = [];
-
+var crmSelectedByPrimary;
 $(function () {
     var crmItems = [];
     var params = parseQueryString();
@@ -23,10 +23,11 @@ $(function () {
         url = getUrl(data.port, data.url);
         details = finditem[0].details;
         loadData(url, details, id, true, function (xhr, isAjax) {
+            //debugger;
             if (isAjax) {
                 errorHandler(xhr);
                 var xml = xhr.responseXML;
-                crmItems = xmlToJsonArray(xml);
+                crmItems = xmlToJsonArray(xml, true);
                 vm = new AppViewModel(crmItems);
                 ko.applyBindings(vm);
                 vm.descf();
@@ -59,11 +60,12 @@ function AppViewModel(items) {
     self.crmItems = ko.observableArray(items);
     self.opwenui = function () {
         loadData(url, details, id, false, function (xhr, isAjax) {
+            //debugger;
             if (isAjax) {
                 var crmItems = [];
                 errorHandler(xhr);
                 var xml = xhr.responseXML;
-                crmItems = xmlToJsonArray(xml);
+                crmItems = xmlToJsonArray(xml, false);
                 vm.crmItems(crmItems);
                 vm.descf();
             }
@@ -90,7 +92,7 @@ function AppViewModel(items) {
     };
 }
 function checkDirtyFiltered(data) {
-    //debugger;
+    ////debugger;
     if (dirtyData == null)
         loadFilteredDirty(data);
 
@@ -108,9 +110,8 @@ function checkDirtyFiltered(data) {
     }
     return false;
 }
-
 function loadFilteredDirty(data) {
-    //debugger;
+    ////debugger;
     if (data.listnersFields != null && data.listnersFields.length > 0) {
         for (i = 0; i < data.listnersFields.length; i++) {
             var v = getParentXrm(data.listnersFields[i].name, data.listnersFields[i].type);
@@ -119,13 +120,12 @@ function loadFilteredDirty(data) {
     }
 }
 function loadData(url, data, id, isLoad, callback) {
-    //debugger;
+    ////debugger;
     var xmlhttp = new XMLHttpRequest();
     if (!isLoad && !checkDirtyFiltered(data)) {
         callback(xmlhttp, false);
         return;
     }
-
     xmlhttp.open('POST', url, false);
     var filterFields = "";
     // build SOAP request
@@ -164,23 +164,61 @@ function loadData(url, data, id, isLoad, callback) {
     xmlhttp.setRequestHeader('Content-Type', 'text/xml');
     xmlhttp.send(sr);
 }
-
 function errorHandler(xhr) {
+    var isErrorNode;
     if (xhr == null)
         throw "error geting data xhr webservice";
     var xml = xhr.responseXML;
-    var isErrorNode = xml.selectSingleNode("//IsError");
+    if (typeof ActiveXObject !== "undefined") {
+        doc = new ActiveXObject('Microsoft.XMLDOM');
+        doc.loadXML(xhr.responseText);
+        isErrorNode = doc.selectSingleNode('//IsError');
+    }
+    else {
+        isErrorNode = xml.selectSingleNode("//IsError");
+    }
     if (isErrorNode == null || isErrorNode.text == "true") {
         throw "error geting data webservice";
     }
 }
-function xmlToJsonArray(xml) {
+function xmlToJsonArray(xml, isload) {
+    //debugger;
     var crmItems = [];
     $(xml).find('Items').find('RecItem').each(function () {
+        //debugger;
         var id = $(this).find('Id').text();
         var isSelected = $(this).find('IsSelected').text() == "true" ? true : false;
         var name = $(this).find('Name').text();
-        crmItems.push({ Id: id, isSelected: isSelected, Name: name });
+        var objItem = { Id: id, isSelected: isSelected, Name: name };
+        if (isload) {
+            var crmSelected = GetSelectFromPrimaryField();
+            var selectedByPrimeryitem = jQuery.grep(crmSelected, function (obj) {
+                return obj != null && obj.Id === objItem.Id;
+            });
+            if (selectedByPrimeryitem != null && selectedByPrimeryitem[0] != null)
+                objItem.isSelected = selectedByPrimeryitem[0].isSelected;
+            else
+                objItem.isSelected = false;
+        }
+        crmItems.push(objItem);
     });
     return crmItems;
+}
+function GetSelectFromPrimaryField() {
+    //debugger;
+    if (crmSelectedByPrimary != null)
+        return crmSelectedByPrimary;
+   crmSelectedByPrimary = [];
+    var primaryItemsStr = getParentXrm(details.field);
+    if (primaryItemsStr == '')
+        return crmSelectedByPrimary;
+    var items = primaryItemsStr.split(";");
+    if (items == null || items.length > 0) {
+        for (var i = 0; i < items.length; i++) {
+            var id = ((items[i] == null || items[i] == '') ? '' : items[i].toLowerCase().trim());
+            if(id!='')
+                crmSelectedByPrimary.push({ Id: id, isSelected: true });
+        }
+    }
+    return crmSelectedByPrimary;
 }
