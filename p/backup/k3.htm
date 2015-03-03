@@ -10,23 +10,24 @@
     <script type="text/javascript">
         $(function () {
             var crmItems = [];
-            var objItem = { Id: 1, ListName: "liior" };
+            var objItem = { Id: 1, Name: "liior" };
             crmItems.push(objItem);
-            objItem = { Id: 2, ListName: "noa" };
+            objItem = { Id: 2, Name: "noa" };
             crmItems.push(objItem);
 
             var schema = [];
-
-            var colNameItem = { Name: "", Width: 32, Desc: "", IsDataColumnHeader: false };
+            var colNameItem = { Name: "", W: "18", Width: 18, ClassName: "ms-crm-List-CheckBoxColumn", Desc: "", I2: false, IsDataColumnHeader: false };
+            schema.push(colNameItem);
+            var colNameItem = { Name: "", W: "32", Width: 16, ClassName: "ms-crm-List-RowIconColumn", Desc: "", I2: true, IsDataColumnHeader: false };
             schema.push(colNameItem);
 
-            colNameItem = { Name: "ListName", Width: 100, ClassName: "ms-crm-List-DataColumn", Desc: "אאאאאא", I2: true, IsDataColumnHeader: true };
+            colNameItem = { Name: "ListName", W: "100", Width: 100, ClassName: "ms-crm-List-DataColumn", Desc: "אאאאאא", I2: true, IsDataColumnHeader: true };
             schema.push(colNameItem);
 
-            colNameItem = { Name: "MemberCount", Width: 100, ClassName: "ms-crm-List-DataColumn ms-crm-List-SortedColumn", Desc: "בבבבבב", I2: true, IsDataColumnHeader: true };
+            colNameItem = { Name: "MemberCount", W: "100", Width: 100, ClassName: "ms-crm-List-DataColumn ms-crm-List-SortedColumn", Desc: "בבבבבב", I2: true, IsDataColumnHeader: true };
             schema.push(colNameItem);
 
-            colNameItem = { Name: "CampaignName", Width: 100, ClassName: "ms-crm-List-DataColumn  ", Desc: "גגגגגג", I2: true, IsDataColumnHeader: true };
+            colNameItem = { Name: "CampaignName", W: "100", Width: 100, ClassName: "ms-crm-List-DataColumn  ", Desc: "גגגגגג", I2: true, IsDataColumnHeader: true };
             schema.push(colNameItem);
 
             vm = new AppViewModel(crmItems, schema);
@@ -35,7 +36,7 @@
 
         function AppViewModel(items, schema) {
             var self = this;
-            debugger;
+           // debugger;
             self.crmItems = ko.observableArray(items);
             self.crmSchema = ko.observableArray(schema);
 
@@ -44,6 +45,16 @@
                     return item.IsDataColumnHeader == true;
                 });
             })
+            self.getSchema2 = ko.computed(function () {
+                //                if (!self.currentFilter()) {
+                //                    return self.products();
+                //                } else {
+                return ko.utils.arrayFilter(self.crmSchema(), function (item) {
+                    return item.I2 == true;
+                });
+                // }
+            })
+
         }
 
     </script>
@@ -81,8 +92,8 @@
                                                     <!--start: ms-crm-List-Header -->
                                                     <table id="crmGrid_gridBar" class="ms-crm-List-Header" cellspacing="0" summary="From each column header, you can sort and filter the records in that column."
                                                         cellpadding="0">
-                                                        <colgroup data-bind="foreach: crmSchema" id="crmGrid_gridBarCols">
-                                                            <col class="ms-crm-List-DataColumnHeader" data-bind="attr: {  width: Width}">
+                                                        <colgroup data-bind="foreach: getSchema2" id="crmGrid_gridBarCols">
+                                                            <col class="ms-crm-List-DataColumnHeader" data-bind="attr: {  width: W}">
                                                             <col width="2">
                                                         </colgroup>
                                                         <tbody>
@@ -103,7 +114,7 @@
                                                                         <tbody>
                                                                             <tr>
                                                                                 <td class="ms-crm-List-Sortable">
-                                                                                    <a id="sHeaderSorting_repCols_LinkHeaderButton_0" title="Marketing List">
+                                                                                    <a id="sHeaderSorting_repCols_LinkHeaderButton_0" title="Marketing List" >
                                                                                         <nobr class="ms-crm-DataCell"><span data-bind="text: Desc" id="sHeaderSorting_repCols_lblListName_0" class="ms-crm-List-Sortable"></span><img id="sHeaderSorting_repCols_imgSortType_0" class="ms-crm-List-Sortable" src="_imgs/imagestrips/transparent_spacer2013.gif" /></nobr>
                                                                                     </a>
                                                                                 </td>
@@ -179,7 +190,7 @@
                                                                                 <img alt="" src="_imgs/ico_16_4400.gif">
                                                                             </td>
                                                                             <td class="ms-crm-List-DataCell inner-grid-cellPadding">
-                                                                                <nobr data-bind="text: ListName"></nobr>
+                                                                                <nobr data-bind="text: Name"></nobr>
                                                                             </td>
                                                                             <td class="ms-crm-List-DataCell inner-grid-cellPadding">
                                                                                 <nobr>0</nobr>
