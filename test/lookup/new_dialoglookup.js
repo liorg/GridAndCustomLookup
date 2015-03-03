@@ -9,7 +9,6 @@ function fnInit() {
     }
     ko.applyBindings(new AppViewModel(crmItems));
 }
-
 function AppViewModel(items) {
     var self = this;
     self.crmItems = ko.observableArray(items);
@@ -22,7 +21,3 @@ function AppViewModel(items) {
         window.close();
     };
 }
- 
-
-
-
