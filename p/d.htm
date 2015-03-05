@@ -10,9 +10,9 @@
     <script type="text/javascript">
         $(function () {
             var crmItems = [];
-            var objItem = { "ListName": "liior", "MemberCount": 3, "CampaignName": "ddddd" };
+            var objItem = { "Id": "2", "ListName": "liior", "MemberCount": 3, "CampaignName": "ddddd" };
             crmItems.push(objItem);
-            var objItem = { "ListName": "fdfsd", "MemberCount": 4, "CampaignName": "xxx" };
+            var objItem = { "Id": "3", "ListName": "fdfsd", "MemberCount": 4, "CampaignName": "xxx" };
             crmItems.push(objItem);
 
             var schema = [];
@@ -68,12 +68,14 @@
                             <div class="ms-crm-grid-body" style="bottom: 0px;">
                                 <div class="ms-crm-IE7-Height-Fix-Dummy-Container">
                                     <div style="height: 100%; position: relative" id="crmGrid_gridBodyContainer">
+                                        <!--start: ms-crm-List-RefreshButton -->
                                         <div id="refreshButton" class="ms-crm-List-RefreshButton">
                                             <a id="refreshButton20131_RefreshButton1" href="javascript:alert(1)">
                                                 <img id="grid_refresh" src="_imgs/imagestrips/transparent_spacer2013.gif" class="ms-crm-ImageStrip-grid_refresh"
                                                     style="cursor: pointer" alt="Refresh&#32;list" title="Refresh&#32;list">
                                             </a>
                                         </div>
+                                        <!--end: ms-crm-List-RefreshButton -->
                                         <div class="ms-crm-ListArea" style="position: relative">
                                             <div style="height: 22px; overflow-x: hidden;">
                                                 <div id="fixedrow" class="ms-crm-ListArea-FixedRow">
@@ -103,7 +105,9 @@
                                                                             <tr>
                                                                                 <td class="ms-crm-List-Sortable">
                                                                                     <a id="sHeaderSorting_repCols_LinkHeaderButton_0" title="Marketing List">
-                                                                                        <nobr class="ms-crm-DataCell"><span data-bind="text: Desc" id="sHeaderSorting_repCols_lblListName_0" class="ms-crm-List-Sortable"></span><img id="sHeaderSorting_repCols_imgSortType_0" class="ms-crm-List-Sortable" src="_imgs/imagestrips/transparent_spacer2013.gif" /></nobr>
+                                                                                        <nobr class="ms-crm-DataCell">
+                                                                                        <span data-bind="text: Desc"   class="ms-crm-List-Sortable"></span><img 
+                                                                                        class="ms-crm-List-Sortable" src="_imgs/imagestrips/transparent_spacer2013.gif" /></nobr>
                                                                                     </a>
                                                                                 </td>
                                                                                 <td class="ms-crm-FilterPopupContainerTD">
@@ -170,7 +174,8 @@
                                                                         <!-- /ko -->
                                                                     </colgroup>
                                                                     <tbody data-bind="foreach: crmItems">
-                                                                        <tr id="CampaignsConflitListView_row_0" data-bind="foreach: $parent.getSchema" class="ms-crm-List-Row">
+                                                                        <tr data-bind="attr: { 'id':'row_item_'+Id },foreach: $parent.getSchema"
+                                                                            class="ms-crm-List-Row">
                                                                             <!-- ko if: $index() == 0 -->
                                                                             <td align="Center" class="ms-crm-List-NonDataCell">
                                                                                 <input id="checkBox1" class="ms-crm-RowCheckBox" title="" tabindex="0" value="" type="checkbox">
