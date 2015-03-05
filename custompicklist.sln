@@ -1,18 +1,18 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "custompicklist", "..\", "{F087C548-AE13-4ED3-B7E5-16527AB66EA7}"
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "custompicklist", ".", "{F087C548-AE13-4ED3-B7E5-16527AB66EA7}"
 	ProjectSection(WebsiteProperties) = preProject
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
 		Debug.AspNetCompiler.VirtualPath = "/custompicklist"
-		Debug.AspNetCompiler.PhysicalPath = "..\..\custompicklist\"
+		Debug.AspNetCompiler.PhysicalPath = "..\custompicklist\"
 		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\custompicklist\"
 		Debug.AspNetCompiler.Updateable = "true"
 		Debug.AspNetCompiler.ForceOverwrite = "true"
 		Debug.AspNetCompiler.FixedNames = "false"
 		Debug.AspNetCompiler.Debug = "True"
 		Release.AspNetCompiler.VirtualPath = "/custompicklist"
-		Release.AspNetCompiler.PhysicalPath = "..\..\custompicklist\"
+		Release.AspNetCompiler.PhysicalPath = "..\custompicklist\"
 		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\custompicklist\"
 		Release.AspNetCompiler.Updateable = "true"
 		Release.AspNetCompiler.ForceOverwrite = "true"

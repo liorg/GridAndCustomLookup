@@ -1,5 +1,5 @@
 ﻿{
-"url":"custompicklist/test/lookup/MVLookupService.asmx","port":"1447","items":
+"url":"custompicklist/lu/MVLookupService.asmx","port":"1447","items":
 [
 {"name":"x1","details": {"method": "GetSelHealth","field": "new_salehealthitems" ,"listnersFields":[ {"name":"new_manufacture","type":"lu"} ]} },
 {"name":"x2","details": {"method": "GetSalePersonalAccident","field": "new_salepersonalaccidentitems","listnersFields":[]} },
