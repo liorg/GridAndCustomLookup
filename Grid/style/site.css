@@ -1,0 +1,29 @@
+﻿
+.gridMenuBar
+{
+    top: 0px;
+    height: 25px;
+    position: absolute;
+    width: 100%;
+}
+.tableContainer
+{
+    height: 34px;
+    position: absolute;
+    top: 0px;
+    width: 100%;
+}
+div.stdTable
+{
+    width: 100%;
+}
+.ms-crm-CC-grid-All-0-LR
+{
+    left: 0px;
+    right: 0px;
+}
+/* states and images */
+.ui-icon { width: 16px; height: 16px; background-image: url(/grid/img/ui-icons_469bdd_256x240.png); }
+
+.ui-icon-plus { background-position: -16px -128px; }
+.ui-icon-minus { background-position: -48px -128px; }
