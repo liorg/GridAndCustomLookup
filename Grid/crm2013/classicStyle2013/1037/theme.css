@@ -18,13 +18,13 @@ body
 div.ms-crm-TopBarContainerGlobal
 {
 	background-color:#FFFFFF;
-	background-image:url(/Grid/_imgs/theme/Outlook14Silver/Masthead_rtl.png?ver=243798751);
+	background-image:url(/custompicklist/Grid/_imgs/theme/Outlook14Silver/Masthead_rtl.png?ver=243798751);
 
 }
 
 div.ms-crm-TopBarContainerForm
 {
-	background-image:url(/Grid/_imgs/theme/Outlook14Silver/form_masthead.png?ver=243798751);
+	background-image:url(/custompicklist/Grid/_imgs/theme/Outlook14Silver/form_masthead.png?ver=243798751);
 
 }
 
@@ -214,7 +214,7 @@ TD.ms-crm-Cal-Month-DayOfWeek
 
 DIV.ms-crm-MenuBar
 {
-	background-image:url(/Grid/_imgs/theme/Outlook14Silver/form_toolbar_back.png?ver=243798751);
+	background-image:url(/custompicklist/Grid/_imgs/theme/Outlook14Silver/form_toolbar_back.png?ver=243798751);
 
 }
 
@@ -233,21 +233,21 @@ SPAN.ms-crm-Menu-Group,
 SPAN.ms-crm-Menu-Group-Opened,
 SPAN.ms-crm-Menu-Group-Hovered
 {
-	background-image:url(/Grid/_imgs/theme/Outlook14Silver/RightClickMenuChannel.png?ver=243798751);
+	background-image:url(/custompicklist/Grid/_imgs/theme/Outlook14Silver/RightClickMenuChannel.png?ver=243798751);
 
 }
 
 button
 {
 	border-color:#666666;
-	background-image:url(/Grid/_imgs/theme/Outlook14Silver/ButtonNormalGradient.png?ver=243798751);
+	background-image:url(/custompicklist/Grid/_imgs/theme/Outlook14Silver/ButtonNormalGradient.png?ver=243798751);
 
 }
 
 BUTTON.ms-crm-Button-Hover
 {
 	border-color:#336699;
-	background-image:url(/Grid/_imgs/theme/Outlook14Silver/ButtonSelectedGradient.png?ver=243798751);
+	background-image:url(/custompicklist/Grid/_imgs/theme/Outlook14Silver/ButtonSelectedGradient.png?ver=243798751);
 
 }
 
@@ -326,7 +326,7 @@ BODY.NotesData hr
 {
 	color:#C0C0C0;
 	background-color:#C0C0C0;
-	background-image:url(/Grid/_imgs/theme/Outlook14Silver/app_back.png?ver=243798751);
+	background-image:url(/custompicklist/Grid/_imgs/theme/Outlook14Silver/app_back.png?ver=243798751);
 
 }
 
@@ -365,7 +365,7 @@ DIV.ms-crm-InlineTabContainer-Read
 	background-color:#F6F8FA;
 	border-color:#A5ACB5;
 
-	background-image:url(/Grid/_imgs/theme/Outlook14Silver/FormHeaderGradientTop.png?ver=243798751);
+	background-image:url(/custompicklist/Grid/_imgs/theme/Outlook14Silver/FormHeaderGradientTop.png?ver=243798751);
 
 }
 
@@ -471,7 +471,7 @@ li.ms-crm-Tab
 	border-bottom-color:#A5ACB5;
 	border-left-color:#A5ACB5;
 	border-right-color:#F6F8FA;
-	background-image:url(/Grid/_imgs/theme/Outlook14Silver/TabGradient.gif?ver=243798751);
+	background-image:url(/custompicklist/Grid/_imgs/theme/Outlook14Silver/TabGradient.gif?ver=243798751);
 
 }
 
@@ -588,13 +588,13 @@ div.tree_container
 	background-color:#CFD4DA;
 	border-left-color:#A5ACB5;
 	border-right-color:#A5ACB5;
-	background-image:url(/Grid/_imgs/theme/Outlook14Silver/app_back.png?ver=243798751);
+	background-image:url(/custompicklist/Grid/_imgs/theme/Outlook14Silver/app_back.png?ver=243798751);
 
 }
 
 .ms-cui-tabBody
 {
-	background-image:url(/Grid/_imgs/theme/Outlook14Silver/rbgbbg.png?ver=243798751);
+	background-image:url(/custompicklist/Grid/_imgs/theme/Outlook14Silver/rbgbbg.png?ver=243798751);
 
 }
 
@@ -673,7 +673,7 @@ NOBR.ms-crm-Nav-Group-Heading
 {
 	border-top-color:#A5ACB5;
 
-	background-image:url(/Grid/_imgs/theme/Outlook14Silver/FormFooterGradient.png?ver=243798751);
+	background-image:url(/custompicklist/Grid/_imgs/theme/Outlook14Silver/FormFooterGradient.png?ver=243798751);
 
 }
 
@@ -695,19 +695,19 @@ NOBR.ms-crm-NavBar-Area-Title
 
 .ms-crm-ImageStrip-wunderbar_sel
 {
-	background-image:url(/Grid/_imgs/theme/Outlook14Silver/wunderbar_sel.png?ver=243798751);
+	background-image:url(/custompicklist/Grid/_imgs/theme/Outlook14Silver/wunderbar_sel.png?ver=243798751);
 
 }
 
 .ms-crm-ImageStrip-wunderbar_hover
 {
-	background-image:url(/Grid/_imgs/theme/Outlook14Silver/wunderbar_hover.png?ver=243798751);
+	background-image:url(/custompicklist/Grid/_imgs/theme/Outlook14Silver/wunderbar_hover.png?ver=243798751);
 
 }
 
 .ms-crm-ImageStrip-wunderbar_rest
 {
-	background-image:url(/Grid/_imgs/theme/Outlook14Silver/wunderbar_rest.png?ver=243798751);
+	background-image:url(/custompicklist/Grid/_imgs/theme/Outlook14Silver/wunderbar_rest.png?ver=243798751);
 
 }
 
@@ -1106,7 +1106,7 @@ DIV.ms-crm-GridActionBar,
 DIV.ms-crm-ActionBar
 {
 	border-color:#A5ACB5;
-	background-image:url(/Grid/_imgs/theme/Outlook14Silver/GridToolbarBkgd.png?ver=243798751);
+	background-image:url(/custompicklist/Grid/_imgs/theme/Outlook14Silver/GridToolbarBkgd.png?ver=243798751);
 
 }
 
@@ -1204,7 +1204,7 @@ table.ms-crm-List-StatusBar
 	background-color:#F6F8FA;
 	border-top-color:#A5ACB5;
 	border-bottom-color:#A5ACB5;
-	background-image:url(/Grid/_imgs/theme/Outlook14Silver/GridColumnGradient.png?ver=243798751);
+	background-image:url(/custompicklist/Grid/_imgs/theme/Outlook14Silver/GridColumnGradient.png?ver=243798751);
 
 }
 
@@ -1221,7 +1221,7 @@ table.ms-crm-List-StatusBar
 }
 .ms-crm-list-Separator-line
 {
-	background-image:url(/Grid/_imgs/theme/Outlook14Silver/GridTitleBarHorzLine.png?ver=243798751);
+	background-image:url(/custompicklist/Grid/_imgs/theme/Outlook14Silver/GridTitleBarHorzLine.png?ver=243798751);
 
 }
 
@@ -1422,7 +1422,7 @@ A.ms-crm-FormSelector-SubItem-Selected:active
 A.ms-crm-FormSelector-SubItem-Hovered
 {
 	border-color:#61A6E4;
-	background-image:url(/Grid/_imgs/theme/Outlook14Silver/FormTabLinkGradient.png?ver=243798751);
+	background-image:url(/custompicklist/Grid/_imgs/theme/Outlook14Silver/FormTabLinkGradient.png?ver=243798751);
 
 }
 
@@ -1539,7 +1539,7 @@ DIV.ms-crm-Splitter-Fixed
 {
 	color:#C0C0C0;
 	background-color:#CFD4DA;
-	background-image:url(/Grid/_imgs/theme/Outlook14Silver/app_back.png?ver=243798751);
+	background-image:url(/custompicklist/Grid/_imgs/theme/Outlook14Silver/app_back.png?ver=243798751);
 
 }
 
@@ -1821,7 +1821,7 @@ a.newNoteButtonSelected
 .ms-crm-CC-splitter
 {
 	background-color:#C0C0C0;
-	background-image:url(/Grid/_imgs/theme/Outlook14Silver/app_back.png?ver=243798751);
+	background-image:url(/custompicklist/Grid/_imgs/theme/Outlook14Silver/app_back.png?ver=243798751);
 
 }
 #crmInAppContent

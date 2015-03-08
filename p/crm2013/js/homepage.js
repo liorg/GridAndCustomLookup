@@ -1,1 +1,0 @@
-function homepageWindowOnload(){HandleBackButtonIssues(_currentTypeCode)}window.onload=homepageWindowOnload

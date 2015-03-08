@@ -23,7 +23,7 @@ div.stdTable
     right: 0px;
 }
 /* states and images */
-.ui-icon { width: 16px; height: 16px; background-image: url(/grid/img/ui-icons_469bdd_256x240.png); }
+.ui-icon { width: 16px; height: 16px; background-image: url(/custompicklist/grid/img/ui-icons_469bdd_256x240.png); }
 
 .ui-icon-plus { background-position: -16px -128px; }
 .ui-icon-minus { background-position: -48px -128px; }

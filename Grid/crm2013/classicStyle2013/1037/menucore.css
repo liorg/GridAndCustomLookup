@@ -305,7 +305,7 @@ top : 0;
 
 cursor : default;
 
-background-image : url("/Grid/_imgs/imagestrips/transparent_spacer.gif");
+background-image : url("/custompicklist/Grid/_imgs/imagestrips/transparent_spacer.gif");
 background-repeat : repeat-x ;
 }
 
@@ -1843,7 +1843,7 @@ cursor : default;
 A.ms-crm-Ntfc-MenuItem-Anchor-qrk,
 A.ms-crm-Ntfc-MenuItem-Anchor
 {
-background-image: url('/Grid/_imgs/MessageBar/msgbar-center.png');
+background-image: url('/custompicklist/Grid/_imgs/MessageBar/msgbar-center.png');
 background-repeat: repeat-x;
 }
 SPAN.ms-crm-Ntfc-MenuItem-Title-qrk,
@@ -2983,7 +2983,7 @@ LI.ms-crm-LK-MenuItem-Selected-qrk
 {
 height : 22px;
 
-background-image : url(/Grid/_imgs/theme/outlook14silver/contextmenu_hover_20.png);
+background-image : url(/custompicklist/Grid/_imgs/theme/outlook14silver/contextmenu_hover_20.png);
 border : 1px solid #61a6e4;
 }
 A.ms-crm-IL-MenuItem-Anchor,
