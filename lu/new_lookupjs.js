@@ -7,8 +7,15 @@ var iHeight = '550';
 var bCenter = true;
 var bResize = true;
 var iWidth = '600';
-var dirtyData = [];
+var dirtyData = []; 
 var crmSelectedByPrimary;
+if (typeof String.prototype.trim !== 'function') {
+    //debugger; for ie8
+    String.prototype.trim = function () {
+        return this.replace(/^\s+|\s+$/g, '');
+    }
+}
+
 $(function () {
     var crmItems = [];
     var params = parseQueryString();
@@ -216,8 +223,10 @@ function GetSelectFromPrimaryField() {
     if (items == null || items.length > 0) {
         for (var i = 0; i < items.length; i++) {
             var id = ((items[i] == null || items[i] == '') ? '' : items[i].toLowerCase().trim());
-            if(id!='')
+            if (id != '') {
+                //alert(id);
                 crmSelectedByPrimary.push({ Id: id, isSelected: true });
+            }
         }
     }
     return crmSelectedByPrimary;
