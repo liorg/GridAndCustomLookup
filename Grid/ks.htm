@@ -25,13 +25,13 @@
             var colNameItem = { Name: "", Width: 32, Desc: "", IsDataColumnHeader: false };
             schema.push(colNameItem);
 
-            colNameItem = { Name: "ListName", Width: 100, IsSort: false,  Desc: "אאאאאא", I2: true, IsDataColumnHeader: true };
+            colNameItem = { Name: "ListName", Width: 100, IsSort: false, SortDsc:false, Desc: "אאאאאא", I2: true, IsDataColumnHeader: true };
             schema.push(colNameItem);
 
-            colNameItem = { Name: "MemberCount", Width: 100, IsSort: true, Desc: "בבבבבב", I2: true, IsDataColumnHeader: true };
+            colNameItem = { Name: "MemberCount", Width: 100, IsSort: true, SortDsc:true, Desc: "בבבבבב", I2: true, IsDataColumnHeader: true };
             schema.push(colNameItem);
 
-            colNameItem = { Name: "CampaignName", Width: 100, IsSort: false, Desc: "גגגגגג", I2: true, IsDataColumnHeader: true };
+            colNameItem = { Name: "CampaignName", Width: 100, IsSort: false, SortDsc:false, Desc: "גגגגגג", I2: true, IsDataColumnHeader: true };
             schema.push(colNameItem);
 
             vmData.schema = schema;
@@ -40,7 +40,8 @@
             vmData.sortOrder = "";
             vmData.startRow = "1";
             vmData.lastRow = "11";
-            vmData.currentPage = "3";
+            vmData.isLastPage = false;
+            vmData.currentPage = "1";
             vmData.maxPerPage = "222";
             vmData.maxRows = "300";
             vmData.isToggle = true;
@@ -61,6 +62,7 @@
             self.maxRows = ko.observable(vmData.maxRows);
             self.startRow = ko.observable(vmData.startRow);
             self.lastRow = ko.observable(vmData.lastRow);
+            vmData.isLastPage = ko.observable(vmData.isLastPage); 
             self.getSchema = ko.computed(function () {
                 return ko.utils.arrayFilter(self.crmSchema(), function (item) {
                     return item.IsDataColumnHeader == true;
@@ -77,6 +79,16 @@
             }
             self.Sort = function (d) {
                 debugger;
+                alert(d.Name);
+            }
+            self.NextPage = function (d) {
+                alert('next');
+                debugger;
+                alert(d.Name);
+            }
+            self.PrevPage = function (d) {
+                debugger;
+                alert('prev');
                 alert(d.Name);
             }
         }
@@ -218,9 +230,9 @@
                                                                             class="ms-crm-List-Row">
                                                                             <!-- ko if: $index() == 0 -->
                                                                             <td align="Center" class="ms-crm-List-NonDataCell">
-                                                                                <input data-bind="visible: !$root.isToggle()" id="checkBox1" class="ms-crm-RowCheckBox"
+                                                                                <input data-bind="visible: !$root.isToggle" id="checkBox1" class="ms-crm-RowCheckBox"
                                                                                     title="" tabindex="0" value="" type="checkbox">
-                                                                                <a data-bind="visible: $root.isToggle()" style="cursor: pointer;"><span class="mvs-crm-btn ui-icon ui-icon-plus">
+                                                                                <a data-bind="visible: $root.isToggle" style="cursor: pointer;"><span class="mvs-crm-btn ui-icon ui-icon-plus">
                                                                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></a>
                                                                             </td>
                                                                             <td align="Center" class="ms-crm-List-DataCell">
@@ -264,12 +276,15 @@
                                                                         </td>
                                                                         <td id="crmGrid_PageInfo" class="ms-crm-List-Paging" nowrap>
                                                                             <a style="cursor: auto" id="fastRewind" class="toolbarbutton" disabled tabindex="0"
-                                                                                target="_self"><a id="sStatusbar_LinkButton1" class="toolbarbutton" href="javascript:__doPostBack(&#39;sStatusbar$LinkButton1&#39;,&#39;&#39;)">
-                                                                                    <img id="page_L0" class="ms-crm-ImageStrip-page_R1" disabled hspace="6" alt="" align="absMiddle"
+                                                                                target="_self"><a  class="toolbarbutton" href="#" data-bind="click: PrevPage">
+
+                                                                                    <img  class="ms-crm-ImageStrip-page_R1" 
+                                                                                  
+                                                                                     hspace="6" alt="" align="absMiddle"
                                                                                         src="_imgs/imagestrips/transparent_spacer.gif" temptooltip="Load Previous Page"></a>
-                                                                                עמוד<span id="_PageNum" data-bind="text: currentPage"></span> <a id="sStatusbar_lnkNextPage"
-                                                                                    class="toolbarbutton" href="javascript:__doPostBack(&#39;sStatusbar$lnkNextPage&#39;,&#39;&#39;)">
-                                                                                    <img id="page_R0" class="ms-crm-ImageStrip-page_L1" hspace="6" alt="Load Next Page"
+                                                                                עמוד<span data-bind="text: currentPage"></span> <a class="toolbarbutton"  data-bind="click: NextPage"
+                                                                                     href="#">
+                                                                                    <img  class="ms-crm-ImageStrip-page_L1" hspace="6" alt="Load Next Page"
                                                                                         align="absMiddle" src="_imgs/imagestrips/transparent_spacer.gif" temptooltip="Load Next Page"></a>
                                                                         </td>
                                                                     </tr>
