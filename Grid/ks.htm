@@ -28,7 +28,7 @@
             colNameItem = { Name: "ListName", Width: 100, IsSort: false, SortDsc:false, Desc: "אאאאאא", I2: true, IsDataColumnHeader: true };
             schema.push(colNameItem);
 
-            colNameItem = { Name: "MemberCount", Width: 100, IsSort: true, SortDsc:true, Desc: "בבבבבב", I2: true, IsDataColumnHeader: true };
+            colNameItem = { Name: "MemberCount", Width: 100, IsSort: true, SortDsc: false, Desc: "בבבבבב", I2: true, IsDataColumnHeader: true };
             schema.push(colNameItem);
 
             colNameItem = { Name: "CampaignName", Width: 100, IsSort: false, SortDsc:false, Desc: "גגגגגג", I2: true, IsDataColumnHeader: true };
@@ -38,7 +38,7 @@
             vmData.crmItems = crmItems;
             vmData.sortName = "";
             vmData.sortOrder = "";
-            vmData.startRow = "1";
+            vmData.startRow = "3";
             vmData.lastRow = "11";
             vmData.isLastPage = false;
             vmData.currentPage = "1";
@@ -62,7 +62,18 @@
             self.maxRows = ko.observable(vmData.maxRows);
             self.startRow = ko.observable(vmData.startRow);
             self.lastRow = ko.observable(vmData.lastRow);
-            vmData.isLastPage = ko.observable(vmData.isLastPage); 
+            self.isLastPage = ko.observable(vmData.isLastPage);
+
+//            self.orderCss = function (d) {
+//                debugger;
+//                return self.isLastPage() == true ? "ms-crm-ImageStrip-dropdown" : "ms-crm-ImageStrip-bar_up";
+//            };
+            self.lastRowCss = ko.computed(function () {
+                return self.isLastPage() == true ? "ms-crm-ImageStrip-page_L0" : "ms-crm-ImageStrip-page_L1";
+            });
+            self.firstRowCss = ko.computed(function () {
+                return self.startRow() == 1 ? "ms-crm-ImageStrip-page_R0" : "ms-crm-ImageStrip-page_R1";
+            });
             self.getSchema = ko.computed(function () {
                 return ko.utils.arrayFilter(self.crmSchema(), function (item) {
                     return item.IsDataColumnHeader == true;
@@ -80,16 +91,17 @@
             self.Sort = function (d) {
                 debugger;
                 alert(d.Name);
+
             }
             self.NextPage = function (d) {
                 alert('next');
                 debugger;
-                alert(d.Name);
+               // alert(d.Name);
             }
             self.PrevPage = function (d) {
                 debugger;
                 alert('prev');
-                alert(d.Name);
+              //  alert(d.Name);
             }
         }
 
@@ -155,8 +167,8 @@
                                                                             <tr>
                                                                                 <td data-bind="css: { 'ms-crm-List-Sortable': IsSort == true}">
                                                                                     <a id="sHeaderSorting_repCols_LinkHeaderButton_0" title="Marketing List" data-bind="click: $root.Sort">
-                                                                                        <nobr class="ms-crm-DataCell"><span data-bind="text: Desc,css: { 'ms-crm-List-Sortable': IsSort == true}" 
-                                                                                         id="sHeaderSorting_repCols_lblListName_0"  ></span><img  data-bind="css: { 'ms-crm-List-Sortable': IsSort == true}"  src="_imgs/imagestrips/transparent_spacer2013.gif" /></nobr>
+                                                                                        <nobr class="ms-crm-DataCell"><span data-bind="text: Desc,css: { 'ms-crm-List-Sortable': IsSort == true}" ></span>
+                                                                                         <img  data-bind="css: { 'ms-crm-ImageStrip-dropdown': IsSort == true && SortDsc,'ms-crm-ImageStrip-bar_up' : IsSort == true && !SortDsc }"  src="_imgs/imagestrips/transparent_spacer2013.gif" /></nobr>
                                                                                     </a>
                                                                                 </td>
                                                                                 <td class="ms-crm-FilterPopupContainerTD">
@@ -278,13 +290,13 @@
                                                                             <a style="cursor: auto" id="fastRewind" class="toolbarbutton" disabled tabindex="0"
                                                                                 target="_self"><a  class="toolbarbutton" href="#" data-bind="click: PrevPage">
 
-                                                                                    <img  class="ms-crm-ImageStrip-page_R1" 
+                                                                                    <img  c
                                                                                   
-                                                                                     hspace="6" alt="" align="absMiddle"
-                                                                                        src="_imgs/imagestrips/transparent_spacer.gif" temptooltip="Load Previous Page"></a>
+                                                                                     hspace="6" alt="" align="absMiddle" data-bind="css: firstRowCss"
+                                                                                        src="_imgs/imagestrips/transparent_spacer.gif" temptooltip="טען עמוד קודם"></a>
                                                                                 עמוד<span data-bind="text: currentPage"></span> <a class="toolbarbutton"  data-bind="click: NextPage"
                                                                                      href="#">
-                                                                                    <img  class="ms-crm-ImageStrip-page_L1" hspace="6" alt="Load Next Page"
+                                                                                    <img  data-bind="css: lastRowCss" hspace="6" alt="טען עמוד הבא"
                                                                                         align="absMiddle" src="_imgs/imagestrips/transparent_spacer.gif" temptooltip="Load Next Page"></a>
                                                                         </td>
                                                                     </tr>
