@@ -1,0 +1,13 @@
+﻿{
+"ver":"1.0.0.9",
+"items":
+[
+{"name":"config1","url":"HTTP://localhost:6666/pldynamic/lookup/MVLookupService.asmx",
+"detail": {"method": "GetSelHealth","columns":[ 
+								{"Name":"firstname","Desc":"שם פרטי","IsSort":false,"SortDsc":false,"ObjType":""},
+							    {"Name":"lastname","Desc":"שם משפחה","IsSort":true,"SortDsc":false,"ObjType":""}
+								],
+								"filterFields":[ {"Name":"id" } ]
+								}}
+]
+}

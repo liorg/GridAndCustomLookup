@@ -2810,7 +2810,6 @@ Mscrm.GridControl.prototype = {
             var $v_2 = this.$2q_3(this.$G_3.columns[$v_1].$N_0);
             if (!IsNull($v_2)) {
                 var $v_3 = this.$2z_3($v_2);
-                if(  $v_3!=null)//l.g
                 $v_3.style.visibility = "hidden"
             }
         }

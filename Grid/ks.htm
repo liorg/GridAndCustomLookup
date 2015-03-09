@@ -15,9 +15,9 @@
             // debugger;
             vmData = { schema: [], crmItems: [] };
             var crmItems = [];
-            var objItem = { "Id": "2", "ListName": "liior", "MemberCount": 3, "CampaignName": "ddddd", "subSrc": "k.htm" };
+            var objItem = { "Id": "2", "ListName": "liior", "MemberCount": 3, "CampaignName": "ddddd", "subSrc": "ks.htm?id=2" };
             crmItems.push(objItem);
-            var objItem = { "Id": "3", "ListName": "fdfsd", "MemberCount": 4, "CampaignName": "xxx", "subSrc": "t.htm" };
+            var objItem = { "Id": "3", "ListName": "fdfsd", "MemberCount": 4, "CampaignName": "xxx", "subSrc": "loading.htm" };
             crmItems.push(objItem);
 
             var schema = [];
@@ -25,25 +25,27 @@
             var colNameItem = { Name: "", Width: 32, Desc: "", IsDataColumnHeader: false };
             schema.push(colNameItem);
 
-            colNameItem = { Name: "ListName", Width: 100, IsSort: false, SortDsc:false, Desc: "אאאאאא", I2: true, IsDataColumnHeader: true };
+            colNameItem = { Name: "ListName", Width: 100, IsSort: false, SortDsc: false, Desc: "ליאור", I2: true, IsDataColumnHeader: true };
             schema.push(colNameItem);
 
             colNameItem = { Name: "MemberCount", Width: 100, IsSort: true, SortDsc: false, Desc: "בבבבבב", I2: true, IsDataColumnHeader: true };
             schema.push(colNameItem);
 
-            colNameItem = { Name: "CampaignName", Width: 100, IsSort: false, SortDsc:false, Desc: "גגגגגג", I2: true, IsDataColumnHeader: true };
+            colNameItem = { Name: "CampaignName", Width: 100, IsSort: false, SortDsc: false, Desc: "גגגגגג", I2: true, IsDataColumnHeader: true };
             schema.push(colNameItem);
 
             vmData.schema = schema;
             vmData.crmItems = crmItems;
-            vmData.sortName = "";
-            vmData.sortOrder = "";
-            vmData.startRow = "3";
-            vmData.lastRow = "11";
-            vmData.isLastPage = false;
-            vmData.currentPage = "1";
-            vmData.maxPerPage = "222";
-            vmData.maxRows = "300";
+            vmData.settingGridPaging = {};
+
+            vmData.settingGridPaging.sortName = "";
+            vmData.settingGridPaging.sortOrder = "";
+            vmData.settingGridPaging.startRow = "1";
+            vmData.settingGridPaging.lastRow = "11";
+            vmData.settingGridPaging.isLastPage = true;
+            vmData.settingGridPaging.currentPage = "1";
+            vmData.settingGridPaging.maxPerPage = "222";
+            vmData.settingGridPaging.maxRows = "4444";
             vmData.isToggle = true;
             vm = new AppViewModel(vmData);
             ko.applyBindings(vm);
@@ -55,14 +57,14 @@
             self.crmItems = ko.observableArray(vmData.crmItems);
             self.crmSchema = ko.observableArray(vmData.schema);
             self.isToggle = ko.observable(vmData.isToggle);
-            self.sortName = ko.observable(vmData.sortName);
-            self.sortorder = ko.observable(vmData.sortOrder);
-            self.currentPage = ko.observable(vmData.currentPage);
-            self.maxPerPage = ko.observable(vmData.maxPerPage);
-            self.maxRows = ko.observable(vmData.maxRows);
-            self.startRow = ko.observable(vmData.startRow);
-            self.lastRow = ko.observable(vmData.lastRow);
-            self.isLastPage = ko.observable(vmData.isLastPage);
+            self.sortName = ko.observable(vmData.settingGridPaging.sortName);
+            self.sortorder = ko.observable(vmData.settingGridPaging.sortOrder);
+            self.currentPage = ko.observable(vmData.settingGridPaging.currentPage);
+            self.maxPerPage = ko.observable(vmData.settingGridPaging.maxPerPage);
+            self.maxRows = ko.observable(vmData.settingGridPaging.maxRows);
+            self.startRow = ko.observable(vmData.settingGridPaging.startRow);
+            self.lastRow = ko.observable(vmData.settingGridPaging.lastRow);
+            self.isLastPage = ko.observable(vmData.settingGridPaging.isLastPage);
 
 //            self.orderCss = function (d) {
 //                debugger;
@@ -90,7 +92,23 @@
             }
             self.Sort = function (d) {
                 debugger;
-                alert(d.Name);
+                var schema = [];
+
+                var colNameItem = { Name: "", Width: 32, Desc: "", IsDataColumnHeader: false };
+                schema.push(colNameItem);
+
+                colNameItem = { Name: "ListName", Width: 100, IsSort: false, SortDsc: false, Desc: "xxx", I2: true, IsDataColumnHeader: true };
+                schema.push(colNameItem);
+
+                colNameItem = { Name: "MemberCount", Width: 100, IsSort: true, SortDsc: true, Desc: "zzzz", I2: true, IsDataColumnHeader: true };
+                schema.push(colNameItem);
+
+                colNameItem = { Name: "CampaignName", Width: 100, IsSort: false, SortDsc: false, Desc: "vvv", I2: true, IsDataColumnHeader: true };
+                schema.push(colNameItem);
+                self.crmSchema(schema);
+                //                if (d.IsSort)
+                //                    d.SortDsc = !d.SortDsc;
+                //alert(d.Name);
 
             }
             self.NextPage = function (d) {
@@ -238,7 +256,7 @@
                                                                     </colgroup>
                                                                     <!--end: colgroup Body  -->
                                                                     <tbody data-bind="foreach: crmItems">
-                                                                        <tr data-bind="attr: { 'id':'row_item_'+Id ,'srcSubGrid': subSrc},foreach: $parent.getSchema"
+                                                                        <tr data-bind="attr: { 'id':'row_item_'+Id ,'rowid':Id,'srcSubGrid': subSrc},foreach: $parent.getSchema"
                                                                             class="ms-crm-List-Row">
                                                                             <!-- ko if: $index() == 0 -->
                                                                             <td align="Center" class="ms-crm-List-NonDataCell">
