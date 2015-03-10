@@ -46,10 +46,11 @@
                 vmData.settingGridPaging.sortOrder = true;
                 vmData.settingGridPaging.startRow = "1";
                 vmData.settingGridPaging.lastRow = "11";
-                vmData.settingGridPaging.isLastPage = true;
-                vmData.settingGridPaging.currentPage = "1";
-                vmData.settingGridPaging.maxPerPage = "222";
-                vmData.settingGridPaging.maxRows = "4444";
+                //vmData.settingGridPaging.isLastPage = true;
+                vmData.settingGridPaging.currentPage = 2;
+                vmData.settingGridPaging.maxPerPage = 50;
+                vmData.settingGridPaging.maxRows = 444;
+
                 vmData.isToggle = true;
                 vm.crmItems(vmData.crmItems);
                 vm.crmSchema(vmData.schema);
@@ -59,9 +60,9 @@
                 vm.currentPage(vmData.settingGridPaging.currentPage);
                 vm.maxPerPage(vmData.settingGridPaging.maxPerPage);
                 vm.maxRows(vmData.settingGridPaging.maxRows);
-                vm.startRow(vmData.settingGridPaging.startRow);
-                vm.lastRow(vmData.settingGridPaging.lastRow);
-                vm.isLastPage(vmData.settingGridPaging.isLastPage);
+               // vm.startRow(vmData.settingGridPaging.startRow);
+                //vm.lastRow(vmData.settingGridPaging.lastRow);
+                //vm.isLastPage(vmData.settingGridPaging.isLastPage);
                 vm.isLoading(false);
                 vm.noData(false);
             }, 4);
@@ -75,12 +76,9 @@
 
             vmData.settingGridPaging.sortName = "";
             vmData.settingGridPaging.sortOrder = "";
-            vmData.settingGridPaging.startRow = "";
-            vmData.settingGridPaging.lastRow = "";
-            vmData.settingGridPaging.isLastPage = true;
-            vmData.settingGridPaging.currentPage = "";
-            vmData.settingGridPaging.maxPerPage = "";
-            vmData.settingGridPaging.maxRows = "";
+            vmData.settingGridPaging.currentPage = 0;
+            vmData.settingGridPaging.maxPerPage = 50;
+            vmData.settingGridPaging.maxRows = 0;
             vmData.isToggle = false;
 
             vm = new AppViewModel(vmData);
@@ -96,15 +94,21 @@
             self.currentPage = ko.observable(vmData.settingGridPaging.currentPage);
             self.maxPerPage = ko.observable(vmData.settingGridPaging.maxPerPage);
             self.maxRows = ko.observable(vmData.settingGridPaging.maxRows);
-            self.startRow = ko.observable(vmData.settingGridPaging.startRow);
-            self.lastRow = ko.observable(vmData.settingGridPaging.lastRow);
-            self.isLastPage = ko.observable(vmData.settingGridPaging.isLastPage);
+           
             self.isLoading = ko.observable(vmData.isLoading);
             self.noData = ko.observable(false);
 
 
-
-
+            self.startRow = ko.computed(function () {
+                return  (self.maxPerPage() * self.currentPage()) + 1;
+            });
+            self.lastRow = ko.computed(function () {
+                return (self.startRow() + self.maxPerPage() - 1) > self.maxRows() ? self.maxRows() : (self.startRow() + self.maxPerPage() - 1);
+            });
+            self.isLastPage = ko.computed(function () {
+                return  (self.startRow() + self.maxPerPage() - 1) < self.maxRows() ? false : true;
+            });
+         
             self.lastRowCss = ko.computed(function () {
                 return self.isLastPage() == true ? "ms-crm-ImageStrip-page_L0" : "ms-crm-ImageStrip-page_L1";
             });
@@ -375,7 +379,7 @@
                                                         <tbody>
                                                             <tr>
                                                                 <td id="crmGrid_RecordSelectInfoCustom" class="ms-crm-List-StatusBar-Label" nowrap>
-                                                                    <span id="crmGrid_FirstItemCustom" data-bind="text: startRow"></span>- <span id="crmGrid_LastItemCustom"
+                                                                    <span id="crmGrid_FirstItemCustom" data-bind="text: startRow()"></span>- <span id="crmGrid_LastItemCustom"
                                                                         data-bind="text: lastRow"></span><span style="display: inline" id="crmGrid_TotalCountInfoCustom">
                                                                             &nbsp;מתוך <span id="crmGrid_ItemsTotalCustom" data-bind="text: maxRows"></span>
                                                                         </span>
