@@ -18,7 +18,7 @@ public class config : IHttpHandler {
 
         context.Response.Cache.SetNoStore();
         var id = context.Request["id"] == null ? "x1" : context.Request["id"];
-        var configItem = gridconfig.items.Where(d => d.name == id).FirstOrDefault();
+        var configItem = gridconfig.Items.Where(d => d.Name == id).FirstOrDefault();
         var json = new System.Web.Script.Serialization.JavaScriptSerializer().Serialize(configItem);
 
         context.Response.Write(" var __config=" + json + ";");

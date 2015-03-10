@@ -9,6 +9,7 @@
     <script src="scripts/knockout-2.2.0rc.js" type="text/javascript"></script>
     <script src="scripts/subgrid.js" type="text/javascript"></script>
     <script src="scripts/rowclick.js"></script>
+
     <script type="text/javascript">
         var vm;
         $(function () {
@@ -100,6 +101,9 @@
             self.isLastPage = ko.observable(vmData.settingGridPaging.isLastPage);
             self.isLoading = ko.observable(vmData.isLoading);
             self.noData = ko.observable(false);
+
+
+
 
             self.lastRowCss = ko.computed(function () {
                 return self.isLastPage() == true ? "ms-crm-ImageStrip-page_L0" : "ms-crm-ImageStrip-page_L1";

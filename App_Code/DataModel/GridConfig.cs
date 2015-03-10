@@ -7,26 +7,21 @@ namespace MVSWeb.Grid.server
 {
     public class DetailItem
     {
-        public string method { get; set; }
-        public IEnumerable<ColumnsItem> columns { get; set; }
-        public IEnumerable<FilterFieldItem> filterFields { get; set; }
+        public string Method { get; set; }
+        public IEnumerable<ColumnsItem> Columns { get; set; }
+        public IEnumerable<FilterFieldItem> FilterFields { get; set; }
     }
 
     public class ConfigItem
     {
-        public string name { get; set; }
-        public string url { get; set; }
-        public DetailItem detail { get; set; }
+        public string Name { get; set; }
+        public string Url { get; set; }
+        public DetailItem Detail { get; set; }
     }
-
-    //public class FilterFieldItem
-    //{
-    //    public string name { get; set; }
-    //}
 
     public class GridConfig
     {
-        public string ver { get; set; }
-        public IEnumerable<ConfigItem> items { get; set; }
+        public string Ver { get; set; }
+        public IEnumerable<ConfigItem> Items { get; set; }
     }
 }

@@ -9,8 +9,7 @@ namespace MVSWeb.Grid.server
     {
         public string Name { get; set; }
         public string Desc { get; set; }
-        public bool IsSort { get; set; }
-        public bool SortDsc { get; set; }
-        public string ObjType { get; set; }
+        public string Width { get; set; }
+     //   public string ObjType { get; set; }
     }
 }

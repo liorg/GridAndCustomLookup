@@ -1,13 +1,13 @@
 ﻿{
-"ver":"1.0.0.9",
-"items":
+"Ver":"1.0.0.9",
+"Items":
 [
-{"name":"x1","url":"HTTP://localhost:6666/pldynamic/lookup/MVLookupService.asmx",
-"detail": {"method": "GetSelHealth","columns":[ 
-								{"Name":"firstname","Desc":"שם פרטי","IsSort":false,"SortDsc":false,"ObjType":""},
-							    {"Name":"lastname","Desc":"שם משפחה","IsSort":true,"SortDsc":false,"ObjType":""}
+{"Name":"x1","Url":"HTTP://localhost:6666/pldynamic/lookup/MVLookupService.asmx",
+"Detail": {"Method": "GetSelHealth","Columns":[ 
+								{"Name":"firstname","Desc":"שם פרטי","Width":""},
+							    {"Name":"lastname","Desc":"שם משפחה","Width":""}
 								],
-								"filterFields":[]
+								"FilterFields":[]
 								}}
 ]
 }
