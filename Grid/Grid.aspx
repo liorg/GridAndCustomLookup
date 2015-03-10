@@ -12,21 +12,6 @@
 
     <script src="scripts/rowclick.js"></script>
     <script type="text/javascript">
-        //        var configUri = "json/config.json?s=14";
-        //        function callConfig(callback) {
-        //            var xmlhttp = new XMLHttpRequest();
-        //            xmlhttp.open('GET', configUri, false);
-        //            xmlhttp.onreadystatechange = function () {
-        //                if (xmlhttp.readyState == 4) {
-        //                    if (xmlhttp.status == 200) {
-        //                        // var data = JSON.parse(xmlhttp.responseText);
-        //                        var data = eval("(" + xmlhttp.responseText + ")");
-        //                        callback(data);
-        //                    }
-        //                }
-        //            }
-        //            xmlhttp.send();
-        //        }
         var vm;
         $(function () {
             load();
@@ -34,13 +19,11 @@
         });
 
         function mockData() {
-            var vmData;
-            // debugger;
-            vmData = { schema: [], crmItems: [] };
+            var vmData = { schema: [], crmItems: [] };
             var crmItems = [];
-            var objItem = { "Id": "2", "ListName": "liior", "MemberCount": 3, "CampaignName": "ddddd", "subSrc": "gr.htm?id=2" };
+            var objItem = { "Id": "2", "Fields": { "ListName": "liior", "MemberCount": 3, "CampaignName": "ddddd" }, "subSrc": "gr.htm?id=2" };
             crmItems.push(objItem);
-            var objItem = { "Id": "3", "ListName": "fdfsd", "MemberCount": 4, "CampaignName": "xxx", "subSrc": "gr.htm?id=2" };
+            var objItem = { "Id": "3", "Fields": { "ListName": "fdfsd", "MemberCount": 4, "CampaignName": "xxx" }, "subSrc": "gr.htm?id=2" };
             crmItems.push(objItem);
 
             var schema = [];
@@ -122,7 +105,7 @@
             self.crmSchema = ko.observableArray(vmData.schema);
             self.isToggle = ko.observable(vmData.isToggle);
             self.sortName = ko.observable(vmData.settingGridPaging.sortName);
-            self.sortorder = ko.observable(vmData.settingGridPaging.sortOrder);
+            self.sortOrder = ko.observable(vmData.settingGridPaging.sortOrder);
             self.currentPage = ko.observable(vmData.settingGridPaging.currentPage);
             self.maxPerPage = ko.observable(vmData.settingGridPaging.maxPerPage);
             self.maxRows = ko.observable(vmData.settingGridPaging.maxRows);
@@ -149,9 +132,9 @@
                 setTimeout(function () {
                     vmData = { schema: [], crmItems: [] };
                     var crmItems = [];
-                    var objItem = { "Id": "2", "ListName": "bbb", "MemberCount": 3, "CampaignName": "ddddd", "subSrc": "gr.htm?f=1" };
+                    var objItem = { "Id": "2", "Fields": { "ListName": "liior", "MemberCount": 3, "CampaignName": "ddddd" }, "subSrc": "gr.htm?id=2" };
                     crmItems.push(objItem);
-                    var objItem = { "Id": "3", "ListName": "xxxxx", "MemberCount": 4, "CampaignName": "xxx", "subSrc": "gr.htm?f=2" };
+                    var objItem = { "Id": "3", "Fields": { "ListName": "fdfsd", "MemberCount": 4, "CampaignName": "xxx" }, "subSrc": "gr.htm?id=2" };
                     crmItems.push(objItem);
                     cleanFrames();
                     self.crmItems(crmItems);
@@ -349,7 +332,7 @@
                                                                             </td>
                                                                             <!-- /ko -->
                                                                             <td class="ms-crm-List-DataCell inner-grid-cellPadding">
-                                                                                <nobr data-bind="text: $parent[$data.Name]"></nobr>
+                                                                                <nobr data-bind="text: $parent.Fields[$data.Name]"></nobr>
                                                                             </td>
                                                                             <!-- ko if:  $index() == $parents[1].getSchema().length-1-->
                                                                             <td class="ms-crm-List-DataCell">

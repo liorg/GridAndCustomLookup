@@ -18,9 +18,9 @@
                 // debugger;
                 vmData = { schema: [], crmItems: [] };
                 var crmItems = [];
-                var objItem = { "Id": "2", "ListName": "liior", "MemberCount": 3, "CampaignName": "ddddd", "subSrc": "gr.htm?id=2" };
+                var objItem = { "Id": "2", "Fields": { "ListName": "liior", "MemberCount": 3, "CampaignName": "ddddd" }, "subSrc": "gr.htm?id=2" };
                 crmItems.push(objItem);
-                var objItem = { "Id": "3", "ListName": "fdfsd", "MemberCount": 4, "CampaignName": "xxx", "subSrc": "gr.htm?id=2" };
+                var objItem = { "Id": "3", "Fields": { "ListName": "fdfsd", "MemberCount": 4, "CampaignName": "xxx" }, "subSrc": "gr.htm?id=2" };
                 crmItems.push(objItem);
 
                 var schema = [];
@@ -28,21 +28,21 @@
                 var colNameItem = { Name: "", Width: 32, Desc: "", IsDataColumnHeader: false };
                 schema.push(colNameItem);
 
-                colNameItem = { Name: "ListName", Width: 100, IsSort: false, SortDsc: false, Desc: "ליאור", I2: true, IsDataColumnHeader: true };
+                colNameItem = { Name: "ListName", Width: 100,  Desc: "ליאור", IsDataColumnHeader: true };
                 schema.push(colNameItem);
 
-                colNameItem = { Name: "MemberCount", Width: 100, IsSort: true, SortDsc: false, Desc: "בבבבבב", I2: true, IsDataColumnHeader: true };
+                colNameItem = { Name: "MemberCount", Width: 100, Desc: "בבבבבב",  IsDataColumnHeader: true };
                 schema.push(colNameItem);
 
-                colNameItem = { Name: "CampaignName", Width: 100, IsSort: false, SortDsc: false, Desc: "גגגגגג", I2: true, IsDataColumnHeader: true };
+                colNameItem = { Name: "CampaignName", Width: 100, Desc: "גגגגגג",IsDataColumnHeader: true };
                 schema.push(colNameItem);
 
                 vmData.schema = schema;
                 vmData.crmItems = crmItems;
                 vmData.settingGridPaging = {};
 
-                vmData.settingGridPaging.sortName = "";
-                vmData.settingGridPaging.sortOrder = "";
+                vmData.settingGridPaging.sortName = "MemberCount";
+                vmData.settingGridPaging.sortOrder =true;
                 vmData.settingGridPaging.startRow = "1";
                 vmData.settingGridPaging.lastRow = "11";
                 vmData.settingGridPaging.isLastPage = true;
@@ -50,13 +50,11 @@
                 vmData.settingGridPaging.maxPerPage = "222";
                 vmData.settingGridPaging.maxRows = "4444";
                 vmData.isToggle = true;
-                // vm = new AppViewModel(vmData);
-                // ko.applyBindings(vm);
                 vm.crmItems(vmData.crmItems);
                 vm.crmSchema(vmData.schema);
                 vm.isToggle(vmData.isToggle);
                 vm.sortName(vmData.settingGridPaging.sortName);
-                vm.sortorder(vmData.settingGridPaging.sortOrder);
+                vm.sortOrder(vmData.settingGridPaging.sortOrder);
                 vm.currentPage(vmData.settingGridPaging.currentPage);
                 vm.maxPerPage(vmData.settingGridPaging.maxPerPage);
                 vm.maxRows(vmData.settingGridPaging.maxRows);
@@ -93,7 +91,7 @@
             self.crmSchema = ko.observableArray(vmData.schema);
             self.isToggle = ko.observable(vmData.isToggle);
             self.sortName = ko.observable(vmData.settingGridPaging.sortName);
-            self.sortorder = ko.observable(vmData.settingGridPaging.sortOrder);
+            self.sortOrder = ko.observable(vmData.settingGridPaging.sortOrder);
             self.currentPage = ko.observable(vmData.settingGridPaging.currentPage);
             self.maxPerPage = ko.observable(vmData.settingGridPaging.maxPerPage);
             self.maxRows = ko.observable(vmData.settingGridPaging.maxRows);
@@ -120,9 +118,9 @@
                 setTimeout(function () {
                     vmData = { schema: [], crmItems: [] };
                     var crmItems = [];
-                    var objItem = { "Id": "2", "ListName": "bbb", "MemberCount": 3, "CampaignName": "ddddd", "subSrc": "gr.htm?f=1" };
+                    var objItem = { "Id": "2", "Fields": { "ListName": "liior", "MemberCount": 3, "CampaignName": "ddddd" }, "subSrc": "gr.htm?id=2" };
                     crmItems.push(objItem);
-                    var objItem = { "Id": "3", "ListName": "xxxxx", "MemberCount": 4, "CampaignName": "xxx", "subSrc": "gr.htm?f=2" };
+                    var objItem = { "Id": "3", "Fields": { "ListName": "fdfsd", "MemberCount": 4, "CampaignName": "xxx" }, "subSrc": "gr.htm?id=2" };
                     crmItems.push(objItem);
                     cleanFrames();
                     self.crmItems(crmItems);
@@ -131,24 +129,9 @@
                 }, 4000);
             }
             self.Sort = function (d) {
-               // debugger;
-                var schema = [];
-
-                var colNameItem = { Name: "", Width: 32, Desc: "", IsDataColumnHeader: false };
-                schema.push(colNameItem);
-
-                colNameItem = { Name: "ListName", Width: 100, IsSort: false, SortDsc: false, Desc: "xxx", I2: true, IsDataColumnHeader: true };
-                schema.push(colNameItem);
-
-                colNameItem = { Name: "MemberCount", Width: 100, IsSort: true, SortDsc: true, Desc: "zzzz", I2: true, IsDataColumnHeader: true };
-                schema.push(colNameItem);
-
-                colNameItem = { Name: "CampaignName", Width: 100, IsSort: false, SortDsc: false, Desc: "vvv", I2: true, IsDataColumnHeader: true };
-                schema.push(colNameItem);
-                self.crmSchema(schema);
-                //                if (d.IsSort)
-                //                    d.SortDsc = !d.SortDsc;
-                //alert(d.Name);
+                self.sortName(d.Name);
+                self.sortOrder(!self.sortOrder());
+                
 
             }
             self.NextPage = function (d) {
@@ -218,7 +201,7 @@
                                                                 <!-- ko if: $index() == 0 -->
                                                                 <td style="height: 20px; padding: 0px;">
                                                                     <input type="checkbox" class="ms-crm-HeaderCheckBox" id="Checkbox2" tabindex="0"
-                                                                        style="" title="Select/clear&#32;all&#32;records&#32;on&#32;this&#32;page">
+                                                                        style="" title="">
                                                                 </td>
                                                                 <td>
                                                                     <img id="bar_line" src="_imgs/imagestrips/transparent_spacer2013.gif" class="ms-crm-ImageStrip-bar_line"
@@ -226,15 +209,15 @@
                                                                 </td>
                                                                 <!-- /ko -->
 
-                                                                <th scope="col" data-bind="attr: { 'field':Name,'fieldname':Name },css: { 'ms-crm-List-Sortable': IsSort == true}" 
-                                                                    entityname="entityname" renderertype="Crm.PrimaryField"  displaylabel="tttttt">
-                                                                    <table   data-bind="css: { 'ms-crm-List-Sortable': IsSort == true}" cellspacing="0" cellpadding="0">
+                                                                <th scope="col" data-bind="attr: { 'field':Name,'fieldname':Name },css: { 'ms-crm-List-Sortable': Name == $root.sortName()},click: $root.Sort" style="cursor:pointer"
+                                                                    entityname="entityname" renderertype="Crm.PrimaryField"  displaylabel="">
+                                                                    <table   data-bind="css: { 'ms-crm-List-Sortable': Name == $root.sortName()}" cellspacing="0" cellpadding="0">
                                                                         <tbody>
                                                                             <tr>
-                                                                                <td data-bind="css: { 'ms-crm-List-Sortable': IsSort == true}">
-                                                                                    <a id="sHeaderSorting_repCols_LinkHeaderButton_0" title="Marketing List" data-bind="click: $root.Sort">
-                                                                                        <nobr class="ms-crm-DataCell"><span data-bind="text: Desc,css: { 'ms-crm-List-Sortable': IsSort == true}" ></span>
-                                                                                         <img  data-bind="css: { 'ms-crm-ImageStrip-dropdown': IsSort == true && SortDsc,'ms-crm-ImageStrip-bar_up' : IsSort == true && !SortDsc }"  src="_imgs/imagestrips/transparent_spacer2013.gif" /></nobr>
+                                                                                <td data-bind="css: { 'ms-crm-List-Sortable': Name == $root.sortName()}">
+                                                                                    <a id="sHeaderSorting_repCols_LinkHeaderButton_0" data-bind="attr: { 'title':Desc }" >
+                                                                                        <nobr class="ms-crm-DataCell"><span data-bind="text: Desc,css: { 'ms-crm-List-Sortable': Name == $root.sortName()}" ></span>
+                                                                                         <img  data-bind="css: { 'ms-crm-ImageStrip-dropdown': Name == $root.sortName() && $root.sortOrder(),'ms-crm-ImageStrip-bar_up' : Name == $root.sortName() && !$root.sortOrder() }"  src="_imgs/imagestrips/transparent_spacer2013.gif" /></nobr>
                                                                                     </a>
                                                                                 </td>
                                                                                 <td class="ms-crm-FilterPopupContainerTD">
@@ -298,7 +281,7 @@
                                                                         <col class="ms-crm-List-CheckBoxColumn" width="18">
                                                                         <col class="ms-crm-List-RowIconColumn" width="16">
                                                                         <!-- /ko -->
-                                                                        <col class="ms-crm-List-DataColumn" data-bind="attr: { 'name':Name, width: Width+2} ,css: { 'ms-crm-List-SortedColumn': IsSort == true}" ">
+                                                                        <col class="ms-crm-List-DataColumn" data-bind="attr: { 'name':Name, width: Width+2} ,css: { 'ms-crm-List-SortedColumn': Name == $root.sortName()}" >
                                                                         <!-- ko if:  $index() == $parent.getSchema().length-1-->
                                                                         <col style="display: none">
                                                                         <col>
@@ -320,7 +303,7 @@
                                                                             </td>
                                                                             <!-- /ko -->
                                                                             <td class="ms-crm-List-DataCell inner-grid-cellPadding">
-                                                                                <nobr data-bind="text: $parent[$data.Name]"></nobr>
+                                                                                <nobr data-bind="text: $parent.Fields[$data.Name]"></nobr>
                                                                             </td>
                                                                             <!-- ko if:  $index() == $parents[1].getSchema().length-1-->
                                                                             <td class="ms-crm-List-DataCell">
