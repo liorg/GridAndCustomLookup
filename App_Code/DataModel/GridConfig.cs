@@ -8,7 +8,7 @@ namespace MVSWeb.Grid.server
     public class DetailItem
     {
         public string Method { get; set; }
-        public IEnumerable<ColumnsItem> Columns { get; set; }
+        public IEnumerable<ColumnsItem> Schema { get; set; }
         public IEnumerable<FilterFieldItem> FilterFields { get; set; }
     }
 

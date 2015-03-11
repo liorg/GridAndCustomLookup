@@ -9,17 +9,177 @@
     <script src="scripts/knockout-2.2.0rc.js" type="text/javascript"></script>
     <script src="scripts/subgrid.js" type="text/javascript"></script>
     <script src="scripts/rowclick.js"></script>
-    <script type="text/javascript" src="scripts/AppViewModel.js"></script>
-    <script src="scripts/mock/mockschema.js" type="text/javascript"></script>
-    <script src="scripts/mock/mockdata.js" type="text/javascript"></script>
     <script type="text/javascript">
         var vm;
         $(function () {
             load();
             setTimeout(function () {
-                firstLoad();
+                var vmData;
+                vmData = { schema: [], crmItems: [] };
+                var crmItems = [];
+                var objItem = { "Id": "2",  "subSrc": "gr.htm?id=2","Fields": [
+                                                         { "Key": "ListName", "Val": "liior" },
+                                                         { "Key": "MemberCount", "Val": "3" },
+                                                         { "Key": "CampaignName", "Val": "ddddd" }  
+                                                      ]  };
+                crmItems.push(objItem);
+
+                var objItem = { "Id": "2", "subSrc": "gr.htm?id=2", "Fields": [
+                                                         { "Key": "ListName", "Val": "bbbb" },
+                                                         { "Key": "MemberCount", "Val": "111" },
+                                                         { "Key": "CampaignName", "Val": "xxxx" }
+                                                      ]
+                };
+                crmItems.push(objItem);
+
+                vmData.crmItems = crmItems;
+                vmData.settingGridPaging = {};
+
+                vmData.settingGridPaging.sortName = "MemberCount";
+                vmData.settingGridPaging.sortOrder = true;
+                vmData.settingGridPaging.currentPage = 2;
+                vmData.settingGridPaging.maxPerPage = 50;
+                vmData.settingGridPaging.maxRows = 444;
+
+                vmData.isToggle = true;
+                vm.crmItems(vmData.crmItems);
+
+                vm.isToggle(vmData.isToggle);
+                vm.sortName(vmData.settingGridPaging.sortName);
+                vm.sortOrder(vmData.settingGridPaging.sortOrder);
+                vm.currentPage(vmData.settingGridPaging.currentPage);
+                vm.maxPerPage(vmData.settingGridPaging.maxPerPage);
+                vm.maxRows(vmData.settingGridPaging.maxRows);
+
+                vm.isLoading(false);
+                vm.noData(false);
             }, 4);
         });
+
+        function load() {
+            var vmData;
+            vmData = { schema: [], crmItems: [], isLoading: true };
+
+            var schema = [];
+            colNameItem = { Name: "ListName", Width: 45, Desc: "ליאור" };
+            schema.push(colNameItem);
+
+            colNameItem = { Name: "MemberCount", Width: 150, Desc: "בבבבבב"};
+            schema.push(colNameItem);
+
+            colNameItem = { Name: "CampaignName", Width: 100, Desc: "גגגגגג"};
+            schema.push(colNameItem);
+            vmData.schema = schema;
+            vmData.settingGridPaging = {};
+
+            vmData.settingGridPaging.sortName = "";
+            vmData.settingGridPaging.sortOrder = "";
+            vmData.settingGridPaging.currentPage = 0;
+            vmData.settingGridPaging.maxPerPage = 50;
+            vmData.settingGridPaging.maxRows = 0;
+            vmData.isToggle = false;
+
+//            vm.crmSchema(vmData.schema);
+            vm = new AppViewModel(vmData);
+            ko.applyBindings(vm);
+        }
+        function AppViewModel(vmData) {
+            var self = this;
+            self.crmItems = ko.observableArray(vmData.crmItems);
+            self.crmSchema = ko.observableArray(vmData.schema);
+            self.isToggle = ko.observable(vmData.isToggle);
+            self.sortName = ko.observable(vmData.settingGridPaging.sortName);
+            self.sortOrder = ko.observable(vmData.settingGridPaging.sortOrder);
+            self.currentPage = ko.observable(vmData.settingGridPaging.currentPage);
+            self.maxPerPage = ko.observable(vmData.settingGridPaging.maxPerPage);
+            self.maxRows = ko.observable(vmData.settingGridPaging.maxRows);
+            self.isLoading = ko.observable(vmData.isLoading);
+            self.noData = ko.observable(false);
+
+            self.startRow = ko.computed(function () {
+                return  (self.maxPerPage() * self.currentPage()) + 1;
+            });
+            self.lastRow = ko.computed(function () {
+                return (self.startRow() + self.maxPerPage() - 1) > self.maxRows() ? self.maxRows() : (self.startRow() + self.maxPerPage() - 1);
+            });
+            self.isLastPage = ko.computed(function () {
+                return  (self.startRow() + self.maxPerPage() - 1) < self.maxRows() ? false : true;
+            });
+         
+            self.lastRowCss = ko.computed(function () {
+                return self.isLastPage() == true ? "ms-crm-ImageStrip-page_L0" : "ms-crm-ImageStrip-page_L1";
+            });
+
+            self.firstRowCss = ko.computed(function () {
+                return self.startRow() == 1 ? "ms-crm-ImageStrip-page_R0" : "ms-crm-ImageStrip-page_R1";
+            });
+
+            self.getLayoutSchema = ko.computed(function () {
+              //  debugger;
+                var c = [{ "Width": "32"}];
+                ko.utils.arrayForEach(self.crmSchema(), function (item) {
+               // debugger;
+                    c.push({"Width":item.Width} );
+                });
+                return c;
+            });
+
+
+//            self.getSchema = ko.computed(function () {
+//                return ko.utils.arrayFilter(self.crmSchema(), function (item) {
+//                    return item.IsDataColumnHeader == true;
+//                });
+//            })
+
+            self.Refresh = function () {
+                self.crmItems([]);
+                self.noData(false);
+                setTimeout(function () {
+                    vmData = { schema: [], crmItems: [] };
+                    var crmItems = [];
+                    var objItem = { "Id": "2", "subSrc": "gr.htm?id=2", "Fields": [
+                                                         { "Key": "ListName", "Val": "xxx" },
+                                                         { "Key": "MemberCount", "Val": "22" },
+                                                         { "Key": "CampaignName", "Val": "sdsds" }
+                                                      ]
+                    };
+                    crmItems.push(objItem);
+
+                    var objItem = { "Id": "2", "subSrc": "gr.htm?id=2", "Fields": [
+                                                         { "Key": "ListName", "Val": "yyy" },
+                                                         { "Key": "MemberCount", "Val": "656" },
+                                                         { "Key": "CampaignName", "Val": "dfgdfg" }
+                                                      ]
+                    };
+                    crmItems.push(objItem);
+                    cleanFrames();
+                    self.crmItems(crmItems);
+                    self.noData(crmItems.length ==0);
+                }, 4000);
+            }
+            self.Sort = function (d) {
+                self.sortName(d.Name);
+                self.sortOrder(!self.sortOrder());
+            }
+
+            self.GetValueByField = function (data, field) {
+                var finditem = jQuery.grep(data, function (obj) {
+                    return obj != null && obj.Key === field;
+                });
+                if (finditem != null && finditem[0] != null) {
+                    return finditem[0].Val;
+                }
+                return "";
+            }
+
+            self.NextPage = function (d) {
+                alert('next');
+            }
+
+            self.PrevPage = function (d) {
+                alert('prev');
+            }
+        }
 
     </script>
     <link href="crm2013/classicStyle2013/1037/menucore.css" rel="stylesheet" type="text/css" />
