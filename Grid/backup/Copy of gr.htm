@@ -79,6 +79,7 @@
             vmData.settingGridPaging.maxRows = 0;
             vmData.isToggle = false;
 
+//            vm.crmSchema(vmData.schema);
             vm = new AppViewModel(vmData);
             ko.applyBindings(vm);
         }
@@ -114,12 +115,21 @@
             });
 
             self.getLayoutSchema = ko.computed(function () {
+              //  debugger;
                 var c = [{ "Width": "32"}];
                 ko.utils.arrayForEach(self.crmSchema(), function (item) {
-                 c.push({"Width":item.Width} );
+               // debugger;
+                    c.push({"Width":item.Width} );
                 });
                 return c;
             });
+
+
+//            self.getSchema = ko.computed(function () {
+//                return ko.utils.arrayFilter(self.crmSchema(), function (item) {
+//                    return item.IsDataColumnHeader == true;
+//                });
+//            })
 
             self.Refresh = function () {
                 self.crmItems([]);
