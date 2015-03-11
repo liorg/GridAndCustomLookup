@@ -9,8 +9,8 @@ var bResize = true;
 var iWidth = '600';
 var dirtyData = []; 
 var crmSelectedByPrimary;
-if (typeof String.prototype.trim !== 'function') {
-    //debugger; for ie8
+if (typeof String.prototype.trim !== 'function') {//for ie8
+    //debugger;
     String.prototype.trim = function () {
         return this.replace(/^\s+|\s+$/g, '');
     }
@@ -171,6 +171,7 @@ function loadData(url, data, id, isLoad, callback) {
     xmlhttp.setRequestHeader('Content-Type', 'text/xml');
     xmlhttp.send(sr);
 }
+
 function errorHandler(xhr) {
     var isErrorNode;
     if (xhr == null)
@@ -188,6 +189,7 @@ function errorHandler(xhr) {
         throw "error geting data webservice";
     }
 }
+
 function xmlToJsonArray(xml, isload) {
     //debugger;
     var crmItems = [];
@@ -211,6 +213,7 @@ function xmlToJsonArray(xml, isload) {
     });
     return crmItems;
 }
+
 function GetSelectFromPrimaryField() {
     //debugger;
     if (crmSelectedByPrimary != null)

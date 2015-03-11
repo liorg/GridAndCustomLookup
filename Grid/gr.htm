@@ -16,12 +16,21 @@
             load();
             setTimeout(function () {
                 var vmData;
-                // debugger;
                 vmData = { schema: [], crmItems: [] };
                 var crmItems = [];
-                var objItem = { "Id": "2", "Fields": { "ListName": "liior", "MemberCount": 3, "CampaignName": "ddddd" }, "subSrc": "gr.htm?id=2" };
+                var objItem = { "Id": "2",  "subSrc": "gr.htm?id=2","Fields": [
+                                                         { "Key": "ListName", "Val": "liior" },
+                                                         { "Key": "MemberCount", "Val": "3" },
+                                                         { "Key": "CampaignName", "Val": "ddddd" }  
+                                                      ]  };
                 crmItems.push(objItem);
-                var objItem = { "Id": "3", "Fields": { "ListName": "fdfsd", "MemberCount": 4, "CampaignName": "xxx" }, "subSrc": "gr.htm?id=2" };
+
+                var objItem = { "Id": "2", "subSrc": "gr.htm?id=2", "Fields": [
+                                                         { "Key": "ListName", "Val": "bbbb" },
+                                                         { "Key": "MemberCount", "Val": "111" },
+                                                         { "Key": "CampaignName", "Val": "xxxx" }
+                                                      ]
+                };
                 crmItems.push(objItem);
 
                 var schema = [];
@@ -44,9 +53,6 @@
 
                 vmData.settingGridPaging.sortName = "MemberCount";
                 vmData.settingGridPaging.sortOrder = true;
-                vmData.settingGridPaging.startRow = "1";
-                vmData.settingGridPaging.lastRow = "11";
-                //vmData.settingGridPaging.isLastPage = true;
                 vmData.settingGridPaging.currentPage = 2;
                 vmData.settingGridPaging.maxPerPage = 50;
                 vmData.settingGridPaging.maxRows = 444;
@@ -60,9 +66,7 @@
                 vm.currentPage(vmData.settingGridPaging.currentPage);
                 vm.maxPerPage(vmData.settingGridPaging.maxPerPage);
                 vm.maxRows(vmData.settingGridPaging.maxRows);
-               // vm.startRow(vmData.settingGridPaging.startRow);
-                //vm.lastRow(vmData.settingGridPaging.lastRow);
-                //vm.isLastPage(vmData.settingGridPaging.isLastPage);
+
                 vm.isLoading(false);
                 vm.noData(false);
             }, 4);
@@ -70,7 +74,6 @@
 
         function load() {
             var vmData;
-            // debugger;
             vmData = { schema: [], crmItems: [], isLoading: true };
             vmData.settingGridPaging = {};
 
@@ -126,31 +129,45 @@
                 setTimeout(function () {
                     vmData = { schema: [], crmItems: [] };
                     var crmItems = [];
-                    var objItem = { "Id": "2", "Fields": { "ListName": "dddd", "MemberCount": 3, "CampaignName": "ddddd" }, "subSrc": "gr.htm?id=2" };
+                    var objItem = { "Id": "2", "subSrc": "gr.htm?id=2", "Fields": [
+                                                         { "Key": "ListName", "Val": "xxx" },
+                                                         { "Key": "MemberCount", "Val": "22" },
+                                                         { "Key": "CampaignName", "Val": "sdsds" }
+                                                      ]
+                    };
                     crmItems.push(objItem);
-                    var objItem = { "Id": "3", "Fields": { "ListName": "zzz", "MemberCount": 4, "CampaignName": "xxx" }, "subSrc": "gr.htm?id=2" };
+
+                    var objItem = { "Id": "2", "subSrc": "gr.htm?id=2", "Fields": [
+                                                         { "Key": "ListName", "Val": "yyy" },
+                                                         { "Key": "MemberCount", "Val": "656" },
+                                                         { "Key": "CampaignName", "Val": "dfgdfg" }
+                                                      ]
+                    };
                     crmItems.push(objItem);
                     cleanFrames();
                     self.crmItems(crmItems);
                     self.noData(crmItems.length ==0);
-                    //self.noData(true);
                 }, 4000);
             }
             self.Sort = function (d) {
                 self.sortName(d.Name);
                 self.sortOrder(!self.sortOrder());
+            }
 
-
+            self.GetValueByField = function (data, field) {
+                var finditem = jQuery.grep(data, function (obj) {
+                    return obj != null && obj.Key === field;
+                });
+                if (finditem != null && finditem[0] != null) {
+                    return finditem[0].Val;
+                }
+                return "";
             }
             self.NextPage = function (d) {
                 alert('next');
-                // debugger;
-                // alert(d.Name);
             }
             self.PrevPage = function (d) {
-                //  debugger;
                 alert('prev');
-                //  alert(d.Name);
             }
         }
 
@@ -308,7 +325,7 @@
                                                                             </td>
                                                                             <!-- /ko -->
                                                                             <td class="ms-crm-List-DataCell inner-grid-cellPadding">
-                                                                                <nobr data-bind="text: $parent.Fields[$data.Name]"></nobr>
+                                                                                <nobr data-bind="text: $root.GetValueByField($parent.Fields,$data.Name)"></nobr>
                                                                             </td>
                                                                             <!-- ko if:  $index() == $parents[1].getSchema().length-1-->
                                                                             <td class="ms-crm-List-DataCell">
