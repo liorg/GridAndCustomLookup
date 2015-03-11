@@ -1,4 +1,6 @@
-﻿function AppViewModel(vmData) {
+﻿
+
+function AppViewModel(vmData) {
     var self = this;
     self.crmItems = ko.observableArray(vmData.CrmItems);
     self.crmSchema = ko.observableArray(vmData.Schema);
@@ -30,7 +32,9 @@
     });
 
     self.getLayoutSchema = ko.computed(function () {
-        var c = [{ "Width": "32"}];
+       //var c = [{ "Width": 32}];
+       var c = [];
+       c.push({ "Width": 32 });
         ko.utils.arrayForEach(self.crmSchema(), function (item) {
             c.push({ "Width": item.Width });
         });

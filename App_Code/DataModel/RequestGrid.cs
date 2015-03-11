@@ -10,8 +10,6 @@ namespace MVSWeb.Grid.Server
     {
         public string Id { get; set; }
 
-        public IEnumerable<ColumnsItem> Columns { get; set; }
-        public IEnumerable<FieldItem> FilterFields { get; set; }
 
     }
 }

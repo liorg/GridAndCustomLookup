@@ -10,7 +10,9 @@
     <script src="scripts/subgrid.js" type="text/javascript"></script>
     <script src="scripts/rowclick.js"></script>
     <script type="text/javascript" src="scripts/AppViewModel.js"></script>
-    <script src="scripts/mock/mockschema.js" type="text/javascript"></script>
+    <script src="scripts/config.ashx" type="text/javascript"></script>
+    <script src="scripts/Schema.js" type="text/javascript"></script>
+    <!--    <script src="scripts/mock/mockschema.js" type="text/javascript"></script>-->
     <script src="scripts/mock/mockdata.js" type="text/javascript"></script>
     <script type="text/javascript">
         var vm;
@@ -84,11 +86,11 @@
                                                                 <th scope="col" data-bind="attr: { 'field':Name,'fieldname':Name },css: { 'ms-crm-List-Sortable': Name == $root.sortName()},click: $root.Sort"
                                                                     style="cursor: pointer" entityname="entityname" renderertype="Crm.PrimaryField"
                                                                     displaylabel="">
-                                                                    <table data-bind="css: { 'ms-crm-List-Sortable': Name == $root.sortName()}" cellspacing="0"
+                                                                    <table cellspacing="0" class="ms-crm-List-Sortable"
                                                                         cellpadding="0">
                                                                         <tbody>
                                                                             <tr>
-                                                                                <td data-bind="css: { 'ms-crm-List-Sortable': Name == $root.sortName()}">
+                                                                                <td class="ms-crm-List-Sortable">
                                                                                     <a id="sHeaderSorting_repCols_LinkHeaderButton_0" data-bind="attr: { 'title':Desc }">
                                                                                         <nobr class="ms-crm-DataCell"><span data-bind="text: Desc,css: { 'ms-crm-List-Sortable': Name == $root.sortName()}" ></span>
                                                                                          <img  data-bind="css: { 'ms-crm-ImageStrip-dropdown': Name == $root.sortName() && $root.sortOrder(),'ms-crm-ImageStrip-bar_up' : Name == $root.sortName() && !$root.sortOrder() }"  src="_imgs/imagestrips/transparent_spacer2013.gif" /></nobr>
@@ -126,7 +128,7 @@
                                                                     <img class="ms-crm-List-ResizeBar ms-crm-ImageStrip-resize" alt="" data-bind="attr: { 'id':'crmGrid_resize_'+Name }"
                                                                         src="_imgs/imagestrips/transparent_spacer.gif">
                                                                 </td>
-                                                                <!-- ko if:  $index() == $parent.crmSchema().length-1-->
+                                                                <!-- ko if:  $index() == $root.crmSchema().length-1-->
                                                                 <td>
                                                                 </td>
                                                                 <!-- /ko -->
@@ -279,18 +281,19 @@
                 </div>
             </div>
         </div>
-        <script src="scripts/global.js" type="text/javascript"></script>
-        <script type="text/javascript" src='crm2013/js/PageLoader.js'></script>
-        <script src="crm2013/js/global.js" type="text/javascript"></script>
-        <script src="crm2013/js/ScriptResx.js" type="text/javascript"></script>
-        <script src="crm2013/js/entitypropertiesutil.js" type="text/javascript"></script>
-        <script src="crm2013/js/stage.js" type="text/javascript"></script>
-        <script src="crm2013/js/form.js" type="text/javascript"></script>
-        <script src="crm2013/js/select.js" type="text/javascript"></script>
-        <script src="crm2013/js/gridcontrol.js" type="text/javascript"></script>
-        <script src="crm2013/js/GridFilters.js" type="text/javascript"></script>
-        <script src="crm2013/js/action.js" type="text/javascript"></script>
-        <script src="scripts/jsload.js" type="text/javascript"></script>
-        <script src="crm2013/js/presence.js" type="text/javascript"></script>
+    </div>
+    <script src="scripts/global.js" type="text/javascript"></script>
+    <script type="text/javascript" src='crm2013/js/PageLoader.js'></script>
+    <script src="crm2013/js/global.js" type="text/javascript"></script>
+    <script src="crm2013/js/ScriptResx.js" type="text/javascript"></script>
+    <script src="crm2013/js/entitypropertiesutil.js" type="text/javascript"></script>
+    <script src="crm2013/js/stage.js" type="text/javascript"></script>
+    <script src="crm2013/js/form.js" type="text/javascript"></script>
+    <script src="crm2013/js/select.js" type="text/javascript"></script>
+    <script src="crm2013/js/gridcontrol.js" type="text/javascript"></script>
+    <script src="crm2013/js/GridFilters.js" type="text/javascript"></script>
+    <script src="crm2013/js/action.js" type="text/javascript"></script>
+    <script src="scripts/jsload.js" type="text/javascript"></script>
+    <script src="crm2013/js/presence.js" type="text/javascript"></script>
 </body>
 </html>

@@ -9,7 +9,7 @@ namespace MVSWeb.Grid.server
     {
         public string Name { get; set; }
         public string Desc { get; set; }
-        public string Width { get; set; }
+        public int Width { get; set; }
      //   public string ObjType { get; set; }
     }
 }
