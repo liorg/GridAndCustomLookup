@@ -24,8 +24,8 @@ function loadGrid() {
 //                 vm.sortOrder(d.SettingGrid.SortOrder);
 //                 vm.currentPage(d.SettingGrid.CurrentPage);
 //                 vm.maxPerPage(d.SettingGrid.MaxPerPage);
-//                 vm.maxRows(d.SettingGrid.MaxRows);
-//                 vm.isToggle(d.SettingGrid.IsToggle);
+                 vm.maxRows(d.SettingGrid.MaxRows);                
+                // vm.isToggle(d.SettingGrid.IsToggle);
                  vm.isLoading(false);
                  if (d.IsError) {
                      vm.noData(true);
