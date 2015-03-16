@@ -14,7 +14,7 @@ using MVSWeb.Grid.Server.Mock;
 [WebService(Namespace = "http://tempuri.org/")]
 [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
 // To allow this Web Service to be called from script, using ASP.NET AJAX, uncomment the following line. 
-// [System.Web.Script.Services.ScriptService]
+[System.Web.Script.Services.ScriptService]
 public class SimpleGrid : System.Web.Services.WebService {
 
     public SimpleGrid () {
@@ -27,7 +27,7 @@ public class SimpleGrid : System.Web.Services.WebService {
     public string HelloWorld() {
         return "Hello World";
     }
-    [WebMethod()]
+    [WebMethod]
     [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
     public ResponseGrid MockData(RequestGrid request)
     {
