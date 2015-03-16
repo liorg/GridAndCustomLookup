@@ -1,6 +1,13 @@
 ﻿var url;
 var method;
 var settingGrid;
+var id;
+function getParameterByName(name) {
+    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+        results = regex.exec(location.search);
+    return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+}
 function load() {
     var vmData;
     url = __config.Url;
@@ -16,7 +23,8 @@ function load() {
 }
 function loadGrid() {
     debugger;
-    var ajaxCall = new clientSender(url, method);
+    id = getParameterByName('id') == "" ? "{387A37A7-0000-0000-0000-D553F1CB7D63}" : getParameterByName('id').toString();
+    var ajaxCall = new clientSender(id,url, method);
     ajaxCall.Send(__config.Detail.SettingGrid,
             function (d) {
                  debugger;
@@ -24,8 +32,8 @@ function loadGrid() {
 //                 vm.sortOrder(d.SettingGrid.SortOrder);
 //                 vm.currentPage(d.SettingGrid.CurrentPage);
 //                 vm.maxPerPage(d.SettingGrid.MaxPerPage);
-                 vm.maxRows(d.SettingGrid.MaxRows);                
-                // vm.isToggle(d.SettingGrid.IsToggle);
+                 vm.maxRows(d.SettingGrid.MaxRows);
+        //         vm.isToggle(d.SettingGrid.IsToggle);
                  vm.isLoading(false);
                  if (d.IsError) {
                      vm.noData(true);

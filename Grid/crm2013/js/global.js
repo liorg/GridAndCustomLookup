@@ -13537,7 +13537,7 @@ function GetWindowInformation(objectTypeCode) {
 }
 Mscrm.WindowInformation = function () {};
 Mscrm.WindowInformation.getWindowInformation = function (objectTypeCode) {
-    var $v_0 = Mscrm.CrmUri.create("/_common/windowinformation/windowinformation.js.aspx");
+    var $v_0 = Mscrm.CrmUri.create("windowinformation.js");
     $v_0.set_useCssLcid(true);
     Mscrm.CrmHeader.setScriptFile($v_0, true);
     var $v_1 = Mscrm.Imported.WindowInformationImplementation.getWindowInformationInternal(objectTypeCode);

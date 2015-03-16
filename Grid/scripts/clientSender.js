@@ -1,9 +1,9 @@
-﻿function clientSender(url, method) {
+﻿function clientSender(id,url, method) {
     this.Url = url;
     this.Method = method;
     this.Send = function (gridProp, callback, err) {
         var url = this.Url + "/" + this.Method;
-        var payload = { "request": { Id: 3, SettingGrid: gridProp} };
+        var payload = { "request": { Id: id, SettingGrid: gridProp} };
         $.ajax({
             type: "POST",
             url: url,
