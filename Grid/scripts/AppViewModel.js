@@ -1,5 +1,5 @@
 ﻿
-
+var noData = "!!!!אין נתונים";
 function AppViewModel(vmData) {
     var self = this;
     self.crmItems = ko.observableArray(vmData.CrmItems);
@@ -12,6 +12,7 @@ function AppViewModel(vmData) {
     self.maxRows = ko.observable(vmData.SettingGrid.MaxRows);
     self.isLoading = ko.observable(true);
     self.noData = ko.observable(false);
+    self.message = ko.observable(noData);
 
     self.startRow = ko.computed(function () {
         return (self.maxPerPage() * self.currentPage()) + 1;
@@ -32,44 +33,50 @@ function AppViewModel(vmData) {
     });
 
     self.getLayoutSchema = ko.computed(function () {
-       //var c = [{ "Width": 32}];
-       var c = [];
-       c.push({ "Width": 32 });
+        var c = [];
+        c.push({ "Width": 32 });
         ko.utils.arrayForEach(self.crmSchema(), function (item) {
             c.push({ "Width": item.Width });
         });
         return c;
     });
+    self.GetGridSetting = function () {
+        var gridSetting = {
+            SortName: self.sortName(),
+            SortOrder: self.sortOrder(),
+            CurrentPage: self.currentPage(),
+            MaxPerPage: self.maxPerPage(),
+            MaxRows: self.maxRows(),
+            IsToggle: self.isToggle()
+        };
+        return gridSetting;
+    }
 
     self.Refresh = function () {
         self.crmItems([]);
         self.noData(false);
-        setTimeout(function () {
-            vmData = { schema: [], crmItems: [] };
-            var crmItems = [];
-            var objItem = { "Id": "2", "subSrc": "gr.htm?id=2", "Fields": [
-                                                         { "Key": "ListName", "Val": "xxx" },
-                                                         { "Key": "MemberCount", "Val": "22" },
-                                                         { "Key": "CampaignName", "Val": "sdsds" }
-                                                      ]
-            };
-            crmItems.push(objItem);
+        var ajaxCall = new clientSender(url, method);
+        ajaxCall.Send(self.GetGridSetting(),
+         function (d) {
+             cleanFrames();
+             self.isLoading(false);
+             if (d.IsError) {
+                 self.noData(true);
+                 self.message(d.ErrDesc);
+             }
+             self.crmItems(d.CrmGrid.CrmGridItems);
 
-            var objItem = { "Id": "2", "subSrc": "gr.htm?id=2", "Fields": [
-                                                         { "Key": "ListName", "Val": "yyy" },
-                                                         { "Key": "MemberCount", "Val": "656" },
-                                                         { "Key": "CampaignName", "Val": "dfgdfg" }
-                                                      ]
-            };
-            crmItems.push(objItem);
-            cleanFrames();
-            self.crmItems(crmItems);
-            self.noData(crmItems.length == 0);
-        }, 4000);
+         }, function (e) {
+             cleanFrames();
+             self.isLoading(false);
+             self.noData(true);
+             self.message("אירעה שגיאה נא פנה למנהל מערכת");
+         });
     }
     self.Sort = function (d) {
         self.sortName(d.Name);
         self.sortOrder(!self.sortOrder());
+        self.Refresh();
     }
 
     self.GetValueByField = function (data, field) {
@@ -83,10 +90,14 @@ function AppViewModel(vmData) {
     }
 
     self.NextPage = function (d) {
-        alert('next');
+        var cp = self.currentPage();
+        self.currentPage(cp + 1);
+        self.Refresh();
     }
 
     self.PrevPage = function (d) {
-        alert('prev');
+        var cp = self.currentPage();
+        self.currentPage(cp - 1);
+        self.Refresh();
     }
 }

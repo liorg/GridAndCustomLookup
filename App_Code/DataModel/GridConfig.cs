@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace MVSWeb.Grid.server
+namespace MVSWeb.Grid.Server
 {
     public class GridConfig
     {

@@ -5,6 +5,8 @@ using System.Web;
 using System.Web.Services;
 using System.Web.Script.Services;
 using MVSWeb.Grid.Server;
+using MVSWeb.Grid.Server.Mock;
+
 
 /// <summary>
 /// Summary description for SimpleGrid
@@ -25,10 +27,16 @@ public class SimpleGrid : System.Web.Services.WebService {
     public string HelloWorld() {
         return "Hello World";
     }
-    [WebMethod(CacheDuration = 60)]
+    [WebMethod()]
     [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
     public ResponseGrid MockData(RequestGrid request)
     {
-        return new ResponseGrid { Id = request.Id, Name = "xxx_" };
+        var res = new ResponseGrid { Id = request.Id, IsError = false, ErrDesc = "", CrmGrid = new MockData().CrmGrid };
+        //res.SettingGrid = request.SettingGrid;
+        //res.SettingGrid.CurrentPage += 1;
+        //res.SettingGrid.MaxRows = 102;
+        //res.SettingGrid.SortName = "MemberCount";
+
+        return res;
     }
 }

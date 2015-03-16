@@ -4,16 +4,17 @@ using System;
 using System.Web;
 using System.Collections.Generic;
 using System.Linq;
+using MVSWeb.Grid.Server;
 public class config : IHttpHandler {
     
     public void ProcessRequest (HttpContext context) {
         context.Response.ContentType = "text/javascript";
-        MVSWeb.Grid.server.GridConfig gridconfig = null;
+       GridConfig gridconfig = null;
         using (var stream = System.IO.File.OpenText(context.Server.MapPath(@"..\json\config.json")))
         {
             //Read the file              
             string st = stream.ReadToEnd();
-            gridconfig = new System.Web.Script.Serialization.JavaScriptSerializer().Deserialize<MVSWeb.Grid.server.GridConfig>(st);
+            gridconfig = new System.Web.Script.Serialization.JavaScriptSerializer().Deserialize<GridConfig>(st);
         }
 
         context.Response.Cache.SetNoStore();

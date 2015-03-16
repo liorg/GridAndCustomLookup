@@ -5,13 +5,11 @@ using System.Web;
 
 namespace MVSWeb.Grid.Server
 {
-    public class FilterFieldItem
+    [Serializable]
+    public class ParamKeyValuePair
     {
-        public string Name { get; set; }
-    }
-
-    public class FieldItem : FilterFieldItem
-    {
+        public string Key { get; set; }
         public string Val { get; set; }
+
     }
 }
