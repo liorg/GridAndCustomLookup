@@ -2,12 +2,36 @@
 "Ver":"1.0.0.10",
 "Items":
 [
-{"Name":"x1","Url":"http://localhost:9894/custompicklist/Grid/SimpleGrid.asmx",
-"Detail": {"Method": "MockData","SettingGrid":{"SortName":"ListName","SortOrder":true,"CurrentPage":0,"MaxPerPage":50,"MaxRows":0,IsToggle:true}
+{
+"Name":"x1","Url":"http://localhost:51841/Grid/SimpleGrid.asmx",
+"Detail": {"Method": "MockData","SettingGrid":{"SortName":"ListName","SortOrder":true,"CurrentPage":1,"MaxPerPage":50,"MaxRows":0,IsToggle:true}
                                  ,"Schema":[ 
-								    {"Name":"ListName","Desc":"שם פרטי","Width":45},
-							        {"Name":"MemberCount","Desc":"שם משפחה","Width":222},
-									{"Name":"CampaignName","Desc":"dd f","Width":100}
+								    {"Name":"ListName","Desc":"שם פרטי","Width":145,"CanSort":true},
+							        {"Name":"MemberCount","Desc":"שם משפחה","Width":222,"CanSort":false},
+									{"Name":"CampaignName","Desc":"dd f","Width":100,"CanSort":true}
+								    ],
+								   "FilterFields":[]
+			}
+},
+{
+"Name":"incident","Url":"http://mvs-crm-i-d2:6666/Portal/Portal360.asmx",
+"Detail": {"Method": "GetAllIncident","SettingGrid":{"SortName":"title","SortOrder":true,"CurrentPage":1,"MaxPerPage":10,"MaxRows":0,IsToggle:false}
+                                 ,"Schema":[ 
+								    {"Name":"title","Desc":"כותרת","Width":250,"CanSort":true},
+							        {"Name":"new_incidentnumber","Desc":"מספר אירוע","Width":222,"CanSort":true},
+									{"Name":"new_implementation_missionid","Desc":"משימה לביצוע","Width":200,"CanSort":true},
+								    {"Name":"new_ownertype","Desc":"גורם מטפל","Width":200,"CanSort":true}
+								    ],
+								   "FilterFields":[]
+			}
+},
+{
+"Name":"health","Url":"http://mvs-crm-i-d2:6666/Grid/SimpleGrid.asmx",
+"Detail": {"Method": "MockData","SettingGrid":{"SortName":"ListName","SortOrder":true,"CurrentPage":1,"MaxPerPage":50,"MaxRows":0,IsToggle:false}
+                                 ,"Schema":[ 
+								    {"Name":"ListName","Desc":"שם בריאות","Width":145,"CanSort":true},
+							        {"Name":"MemberCount","Desc":"שם משפחה","Width":222,"CanSort":true},
+									{"Name":"CampaignName","Desc":"dd f","Width":100,"CanSort":true}
 								    ],
 								   "FilterFields":[]
 			}

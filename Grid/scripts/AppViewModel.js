@@ -15,7 +15,7 @@ function AppViewModel(vmData) {
     self.message = ko.observable(noData);
 
     self.startRow = ko.computed(function () {
-        return (self.maxPerPage() * self.currentPage()) + 1;
+        return (self.maxPerPage() * (self.currentPage()-1)) + 1;
     });
     self.lastRow = ko.computed(function () {
         return (self.startRow() + self.maxPerPage() - 1) > self.maxRows() ? self.maxRows() : (self.startRow() + self.maxPerPage() - 1);
@@ -74,6 +74,8 @@ function AppViewModel(vmData) {
          });
     }
     self.Sort = function (d) {
+        if (!d.CanSort)
+            return;
         self.sortName(d.Name);
         self.sortOrder(!self.sortOrder());
         self.Refresh();

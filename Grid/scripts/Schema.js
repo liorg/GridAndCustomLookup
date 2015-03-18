@@ -16,13 +16,10 @@ function load() {
     vmData = { Schema: [], CrmItems: [] };
     vmData.Schema = __config.Detail.Schema;
     vmData.SettingGrid = __config.Detail.SettingGrid;
-
     vm = new AppViewModel(vmData);
     ko.applyBindings(vm);
-
 }
 function loadGrid() {
-    debugger;
     id = getParameterByName('id') == "" ? "{387A37A7-0000-0000-0000-D553F1CB7D63}" : getParameterByName('id').toString();
     var ajaxCall = new clientSender(id,url, method);
     ajaxCall.Send(__config.Detail.SettingGrid,

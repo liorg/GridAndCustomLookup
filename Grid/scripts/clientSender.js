@@ -14,11 +14,7 @@
                 callback(data.d);
             },
             error: function (xmlHttpRequest, textStatus, errorThrown) {
-                debugger;
                 err(xmlHttpRequest.responseText);
-                //                console.log(xmlHttpRequest.responseText);
-                //                console.log(textStatus);
-                //                console.log(errorThrown);
             }
         });
     };
