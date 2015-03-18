@@ -65,6 +65,7 @@ function AppViewModel(vmData) {
                  self.message(d.ErrDesc);
              }
              self.crmItems(d.CrmGrid.CrmGridItems);
+             self.noData(d.CrmGrid.CrmGridItems.length==0);
 
          }, function (e) {
              cleanFrames();

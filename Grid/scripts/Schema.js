@@ -24,7 +24,7 @@ function loadGrid() {
     var ajaxCall = new clientSender(id,url, method);
     ajaxCall.Send(__config.Detail.SettingGrid,
             function (d) {
-                 debugger;
+              //   debugger;
 //                 vm.sortName(d.SettingGrid.SortName);
 //                 vm.sortOrder(d.SettingGrid.SortOrder);
 //                 vm.currentPage(d.SettingGrid.CurrentPage);
@@ -36,6 +36,7 @@ function loadGrid() {
                      vm.noData(true);
                      vm.message(d.ErrDesc);
                  }
+                 vm.noData(d.CrmGrid.CrmGridItems.length == 0);
                  vm.crmItems(d.CrmGrid.CrmGridItems);
 
              }, 
