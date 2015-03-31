@@ -21,8 +21,10 @@ namespace MVSWeb.Grid.Server.Mock
             _crmGrid = new CrmGrid(); _crmGrid.CrmGridItems = new List<CrmGridItem>();
             crmGridItem = new CrmGridItem();
 
-            crmGridItem.Id = Guid.NewGuid().ToString(); 
-            crmGridItem.subSrc = "gr.htm?id=" + crmGridItem.Id;
+            crmGridItem.Id = Guid.NewGuid().ToString();
+            crmGridItem.subSrc = "gr.htm?id=" + crmGridItem.Id; 
+            crmGridItem.openwin = "http://www.google.com";
+
             crmGridItem.Fields = new List<ParamKeyValuePair>();
             crmGridItem.Fields.Add(new ParamKeyValuePair { Key = "ListName", Val = "ddd" });
             crmGridItem.Fields.Add(new ParamKeyValuePair { Key = "MemberCount", Val = "xxx" });
@@ -32,6 +34,7 @@ namespace MVSWeb.Grid.Server.Mock
             crmGridItem = new CrmGridItem();
             crmGridItem.Id = Guid.NewGuid().ToString();
             crmGridItem.subSrc = "gr.htm?id=" + crmGridItem.Id;
+            crmGridItem.openwin = "http://www.ynet.co.il";
             crmGridItem.Fields = new List<ParamKeyValuePair>();
             crmGridItem.Fields.Add(new ParamKeyValuePair { Key = "ListName", Val = "ש" });
             crmGridItem.Fields.Add(new ParamKeyValuePair { Key = "MemberCount", Val = "שדגד" });

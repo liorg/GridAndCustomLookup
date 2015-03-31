@@ -1,4 +1,22 @@
-﻿
+﻿ko.bindingHandlers.singleClick = {
+    init: function (element, valueAccessor) {
+        var handler = valueAccessor(),
+            delay = 200,
+            clickTimeout = false;
+
+        $(element).click(function () {
+            if (clickTimeout !== false) {
+                clearTimeout(clickTimeout);
+                clickTimeout = false;
+            } else {
+                clickTimeout = setTimeout(function () {
+                    clickTimeout = false;
+                    handler();
+                }, delay);
+            }
+        });
+    }
+};
 var noData = "!!!!אין נתונים";
 function AppViewModel(vmData) {
     var self = this;
@@ -15,7 +33,7 @@ function AppViewModel(vmData) {
     self.message = ko.observable(noData);
 
     self.startRow = ko.computed(function () {
-        return (self.maxPerPage() * (self.currentPage()-1)) + 1;
+        return (self.maxPerPage() * (self.currentPage() - 1)) + 1;
     });
     self.lastRow = ko.computed(function () {
         return (self.startRow() + self.maxPerPage() - 1) > self.maxRows() ? self.maxRows() : (self.startRow() + self.maxPerPage() - 1);
@@ -55,7 +73,7 @@ function AppViewModel(vmData) {
     self.Refresh = function () {
         self.crmItems([]);
         self.noData(false);
-        var ajaxCall = new clientSender(id,url, method);
+        var ajaxCall = new clientSender(id, url, method);
         ajaxCall.Send(self.GetGridSetting(),
          function (d) {
              cleanFrames();
@@ -65,7 +83,7 @@ function AppViewModel(vmData) {
                  self.message(d.ErrDesc);
              }
              self.crmItems(d.CrmGrid.CrmGridItems);
-             self.noData(d.CrmGrid.CrmGridItems.length==0);
+             self.noData(d.CrmGrid.CrmGridItems.length == 0);
 
          }, function (e) {
              cleanFrames();
@@ -103,4 +121,13 @@ function AppViewModel(vmData) {
         self.currentPage(cp - 1);
         self.Refresh();
     }
+
+    this.clicked = function () {
+        alert(333);
+    };
+
+    this.double = function (d) {
+        if (d.openwin != '')
+            window.open(d.openwin, "_blank", "width:900px,height:200px");
+    };
 }

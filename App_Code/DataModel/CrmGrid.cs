@@ -9,7 +9,8 @@ namespace MVSWeb.Grid.Server
     public class CrmGridItem
     {
         public string Id { get; set; }
-        public string subSrc { get; set; }
+        public string subSrc { get; set; } 
+        public string openwin { get; set; }
         public List<ParamKeyValuePair> Fields { get; set; }
     }
 

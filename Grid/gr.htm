@@ -166,7 +166,7 @@
                                                                     </colgroup>
                                                                     <!--end: colgroup Body  -->
                                                                     <tbody data-bind="foreach: crmItems">
-                                                                        <tr data-bind="attr: { 'id':'row_item_'+Id ,'rowid':Id,'srcSubGrid': subSrc},foreach: $parent.crmSchema"
+                                                                        <tr data-bind="attr: { 'id':'row_item_'+Id ,'rowid':Id,'srcSubGrid': subSrc},foreach: $parent.crmSchema, event : { dblclick: $parent.double }"
                                                                             class="ms-crm-List-Row">
                                                                             <!-- ko if: $index() == 0 -->
                                                                             <td align="Center" class="ms-crm-List-NonDataCell">

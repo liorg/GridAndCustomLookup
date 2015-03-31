@@ -32,9 +32,9 @@ public class SimpleGrid : System.Web.Services.WebService {
     public ResponseGrid MockData(RequestGrid request)
     {
         var res = new ResponseGrid { Id = request.Id, IsError = false, ErrDesc = "", CrmGrid = new MockData().CrmGrid };
-        //res.SettingGrid = request.SettingGrid;
+        res.SettingGrid = request.SettingGrid;
         //res.SettingGrid.CurrentPage += 1;
-        //res.SettingGrid.MaxRows = 102;
+        res.SettingGrid.MaxRows = 102;
         //res.SettingGrid.SortName = "MemberCount";
 
         return res;
