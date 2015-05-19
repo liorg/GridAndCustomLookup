@@ -73,8 +73,8 @@ function AppViewModel(vmData) {
     self.Refresh = function () {
         self.crmItems([]);
         self.noData(false);
-        var ajaxCall = new clientSender(id, url, method);
-        ajaxCall.Send(self.GetGridSetting(),
+        var call = new new_clientCaller(id, method);
+        call.Call(self.GetGridSetting(),
          function (d) {
              cleanFrames();
              self.isLoading(false);
