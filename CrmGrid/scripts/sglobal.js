@@ -1,1 +1,0 @@
-﻿var defaultCols = 0;
