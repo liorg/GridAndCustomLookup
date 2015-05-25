@@ -9,6 +9,7 @@ function getParameterByName(name) {
     return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
 }
 function load() {
+    debugger;
     var vmData;
     url = __config.Url;
     var settingGrid=__config.Detail.SettingGrid;

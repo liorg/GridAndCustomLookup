@@ -5,7 +5,6 @@ using System.Text;
 
 namespace MVSWeb.Grid.Server
 {
-    
     public class ResponseGrid
     {
         public string Id { get; set; }
@@ -13,7 +12,5 @@ namespace MVSWeb.Grid.Server
         public string ErrDesc { get; set; }
         public CrmGrid CrmGrid { get; set; }
         public SettingGrid SettingGrid { get; set; }
-
     }
-
 }

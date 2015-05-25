@@ -13,5 +13,6 @@ namespace MVSWeb.Grid.Server
         public int MaxPerPage { get; set; }
         public int MaxRows { get; set; }
         public bool IsToggle { get; set; }
+        public int TypeData { get; set; } /*  0=ajax ,1 =Callback*/
     }
 }

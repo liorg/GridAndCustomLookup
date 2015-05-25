@@ -4,8 +4,8 @@
         debugger;
         var payload = { "request": { Id: id, SettingGrid: gridProp} };
         try {
-            var func = window.parent["UnitTest"];
-            var data = func["FakeCall"]("1"); // = window.parent["UnitTest"];
+            var func = window.parent[this.CallerMethod];
+            var data = func(gridProp); // = window.parent["UnitTest"];
             var FakeCall2 = window.parent["UnitTest"]["FakeCall"]("3");
 
             //.FakeCall.T"](payload);

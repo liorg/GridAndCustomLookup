@@ -31,7 +31,7 @@ function AppViewModel(vmData) {
     self.isLoading = ko.observable(true);
     self.noData = ko.observable(false);
     self.message = ko.observable(noData);
-
+    self.typeData = ko.observable(vmData.SettingGrid.TypeData); /* 1=Ajax,2=Callback,3=FetchXml */
     self.startRow = ko.computed(function () {
         return (self.maxPerPage() * (self.currentPage() - 1)) + 1;
     });
@@ -73,8 +73,9 @@ function AppViewModel(vmData) {
     self.Refresh = function () {
         self.crmItems([]);
         self.noData(false);
-        var call = new new_clientCaller(id, method);
-        call.Call(self.GetGridSetting(),
+        var callData;
+        callData = new dataSender(id, config);
+        callData.Send(self.GetGridSetting(),
          function (d) {
              cleanFrames();
              self.isLoading(false);
@@ -92,6 +93,7 @@ function AppViewModel(vmData) {
              self.message("אירעה שגיאה נא פנה למנהל מערכת");
          });
     }
+
     self.Sort = function (d) {
         if (!d.CanSort)
             return;
@@ -123,7 +125,7 @@ function AppViewModel(vmData) {
     }
 
     this.clicked = function () {
-      //  alert(333);
+        //  alert(333);
     };
 
     this.double = function (d) {

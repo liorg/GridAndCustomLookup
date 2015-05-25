@@ -1,29 +1,44 @@
-﻿//var url;
+﻿var url;
 var method;
 var settingGrid;
 var id;
+var config;
+
 function getParameterByName(name) {
     name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
     var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
         results = regex.exec(location.search);
     return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
 }
-function load() {
-    var vmData;
-    url = __config.Url;
-    var settingGrid=__config.Detail.SettingGrid;
-    method = __config.Detail.Method;
+function load(d) {
+    //debugger;
+    var vmData;config = null;
+    for (var i = 0; i < __config.length; i++) {
+        if (__config[i].Name == d) {
+            config = __config[i];
+            break;
+        }
+    }
+    url = config.Url;
+    var settingGrid = config.Detail.SettingGrid;
+    method = config.Detail.Method;
     vmData = { Schema: [], CrmItems: [] };
-    vmData.Schema = __config.Detail.Schema;
-    vmData.SettingGrid = __config.Detail.SettingGrid;
+    vmData.Schema = config.Detail.Schema;
+    vmData.SettingGrid = config.Detail.SettingGrid;
     vm = new AppViewModel(vmData);
     ko.applyBindings(vm);
 }
 function loadGrid() {
-    debugger;
     id = getParameterByName('id') == "" ? "{387A37A7-0000-0000-0000-D553F1CB7D63}" : getParameterByName('id').toString();
-    var call = new new_clientCaller(id, method);
-    call.Call(__config.Detail.SettingGrid,
+    var callData = new dataSender(id, config);
+//    if (config.Detail.SettingGrid.TypeData == 0) // ajax
+//        ajaxCall = new clientSender(id, url, method);
+//    else if (config.Detail.SettingGrid.TypeData == 1) //callback
+//        ajaxCall = new clientCaller(id, method);
+//    else if (config.Detail.SettingGrid.TypeData == 2)//fechxml
+//        ajaxCall = new clientCaller(id, method)
+
+    callData.Send(config.Detail.SettingGrid,
             function (d) {
               //   debugger;
 //                 vm.sortName(d.SettingGrid.SortName);

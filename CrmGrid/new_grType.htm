@@ -9,16 +9,33 @@
     <script src="new_scripts/new_knockout_2_2_0rc.js" type="text/javascript"></script>
     <script src="new_scripts/new_subgrid.js" type="text/javascript"></script>
     <script src="new_scripts/new_rowclick.js"></script>
-  
-    <script src="new_scripts/new_AppViewModelV2.js" type="text/javascript"></script>
-    <script src="new_scripts/new_democonfigv2.js" type="text/javascript"></script>
-    <script src="new_scripts/new_Schemav2.js" type="text/javascript"></script>
-    <script src="new_scripts/new_clientCaller.js" type="text/javascript"></script>
+    <script type="text/javascript" src="new_scripts/new_AppViewModelType.js"></script>
+    <script src="new_scripts/new_democonfigType.js" type="text/javascript"></script>
+
+    <script src="new_scripts/new_SchemaType.js" type="text/javascript"></script>
+
+    <script src="new_scripts/new_mockdata.js" type="text/javascript"></script>
+    <script src="new_scripts/new_clientSender.js" type="text/javascript"></script>
+    <script src="new_scripts/new_FetchUtil.js" type="text/javascript"></script>
+    <script>       
+        var qs = (function (a) {
+            if (a == "") return {};
+            var b = {};
+            for (var i = 0; i < a.length; ++i) {
+                var p = a[i].split('=', 2);
+                if (p.length == 1)
+                    b[p[0]] = "";
+                else
+                    b[p[0]] = decodeURIComponent(p[1].replace(/\+/g, " "));
+            }
+            return b;
+        })(window.location.search.substr(1).split('&'));
+    </script>
     <script type="text/javascript">
         var vm;
         $(function () {
-
-            load();
+       
+            load(qs["data"]);
             setTimeout(function () {
                // firstLoad();
                 loadGrid();
