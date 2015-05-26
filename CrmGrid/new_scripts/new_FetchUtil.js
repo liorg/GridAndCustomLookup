@@ -13,7 +13,21 @@ function FetchUtil(sOrg, sServer) {
     }
 }
 FetchUtil.prototype._ExecuteRequest = function (sXml, sMessage, fInternalCallback, fUserCallback) {
+//debugger;
     var xmlhttp = new XMLHttpRequest();
+//    if (window.XDomainRequest) xmlhttp = new XDomainRequest();
+//else if (window.XMLHttpRequest) xmlhttp = new XMLHttpRequest();
+//else xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+//if (window.XDomainRequest)
+//    {
+//        xmlhttp=new XDomainRequest();
+//        xmlhttp.onload = function() {
+//            debugger;
+//        //callBack(xmlhttp.responseText)
+//          fInternalCallback.call(crmServiceObject, xmlhttp, fUserCallback)
+//        };
+//    }
+
     xmlhttp.open("POST", this.server + "/XRMServices/2011/Organization.svc/web", (fUserCallback != null));
     xmlhttp.setRequestHeader("Accept", "application/xml, text/xml, */*");
     xmlhttp.setRequestHeader("Content-Type", "text/xml; charset=utf-8");

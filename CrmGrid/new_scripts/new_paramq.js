@@ -11,7 +11,6 @@ function getDataParam() {
     //debugger;
     //Get the any query string parameters and load them
     //into the vals array
-
     var vals = new Array();
     if (location.search != "") {
         vals = location.search.substr(1).split("&");
@@ -36,7 +35,7 @@ function getDataParam() {
     }
 }
 function setDataValue(datavalue) {
-    debugger;
+    //debugger;
     if (datavalue != "") {
         var vals = new Array();
         // alert("These are the data parameters values that were passed to this page:");

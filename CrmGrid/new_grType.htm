@@ -18,26 +18,14 @@
     <script src="new_scripts/new_clientSender.js" type="text/javascript"></script>
     <script src="new_scripts/new_FetchUtil.js" type="text/javascript"></script>
     <script src="new_scripts/new_paramq.js" type="text/javascript"></script>
-    <script>       
-        var qs = (function (a) {
-            if (a == "") return {};
-            var b = {};
-            for (var i = 0; i < a.length; ++i) {
-                var p = a[i].split('=', 2);
-                if (p.length == 1)
-                    b[p[0]] = "";
-                else
-                    b[p[0]] = decodeURIComponent(p[1].replace(/\+/g, " "));
-            }
-            return b;
-        })(window.location.search.substr(1).split('&'));
-    </script>
+  
     <script type="text/javascript">
         var vm;
         $(function () {
+            //debugger;
             var id = qsGetValue("id");
             var configName = qsGetValue("config");
-            load(id,configName);
+            load(id, configName);
             setTimeout(function () {
                 // firstLoad();
                 loadGrid();

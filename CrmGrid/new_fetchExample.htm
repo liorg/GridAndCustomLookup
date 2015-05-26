@@ -1,42 +1,70 @@
-﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <title></title>
-    <script>
-        debugger;
-        function fakeCall(request) {
-            debugger;
-            var data = { "d": {
-                "__type": "MVSWeb.Grid.Server.ResponseGrid",
-                "Id": "{387A37A7-0000-0000-0000-D553F1CB7D63}",
-                "IsError": false,
-                "ErrDesc": "",
-                "CrmGrid": { "CrmGridItems": [{ "Id": "2d680ff1-0b65-4827-ba0a-e7835e6c24a4",
-                    "subSrc": "",
-                    "openwin": "",
-                    "Fields": [
-                                { "Key": "ListName", "Val": "ddd" },
-                                { "Key": "MemberCount", "Val": "xxx" },
-                                { "Key": "CampaignName", "Val": "ddd" }
-                                ]
-                },
-                  { "Id": "9f9b9279-cdfa-4c59-86b2-c7f11e988cfc",
-                      "subSrc": "",
-                      "openwin": "",
-                      "Fields": [
-                                { "Key": "ListName", "Val": "ש" },
-                                { "Key": "MemberCount", "Val": "שדגד" },
-                                 { "Key": "CampaignName", "Val": "כדגכדג" }
-                                 ]
-                  }]
-                }, "SettingGrid": { "SortName": "ListName", "SortOrder": true, "CurrentPage": 1, "MaxPerPage": 50, "MaxRows": 102, "IsToggle": true }
-            }
-            };
-            return data;
-        }
-    </script>
-</head>
-<body>
-    <iframe src="new_grType.htm?data=cb" width="100%"></iframe>
-</body>
+﻿<html> 
+<head> 
+<title>Fetch 2011 JavaScript Example</title> 
+<link rel="stylesheet" type="text/css" href="/_common/styles/theme.css.aspx" /> 
+<link rel="stylesheet" type="text/css" href="/_common/styles/global.css.aspx" /> 
+<link rel="stylesheet" type="text/css" href="/_common/styles/fonts.css.aspx" /> 
+<link rel="stylesheet" type="text/css" href="/_common/styles/Dialogs.css.aspx" />
+
+<script src="ClientGlobalContext.js.aspx"></script> 
+
+    <script src="new_scripts/new_FetchUtil.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+
+    var _oService;
+    var _sOrgName = "";
+    var _sServerUrl = GetGlobalContext().getServerUrl();
+
+    function executeFetchCommand() {
+
+        var sFetch = document.getElementById('txtFetch').value;
+        _oService = new FetchUtil(_sOrgName, _sServerUrl);
+        var oEntity = _oService.Fetch(sFetch, myCallBack);
+    }
+
+
+    function myCallBack(results) {
+        var sOut = "";
+        sOut += "<b>XML Response</b><br />";
+        sOut += results;
+        document.getElementById('dvData').innerHTML = sOut;
+    } 
+
+</script>
+
+</head> 
+<body> 
+<table style="width: 100%; height: 100%;" cellspacing="0" cellpadding="0" border="0"> 
+<tr> 
+<td class="ms-crm-Dialog-Header" id="tdDialogHeader"> 
+<div id="divTitle" class="ms-crm-Dialog-Header-Title">Executing Fetch from JavaScript in CRM 2011</div>
+<div id="divInstructions" class="ms-crm-Dialog-Header-Desc">Enter some FetchXML to be executed against your CRM environment</div> 
+</td> 
+</tr> 
+<tr> 
+<td style="height: 100%;"> 
+<div class="ms-crm-Dialog-Main" style="padding: 14px;"> 
+<label>Fetch Command</label><br /> 
+<textarea id="txtFetch" rows="8" width="100%" cols="100" ></textarea><br /> 
+<input type="Submit" value="Fetch" onClick="javascript:executeFetchCommand();" style="width:100px;height:24px;"> 
+<div id='dvData' style="width: 100%; height: 100%;"></div> 
+</div> 
+</td> 
+</tr> 
+<tr> 
+<td class="ms-crm-Dialog-Footer" id="tdDialogFooter"> 
+<table cellspacing="0" cellpadding="0"> 
+<tr> 
+<td width="100%"></td> 
+<td>&nbsp;<button onclick="window.close();" class="ms-crm-Button">Done</button></td> 
+</tr> 
+</table> 
+</td> 
+</tr> 
+</table>
+
+</body> 
 </html>
+
+ 

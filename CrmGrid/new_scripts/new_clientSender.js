@@ -17,7 +17,7 @@ function dataSender(id, config) {
                 self.caller = new clientCaller(id, conifg.Detail.Method);
                 break;
             case 2:
-                self.caller = new fetchSender(id, conifg.Url, conifg.Detail.Org, conifg.Detail.Method, conifg.Detail.MethodCount);
+                self.caller = new fetchSender(id, conifg.Url, conifg.Org, conifg.Detail.Method, conifg.Detail.Schema);
                 break;
             default:
                 self.caller = new clientSender(id, conifg.Url, conifg.Detail.Method);
@@ -50,8 +50,9 @@ function clientSender(id, url, method) {
 
 function clientCaller(id, method) {
     this.CallerMethod = method;
+
     this.Send = function (gridProp, callback, err) {
-      //  debugger;
+        //  debugger;
         var payload = { "request": { Id: id, SettingGrid: gridProp} };
         try {
             var func = window.parent[this.CallerMethod];
@@ -65,12 +66,42 @@ function clientCaller(id, method) {
     };
 }
 
-function fetchSender(server, org, url, method) {
-    this.Url = url;
-    this.Method = method;
+function fetchSender(id, server, org, method, schema) {
+    //    this.Url = server;
+    //    this.Url = org;
+    //    this.Method = method;
+    //  debugger;
     this.Send = function (gridProp, callback, err) {
-        var url = this.Url + "/" + this.Method;
+        // debugger;
         var payload = { "request": { Id: id, SettingGrid: gridProp} };
-
-    };
-}
+        var oService = new FetchUtil(org, server);
+        oService.Fetch(method, function (results) {
+            debugger;
+            var data = { "d": {
+                "__type": "MVSWeb.Grid.Server.ResponseGrid",
+                "Id": id,
+                "IsError": false,
+                "ErrDesc": ""
+            }
+            };
+            data.d.SettingGrid = gridProp;
+            data.d.CrmGrid = {};
+            data.d.CrmGrid.CrmGridItems = [];
+            for (var i = 0; i < results.length; i++) {
+                // debugger;
+                var attr = results[i].attributes;
+                var objItem = { "Id": results[i].guid, "subSrc": "", "openwin": "" };
+                objItem.Fields = [];
+                for (var j = 0; j < schema.length; j++) {
+                    //debugger;
+                    var tempValue = "";
+                    if (attr[schema[j].Name] != null)
+                        tempValue = attr[schema[j].Name].value;
+                    objItem.Fields.push({ "Key": schema[j].Name, "Val": tempValue });
+                } //end loop schema
+                data.d.CrmGrid.CrmGridItems.push(objItem);
+            } //end loop results
+            callback(data.d);
+        }); //end  callback fetch
+    }   //end this.Send 
+} // end fetchSender

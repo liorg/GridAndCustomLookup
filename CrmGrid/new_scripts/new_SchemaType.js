@@ -11,7 +11,7 @@ function getParameterByName(name) {
     return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
 }
 function load(gid,configName) {
-    debugger;
+    //debugger;
     var vmData;config = null;
     for (var i = 0; i < __config.length; i++) {
         if (__config[i].Name == configName) {
