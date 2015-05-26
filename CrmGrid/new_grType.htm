@@ -17,6 +17,7 @@
     <script src="new_scripts/new_mockdata.js" type="text/javascript"></script>
     <script src="new_scripts/new_clientSender.js" type="text/javascript"></script>
     <script src="new_scripts/new_FetchUtil.js" type="text/javascript"></script>
+    <script src="new_scripts/new_paramq.js" type="text/javascript"></script>
     <script>       
         var qs = (function (a) {
             if (a == "") return {};
@@ -34,10 +35,11 @@
     <script type="text/javascript">
         var vm;
         $(function () {
-       
-            load(qs["data"]);
+            var id = qsGetValue("id");
+            var configName = qsGetValue("config");
+            load(id,configName);
             setTimeout(function () {
-               // firstLoad();
+                // firstLoad();
                 loadGrid();
             }, 100);
         });

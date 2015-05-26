@@ -10,11 +10,11 @@ function getParameterByName(name) {
         results = regex.exec(location.search);
     return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
 }
-function load(d) {
-    //debugger;
+function load(gid,configName) {
+    debugger;
     var vmData;config = null;
     for (var i = 0; i < __config.length; i++) {
-        if (__config[i].Name == d) {
+        if (__config[i].Name == configName) {
             config = __config[i];
             break;
         }
@@ -26,10 +26,11 @@ function load(d) {
     vmData.Schema = config.Detail.Schema;
     vmData.SettingGrid = config.Detail.SettingGrid;
     vm = new AppViewModel(vmData);
+    id = gid;
     ko.applyBindings(vm);
 }
 function loadGrid() {
-    id = getParameterByName('id') == "" ? "{387A37A7-0000-0000-0000-D553F1CB7D63}" : getParameterByName('id').toString();
+   // id = getParameterByName('id') == "" ? "{387A37A7-0000-0000-0000-D553F1CB7D63}" : getParameterByName('id').toString();
     var callData = new dataSender(id, config);
 //    if (config.Detail.SettingGrid.TypeData == 0) // ajax
 //        ajaxCall = new clientSender(id, url, method);

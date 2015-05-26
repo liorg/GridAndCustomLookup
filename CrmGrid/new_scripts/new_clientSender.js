@@ -51,7 +51,7 @@ function clientSender(id, url, method) {
 function clientCaller(id, method) {
     this.CallerMethod = method;
     this.Send = function (gridProp, callback, err) {
-        debugger;
+      //  debugger;
         var payload = { "request": { Id: id, SettingGrid: gridProp} };
         try {
             var func = window.parent[this.CallerMethod];
