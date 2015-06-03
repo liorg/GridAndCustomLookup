@@ -54,3 +54,26 @@ function qsGetValue(key) {
     }
     return "";
 }
+
+
+
+function getIdXrmParent() {
+    var vals = new Array();
+    if (location.search != "") {
+        vals = location.search.substr(1).split("&");
+        for (var i in vals) {
+            vals[i] = vals[i].replace(/\+/g, " ").split("=");
+        }
+
+        for (var i in vals) {
+            if (vals[i][0].toLowerCase() == "id")
+                return vals[i][1];
+
+        }
+    }
+    return null;
+}
+
+
+    
+

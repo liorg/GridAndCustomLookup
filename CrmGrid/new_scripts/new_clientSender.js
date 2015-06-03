@@ -1,26 +1,35 @@
 ﻿//var maxRecords;// max records saved
 function dataSender(id, config) {
+    // debugger;
     var self = this;
     self.Config = config;
     self.Id = id;
+    self.Url = config.Url == "" ? _sServerUrl : config.Url;
     self.caller = null;
     self.Send = function (gridProp, callback, err) {
-        self.caller.Send(gridProp, callback, err);
+    //    debugger;
+        var fieldsFilter = [];
+        for (var i = 0; i < self.Config.Detail.FilterFields.length; i++) {
+            var field = self.Config.Detail.FilterFields[i];
+            var fieldValue = getParentXrm(self.Config.Detail.IsParentXrm, field.Name, field.TypeField);
+            fieldsFilter.push({ "key": field.Name, "val": fieldValue });
+        }
+        self.caller.Send(gridProp, fieldsFilter, callback, err);
     }
     factory(id, config);
     function factory(id, conifg) {
         switch (config.Detail.SettingGrid.TypeData) {
             case 0:
-                self.caller = new clientSender(id, conifg.Url, conifg.Detail.Method);
+                self.caller = new clientSender(id, self.Url, conifg.Detail.Method);
                 break;
             case 1:
                 self.caller = new clientCaller(id, conifg.Detail.Method);
                 break;
             case 2:
-                self.caller = new fetchSender(id, conifg.Url, conifg.Org, conifg.Detail.Method, conifg.Detail.Schema);
+                self.caller = new fetchSender(id, self.Url, conifg.Org, conifg.Detail.Method, conifg.Detail.Schema);
                 break;
             default:
-                self.caller = new clientSender(id, conifg.Url, conifg.Detail.Method);
+                self.caller = new clientSender(id, self.Url, conifg.Detail.Method);
                 break;
         };
     }
@@ -29,7 +38,7 @@ function dataSender(id, config) {
 function clientSender(id, url, method) {
     this.Url = url;
     this.Method = method;
-    this.Send = function (gridProp, callback, err) {
+    this.Send = function (gridProp, fieldsFilter,callback, err) {
         var url = this.Url + "/" + this.Method;
         var payload = { "request": { Id: id, SettingGrid: gridProp} };
         $.ajax({
@@ -51,7 +60,7 @@ function clientSender(id, url, method) {
 function clientCaller(id, method) {
     this.CallerMethod = method;
 
-    this.Send = function (gridProp, callback, err) {
+    this.Send = function (gridProp,fieldsFilter, callback, err) {
         //  debugger;
         var payload = { "request": { Id: id, SettingGrid: gridProp} };
         try {
@@ -61,22 +70,23 @@ function clientCaller(id, method) {
 
         } catch (e) {
             err(e.Description);
-
         }
     };
 }
 
 function fetchSender(id, server, org, method, schema) {
-    //    this.Url = server;
-    //    this.Url = org;
-    //    this.Method = method;
     //  debugger;
-    this.Send = function (gridProp, callback, err) {
-        // debugger;
+    this.Send = function (gridProp, fieldsFilter, callback, err) {
+       // debugger;
         var payload = { "request": { Id: id, SettingGrid: gridProp} };
+        var parseFetchXml = new ParserFetchXml(method);
+        parseFetchXml.Conditions(id, fieldsFilter);
+
+        parseFetchXml.Order(gridProp.SortName, gridProp.SortOrder ? "true" : "false");
+        var xml = parseFetchXml.Xml();
         var oService = new FetchUtil(org, server);
-        oService.Fetch(method, function (results) {
-            debugger;
+        oService.Fetch(xml, function (results) {
+          //  debugger;
             var data = { "d": {
                 "__type": "MVSWeb.Grid.Server.ResponseGrid",
                 "Id": id,
@@ -88,9 +98,11 @@ function fetchSender(id, server, org, method, schema) {
             data.d.CrmGrid = {};
             data.d.CrmGrid.CrmGridItems = [];
             for (var i = 0; i < results.length; i++) {
-                // debugger;
+                //debugger;
                 var attr = results[i].attributes;
-                var objItem = { "Id": results[i].guid, "subSrc": "", "openwin": "" };
+                var guid = results[i].guid;
+                var openwin = server + "/main.aspx?etn=" + parseFetchXml.GetEntity() + "&pagetype=entityrecord&id=" + guid;
+                var objItem = { "Id": guid, "subSrc": "", "openwin": openwin };
                 objItem.Fields = [];
                 for (var j = 0; j < schema.length; j++) {
                     //debugger;
@@ -103,5 +115,5 @@ function fetchSender(id, server, org, method, schema) {
             } //end loop results
             callback(data.d);
         }); //end  callback fetch
-    }   //end this.Send 
+    }     //end this.Send 
 } // end fetchSender

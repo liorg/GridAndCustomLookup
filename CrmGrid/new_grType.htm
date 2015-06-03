@@ -11,21 +11,37 @@
     <script src="new_scripts/new_rowclick.js"></script>
     <script type="text/javascript" src="new_scripts/new_AppViewModelType.js"></script>
     <script src="new_scripts/new_democonfigType.js" type="text/javascript"></script>
-
     <script src="new_scripts/new_SchemaType.js" type="text/javascript"></script>
-
     <script src="new_scripts/new_mockdata.js" type="text/javascript"></script>
+    <script src="new_scripts/new_XrmParent.js" type="text/javascript"></script>
     <script src="new_scripts/new_clientSender.js" type="text/javascript"></script>
+    <script src="new_scripts/new_fetchXmlBulid.js" type="text/javascript"></script>
     <script src="new_scripts/new_FetchUtil.js" type="text/javascript"></script>
     <script src="new_scripts/new_paramq.js" type="text/javascript"></script>
-  
+    <script src="new_scripts/new_ClientGlobalContext.js" type="text/javascript"></script>
+    <!-- <script type="text/javascript">
+        debugger;
+        var scriptUrl = "new_scripts/new_ClientGlobalContext.js.aspx";
+    if (!__crmPage)
+        scriptUrl = "ClientGlobalContext.js";
+        document.write('<script type="text/javascript" src="' + scriptUrl + '"></' + 'script>')
+    </script>-->
+    <script type="text/javascript">
+        var _sServerUrl = "";
+        try {
+            _sServerUrl = GetGlobalContext().getServerUrl();
+        } catch (e) {
+
+        } 
+    </script>
     <script type="text/javascript">
         var vm;
         $(function () {
-            //debugger;
-            var id = qsGetValue("id");
+            // debugger;
+            var getid = getIdXrmParent() || qsGetValue("id");
+            var recid = decodeURI(getid);
             var configName = qsGetValue("config");
-            load(id, configName);
+            load(recid, configName);
             setTimeout(function () {
                 // firstLoad();
                 loadGrid();
@@ -64,8 +80,9 @@
                                         <!--start: ms-crm-List-RefreshButton -->
                                         <div id="refreshButton" class="ms-crm-List-RefreshButton">
                                             <a id="refreshButton20131_RefreshButton1" data-bind="click: Refresh">
-                                                <img id="grid_refresh" src="new_stylecrmgrid/new_gridimgs/new_transparent_spacer2013.gif" class="ms-crm-ImageStrip-grid_refresh"
-                                                    style="cursor: pointer" alt="Refresh&#32;list" title="Refresh&#32;list">
+                                                <img id="grid_refresh" src="new_stylecrmgrid/new_gridimgs/new_transparent_spacer2013.gif"
+                                                    class="ms-crm-ImageStrip-grid_refresh" style="cursor: pointer" alt="Refresh&#32;list"
+                                                    title="Refresh&#32;list">
                                             </a>
                                         </div>
                                         <!--End: ms-crm-List-RefreshButton -->
@@ -87,15 +104,14 @@
                                                                         style="" title="">
                                                                 </td>
                                                                 <td>
-                                                                    <img id="bar_line" src="new_stylecrmgrid/new_gridimgs/new_transparent_spacer2013.gif" class="ms-crm-ImageStrip-bar_line"
-                                                                        alt="">
+                                                                    <img id="bar_line" src="new_stylecrmgrid/new_gridimgs/new_transparent_spacer2013.gif"
+                                                                        class="ms-crm-ImageStrip-bar_line" alt="">
                                                                 </td>
                                                                 <!-- /ko -->
                                                                 <th scope="col" data-bind="attr: { 'field':Name,'fieldname':Name },css: { 'ms-crm-List-Sortable': Name == $root.sortName()},click: $root.Sort"
                                                                     style="cursor: pointer" entityname="entityname" renderertype="Crm.PrimaryField"
                                                                     displaylabel="">
-                                                                    <table cellspacing="0" class="ms-crm-List-Sortable"
-                                                                        cellpadding="0">
+                                                                    <table cellspacing="0" class="ms-crm-List-Sortable" cellpadding="0">
                                                                         <tbody>
                                                                             <tr>
                                                                                 <td class="ms-crm-List-Sortable">
@@ -232,8 +248,9 @@
                                                                     <tr>
                                                                         <td class="ms-crm-List-MessageText" data-bind="attr: { 'colspan':crmSchema().length}"
                                                                             colspan="13">
-                                                                            <span data-bind="visible: !noData()"><img alt="Loading..." src="new_stylecrmgrid/new_gridimgs/new_progress2013.gif"></span>
-                                                                             <span data-bind="visible: noData(),text : message()"> </span>
+                                                                            <span data-bind="visible: !noData()">
+                                                                                <img alt="Loading..." src="new_stylecrmgrid/new_gridimgs/new_progress2013.gif"></span>
+                                                                            <span data-bind="visible: noData(),text : message()"></span>
                                                                         </td>
                                                                     </tr>
                                                                 </tbody>
@@ -294,7 +311,6 @@
     <script src="new_scripts/new_global.js" type="text/javascript"></script>
     <script src="new_scripts/new_ScriptResx.js" type="text/javascript"></script>
     <script src="new_scripts/new_entitypropertiesutil.js" type="text/javascript"></script>
-
     <script src="new_scripts/new_stage.js" type="text/javascript"></script>
     <script src="new_scripts/new_form.js" type="text/javascript"></script>
     <script src="new_scripts/new_select.js" type="text/javascript"></script>

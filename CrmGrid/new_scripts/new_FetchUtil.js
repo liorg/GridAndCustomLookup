@@ -116,6 +116,13 @@ FetchUtil.prototype._FetchCallback = function (xmlhttp, callback) {
                                 entRef.name = attr.childNodes[k].childNodes[1].childNodes[2].text;
                                 obj[sKey] = entRef;
                                 break;
+                            case "a:AliasedValue": //l.g fixed
+                               // debugger;
+                                var entCVA = new jsCrmValue();
+                                entCVA.type = sType;
+                                entCVA.value = attr.childNodes[k].childNodes[1].childNodes[2].text;
+                                obj[sKey] = entCVA;
+                                break;
                             default:
                                 var entCV = new jsCrmValue();
                                 entCV.type = sType;

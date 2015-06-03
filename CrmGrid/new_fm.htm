@@ -1,0 +1,104 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+   
+    <script>
+        var tmp = '<fetch mapping="logical" count="50" version="1.0">' +
+					'<entity name="new_powerattorney">' +
+						'<attribute name="new_appendixtype" />' +
+						'<attribute name="new_powerattorneyvalid" />' +
+						'<attribute name="new_powerattorneysign" />' +
+						'<attribute name="new_exclusion" />' +
+						'<attribute name="statecode" />' +
+						'<order attribute="new_powerattorneysign" descending="true" />' +
+					    '<filter type="and">' +
+							'<condition attribute="new_customer" operator="eq" value="{id}"/>' +
+						'</filter>' +
+					'</entity>' +
+				'</fetch>';
+
+        var tmp2 = '<fetch mapping="logical" count="50" version="1.0">' +
+					'<entity name="task">' +
+					'	<attribute name="subject" />' +
+					'	    <attribute name="subject" />' +
+					'	    <attribute name="new_status_coordinator" />' +
+					'	    <attribute name="regardingobjectid" />' +
+					'	    <attribute name="ownerid" />' +
+					'	    <attribute name="new_meeting_date" />' +
+					'	    <attribute name="statecode" />' +
+					'	    <attribute name="new_sla" />' +
+					'	    <order attribute="subject" descending="false" />' +
+                    '<filter type="and">' +
+							'<condition attribute="new_customer" operator="eq" value="{id}"/>' +
+						'</filter>' +
+					'<link-entity name="new_telemeeting" from="new_telemeetingid" to="regardingobjectid" alias="aa">' +
+					      '<link-entity name="new_meetingsummary_telemeeting" from="new_telemeeting" to="new_telemeetingid" alias="ab">' +
+					       ' <link-entity name="new_frmlwf2meeting" from="new_meetingsummary" to="new_meetingsummary_telemeetingid" alias="ac">' +
+						'  <filter type="and">' +
+						    '<condition attribute="new_frmlwf2meetingid" operator="eq"  value="{re1}" />' +
+						 ' </filter>' +
+						'</link-entity>' +
+					      '</link-entity>' +
+					    '</link-entity>' +
+					     '     <filter type="and">' +
+					      '      <condition attribute="new_subject" operator="eq" value="7"/>' +
+						  '</filter>' +
+					'</entity>' +
+				'</fetch>';
+    </script>
+    <script>
+        function getXmlDoc(xml) {
+            if (window.DOMParser) {
+                parser = new DOMParser();
+                xmlDoc = parser.parseFromString(xml, "text/xml");
+            }
+            else // Internet Explorer
+            {
+                xmlDoc = new ActiveXObject("Microsoft.XMLDOM");
+                xmlDoc.async = false;
+                xmlDoc.loadXML(xml);
+
+            }
+            return xmlDoc;
+        }
+        // const string FormatCrmOpenWin = "http://{0}/{1}/main.aspx?etn={2}&pagetype=entityrecord&id=%7b{3}%7d";
+        function parserFetch(id, filters, gridProp, xml) {
+            var xmldoc = getXmlDoc(xml.toLowerCase());
+            //var xmldoc = getXmlDoc(xml);
+            parseConditions(xmldoc, id, filters, gridProp);
+            var entity = getEntity(xmldoc);
+            alert(entity);
+
+        }
+        function getEntity(xmldoc) {
+            var entity = xmldoc.selectSingleNode("//entity");
+            return entity.attributes.getNamedItem("name").value;
+        }
+        function parseConditions(xmldoc, id, filters, gridProp) {
+            debugger;
+            var conditions = xmldoc.selectNodes("//condition");
+            for (var i = 0; i < conditions.length; i++) {
+                var condition = conditions[i];
+                var value = condition.attributes.getNamedItem("value");
+                if (value != null) {
+                    if (value.value == "{id}")
+                        value.value = "'" + id + "'";
+                    else {
+                        for (var j = 0; j < filters.length; j++) {
+                            if (value.value == "{" + filters[j].key.toLowerCase() + "}")
+                                value.value = "'" + filters[j].val + "'";
+                        }
+                    }
+
+                }
+            }
+        }
+
+        parserFetch("", [{ "key": "re1", "val": "3"}], null, tmp2);
+    </script>
+</head>
+<body>
+    <textarea id="txtFetch" rows="8" width="100%" cols="100"></textarea><br />
+</body>
+</html>
