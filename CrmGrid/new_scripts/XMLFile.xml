@@ -1,0 +1,72 @@
+﻿<a:Entities xmlns:a=\"http://schemas.microsoft.com/xrm/2011/Contracts\">
+  <a:Entity>
+    <a:Attributes>
+      <a:KeyValuePairOfstringanyType>
+        <b:key xmlns:b=\"http://schemas.datacontract.org/2004/07/System.Collections.Generic\">new_name</b:key>
+        <b:value xmlns:b=\"http://schemas.datacontract.org/2004/07/System.Collections.Generic\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\" i:type=\"c:string\" xmlns:c=\"http://www.w3.org/2001/XMLSchema\">דדדד</b:value>
+      </a:KeyValuePairOfstringanyType>
+      <a:KeyValuePairOfstringanyType>
+        <b:key xmlns:b=\"http://schemas.datacontract.org/2004/07/System.Collections.Generic\">new_test</b:key>
+        <b:value xmlns:b=\"http://schemas.datacontract.org/2004/07/System.Collections.Generic\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\" i:type=\"c:string\" xmlns:c=\"http://www.w3.org/2001/XMLSchema\">סס</b:value>
+      </a:KeyValuePairOfstringanyType>
+      <a:KeyValuePairOfstringanyType>
+        <b:key xmlns:b=\"http://schemas.datacontract.org/2004/07/System.Collections.Generic\">new_gridcrmtestid</b:key>
+        <b:value xmlns:b=\"http://schemas.datacontract.org/2004/07/System.Collections.Generic\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\" i:type=\"c:guid\" xmlns:c=\"http://schemas.microsoft.com/2003/10/Serialization/\">0d891ffe-9e03-e511-9420-00155d043341</b:value>
+      </a:KeyValuePairOfstringanyType>
+    </a:Attributes>
+    <a:EntityState xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\" i:nil=\"true\"/>
+    <a:FormattedValues/>
+    <a:Id>0d891ffe-9e03-e511-9420-00155d043341</a:Id>
+    <a:LogicalName>new_gridcrmtest</a:LogicalName>
+    <a:RelatedEntities/>
+  </a:Entity>
+  <a:Entity>
+    <a:Attributes>
+      <a:KeyValuePairOfstringanyType>
+        <b:key xmlns:b=\"http://schemas.datacontract.org/2004/07/System.Collections.Generic\">new_name</b:key>
+        <b:value xmlns:b=\"http://schemas.datacontract.org/2004/07/System.Collections.Generic\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\" i:type=\"c:string\" xmlns:c=\"http://www.w3.org/2001/XMLSchema\">בדיקה\\</b:value>
+      </a:KeyValuePairOfstringanyType>
+      <a:KeyValuePairOfstringanyType>
+        <b:key xmlns:b=\"http://schemas.datacontract.org/2004/07/System.Collections.Generic\">new_gridcrmtestid</b:key>
+        <b:value xmlns:b=\"http://schemas.datacontract.org/2004/07/System.Collections.Generic\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\" i:type=\"c:guid\" xmlns:c=\"http://schemas.microsoft.com/2003/10/Serialization/\">0c891ffe-9e03-e511-9420-00155d043341</b:value>
+      </a:KeyValuePairOfstringanyType>
+    </a:Attributes>
+    <a:EntityState xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\" i:nil=\"true\"/>
+    <a:FormattedValues/>
+    <a:Id>0c891ffe-9e03-e511-9420-00155d043341</a:Id>
+    <a:LogicalName>new_gridcrmtest</a:LogicalName>
+    <a:RelatedEntities/>
+  </a:Entity>
+  <a:Entity>
+    <a:Attributes>
+      <a:KeyValuePairOfstringanyType>
+        <b:key xmlns:b=\"http://schemas.datacontract.org/2004/07/System.Collections.Generic\">new_name</b:key>
+        <b:value xmlns:b=\"http://schemas.datacontract.org/2004/07/System.Collections.Generic\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\" i:type=\"c:string\" xmlns:c=\"http://www.w3.org/2001/XMLSchema\">22</b:value>
+      </a:KeyValuePairOfstringanyType>
+      <a:KeyValuePairOfstringanyType>
+        <b:key xmlns:b=\"http://schemas.datacontract.org/2004/07/System.Collections.Generic\">new_pl</b:key>
+        <b:value xmlns:b=\"http://schemas.datacontract.org/2004/07/System.Collections.Generic\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\" i:type=\"a:OptionSetValue\">
+          <a:Value>100000001</a:Value>
+        </b:value>
+      </a:KeyValuePairOfstringanyType>
+      <a:KeyValuePairOfstringanyType>
+        <b:key xmlns:b=\"http://schemas.datacontract.org/2004/07/System.Collections.Generic\">new_test</b:key>
+        <b:value xmlns:b=\"http://schemas.datacontract.org/2004/07/System.Collections.Generic\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\" i:type=\"c:string\" xmlns:c=\"http://www.w3.org/2001/XMLSchema\">ג</b:value>
+      </a:KeyValuePairOfstringanyType>
+      <a:KeyValuePairOfstringanyType>
+        <b:key xmlns:b=\"http://schemas.datacontract.org/2004/07/System.Collections.Generic\">new_gridcrmtestid</b:key>
+        <b:value xmlns:b=\"http://schemas.datacontract.org/2004/07/System.Collections.Generic\" xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\" i:type=\"c:guid\" xmlns:c=\"http://schemas.microsoft.com/2003/10/Serialization/\">0e891ffe-9e03-e511-9420-00155d043341</b:value>
+      </a:KeyValuePairOfstringanyType>
+    </a:Attributes>
+    <a:EntityState xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\" i:nil=\"true\"/>
+    <a:FormattedValues>
+      <a:KeyValuePairOfstringstring>
+        <b:key xmlns:b=\"http://schemas.datacontract.org/2004/07/System.Collections.Generic\">new_pl</b:key>
+        <b:value xmlns:b=\"http://schemas.datacontract.org/2004/07/System.Collections.Generic\">ערך2</b:value>
+      </a:KeyValuePairOfstringstring>
+    </a:FormattedValues>
+    <a:Id>0e891ffe-9e03-e511-9420-00155d043341</a:Id>
+    <a:LogicalName>new_gridcrmtest</a:LogicalName>
+    <a:RelatedEntities/>
+  </a:Entity>
+</a:Entities>

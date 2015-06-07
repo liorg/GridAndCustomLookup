@@ -28,12 +28,26 @@ var __config = [
             "FilterFields": [], "IsParentXrm": false
         }
     },
+      {
+          "Name": "fet",
+          "Url": "",
+          "Org": "",
+          "Detail": {
+              "Method": "<fetch mapping='logical'><entity name='new_gridcrmtest'><attribute name='new_name' /><attribute name='new_pl' /> <attribute name='new_test' /></entity></fetch>",
+              "SettingGrid": { "SortName": "new_name", "SortOrder": true, "TypeData": 2, "CurrentPage": 1, "MaxPerPage": 50, "MaxRows": 0, "IsToggle": false },
+              "Schema": [
+             { "Name": "new_name", "Desc": "שם ", "Width": 145, "CanSort": true },
+             { "Name": "new_pl", "Desc": "קישקוש PL", "Width": 222, "CanSort": false },
+             { "Name": "new_test", "Desc": "בדיקה", "Width": 100, "CanSort": true}],
+              "FilterFields": [], "IsParentXrm": false
+          }
+      },
     {
         "Name": "fe",
         "Url": "",
         "Org": "",
         "Detail": {
-            "Method": "<fetch mapping='logical'><entity name='new_guardiantest'><attribute name='new_name' /><attribute name='new_x1' /> <attribute name='new_test' /></entity></fetch>",
+            "Method": "<fetch mapping='logical'><entity name='new_gridcrmtest'><attribute name='new_name' /><attribute name='new_x1' /> <attribute name='new_test' /></entity></fetch>",
             "SettingGrid": { "SortName": "ListName", "SortOrder": true, "TypeData": 2, "CurrentPage": 1, "MaxPerPage": 50, "MaxRows": 0, "IsToggle": false },
             "Schema": [
              { "Name": "new_name", "Desc": "שם ", "Width": 145, "CanSort": true },

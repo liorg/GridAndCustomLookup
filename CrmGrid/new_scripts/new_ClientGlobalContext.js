@@ -4,6 +4,6 @@
 }
 function moqContext() {
     this.getServerUrl=function (){
-    return "http://mvs-crm-i-du2/MivtachSimon";
+        return "http://crm11mantad/MANTA";
     }
 }

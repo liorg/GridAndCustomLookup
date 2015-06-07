@@ -77,16 +77,15 @@ function clientCaller(id, method) {
 function fetchSender(id, server, org, method, schema) {
     //  debugger;
     this.Send = function (gridProp, fieldsFilter, callback, err) {
-       // debugger;
+        // debugger;
         var payload = { "request": { Id: id, SettingGrid: gridProp} };
         var parseFetchXml = new ParserFetchXml(method);
         parseFetchXml.Conditions(id, fieldsFilter);
-
         parseFetchXml.Order(gridProp.SortName, gridProp.SortOrder ? "true" : "false");
         var xml = parseFetchXml.Xml();
         var oService = new FetchUtil(org, server);
         oService.Fetch(xml, function (results) {
-          //  debugger;
+            //  debugger;
             var data = { "d": {
                 "__type": "MVSWeb.Grid.Server.ResponseGrid",
                 "Id": id,
@@ -107,13 +106,14 @@ function fetchSender(id, server, org, method, schema) {
                 for (var j = 0; j < schema.length; j++) {
                     //debugger;
                     var tempValue = "";
-                    if (attr[schema[j].Name] != null)
-                        tempValue = attr[schema[j].Name].value;
+                    if (attr[schema[j].Name] != null) {
+                        tempValue = attr[schema[j].Name].type != null && attr[schema[j].Name].type == "a:OptionSetValue" ? attr[schema[j].Name].formattedValue : attr[schema[j].Name].value;
+                    }
                     objItem.Fields.push({ "Key": schema[j].Name, "Val": tempValue });
                 } //end loop schema
                 data.d.CrmGrid.CrmGridItems.push(objItem);
             } //end loop results
             callback(data.d);
         }); //end  callback fetch
-    }     //end this.Send 
+    }      //end this.Send 
 } // end fetchSender

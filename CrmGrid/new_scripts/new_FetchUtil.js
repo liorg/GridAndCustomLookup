@@ -68,6 +68,7 @@ FetchUtil.prototype.Fetch = function (sFetchXml, fCallback) {
     return this._ExecuteRequest(request, "Fetch", this._FetchCallback, fCallback);
 }
 FetchUtil.prototype._FetchCallback = function (xmlhttp, callback) {
+  // debugger;
     ///<summary>(private) Fetch message callback.</summary>
     //xmlhttp must be completed
     if (xmlhttp.readyState != XMLHTTPREADY) {
@@ -117,7 +118,7 @@ FetchUtil.prototype._FetchCallback = function (xmlhttp, callback) {
                                 obj[sKey] = entRef;
                                 break;
                             case "a:AliasedValue": //l.g fixed
-                               // debugger;
+                                // debugger;
                                 var entCVA = new jsCrmValue();
                                 entCVA.type = sType;
                                 entCVA.value = attr.childNodes[k].childNodes[1].childNodes[2].text;
