@@ -84,7 +84,9 @@ function fetchSender(id, server, org, method, schema) {
         //debugger;
         $.when(counerXml(oService, parseFetchXml, gridProp)).always(function () {
             debugger;
-            var records = gridProp.MaxRows == 0 ? 0 : gridProp.MaxRows >= (gridProp.MaxPerPage * gridProp.CurrentPage) ? gridProp.MaxPerPage : gridProp.MaxRows - gridProp.MaxPerPage > 0 ? gridProp.MaxRows - gridProp.MaxPerPage : gridProp.MaxRows; // Math.floor(gridProp.MaxRows / gridProp.CurrentPage);
+            var records = gridProp.MaxRows == 0 ? 0 :
+            gridProp.MaxRows >= (gridProp.MaxPerPage * gridProp.CurrentPage) ? gridProp.MaxPerPage :(gridProp.MaxRows - (gridProp.MaxPerPage * (gridProp.CurrentPage - 1))) > 0 ? (gridProp.MaxRows - (gridProp.MaxPerPage * (gridProp.CurrentPage - 1))) : gridProp.MaxRows; // Math.floor(gridProp.MaxRows / gridProp.CurrentPage);
+           // alert(records);
             parseFetchXml.Paging(gridProp.CurrentPage, records);
             var xml = parseFetchXml.Xml();
             $.when(oService.Excute(xml)).then(function (results) {
@@ -95,7 +97,7 @@ function fetchSender(id, server, org, method, schema) {
                 err(errDesc);
             }); //end then 
         }); //end always
-    }   //end this.Send
+    }    //end this.Send
    
     var counerXml = function (oService, parseFetchXml, gridProp) {
         //debugger;
