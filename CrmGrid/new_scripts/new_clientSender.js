@@ -7,7 +7,7 @@ function dataSender(id, config) {
     self.Url = config.Url == "" ? _sServerUrl : config.Url;
     self.caller = null;
     self.Send = function (gridProp, callback, err) {
-    //    debugger;
+        //    debugger;
         var fieldsFilter = [];
         for (var i = 0; i < self.Config.Detail.FilterFields.length; i++) {
             var field = self.Config.Detail.FilterFields[i];
@@ -38,7 +38,7 @@ function dataSender(id, config) {
 function clientSender(id, url, method) {
     this.Url = url;
     this.Method = method;
-    this.Send = function (gridProp, fieldsFilter,callback, err) {
+    this.Send = function (gridProp, fieldsFilter, callback, err) {
         var url = this.Url + "/" + this.Method;
         var payload = { "request": { Id: id, SettingGrid: gridProp} };
         $.ajax({
@@ -59,9 +59,8 @@ function clientSender(id, url, method) {
 
 function clientCaller(id, method) {
     this.CallerMethod = method;
-
-    this.Send = function (gridProp,fieldsFilter, callback, err) {
-        //  debugger;
+    this.Send = function (gridProp, fieldsFilter, callback, err) {
+        // debugger;
         var payload = { "request": { Id: id, SettingGrid: gridProp} };
         try {
             var func = window.parent[this.CallerMethod];
@@ -73,8 +72,85 @@ function clientCaller(id, method) {
         }
     };
 }
-
 function fetchSender(id, server, org, method, schema) {
+    //  debugger;
+    this.Send = function (gridProp, fieldsFilter, callback, err) {
+        debugger;
+        var payload = { "request": { Id: id, SettingGrid: gridProp} };
+        var parseFetchXml = new ParserFetchXml(method);
+        parseFetchXml.Conditions(id, fieldsFilter);
+        parseFetchXml.Order(gridProp.SortName, gridProp.SortOrder ? "true" : "false");
+        var oService = new FetchUtil(org, server);
+        //debugger;
+        $.when(counerXml(oService, parseFetchXml, gridProp)).always(function () {
+            debugger;
+            var records = gridProp.MaxRows == 0 ? 0 : gridProp.MaxRows >= (gridProp.MaxPerPage * gridProp.CurrentPage) ? gridProp.MaxPerPage : gridProp.MaxRows - gridProp.MaxPerPage > 0 ? gridProp.MaxRows - gridProp.MaxPerPage : gridProp.MaxRows; // Math.floor(gridProp.MaxRows / gridProp.CurrentPage);
+            parseFetchXml.Paging(gridProp.CurrentPage, records);
+            var xml = parseFetchXml.Xml();
+            $.when(oService.Excute(xml)).then(function (results) {
+                // debugger;
+                var data = manipulate.call(this, parseFetchXml, gridProp, results);
+                callback(data.d);
+            }, function (errDesc) {
+                err(errDesc);
+            }); //end then 
+        }); //end always
+    }   //end this.Send
+   
+    var counerXml = function (oService, parseFetchXml, gridProp) {
+        //debugger;
+        var deferred = $.Deferred();
+        if (gridProp.MaxRows == 0) {
+            gridProp.MaxRows = 50;
+            var cxml = parseFetchXml.GetCountFetch(gridProp.AggrField);
+            var countsData = oService.Excute(cxml);
+            countsData.done(function (results) {
+               if (results.length > 0) {
+                    gridProp.MaxRows = results[0].attributes["c"].value;
+                }
+                deferred.resolve();
+            }).fail(function () {
+                deferred.reject("error occur count");
+            });
+        }
+        else {
+            deferred.resolve(); 
+        }
+        return deferred.promise();
+    }
+    var manipulate = function (parseFetchXml, gridProp, results) {
+        var data = { "d": {
+            "__type": "MVSWeb.Grid.Server.ResponseGrid",
+            "Id": id,
+            "IsError": false,
+            "ErrDesc": ""
+        }
+        };
+        data.d.SettingGrid = gridProp;
+        data.d.CrmGrid = {};
+        data.d.CrmGrid.CrmGridItems = [];
+        for (var i = 0; i < results.length; i++) {
+            //debugger;
+            var attr = results[i].attributes;
+            var guid = results[i].guid;
+            var openwin = server + "/main.aspx?etn=" + parseFetchXml.GetEntity() + "&pagetype=entityrecord&id=" + guid;
+            var objItem = { "Id": guid, "subSrc": "", "openwin": openwin };
+            objItem.Fields = [];
+            for (var j = 0; j < schema.length; j++) {
+                var tempValue = "";
+                if (attr[schema[j].Name] != null) {
+                    tempValue = attr[schema[j].Name].type != null && attr[schema[j].Name].type == "a:OptionSetValue" ? attr[schema[j].Name].formattedValue : attr[schema[j].Name].value;
+                }
+                objItem.Fields.push({ "Key": schema[j].Name, "Val": tempValue });
+            } //end loop schema
+            data.d.CrmGrid.CrmGridItems.push(objItem);
+        } //end loop results
+        return data;
+    }
+} // end fetchSender
+
+/*
+function fetchSenderOld(id, server, org, method, schema) {
     //  debugger;
     this.Send = function (gridProp, fieldsFilter, callback, err) {
         // debugger;
@@ -117,3 +193,4 @@ function fetchSender(id, server, org, method, schema) {
         }); //end  callback fetch
     }      //end this.Send 
 } // end fetchSender
+*/

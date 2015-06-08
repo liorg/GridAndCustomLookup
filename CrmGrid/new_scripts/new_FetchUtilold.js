@@ -12,144 +12,8 @@ function FetchUtil(sOrg, sServer) {
         this.server = window.location.protocol + "//" + window.location.host;
     }
 }
-
-FetchUtil.prototype.Excute = function (sFetchXml) {
-    debugger;
-    // 1) create the jQuery Deferred object that will be used
-    var deferred = $.Deferred();
-    var request = "<s:Envelope xmlns:s=\"http://schemas.xmlsoap.org/soap/envelope/\">";
-    request += "<s:Body>";
-    request += '<Execute xmlns="http://schemas.microsoft.com/xrm/2011/Contracts/Services">' + '<request i:type="b:RetrieveMultipleRequest" ' + ' xmlns:b="http://schemas.microsoft.com/xrm/2011/Contracts" ' + ' xmlns:i="http://www.w3.org/2001/XMLSchema-instance">' + '<b:Parameters xmlns:c="http://schemas.datacontract.org/2004/07/System.Collections.Generic">' + '<b:KeyValuePairOfstringanyType>' + '<c:key>Query</c:key>' + '<c:value i:type="b:FetchExpression">' + '<b:Query>';
-    request += CrmEncodeDecode.CrmXmlEncode(sFetchXml);
-    request += '</b:Query>' + '</c:value>' + '</b:KeyValuePairOfstringanyType>' + '</b:Parameters>' + '<b:RequestId i:nil="true"/>' + '<b:RequestName>RetrieveMultiple</b:RequestName>' + '</request>' + '</Execute>';
-    request += '</s:Body></s:Envelope>';
-
-   
-
-    // ---- AJAX Call ---- //
-    var xmlhttp = new XMLHttpRequest();
-    xmlhttp.open("POST", this.server + "/XRMServices/2011/Organization.svc/web", true);
-    xmlhttp.setRequestHeader("Accept", "application/xml, text/xml, */*");
-    xmlhttp.setRequestHeader("Content-Type", "text/xml; charset=utf-8");
-    xmlhttp.setRequestHeader("SOAPAction", "http://schemas.microsoft.com/xrm/2011/Contracts/Services/IOrganizationService/Execute");
-    //asynchronous: register callback function, then send the request.
-    var crmServiceObject = this;
-    xmlhttp.onreadystatechange = function () {
-        // fInternalCallback.call(crmServiceObject, xmlhttp, fUserCallback)
-        if (xmlhttp.readyState == XMLHTTPREADY) {
-            // 3.1) RESOLVE the DEFERRED (this will trigger all the done()...)
-            if (xmlhttp.status != XMLHTTPSUCCESS) {
-                var sError = "Error: " + xmlhttp.responseText + " " + xmlhttp.statusText;
-                //alert(sError); 
-                deferred.reject(sError);
-            }
-            else {
-                var data = manipulateData(xmlhttp);
-                deferred.resolve(data);
-            }
-        }
-    };
-    xmlhttp.send(request);
-    // 2) return the promise of this deferred
-    return deferred.promise();
-}
-
-function manipulateData(xmlhttp) {
-    debugger;
-    var sFetchResult = xmlhttp.responseXML.selectSingleNode("//a:Entities").xml;
-
-//    var moreRecordsXML = xmlhttp.responseXML.selectSingleNode("//a:MoreRecords").text;
-//    if (moreRecordsXML == 'true') {
-//        morePages = 'true';
-//        pageCookie = xmlhttp.responseXML.selectSingleNode("//a:PagingCookie").text;
-//        pageCookie = pageCookie.replace(/\"/g, '\'');
-//        pageCookie = pageCookie.replace(/</g, '&lt;');
-//        pageCookie = pageCookie.replace(/>/g, '&gt;');
-//        pageCookie = pageCookie.replace(/'/g, '&quot;');
-//     
-//    } else {
-//        morePages = 'false';
-//    }
-
-    var resultDoc = new ActiveXObject("Microsoft.XMLDOM");
-    resultDoc.async = false;
-    resultDoc.loadXML(sFetchResult);
-    //parse result xml into array of jsDynamicEntity objects
-    var results = new Array(resultDoc.firstChild.childNodes.length);
-    for (var i = 0; i < resultDoc.firstChild.childNodes.length; i++) {
-        var oResultNode = resultDoc.firstChild.childNodes[i];
-        var jDE = new jsDynamicEntity();
-        var obj = new Object();
-        for (var j = 0; j < oResultNode.childNodes.length; j++) {
-            switch (oResultNode.childNodes[j].baseName) {
-                case "Attributes":
-                    var attr = oResultNode.childNodes[j];
-                    for (var k = 0; k < attr.childNodes.length; k++) {
-                        // Establish the Key for the Attribute
-                        var sKey = attr.childNodes[k].firstChild.text;
-                        var sType = '';
-                        // Determine the Type of Attribute value we should expect
-                        for (var l = 0; l < attr.childNodes[k].childNodes[1].attributes.length; l++) {
-                            if (attr.childNodes[k].childNodes[1].attributes[l].baseName == 'type') {
-                                sType = attr.childNodes[k].childNodes[1].attributes[l].text;
-                            }
-                        }
-                        switch (sType) {
-                            case "a:OptionSetValue":
-                                var entOSV = new jsOptionSetValue();
-                                entOSV.type = sType;
-                                entOSV.value = attr.childNodes[k].childNodes[1].text;
-                                obj[sKey] = entOSV;
-                                break;
-                            case "a:EntityReference":
-                                var entRef = new jsEntityReference();
-                                entRef.type = sType;
-                                entRef.guid = attr.childNodes[k].childNodes[1].childNodes[0].text;
-                                entRef.logicalName = attr.childNodes[k].childNodes[1].childNodes[1].text;
-                                entRef.name = attr.childNodes[k].childNodes[1].childNodes[2].text;
-                                obj[sKey] = entRef;
-                                break;
-                            case "a:AliasedValue": //l.g fixed
-                                // debugger;
-                                var entCVA = new jsCrmValue();
-                                entCVA.type = sType;
-                                entCVA.value = attr.childNodes[k].childNodes[1].childNodes[2].text;
-                                obj[sKey] = entCVA;
-                                break;
-                            default:
-                                var entCV = new jsCrmValue();
-                                entCV.type = sType;
-                                entCV.value = attr.childNodes[k].childNodes[1].text;
-                                obj[sKey] = entCV;
-                                break;
-                        }
-                    }
-                    jDE.attributes = obj;
-                    break;
-                case "Id":
-                    jDE.guid = oResultNode.childNodes[j].text;
-                    break;
-                case "LogicalName":
-                    jDE.logicalName = oResultNode.childNodes[j].text;
-                    break;
-                case "FormattedValues":
-                    var foVal = oResultNode.childNodes[j];
-                    for (var k = 0; k < foVal.childNodes.length; k++) {
-                        // Establish the Key, we are going to fill in the formatted value of the already found attribute
-                        var sKey = foVal.childNodes[k].firstChild.text;
-                        jDE.attributes[sKey].formattedValue = foVal.childNodes[k].childNodes[1].text;
-                    }
-                    break;
-            }
-        }
-        results[i] = jDE;
-    }
-    return results;
-}
-
-
 FetchUtil.prototype._ExecuteRequest = function (sXml, sMessage, fInternalCallback, fUserCallback) {
-    //debugger;
+//debugger;
     var xmlhttp = new XMLHttpRequest();
 
     xmlhttp.open("POST", this.server + "/XRMServices/2011/Organization.svc/web", (fUserCallback != null));
@@ -241,7 +105,7 @@ FetchUtil.prototype._FetchCallback = function (xmlhttp, callback) {
                                 obj[sKey] = entRef;
                                 break;
                             case "a:AliasedValue": //l.g fixed
-                                // debugger;
+                               // debugger;
                                 var entCVA = new jsCrmValue();
                                 entCVA.type = sType;
                                 entCVA.value = attr.childNodes[k].childNodes[1].childNodes[2].text;
@@ -306,9 +170,9 @@ var _oService;
 var _sOrgName = "";
 var _sServerUrl = Xrm.Page.context.getServerUrl();
 function fetchOnLoad() {
-// Get the ID of the Customer
-var sCustGUID = Xrm.Page.getAttribute(' customerid ').getValue()[0].id;
-var sFetch = "<fetch mapping='logical' count='10'>" +
+    // Get the ID of the Customer
+    var sCustGUID = Xrm.Page.getAttribute(' customerid ').getValue()[0].id;
+    var sFetch = "<fetch mapping='logical' count='10'>" +
 "<entity name='account'>" +
 "<attribute name='telephone1' />" +
 "<filter type='and'>" +
@@ -316,10 +180,10 @@ var sFetch = "<fetch mapping='logical' count='10'>" +
 "</filter>" +
 "</entity>" +
 "</fetch>";
-_oService = new FetchUtil(_sOrgName, _sServerUrl);
-_oService.Fetch(sFetch, myCallBack);
+    _oService = new FetchUtil(_sOrgName, _sServerUrl);
+    _oService.Fetch(sFetch, myCallBack);
 }
 function myCallBack(results) {
-alert(results[0].attributes["telephone1"].value);
+    alert(results[0].attributes["telephone1"].value);
 }
 */
