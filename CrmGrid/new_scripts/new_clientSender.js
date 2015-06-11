@@ -85,8 +85,8 @@ function fetchSender(id, server, org, method, schema) {
         $.when(counerXml(oService, parseFetchXml, gridProp)).always(function () {
             debugger;
             var records = gridProp.MaxRows == 0 ? 0 :
-            gridProp.MaxRows >= (gridProp.MaxPerPage * gridProp.CurrentPage) ? gridProp.MaxPerPage :(gridProp.MaxRows - (gridProp.MaxPerPage * (gridProp.CurrentPage - 1))) > 0 ? (gridProp.MaxRows - (gridProp.MaxPerPage * (gridProp.CurrentPage - 1))) : gridProp.MaxRows; // Math.floor(gridProp.MaxRows / gridProp.CurrentPage);
-           // alert(records);
+            gridProp.MaxRows >= (gridProp.MaxPerPage * gridProp.CurrentPage) ? gridProp.MaxPerPage : (gridProp.MaxRows - (gridProp.MaxPerPage * (gridProp.CurrentPage - 1))) > 0 ? (gridProp.MaxRows - (gridProp.MaxPerPage * (gridProp.CurrentPage - 1))) : gridProp.MaxRows; // Math.floor(gridProp.MaxRows / gridProp.CurrentPage);
+            // alert(records);
             parseFetchXml.Paging(gridProp.CurrentPage, records);
             var xml = parseFetchXml.Xml();
             $.when(oService.Excute(xml)).then(function (results) {
@@ -98,7 +98,7 @@ function fetchSender(id, server, org, method, schema) {
             }); //end then 
         }); //end always
     }    //end this.Send
-   
+
     var counerXml = function (oService, parseFetchXml, gridProp) {
         //debugger;
         var deferred = $.Deferred();
@@ -107,7 +107,7 @@ function fetchSender(id, server, org, method, schema) {
             var cxml = parseFetchXml.GetCountFetch(gridProp.AggrField);
             var countsData = oService.Excute(cxml);
             countsData.done(function (results) {
-               if (results.length > 0) {
+                if (results.length > 0) {
                     gridProp.MaxRows = results[0].attributes["c"].value;
                 }
                 deferred.resolve();
@@ -116,7 +116,7 @@ function fetchSender(id, server, org, method, schema) {
             });
         }
         else {
-            deferred.resolve(); 
+            deferred.resolve();
         }
         return deferred.promise();
     }
@@ -141,7 +141,14 @@ function fetchSender(id, server, org, method, schema) {
             for (var j = 0; j < schema.length; j++) {
                 var tempValue = "";
                 if (attr[schema[j].Name] != null) {
-                    tempValue = attr[schema[j].Name].type != null && attr[schema[j].Name].type == "a:OptionSetValue" ? attr[schema[j].Name].formattedValue : attr[schema[j].Name].value;
+                    tempValue = attr[schema[j].Name].value;
+                    if (attr[schema[j].Name].type != null) {
+                        if (attr[schema[j].Name].type == "a:OptionSetValue" || attr[schema[j].Name].type == "c:dateTime")
+                            tempValue = attr[schema[j].Name].formattedValue;
+                        else if (attr[schema[j].Name].type == "a:EntityReference")
+                            tempValue = attr[schema[j].Name].name;
+                    }
+
                 }
                 objItem.Fields.push({ "Key": schema[j].Name, "Val": tempValue });
             } //end loop schema
@@ -153,46 +160,46 @@ function fetchSender(id, server, org, method, schema) {
 
 /*
 function fetchSenderOld(id, server, org, method, schema) {
-    //  debugger;
-    this.Send = function (gridProp, fieldsFilter, callback, err) {
-        // debugger;
-        var payload = { "request": { Id: id, SettingGrid: gridProp} };
-        var parseFetchXml = new ParserFetchXml(method);
-        parseFetchXml.Conditions(id, fieldsFilter);
-        parseFetchXml.Order(gridProp.SortName, gridProp.SortOrder ? "true" : "false");
-        var xml = parseFetchXml.Xml();
-        var oService = new FetchUtil(org, server);
-        oService.Fetch(xml, function (results) {
-            //  debugger;
-            var data = { "d": {
-                "__type": "MVSWeb.Grid.Server.ResponseGrid",
-                "Id": id,
-                "IsError": false,
-                "ErrDesc": ""
-            }
-            };
-            data.d.SettingGrid = gridProp;
-            data.d.CrmGrid = {};
-            data.d.CrmGrid.CrmGridItems = [];
-            for (var i = 0; i < results.length; i++) {
-                //debugger;
-                var attr = results[i].attributes;
-                var guid = results[i].guid;
-                var openwin = server + "/main.aspx?etn=" + parseFetchXml.GetEntity() + "&pagetype=entityrecord&id=" + guid;
-                var objItem = { "Id": guid, "subSrc": "", "openwin": openwin };
-                objItem.Fields = [];
-                for (var j = 0; j < schema.length; j++) {
-                    //debugger;
-                    var tempValue = "";
-                    if (attr[schema[j].Name] != null) {
-                        tempValue = attr[schema[j].Name].type != null && attr[schema[j].Name].type == "a:OptionSetValue" ? attr[schema[j].Name].formattedValue : attr[schema[j].Name].value;
-                    }
-                    objItem.Fields.push({ "Key": schema[j].Name, "Val": tempValue });
-                } //end loop schema
-                data.d.CrmGrid.CrmGridItems.push(objItem);
-            } //end loop results
-            callback(data.d);
-        }); //end  callback fetch
-    }      //end this.Send 
+//  debugger;
+this.Send = function (gridProp, fieldsFilter, callback, err) {
+// debugger;
+var payload = { "request": { Id: id, SettingGrid: gridProp} };
+var parseFetchXml = new ParserFetchXml(method);
+parseFetchXml.Conditions(id, fieldsFilter);
+parseFetchXml.Order(gridProp.SortName, gridProp.SortOrder ? "true" : "false");
+var xml = parseFetchXml.Xml();
+var oService = new FetchUtil(org, server);
+oService.Fetch(xml, function (results) {
+//  debugger;
+var data = { "d": {
+"__type": "MVSWeb.Grid.Server.ResponseGrid",
+"Id": id,
+"IsError": false,
+"ErrDesc": ""
+}
+};
+data.d.SettingGrid = gridProp;
+data.d.CrmGrid = {};
+data.d.CrmGrid.CrmGridItems = [];
+for (var i = 0; i < results.length; i++) {
+//debugger;
+var attr = results[i].attributes;
+var guid = results[i].guid;
+var openwin = server + "/main.aspx?etn=" + parseFetchXml.GetEntity() + "&pagetype=entityrecord&id=" + guid;
+var objItem = { "Id": guid, "subSrc": "", "openwin": openwin };
+objItem.Fields = [];
+for (var j = 0; j < schema.length; j++) {
+//debugger;
+var tempValue = "";
+if (attr[schema[j].Name] != null) {
+tempValue = attr[schema[j].Name].type != null && attr[schema[j].Name].type == "a:OptionSetValue" ? attr[schema[j].Name].formattedValue : attr[schema[j].Name].value;
+}
+objItem.Fields.push({ "Key": schema[j].Name, "Val": tempValue });
+} //end loop schema
+data.d.CrmGrid.CrmGridItems.push(objItem);
+} //end loop results
+callback(data.d);
+}); //end  callback fetch
+}      //end this.Send 
 } // end fetchSender
 */

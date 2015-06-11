@@ -14,7 +14,7 @@ function FetchUtil(sOrg, sServer) {
 }
 
 FetchUtil.prototype.Excute = function (sFetchXml) {
-    debugger;
+  //  debugger;
     // 1) create the jQuery Deferred object that will be used
     var deferred = $.Deferred();
     var request = "<s:Envelope xmlns:s=\"http://schemas.xmlsoap.org/soap/envelope/\">";
@@ -55,7 +55,7 @@ FetchUtil.prototype.Excute = function (sFetchXml) {
 }
 
 function manipulateData(xmlhttp) {
-    debugger;
+   // debugger;
     var sFetchResult = xmlhttp.responseXML.selectSingleNode("//a:Entities").xml;
 
 //    var moreRecordsXML = xmlhttp.responseXML.selectSingleNode("//a:MoreRecords").text;
@@ -77,6 +77,7 @@ function manipulateData(xmlhttp) {
     //parse result xml into array of jsDynamicEntity objects
     var results = new Array(resultDoc.firstChild.childNodes.length);
     for (var i = 0; i < resultDoc.firstChild.childNodes.length; i++) {
+       // debugger;
         var oResultNode = resultDoc.firstChild.childNodes[i];
         var jDE = new jsDynamicEntity();
         var obj = new Object();
