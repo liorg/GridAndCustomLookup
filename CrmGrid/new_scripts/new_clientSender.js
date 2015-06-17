@@ -135,7 +135,15 @@ function fetchSender(id, server, org, method, schema) {
             //debugger;
             var attr = results[i].attributes;
             var guid = results[i].guid;
-            var openwin = server + "/main.aspx?etn=" + parseFetchXml.GetEntity() + "&pagetype=entityrecord&id=" + guid;
+            // when save page crm when open entity from ower custom grid (maybe in rollup it will fixed?)
+            // we get "הגישה נדחתה"
+            // in event log we see error like this:
+            //Exception message: INVALID_WRPC_TOKEN: Validate WRPC Token: WRPCTokenState=Invalid, TOKEN_EXPIRY=4320, IGNORE_TOKEN=False, TOKEN_KEY=1FKttw0LEeWyyQBQVoReG6y0qcdd+Ov5U8mt23kV3gcpy6LwqD92Ma9zKlsL89wE
+            // result: from forum(https://social.microsoft.com/Forums/en-US/2ff65a6c-1196-41f5-aad4-85a34368f3e4/invalidwrpctoken-at-associating-records-thru-crm-2011-ui?forum=crm)
+            //The fix is to turn off token checks by creating a registry key, with the value 1:
+            //HKLM\SOFTWARE\Microsoft\MSCRM\IgnoreTokenCheck (DWORD)
+            var openwin = server + "/main.aspx?etn=" + parseFetchXml.GetEntity() + "&pagetype=entityrecord&id=" + encodeURIComponent(guid);
+            //var openwin = "/main.aspx?etn=" + parseFetchXml.GetEntity() + "&pagetype=entityrecord&id=" + encodeURIComponent(guid);
             var objItem = { "Id": guid, "subSrc": "", "openwin": openwin };
             objItem.Fields = [];
             for (var j = 0; j < schema.length; j++) {

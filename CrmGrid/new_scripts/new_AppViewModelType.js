@@ -129,7 +129,14 @@ function AppViewModel(vmData) {
     };
 
     this.double = function (d) {
-        if (d.openwin != '')
-            window.open(d.openwin, "_blank", "width:900px,height:200px");
+        debugger;
+
+      
+        //Set features for how the Case form window will appear
+        var features = "location=no,menubar=no,status=no,toolbar=no"; //"width:900px,height:200px"
+        if (d.openwin != '') {
+           // window.open(d.openwin);
+            window.open(d.openwin, "_blank", features, false);
+        }
     };
 }
