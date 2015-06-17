@@ -100,7 +100,7 @@
                                                             <tr style="height: 20px" data-bind="foreach: crmSchema">
                                                                 <!-- ko if: $index() == 0 -->
                                                                 <td style="height: 20px; padding: 0px;">
-                                                                    <input type="checkbox" class="ms-crm-HeaderCheckBox" id="Checkbox2" tabindex="0"
+                                                                    <input type="checkbox" disabled="disabled" class="ms-crm-HeaderCheckBox" id="Checkbox2" tabindex="0"
                                                                         style="" title="">
                                                                 </td>
                                                                 <td>
@@ -191,9 +191,9 @@
                                                                             class="ms-crm-List-Row">
                                                                             <!-- ko if: $index() == 0 -->
                                                                             <td align="Center" class="ms-crm-List-NonDataCell">
-                                                                                <input data-bind="visible: !$root.isToggle" id="checkBox1" class="ms-crm-RowCheckBox"
+                                                                                <input  class="ms-crm-RowCheckBox" data-bind="visible: !$root.isToggle()" 
                                                                                     title="" tabindex="0" value="" type="checkbox">
-                                                                                <a data-bind="visible: $root.isToggle" style="cursor: pointer;"><span class="mvs-crm-btn ui-icon ui-icon-plus">
+                                                                                <a data-bind="visible: $root.isToggle()" style="cursor: pointer;"><span class="mvs-crm-btn ui-icon ui-icon-plus">
                                                                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></a>
                                                                             </td>
                                                                             <td align="Center" class="ms-crm-List-DataCell">
