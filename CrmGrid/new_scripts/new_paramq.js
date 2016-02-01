@@ -1,4 +1,4 @@
-﻿//debugger;
+﻿//
 document.onreadystatechange = function () {
     if (document.readyState == "complete") {
         getDataParam();
@@ -8,7 +8,7 @@ document.onreadystatechange = function () {
 var _qparams = [];
 
 function getDataParam() {
-    //debugger;
+    //
     //Get the any query string parameters and load them
     //into the vals array
     var vals = new Array();
@@ -35,7 +35,7 @@ function getDataParam() {
     }
 }
 function setDataValue(datavalue) {
-    //debugger;
+    //
     if (datavalue != "") {
         var vals = new Array();
         // alert("These are the data parameters values that were passed to this page:");
@@ -47,7 +47,9 @@ function setDataValue(datavalue) {
         }
     }
 }
+
 function qsGetValue(key) {
+    getDataParam();
     for (i = 0; i < _qparams.length; i++) {
         if (_qparams[i].key == key)
             return _qparams[i].val;
@@ -55,9 +57,10 @@ function qsGetValue(key) {
     return "";
 }
 
-
-
 function getIdXrmParent() {
+    if (window.parent != null && window.parent.Xrm != null && window.parent.Xrm.data != null)
+        return window.parent.Xrm.Page.data.entity.getId();
+
     var vals = new Array();
     if (location.search != "") {
         vals = location.search.substr(1).split("&");
@@ -75,5 +78,5 @@ function getIdXrmParent() {
 }
 
 
-    
+
 

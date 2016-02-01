@@ -9,19 +9,43 @@
     <script src="new_scripts/new_knockout_2_2_0rc.js" type="text/javascript"></script>
     <script src="new_scripts/new_subgrid.js" type="text/javascript"></script>
     <script src="new_scripts/new_rowclick.js"></script>
-    <script type="text/javascript" src="new_scripts/new_AppViewModel.js"></script>
-    <script src="new_scripts/new_democonfig.js" type="text/javascript"></script>
-    <script src="new_scripts/new_Schema.js" type="text/javascript"></script>
-    <!--    <script src="scripts/mock/mockschema.js" type="text/javascript"></script>-->
+    <script type="text/javascript" src="new_scripts/new_AppViewModelType.js"></script>
+    <script src="new_scripts/new_democonfigType.js" type="text/javascript"></script>
+    <script src="new_scripts/new_SchemaType.js" type="text/javascript"></script>
     <script src="new_scripts/new_mockdata.js" type="text/javascript"></script>
+    <script src="new_scripts/new_XrmParent.js" type="text/javascript"></script>
     <script src="new_scripts/new_clientSender.js" type="text/javascript"></script>
+    <script src="new_scripts/new_fetchXmlBulid.js" type="text/javascript"></script>
+    <script src="new_scripts/new_FetchUtil.js" type="text/javascript"></script>
+    <script src="new_scripts/new_paramq.js" type="text/javascript"></script>
+    <script src="new_scripts/new_ClientGlobalContext.js" type="text/javascript"></script>
+    
+
+    <!-- <script type="text/javascript">
+        
+        var scriptUrl = "new_scripts/new_ClientGlobalContext.js.aspx";
+    if (!__crmPage)
+        scriptUrl = "ClientGlobalContext.js";
+        document.write('<script type="text/javascript" src="' + scriptUrl + '"></' + 'script>')
+    </script>-->
+    <script type="text/javascript">
+        var _sServerUrl = "";
+        try {
+            _sServerUrl = GetGlobalContext().getServerUrl();
+        } catch (e) {
+
+        }
+    </script>
     <script type="text/javascript">
         var vm;
         $(function () {
 
-            load();
+            var getid = getIdXrmParent() || qsGetValue("id");
+            var recid = decodeURI(getid);
+            var configName = qsGetValue("config");
+            load(recid, configName);
             setTimeout(function () {
-               // firstLoad();
+                // firstLoad();
                 loadGrid();
             }, 100);
         });
@@ -58,8 +82,9 @@
                                         <!--start: ms-crm-List-RefreshButton -->
                                         <div id="refreshButton" class="ms-crm-List-RefreshButton">
                                             <a id="refreshButton20131_RefreshButton1" data-bind="click: Refresh">
-                                                <img id="grid_refresh" src="new_stylecrmgrid/new_gridimgs/new_transparent_spacer2013.gif" class="ms-crm-ImageStrip-grid_refresh"
-                                                    style="cursor: pointer" alt="Refresh&#32;list" title="Refresh&#32;list">
+                                                <img id="grid_refresh" src="new_stylecrmgrid/new_gridimgs/new_transparent_spacer2013.gif"
+                                                    class="ms-crm-ImageStrip-grid_refresh" style="cursor: pointer" alt="Refresh&#32;list"
+                                                    title="Refresh&#32;list">
                                             </a>
                                         </div>
                                         <!--End: ms-crm-List-RefreshButton -->
@@ -70,32 +95,31 @@
                                                     <table id="crmGrid_gridBar" class="ms-crm-List-Header" cellspacing="0" summary="From each column header, you can sort and filter the records in that column."
                                                         cellpadding="0">
                                                         <colgroup data-bind="foreach: getLayoutSchema()" id="crmGrid_gridBarCols">
-                                                            <col class="ms-crm-List-DataColumnHeader" data-bind="attr: {  width: Width}">
+                                                            <col class="ms-crm-List-DataColumnHeader" data-bind="attr: { width: Width }">
                                                             <col width="2">
                                                         </colgroup>
                                                         <tbody>
                                                             <tr style="height: 20px" data-bind="foreach: crmSchema">
                                                                 <!-- ko if: $index() == 0 -->
                                                                 <td style="height: 20px; padding: 0px;">
-                                                                    <input type="checkbox" class="ms-crm-HeaderCheckBox" id="Checkbox2" tabindex="0"
+                                                                    <input type="checkbox" disabled="disabled" class="ms-crm-HeaderCheckBox" id="Checkbox2" tabindex="0"
                                                                         style="" title="">
                                                                 </td>
                                                                 <td>
-                                                                    <img id="bar_line" src="new_stylecrmgrid/new_gridimgs/new_transparent_spacer2013.gif" class="ms-crm-ImageStrip-bar_line"
-                                                                        alt="">
+                                                                    <img id="bar_line" src="new_stylecrmgrid/new_gridimgs/new_transparent_spacer2013.gif"
+                                                                        class="ms-crm-ImageStrip-bar_line" alt="">
                                                                 </td>
                                                                 <!-- /ko -->
-                                                                <th scope="col" data-bind="attr: { 'field':Name,'fieldname':Name },css: { 'ms-crm-List-Sortable': Name == $root.sortName()},click: $root.Sort"
+                                                                <th scope="col" data-bind="attr: { 'field': Name, 'fieldname': Name }, css: { 'ms-crm-List-Sortable': Name == $root.sortName() }, click: $root.Sort"
                                                                     style="cursor: pointer" entityname="entityname" renderertype="Crm.PrimaryField"
                                                                     displaylabel="">
-                                                                    <table cellspacing="0" class="ms-crm-List-Sortable"
-                                                                        cellpadding="0">
+                                                                    <table cellspacing="0" class="ms-crm-List-Sortable" cellpadding="0">
                                                                         <tbody>
                                                                             <tr>
                                                                                 <td class="ms-crm-List-Sortable">
-                                                                                    <a id="sHeaderSorting_repCols_LinkHeaderButton_0" data-bind="attr: { 'title':Desc }">
-                                                                                        <nobr class="ms-crm-DataCell"><span data-bind="text: Desc,css: { 'ms-crm-List-Sortable': Name == $root.sortName()}" ></span>
-                                                                                         <img  data-bind="css: { 'ms-crm-ImageStrip-dropdown': Name == $root.sortName() && $root.sortOrder(),'ms-crm-ImageStrip-bar_up' : Name == $root.sortName() && !$root.sortOrder() }"  src="new_stylecrmgrid/new_gridimgs/new_transparent_spacer2013.gif" /></nobr>
+                                                                                    <a id="sHeaderSorting_repCols_LinkHeaderButton_0" data-bind="attr: { 'title': Desc }">
+                                                                                        <nobr class="ms-crm-DataCell"><span data-bind="text: Desc, css: { 'ms-crm-List-Sortable': Name == $root.sortName() }" ></span>
+                                                                                         <img  data-bind="css: { 'ms-crm-ImageStrip-dropdown': Name == $root.sortName() && $root.sortOrder(), 'ms-crm-ImageStrip-bar_up': Name == $root.sortName() && !$root.sortOrder() }"  src="new_stylecrmgrid/new_gridimgs/new_transparent_spacer2013.gif" /></nobr>
                                                                                     </a>
                                                                                 </td>
                                                                                 <td class="ms-crm-FilterPopupContainerTD">
@@ -127,7 +151,7 @@
                                                                     </table>
                                                                 </th>
                                                                 <td>
-                                                                    <img class="ms-crm-List-ResizeBar ms-crm-ImageStrip-resize" alt="" data-bind="attr: { 'id':'crmGrid_resize_'+Name }"
+                                                                    <img class="ms-crm-List-ResizeBar ms-crm-ImageStrip-resize" alt="" data-bind="attr: { 'id': 'crmGrid_resize_' + Name }"
                                                                         src="new_stylecrmgrid/new_gridimgs/new_transparent_spacer.gif">
                                                                 </td>
                                                                 <!-- ko if:  $index() == $root.crmSchema().length-1-->
@@ -157,7 +181,7 @@
                                                                         <col class="ms-crm-List-CheckBoxColumn" width="18">
                                                                         <col class="ms-crm-List-RowIconColumn" width="16">
                                                                         <!-- /ko -->
-                                                                        <col class="ms-crm-List-DataColumn" data-bind="attr: { 'name':Name, width: Width+2} ,css: { 'ms-crm-List-SortedColumn': Name == $root.sortName()}">
+                                                                        <col class="ms-crm-List-DataColumn" data-bind="attr: { 'name': Name, width: Width + 2 }, css: { 'ms-crm-List-SortedColumn': Name == $root.sortName() }">
                                                                         <!-- ko if:  $index() == $parent.crmSchema().length-1-->
                                                                         <col style="display: none">
                                                                         <col>
@@ -165,17 +189,17 @@
                                                                     </colgroup>
                                                                     <!--end: colgroup Body  -->
                                                                     <tbody data-bind="foreach: crmItems">
-                                                                        <tr data-bind="attr: { 'id':'row_item_'+Id ,'rowid':Id,'srcSubGrid': subSrc},foreach: $parent.crmSchema, event : { dblclick: $parent.double }"
+                                                                        <tr data-bind="attr: { 'id': 'row_item_' + Id, 'rowid': Id, 'srcSubGrid': subSrc }, foreach: $parent.crmSchema, event: { dblclick: $parent.double }"
                                                                             class="ms-crm-List-Row">
                                                                             <!-- ko if: $index() == 0 -->
                                                                             <td align="Center" class="ms-crm-List-NonDataCell">
-                                                                                <input data-bind="visible: !$root.isToggle" id="checkBox1" class="ms-crm-RowCheckBox"
+                                                                                <input  class="ms-crm-RowCheckBox" data-bind="visible: !$root.isToggle()" 
                                                                                     title="" tabindex="0" value="" type="checkbox">
-                                                                                <a data-bind="visible: $root.isToggle" style="cursor: pointer;"><span class="mvs-crm-btn ui-icon ui-icon-plus">
+                                                                                <a data-bind="visible: $root.isToggle()" style="cursor: pointer;"><span class="mvs-crm-btn ui-icon ui-icon-plus">
                                                                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></a>
                                                                             </td>
                                                                             <td align="Center" class="ms-crm-List-DataCell">
-                                                                                <img alt="" src="new_stylecrmgrid/new_gridimgs/new_ico_16_4400.gif">
+                                                                                <img alt="" data-bind="attr: { src: $root.GetIconByEntity($parent) }">
                                                                             </td>
                                                                             <!-- /ko -->
                                                                             <td class="ms-crm-List-DataCell inner-grid-cellPadding">
@@ -198,7 +222,7 @@
                                             </div>
                                             <!--end: ms-crm-grid-databodycontainer -->
                                             <!--start: no data /loading  -->
-                                            <div data-bind="visible: crmItems().length ==0" class="ms-crm-grid-databodycontainer"
+                                            <div data-bind="visible: crmItems().length == 0" class="ms-crm-grid-databodycontainer"
                                                 style="top: 22px; bottom: 22px; vertical-align: top;">
                                                 <div class="ms-crm-IE7-Height-Fix-Dummy-Container">
                                                     <div class="ms-crm-List-DataBody" id="Div1">
@@ -211,7 +235,7 @@
                                                                     <col class="ms-crm-List-CheckBoxColumn" width="18">
                                                                     <col class="ms-crm-List-RowIconColumn" width="16">
                                                                     <!-- /ko -->
-                                                                    <col class="ms-crm-List-DataColumn" data-bind="attr: { 'name':Name, width: Width+2} ,css: { 'ms-crm-List-SortedColumn': Name == $root.sortName()}">
+                                                                    <col class="ms-crm-List-DataColumn" data-bind="attr: { 'name': Name, width: Width + 2 }, css: { 'ms-crm-List-SortedColumn': Name == $root.sortName() }">
                                                                     <!-- ko if:  $index() == $parent.crmSchema().length-1-->
                                                                     <col style="display: none">
                                                                     <col>
@@ -224,10 +248,11 @@
                                                                         </td>
                                                                     </tr>
                                                                     <tr>
-                                                                        <td class="ms-crm-List-MessageText" data-bind="attr: { 'colspan':crmSchema().length}"
+                                                                        <td class="ms-crm-List-MessageText" data-bind="attr: { 'colspan': crmSchema().length }"
                                                                             colspan="13">
-                                                                            <span data-bind="visible: !noData()"><img alt="Loading..." src="new_stylecrmgrid/new_gridimgs/new_progress2013.gif"></span>
-                                                                             <span data-bind="visible: noData(),text : message()"> </span>
+                                                                            <span data-bind="visible: !noData()">
+                                                                                <img alt="Loading..." src="new_stylecrmgrid/new_gridimgs/new_progress2013.gif"></span>
+                                                                            <span data-bind="visible: noData(), text: message()"></span>
                                                                         </td>
                                                                     </tr>
                                                                 </tbody>
@@ -288,7 +313,6 @@
     <script src="new_scripts/new_global.js" type="text/javascript"></script>
     <script src="new_scripts/new_ScriptResx.js" type="text/javascript"></script>
     <script src="new_scripts/new_entitypropertiesutil.js" type="text/javascript"></script>
-
     <script src="new_scripts/new_stage.js" type="text/javascript"></script>
     <script src="new_scripts/new_form.js" type="text/javascript"></script>
     <script src="new_scripts/new_select.js" type="text/javascript"></script>
