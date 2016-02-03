@@ -1,0 +1,251 @@
+﻿<!DOCTYPE html >
+<html>
+<head>
+    <title>Insert Template</title>
+    <link href="new_cssdlg.css" rel="stylesheet" />
+    <style>
+        .ms-crm-email {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            right: 15px;
+            display: inline-block;
+            overflow: hidden;
+            bottom: 15px;
+        }
+
+        .ms-crm-bulkMail {
+            position: absolute;
+            display: inline-block;
+            top: 230px;
+            left: 15px;
+            right: 15px;
+            bottom: 0px;
+            height: 50%;
+        }
+
+        .blockLeft {
+            position: absolute;
+            top: 0px;
+            bottom: 0px;
+            width: 50%;
+            bottom: 0px;
+            display: inline-block;
+            left: 0px;
+        }
+
+        .blockRight {
+            position: absolute;
+            width: 50%;
+            display: inline-block;
+            vertical-align: top;
+            top: 0px;
+            bottom: 0px;
+            overflow: auto;
+            right: 0px;
+        }
+    </style>
+</head>
+<body>
+    <div style="width: 100%; height: 100%; overflow: auto">
+        <div class="ms-crm-Dialog-Header" id="DlgHdContainer">
+            <div class="ms-crm-Dialog-Header-Title" id="DlgHdTitle">Select Template</div>
+            <div class="ms-crm-StrictDialog-Header-Desc" id="DlgHdDesc" title="Select&#32;an&#32;e-mail&#32;template&#32;from&#32;the&#32;following&#32;options&#32;to&#32;insert&#32;into&#32;this&#32;e-mail.">Select an e-mail template from the following options to insert into this e-mail.</div>
+        </div>
+        <div id="DlgHdBodyContainer" class="ms-crm-DialogStrict-Main">
+            <div id="divWarning" style="width: 97.5%; height: 96%; position: absolute; top: 0px; left: 0px; padding-right: 1%; padding-left: 1%; padding-top: 0.5%; padding-bottom: 0.5%; box-sizing: content-box">
+
+                <form name="crmForm" id="crmForm" action="" style="padding: 0px; margin: 0px; height: 100%;">
+                    <div class="ms-crm-absolutePosition">
+                        <div class="ms-crm-email">
+                            <div style="display: inline-block; height: 25px; padding-bottom: 10px; width: 50%;">
+                                <table cellpadding="0" cellspacing="0" width="100%" style="position: relative;">
+                                    <col width="100" />
+                                    <col />
+                                    <tr>
+                                        <td id="languagecode_c">
+                                            <label for="LanguageCode">Language</label></td>
+                                        <td nowrap="nowrap">&nbsp;<select isvaluenull="0" req="0" style="ime-mode: auto" donotsubmit="1" id="LanguageCode" name="LanguageCode" defaultselected="1033" class="ms-crm-SelectBox&#32;" onchange="ChangeLanguage();"><option value="-1">All Languages</option>
+                                            <option value="1033" selected='selected'>English</option>
+                                            <option value="1037">Hebrew</option>
+                                        </select></td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div style="position: absolute; top: 35px; bottom: 0px; left: 0px; right: 0px; width: 100%;">
+                                <div class="blockLeft">
+
+
+                                    <div id="ItemList" class="ms-crm-Dialog-List ms-crm-Dialog-List-Layered ms-crm-TextAlign-LeadingEdge  ms-crm-absolutePosition" style="padding-top: 0px; padding-bottom: 0px; height: auto;">
+                                        <ul id="TemplateTable" class="ms-crm-Dialog-List" width="100%" xmlns:msxsl="urn:schemas-microsoft-com:xslt">
+                                            <li class="ms-crm-Dialog-ListHeader ms-crm-Bold-Header"><span>Global Templates</span></li>
+                                            <li class="ms-crm-Dialog-ListItem" onmouseover="On(this)" onmouseout="Off(this)" onclick="SelectTemplate(this)" ondblclick="SelectTemplate(this, true)" tmplid="{C0C8B7C7-2A7B-E511-91DA-00155D04335C}" tmpltitle="Barak Error Template" tmplsubject="&lt;?xml version=&quot;1.0&quot; ?&gt;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; version=&quot;1.0&quot;&gt;&lt;xsl:output method=&quot;text&quot; indent=&quot;no&quot;/&gt;&lt;xsl:template match=&quot;/data&quot;&gt;&lt;![CDATA[Import From Barak Has Errors]]&gt;&lt;/xsl:template&gt;&lt;/xsl:stylesheet&gt;" tmpltype="Global Templates" tmpltypecode="8" tmplcreatedby="Lior Nahum Grosman" tmplcreatedon="2015-10-25T15:12:18-00:00" tmpldesc="">
+                                                <input type="radio" class="ms-crm-Dialog-ListItemSelect" id="{C0C8B7C7-2A7B-E511-91DA-00155D04335C}" /><label for="{C0C8B7C7-2A7B-E511-91DA-00155D04335C}"><img alt="" src="new_ico_temp.gif" align="absmiddle" style="margin-right: 4px" />Barak Error Template</label></li>
+                                            <li class="ms-crm-Dialog-ListItem" onmouseover="On(this)" onmouseout="Off(this)" onclick="SelectTemplate(this)" ondblclick="SelectTemplate(this, true)" tmplid="{E5414B82-1F77-E511-91DA-00155D04335C}" tmpltitle="Barak New Agencies" tmplsubject="&lt;?xml version=&quot;1.0&quot; ?&gt;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; version=&quot;1.0&quot;&gt;&lt;xsl:output method=&quot;text&quot; indent=&quot;no&quot;/&gt;&lt;xsl:template match=&quot;/data&quot;&gt;&lt;![CDATA[Please Update Father Agency (Group) For The Following Agencies]]&gt;&lt;/xsl:template&gt;&lt;/xsl:stylesheet&gt;" tmpltype="Global Templates" tmpltypecode="8" tmplcreatedby="Lior Nahum Grosman" tmplcreatedon="2015-10-20T11:41:33-00:00" tmpldesc="">
+                                                <input type="radio" class="ms-crm-Dialog-ListItemSelect" id="{E5414B82-1F77-E511-91DA-00155D04335C}" /><label for="{E5414B82-1F77-E511-91DA-00155D04335C}"><img alt="" src="new_ico_temp.gif" align="absmiddle" style="margin-right: 4px" />Barak New Agencies</label></li>
+                                            <li class="ms-crm-Dialog-ListItem" onmouseover="On(this)" onmouseout="Off(this)" onclick="SelectTemplate(this)" ondblclick="SelectTemplate(this, true)" tmplid="{76234156-8323-E411-A83A-00155D05E705}" tmpltitle="Case Inactive Not Update From IMASHAB" tmplsubject="&lt;?xml version=&quot;1.0&quot; ?&gt;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; version=&quot;1.0&quot;&gt;&lt;xsl:output method=&quot;text&quot; indent=&quot;no&quot;/&gt;&lt;xsl:template match=&quot;/data&quot;&gt;&lt;![CDATA[Case ID !caseID! is closed and cannot be update]]&gt;&lt;/xsl:template&gt;&lt;/xsl:stylesheet&gt;" tmpltype="Global Templates" tmpltypecode="8" tmplcreatedby="CRM Admin" tmplcreatedon="2014-08-18T10:54:43-00:00" tmpldesc="">
+                                                <input type="radio" class="ms-crm-Dialog-ListItemSelect" id="{76234156-8323-E411-A83A-00155D05E705}" /><label for="{76234156-8323-E411-A83A-00155D05E705}"><img alt="" src="new_ico_temp.gif" align="absmiddle" style="margin-right: 4px" />Case Inactive Not Update From IMASHAB</label></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="blockRight">
+                                    <div class="dlg_bulkemail_td_TemplateListStart" style="width: 100%;">
+                                        <div class="dlgLabel ms-crm-Bold-Header crm-divLeft">
+                                            Type:&nbsp;<b>Custom Template</b>
+                                        </div>
+                                        <div class="crm-divRight">
+                                            <nobr id="TmplType">&nbsp;</nobr>
+                                        </div>
+                                        <div class="dlgLabel ms-crm-Bold-Header crm-divLeft">
+                                            Created By:&nbsp;<b>CrmAdmin</b>
+                                        </div>
+                                        <div class="crm-divRight">
+                                            <nobr id="TmplCreatedBy">&nbsp;</nobr>
+                                        </div>
+                                        <div class="dlgLabel ms-crm-Bold-Header crm-divLeft">
+                                            Created On:&nbsp;<b>03/02/2016</b>
+                                        </div>
+                                        <div class="crm-divRight">
+                                            <nobr id="TmplCreatedOn">&nbsp;</nobr>
+                                        </div>
+                                        <div class="dlgLabel ms-crm-Bold-Header crm-divLeft">
+                                            Description:
+                                        </div>
+                                        <div id="TmplDesc" class="crm-divRight">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div id='divFillBg' style='display: none; position: absolute; top: 80px; left: 20px; height: 23px; width: 355px; background-color: #ffffff;'>&nbsp;</div>
+        <div id='divFill' style='display: none; position: absolute; top: 80px; left: 20px; height: 23px; width: 0px; filter: progid:DXImageTransform.Microsoft.Gradient(GradientType=0, StartColorStr=#00ff00, EndColorStr=#00cc00); background: -webkit-gradient(linear, left top, left bottom, from(#00ff00), to(#00cc00)); background: -moz-linear-gradient(top,  #00ff00,  #00cc00);'>&nbsp;</div>
+        <div id='divStatus' style='display: none; position: absolute; top: 80px; left: 19px; height: 23px; width: 357px;'>
+            <img alt='' src='new_statusbar.gif' height='23' width='357'>
+        </div>
+        <div class="ms-crm-Dialog-Footer">
+            <div class="ms-crm-Dialog-Footer-Left">&nbsp;</div>
+            <div class="ms-crm-Dialog-Footer-Right">
+                <button id="butBegin" onclick="applychanges(event);" type="button" class="ms-crm-Button">OK</button>&nbsp;
+                <button id="cmdDialogCancel" onclick="cancel();" type="button" class="ms-crm-Button">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var _selectedItem,
+            _onSelectFunc,
+            _noItemsMessage,
+            _oTemplate;
+
+        function SelectTemplate(o, bWasDblClick) {
+            if (o != _oTemplate) {
+                SelectItem(o);
+                _oTemplate = o;
+                if (bWasDblClick) {
+                    Ok();
+                }
+            }
+        }
+
+        function On(e) {
+            GetSrc(e);
+            if (e != _selectedItem)
+                if (e.className.indexOf(" ms-crm-GlowOn") < 0) e.className += " ms-crm-GlowOn"
+        }
+
+        function Off(e) {
+            GetSrc(e);
+            if (e != _selectedItem) e.className = e.className.replace(" ms-crm-GlowOn", "")
+        }
+
+        function SelectItem(e) {
+            GetSrc(e);
+            if (e != _selectedItem) {
+                e.className = e.className.replace(" ms-crm-GlowOn", "");
+                if (e.className.indexOf(" ms-crm-SelectOn") < 0)
+                    e.className += " ms-crm-SelectOn";
+                var eFirstChild = GetFirstChild(e);
+                eFirstChild.checked = true; eFirstChild.focus();
+                if (_selectedItem) {
+                    _selectedItem.className = _selectedItem.className.replace(" ms-crm-GlowOn", "");
+                    _selectedItem.className = _selectedItem.className.replace(" ms-crm-SelectOn", "");
+                    var _selectedItemFirstChild = GetFirstChild(_selectedItem);
+                    if (_selectedItemFirstChild) _selectedItemFirstChild.checked = false
+                }
+                _selectedItem = e; _onSelectFunc && _onSelectFunc(e)
+            }
+        }
+
+        function GetSrc(e) {
+            if (e.tagName != "LI")
+                e = e.parentNode
+        }
+
+        function Ok() {
+            if (_oTemplate != null) {
+                var tmplId = _oTemplate.getAttribute("tmplId");
+                alert(tmplId);
+               // closeWindow();
+            }
+            function SelectTemplate(o, bWasDblClick) {
+                if (o != _oTemplate) {
+                    SelectItem(o);
+                    _oTemplate = o;
+                }
+
+                document.getElementById("butBegin").disabled = false;
+                if (bWasDblClick) {
+                    Ok();
+                }
+            }
+        }
+
+        function ChangeLanguage() {
+
+        }
+
+        function applychanges() {
+            Ok();
+        }
+
+        function cancel() {
+            closeWindow();
+        }
+
+    </script>
+    <script>
+
+        var NodeType = { Element: 1, TextNode: 3, Document: 9 };
+        function Trim(strValue) {
+            if (strValue != null)
+                return strValue.replace(/^\s*/, "").replace(/\s*$/, "");
+            return strValue;
+        }
+        function IsEnumerable(domNode) {
+            var nodeType = domNode.nodeType;
+            if (nodeType == NodeType.Element)
+                return true;
+            if (nodeType == NodeType.TextNode) {
+                var textContent = domNode.nodeValue;
+                return textContent && Trim(textContent).length > 0
+            }
+            return false
+        }
+
+        function FindEnumerableNode(domNode, sPrevNextSibling) {
+            var r = domNode; while (r != null && !IsEnumerable(r))
+                r = r[sPrevNextSibling];
+            return r
+        }
+        function GetFirstChild(domNode) {
+            return FindEnumerableNode(
+                domNode.firstChild, "nextSibling")
+        }
+
+    </script>
+</body>
+</html>
