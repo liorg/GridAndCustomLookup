@@ -7,16 +7,17 @@ var iHeight = '550';
 var bCenter = true;
 var bResize = true;
 var iWidth = '600';
-var dirtyData = []; 
+var dirtyData = [];
 var crmSelectedByPrimary;
-if (typeof String.prototype.trim !== 'function') {//for ie8
-    //debugger;
+if (typeof String.prototype.trim !== 'function') {
+    //debugger; for ie8
     String.prototype.trim = function () {
         return this.replace(/^\s+|\s+$/g, '');
     }
 }
 
 $(function () {
+
     var crmItems = [];
     var params = parseQueryString();
     if (params["id"] != null)
@@ -48,9 +49,11 @@ function getDataType(p) {
     var l = p.replace(/\+/g, " ").split("="); //.split("%3d");
     return l[1];
 }
+
 function getUrl(port, path) {
-    return "//" + location.hostname + ":" + port + "/" + path;
+    return "http://" + MVS.Global.GetISVServerName() + ":" + port + "/" + path;
 }
+
 function parseQueryString() {
     var str = decodeURIComponent(window.location.search);
     var objURL = {};
@@ -67,7 +70,7 @@ function AppViewModel(items) {
     self.crmItems = ko.observableArray(items);
     self.opwenui = function () {
         loadData(url, details, id, false, function (xhr, isAjax) {
-            //debugger;
+            debugger;
             if (isAjax) {
                 var crmItems = [];
                 errorHandler(xhr);
@@ -77,7 +80,21 @@ function AppViewModel(items) {
                 vm.descf();
             }
             var sFeatures = "dialogHeight: " + iHeight + "px; dialogWidth: " + iWidth + "px; ; center: " + bCenter + ";resizable: " + bResize + ";"; // status: " + bStatus + ";";
-            window.showModalDialog("new_dialoguipl.htm", vm, sFeatures);
+            if (window.parent != null) {
+                debugger;
+
+                if (window.showModalDialog == null) {
+                    var width = parseInt(iWidth);
+                    var height = parseInt(iHeight);
+                    var frameid = window.frameElement.id;
+                    parent.Xrm.Utility.openWebResource("new_dialoguipl.htm", frameid, width, height);
+                }
+                else {
+                    window.showModalDialog("new_dialoguipl.htm", vm, sFeatures);
+                }
+                // parent.$("body").append("<div id='dlg_parent' style=' position: fixed;  bottom: 0;   right: 0;  width: 300px; border: 3px solid #73AD21;'>ssss <br> ssssddd<br></div>")
+            }
+
         })
     };
     self.desc = ko.observable("desc");
@@ -171,25 +188,25 @@ function loadData(url, data, id, isLoad, callback) {
     xmlhttp.setRequestHeader('Content-Type', 'text/xml');
     xmlhttp.send(sr);
 }
-
 function errorHandler(xhr) {
+    debugger;
     var isErrorNode;
     if (xhr == null)
         throw "error geting data xhr webservice";
     var xml = xhr.responseXML;
-    if (typeof ActiveXObject !== "undefined") {
-        doc = new ActiveXObject('Microsoft.XMLDOM');
-        doc.loadXML(xhr.responseText);
-        isErrorNode = doc.selectSingleNode('//IsError');
-    }
-    else {
-        isErrorNode = xml.selectSingleNode("//IsError");
-    }
+    isErrorNode = $(xml).find("IsError").text();
+    //if (typeof ActiveXObject !== "undefined") {
+    //    doc = new ActiveXObject('Microsoft.XMLDOM');
+    //    doc.loadXML(xhr.responseText);
+    //    isErrorNode = doc.selectSingleNode('//IsError');
+    //}
+    //else {
+    //    isErrorNode = xml.selectSingleNode("//IsError");
+    //}
     if (isErrorNode == null || isErrorNode.text == "true") {
         throw "error geting data webservice";
     }
 }
-
 function xmlToJsonArray(xml, isload) {
     //debugger;
     var crmItems = [];
@@ -213,12 +230,11 @@ function xmlToJsonArray(xml, isload) {
     });
     return crmItems;
 }
-
 function GetSelectFromPrimaryField() {
     //debugger;
     if (crmSelectedByPrimary != null)
         return crmSelectedByPrimary;
-   crmSelectedByPrimary = [];
+    crmSelectedByPrimary = [];
     var primaryItemsStr = getParentXrm(details.field);
     if (primaryItemsStr == '')
         return crmSelectedByPrimary;
