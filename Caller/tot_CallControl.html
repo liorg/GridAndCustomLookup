@@ -1,0 +1,507 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <script src="tot_jquery_2_2_1.js"></script>
+    <!-- http://www.dynamicscrmpros.com/replacing-field-label-microsoft-dynamics-crm-html-web-resource/-->
+    <title></title>
+
+    <style>
+        body {
+            border: 0px;
+            margin: 0px;
+            font-family: 'Segoe UI',Tahoma,Arial;
+            font-size: 11px;
+        }
+
+        .edit-input {
+            display: none;
+        }
+
+        .control-group {
+            width: 100%;
+        }
+
+        .control-label {
+            width: 100%;
+        }
+
+        .edit-input {
+            width: 100%;
+        }
+
+        #TABLE_1 {
+            float: right;
+            cursor: default;
+            direction: rtl;
+            height: 278px;
+            table-layout: fixed;
+            vertical-align: top;
+            max-width: 486px;
+            width: 100%;
+            perspective-origin: 258px 154px;
+            transform-origin: 258px 154px;
+            background: rgb(255, 255, 255) none repeat scroll 0% 0% / auto padding-box border-box;
+            border-spacing: 0px 0px;
+            font: normal normal normal normal 11px / normal Tahoma, Arial;
+            margin: 0px;
+            padding: 0px;
+        }
+
+        #COLGROUP_2, #COL_3 {
+            cursor: default;
+            direction: rtl;
+            border-spacing: 5px 0px;
+            font: normal normal normal normal 11px / normal Tahoma, Arial;
+        }
+
+        #COL_4 {
+            cursor: default;
+            direction: rtl;
+            border-spacing: 5px 0px;
+            font: normal normal normal normal 11px / normal Tahoma, Arial;
+        }
+
+
+        #TBODY_5 {
+            cursor: default;
+            direction: rtl;
+            perspective-origin: 243px 139px;
+            transform-origin: 243px 139px;
+            border: 0px none rgb(128, 128, 128);
+            border-spacing: 5px 0px;
+            font: normal normal normal normal 11px / normal Tahoma, Arial;
+        }
+
+        #TR_1 {
+            cursor: default;
+            direction: rtl;
+            height: 24px;
+            vertical-align: middle;
+            width: 486px;
+            perspective-origin: 243px 12px;
+            transform-origin: 243px 12px;
+            border: 0px none rgb(128, 128, 128);
+            border-spacing: 5px 0px;
+            font: normal normal normal normal 11px / normal Tahoma, Arial;
+        }
+        /*#TR_1*/
+
+        #TD_2 {
+            color: rgb(17, 17, 17);
+            cursor: default;
+            direction: rtl;
+            height: 21px;
+            text-align: left;
+            text-overflow: ellipsis;
+            vertical-align: top;
+            perspective-origin: 125px 12px;
+            transform-origin: 125px 12px;
+            border: 0px none rgb(17, 17, 17);
+            border-spacing: 5px 0px;
+            font: normal normal normal normal 12px / normal Tahoma, Arial;
+            outline: rgb(17, 17, 17) none 0px;
+            overflow: hidden;
+            padding: 0px;
+        }
+
+        #SPAN_3 {
+            color: rgb(68, 68, 68);
+            cursor: default;
+            direction: rtl;
+            display: block;
+            height: 14px;
+            position: relative;
+            text-align: right;
+            white-space: nowrap;
+            perspective-origin: 125px 7px;
+            transform-origin: 125px 7px;
+            border: 0px none rgb(68, 68, 68);
+            border-spacing: 5px 0px;
+            font: normal normal normal normal 12px / normal Tahoma, Arial;
+            outline: rgb(68, 68, 68) none 0px;
+            overflow: hidden;
+        }
+
+        #title_phone {
+            color: rgb(68, 68, 68);
+            cursor: default;
+            direction: rtl;
+            display: block;
+            float: right;
+            height: 14px;
+            max-width: 250px;
+            text-align: right;
+            white-space: nowrap;
+            perspective-origin: 100px 7px;
+            transform-origin: 100px 7px;
+            border: 0px none rgb(68, 68, 68);
+            border-spacing: 5px 0px;
+            font: normal normal normal normal 12px / normal Tahoma, Arial;
+            outline: rgb(68, 68, 68) none 0px;
+            overflow: hidden;
+        }
+
+
+        #DIV_5 {
+            color: rgb(68, 68, 68);
+            cursor: default;
+            direction: rtl;
+            float: left;
+            height: 1px;
+            left: 0px;
+            position: relative;
+            text-align: right;
+            top: 0px;
+            white-space: nowrap;
+            width: 1px;
+            z-index: 1;
+            perspective-origin: 0.5px 0.5px;
+            transform-origin: 0.5px 0.5px;
+            border: 0px none rgb(68, 68, 68);
+            border-spacing: 5px 0px;
+            font: normal normal normal normal 12px / 0px Tahoma, Arial;
+            outline: rgb(68, 68, 68) none 0px;
+        }
+
+            #DIV_5:after {
+                bottom: 1px;
+                color: rgb(68, 68, 68);
+                content: '""';
+                cursor: default;
+                direction: rtl;
+                display: block;
+                height: 20px;
+                left: 0px;
+                position: absolute;
+                text-align: right;
+                white-space: nowrap;
+                perspective-origin: 7.5px 10px;
+                transform-origin: 7.5px 10px;
+                border: 0px none rgb(68, 68, 68);
+                border-spacing: 5px 0px;
+                font: normal normal normal normal 12px / 0px Tahoma, Arial;
+                outline: rgb(68, 68, 68) none 0px;
+            }
+
+        #TD_6 {
+            cursor: default;
+            direction: rtl;
+            height: 24px;
+            text-align: right;
+            vertical-align: top;
+            perspective-origin: 110.5px 12px;
+            transform-origin: 110.5px 12px;
+            border-spacing: 5px 0px;
+            font: normal normal normal normal 12px / normal Tahoma, Arial;
+        }
+
+        #DIV_7 {
+            cursor: default;
+            direction: rtl;
+            height: 23px;
+            position: relative;
+            text-align: right;
+            perspective-origin: 110.5px 11.5px;
+            transform-origin: 110.5px 11.5px;
+            border-spacing: 5px 0px;
+            font: normal normal normal normal 12px / normal Tahoma, Arial;
+        }
+
+
+
+        #DIV_13 {
+            cursor: default;
+            direction: rtl;
+            height: 23px;
+            text-align: right;
+            perspective-origin: 96px 11.5px;
+            transform-origin: 96px 11.5px;
+            border-spacing: 5px 0px;
+            font: normal normal normal normal 12px / normal Tahoma, Arial;
+            margin: 0px 23px 0px 6px;
+        }
+        /*#DIV_13*/
+
+        #callme {
+            box-sizing: content-box;
+            direction: rtl;
+            height: 16px;
+            min-width: 20px;
+            width: 192px;
+            perspective-origin: 97px 11.5px;
+            transform-origin: 97px 11.5px;
+            /*border: 1px solid rgb(204, 204, 204);*/
+            border-spacing: 5px 0px;
+            font: normal normal bold normal 12px / normal 'Segoe UI', Arial, sans-serif;
+            padding: 2px 0px 3px;
+        }
+
+        #txtPhone {
+            box-sizing: content-box;
+            direction: rtl;
+            height: 16px;
+            min-width: 20px;
+            width: 192px;
+            perspective-origin: 97px 11.5px;
+            transform-origin: 97px 11.5px;
+            /*border: 1px solid rgb(204, 204, 204);
+            border-spacing: 5px 0px;*/
+            font: normal normal bold normal 12px / normal 'Segoe UI', Arial, sans-serif;
+            padding: 2px 0px 3px;
+        }
+
+        .emptyborder {
+            border: 0px solid rgb(204, 204, 204);
+            border-spacing: 5px 0px;
+        }
+
+        .hasborder {
+            border: 1px solid rgb(204, 204, 204);
+            border-spacing: 5px 0px;
+        }
+
+        #SPAN_15 {
+            cursor: default;
+            direction: rtl;
+            display: none;
+            position: absolute;
+            right: 5px;
+            text-align: right;
+            top: 3px;
+            z-index: 10;
+            perspective-origin: 50% 50%;
+            transform-origin: 50% 50%;
+            border-spacing: 5px 0px;
+            font: normal normal normal normal 12px / normal Tahoma, Arial;
+        }
+        /*#SPAN_15*/
+
+        #IMG_16 {
+            background-position: -61px -25px;
+            cursor: default;
+            direction: rtl;
+            height: 12px;
+            text-align: right;
+            width: 9px;
+            background: rgba(0, 0, 0, 0) url("tot_inlineedit_images.png") no-repeat scroll -61px -25px / auto padding-box border-box;
+            border-spacing: 5px 0px;
+            font: normal normal normal normal 12px / normal Tahoma, Arial;
+            overflow: hidden;
+        }
+
+        .locked {
+            background: transparent url(tot_inlineedit_images.png) no-repeat scroll -61px -25px;
+            width: 9px;
+            height: 12px;
+            overflow: hidden;
+        }
+
+        #icontext {
+            cursor: default;
+            direction: rtl;
+            height: 12px;
+            text-align: right;
+            width: 9px;
+            border-spacing: 5px 0px;
+        }
+        .ms-crm-ImageStrip-frm_required{
+            background:transparent url(tot_control_imgs.png) no-repeat scroll -225px -173px;width:10px;height:11px;overflow:hidden;
+
+        }
+    
+        .ms-crm-InlineEditLabel .ms-crm-Inline-RequiredLevel  {
+        float: left;
+        }
+        </style>
+</head>
+<body>
+    <table id="TABLE_1">
+        <colgroup id="COLGROUP_2">
+            <col id="COL_3" />
+            <col id="COL_4" />
+        </colgroup>
+        <tbody id="TBODY_5">
+
+            <tr id="TR_1">
+                <td id="TD_2">
+                    <span id="SPAN_3"><span id="title_phone">טלפון</span>
+                         <img  id="telephone_requiredImage" alt="נדרש" src="tot_transparent_spacer.gif">
+
+                    </span>
+                   
+
+                    <div id="DIV_5">
+                    </div>
+                </td>
+                <td id="TD_6">
+                    <div id="DIV_7">
+                        <div id="DIV_13">
+                            <label for="name" id="callme" class="control-label">
+                                <span id="SPAN_19">
+                                    <img src="tot_transparent_spacer.gif" alt="" id="icontext" /></span>
+                                <a href="#" id="lnkcall"></a>
+                            </label>
+                            <input id="txtPhone" type="text" class="edit-input" />
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+        document.onreadystatechange = function () {
+            if (document.readyState == "complete") {
+                getDataParam();
+            }
+        }
+
+        var _qparams = [];
+
+        function getDataParam() {
+            //Get the any query string parameters and load them
+            //into the vals array
+            var vals = new Array();
+            if (location.search != "") {
+                vals = location.search.substr(1).split("&");
+                for (var i in vals) {
+                    vals[i] = vals[i].replace(/\+/g, " ").split("=");
+                }
+                //look for the parameter named 'data'
+                var found = false;
+                for (var i in vals) {
+                    if (vals[i][0].toLowerCase() == "data") {
+                        setDataValue(vals[i][1]);
+                        found = true;
+                        break;
+                    }
+                }
+                if (!found) {
+                    // noParams(); 
+                }
+            }
+            else {
+                //    noParams();
+            }
+        }
+
+        function setDataValue(datavalue) {
+            if (datavalue != "") {
+                var vals = new Array();
+                // alert("These are the data parameters values that were passed to this page:");
+                vals = decodeURIComponent(datavalue).split("&");
+                for (var i in vals) {
+                    vals[i] = vals[i].replace(/\+/g, " ").split("=");
+                    _qparams.push({ "key": vals[i][0], "val": vals[i][1] });
+                }
+            }
+        }
+
+        function qsGetValue(key) {
+            getDataParam();
+            for (i = 0; i < _qparams.length; i++) {
+                if (_qparams[i].key == key)
+                    return _qparams[i].val;
+            }
+            return "";
+        }
+
+        var DELAY = 700, clicks = 0, timer = null;
+        var islock = false;
+        var isRequired = false;
+        $(document).ready(function () {
+            var title = qsGetValue("title");
+            var fieldname = qsGetValue("field");
+            var crmfield = window.parent.Xrm.Page.getAttribute(fieldname);
+            $(window.frameElement).removeClass("ms-crm-Custom-Read");
+
+            // debugger;
+            islock = window.parent.Xrm.Page.getControl(fieldname).getDisabled();
+
+            //alert("req level" + crmfield.getRequiredLevel());
+            isRequired=crmfield.getRequiredLevel() == "required";
+            $("#title_phone").text(title);
+            var phoneNumber = crmfield.getValue() || "";
+
+            $('#lnkcall').text(phoneNumber);
+            $('#txtPhone').val(phoneNumber);
+
+            if (isRequired) {
+
+                $("#telephone_requiredImage").addClass("ms-crm-Inline-RequiredLevel").addClass("ms-crm-ImageStrip-frm_required");
+            }
+            if (islock) {
+                $("#icontext").addClass("locked");
+                $("#txtPhone").hide();
+                $('#callme').show();
+            }
+            else {
+                if ($("#txtPhone").val() == "" || $("#txtPhone").val() == "--") {
+                    $("#callme").hide();
+                    $("#txtPhone").show();
+                    $("#txtPhone").removeClass("hasborder");
+                    $("#txtPhone").addClass("emptyborder");
+                    $("#txtPhone").val("--");
+                }
+                else {
+                    $('#callme').show();
+                    $("#txtPhone").hide();
+                    $("#txtPhone").removeClass("emptyborder");
+                    $("#txtPhone").addClass("hasborder");
+                }
+            }
+            $("#txtPhone").focusout(function () {
+                $('#lnkcall').text($(this).val());
+                if ($(this).val() == null || $(this).val() == "" || $(this).val() == "--") {
+                    $(this).show();
+                    $('#callme').hide();
+                    $("#txtPhone").removeClass("hasborder");
+                    $("#txtPhone").addClass("emptyborder");
+                }
+                else {
+                    $(this).hide();
+                    $('#callme').show();
+                    $("#txtPhone").removeClass("emptyborder");
+                    $("#txtPhone").addClass("hasborder");
+                  
+                }
+                crmfield.setValue($(this).val());
+            });
+
+            $("#lnkcall").bind("click", function (e) {
+                clicks++;  //count clicks
+                if (clicks === 1) {
+                    timer = setTimeout(function () {
+                        phoneNumber = $("#txtPhone").val();
+                        callDialog(phoneNumber);
+                        clicks = 0;  //after action performed, reset counter
+                    }, DELAY);
+
+                } else {
+                    clearTimeout(timer);  //prevent single-click action
+                    //perform double-click action
+                    if (!islock) {
+                        var dad = $(this).parent().parent();
+                        $('#callme').hide();
+                        $('#txtPhone').show().focus();
+                    }
+                    clicks = 0;  //after action performed, reset counter
+                }
+            })
+            .bind("dblclick", function (e) {
+                e.preventDefault();  //cancel system double-click event
+            });
+        });
+
+        function callDialog(phoneNumber) {
+           // alert("phoneNumber:" + phoneNumber);
+            window.parent.Toto.ConfigurationLogic.GetConfiguration()
+                .done(function (config) {
+                    window.parent.xrmjQuery.get(config.CallServiceURL + phoneNumber);
+                    var win = window.open(config.CallServiceURL + phoneNumber);
+                    window.setTimeout(function () { win.close(); }, 5000);
+                });
+        }
+    </script>
+</body>
+</html>
