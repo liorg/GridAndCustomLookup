@@ -1,0 +1,191 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
+
+    <script type="text/javascript" src="ClientGlobalContext.js.aspx"></script>
+    <style type="text/css">
+        body {
+            direction: rtl;
+            margin: 0px;
+            border: 0px;
+            cursor: default;
+            font-family: Segoe UI,Tahoma,Arial;
+            font-size: 11px;
+        }
+
+        .ms-crm-RefreshDialog-Header {
+            top: 0px;
+            position: absolute;
+            width: 96%;
+            height: 75px;
+            padding-top: 10px;
+            background-color: #FFFFFF;
+            border-bottom-color: #A4ABB2;
+        }
+
+        DIV.ms-crm-RefreshDialog-Header-Title {
+            font-weight: Lighter;
+            font-size: 27px;
+            font-family: Segoe UI Light, Segoe UI, Tahoma, Arial;
+            margin-left: 30px;
+            margin-right: 30px;
+            color: #262626;
+        }
+
+        .ms-crm-TextAutoEllipsis {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .ms-crm-RefreshDialog-Header-Desc {
+            padding-top: 4px;
+            font-family: Segoe UI,Tahoma,Arial;
+            margin-left: 30px;
+            margin-right: 30px;
+            color: #666666;
+            font-size: 12px;
+        }
+
+        .ms-crm-RefreshDialog-Main {
+            font-size: 12px;
+            top: 90px;
+            position: absolute;
+            bottom: 49px;
+            vertical-align: top;
+            width: 95%;
+            font-family: Segoe UI,Tahoma,Arial;
+            color: #444444;
+            background-color: #FFFFFF;
+            border-bottom-color: #A4ABB2;
+            right: 30px;
+            left: 30px;
+        }
+
+        .ms-crm-RefreshDialog-Footer {
+            position: absolute;
+            bottom: 0px;
+            width: 100%;
+            min-width: 288px;
+            height: 44px;
+            text-align: right;
+            background-color: #F8F8F8;
+            border-top-color: #FFFFFF;
+        }
+
+        .ms-crm-RefreshDialog-Button {
+            color: #444444;
+            background-color: #FFFFFF;
+            height: 24px;
+            font-family: Segoe UI,Tahoma,Arial;
+            border: 1px solid #C6C6C6;
+            background-image: none;
+            margin-top: 10px;
+            width: auto;
+            min-width: 80px;
+            white-space: nowrap;
+            font-size: 12px;
+            line-height: 16px;
+            width: 84px;
+            text-align: center;
+            cursor: pointer;
+            background-repeat: repeat-x;
+            padding-left: 5px;
+            padding-right: 5px;
+        }
+    </style>
+    <script>
+        var qs = (function (a) {
+            if (a == "") return {};
+            var b = {};
+            for (var i = 0; i < a.length; ++i) {
+                var p = a[i].split('=', 2);
+                if (p.length == 1)
+                    b[p[0]] = "";
+                else
+                    b[p[0]] = decodeURIComponent(p[1].replace(/\+/g, " "));
+            }
+            return b;
+        })(window.location.search.substr(1).split('&'));
+
+        $().ready(function () {
+            $('#id').val(qs["id"]);
+            $('#code').val(qs["typename"]);
+            $('#save').click(function () {
+
+                sendFile();
+            });
+        });
+        function sendFile() {
+
+            ///create a new FormData object
+            var formData = new FormData(); //var formData = new FormData($('form')[0]);
+
+            ///get the file and append it to the FormData object
+            formData.append('file', $('#file')[0].files[0]);
+            formData.append('id', $('#id').val());
+            formData.append('code', $('#code').val());
+            ///AJAX request
+            $.ajax(
+            {
+                ///server script to process data
+                url: "http://crm15psdnt:81/documenter/FilesUpload.ashx", //web service
+                type: 'POST',
+                success: function (e) {
+                    //success event
+                    //closeWindow();
+                    alert("המסמך עלה בהצלחה");
+                    //Mscrm.Utilities.setReturnValue("ok");
+
+                },
+                error: function (e) {
+                    //errorHandler
+                    alert(e);
+                },
+                ///Form data
+                data: formData,
+                ///Options to tell JQuery not to process data or worry about content-type
+                cache: false,
+                contentType: false,
+                processData: false
+            });
+            ///end AJAX request
+
+        }
+    </script>
+</head>
+<body>
+
+    <div class="ms-crm-RefreshDialog-Main-Container">
+        <div class="ms-crm-RefreshDialog-Header" id="tdDialogHeader">
+            <div id="dialogHeaderTitle" class="ms-crm-RefreshDialog-Header-Title ms-crm-TextAutoEllipsis"
+                title="Your dialog header" style="width: 75%;">
+                העלאת מסמכים
+            </div>
+            <div id="dialogHeaderDesc" class="ms-crm-RefreshDialog-Header-Desc"
+                title="Your dialog additional description">
+             העלאת מסמכים למערכת כגון קבצים סרוקים
+            </div>
+            <div id="DlgHdBodyContainer" class="ms-crm-RefreshDialog-Main">
+                <form id="form1" runat="server" method="post" enctype="multipart/form-data">
+                    <input name="id" id="id" type="hidden" />
+                    <input name="code" id="code" type="hidden" />
+                    <input name="file" id="file" type="file" />
+                    <!--    <input id="save" name="save" value="העלה מסמך" type="button" />-->
+                </form>
+            </div>
+        </div>
+
+        <div class="ms-crm-RefreshDialog-Footer" id="tdDialogFooter">
+            <button id="save" type="button"
+                class="ms-crm-RefreshDialog-Button" tabindex="1" style="margin-left: 8px;">
+              צרף</button>
+            <button id="cmdDialogCancel" onclick="closeWindow();" type="button" class="ms-crm-RefreshDialog-Button"
+                tabindex="1" style="margin-left: 8px; margin-right: 30px">
+                סגור</button>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,94 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script>
+        var jsonData = [
+  {
+      id: 1,
+      text: "Folder 1",
+      state: {
+          selected: false
+      },
+      children: [
+        {
+            id: 2,
+            text: "Sub Folder 1",
+            state: {
+                selected: false
+            },
+        },
+        {
+            id: 3,
+            text: "Sub Folder 2",
+            state: {
+                selected: false
+            },
+        }
+      ]
+  },
+  {
+      id: 4,
+      text: "Folder 2",
+      state: {
+          selected: true
+      },
+      children: []
+  }
+        ];
+
+        $('#jstree-tree')
+          .on('changed.jstree', function (e, data) {
+              var objNode = data.instance.get_node(data.selected);
+              $('#jstree-result').html('Selected: <br/><strong>' + objNode.id + '-' + objNode.text + '</strong>');
+          })
+          .jstree({
+              core: {
+                  data: jsonData
+              }
+          });
+    </script>
+    <style>
+        .container {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <!-- Button trigger modal -->
+            <h2>JS Tree Example JSON Data</h2>
+            <small>by @superpikar</small><br />
+            <br />
+            <p>this sample JS tree use JSON data, read the docs <a href="http://www.jstree.com/docs/json/" target="_blank">here </a></p>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+                Launch demo modal
+            </button>
+
+            <!-- Modal -->
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class="container">
+                                <div class="row">
+                                    <div id="jstree-tree" class="well col-sm-3"></div>
+                                    <div id="jstree-result" class="col-sm-6">this is result</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
