@@ -135,7 +135,8 @@
                 ביטול</button>
         </div>
     </div>
-    <script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/json2/20150503/json2.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
     <script src="new_jstree.min.js"></script>
     <script>
         $('#empty').jstree();
@@ -179,12 +180,7 @@
                 if (data.node.a_attr.href != "#")
                     window.open(data.node.a_attr.href);
             })
-        //.bind('select_node.jstree', function (e, data) {
-        //    debugger;
-        //    alert(1);//data.rslt.obj.find('a').attr("href"));
-        //    window.location.href = data.rslt.obj.find('a').attr("href");
-        //   // alert(e);
-        //});;
+
     </script>
 </body>
 </html>
