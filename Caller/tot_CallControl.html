@@ -304,15 +304,18 @@
             width: 9px;
             border-spacing: 5px 0px;
         }
-        .ms-crm-ImageStrip-frm_required{
-            background:transparent url(tot_control_imgs.png) no-repeat scroll -225px -173px;width:10px;height:11px;overflow:hidden;
 
+        .ms-crm-ImageStrip-frm_required {
+            background: transparent url(tot_control_imgs.png) no-repeat scroll -225px -173px;
+            width: 10px;
+            height: 11px;
+            overflow: hidden;
         }
-    
-        .ms-crm-InlineEditLabel .ms-crm-Inline-RequiredLevel  {
-        float: left;
+
+        .ms-crm-InlineEditLabel .ms-crm-Inline-RequiredLevel {
+            float: left;
         }
-        </style>
+    </style>
 </head>
 <body>
     <table id="TABLE_1">
@@ -321,14 +324,12 @@
             <col id="COL_4" />
         </colgroup>
         <tbody id="TBODY_5">
-
             <tr id="TR_1">
                 <td id="TD_2">
                     <span id="SPAN_3"><span id="title_phone">טלפון</span>
-                         <img  id="telephone_requiredImage" alt="נדרש" src="tot_transparent_spacer.gif">
-
+                        <img id="telephone_requiredImage" alt="נדרש" src="tot_transparent_spacer.gif">
                     </span>
-                   
+
 
                     <div id="DIV_5">
                     </div>
@@ -350,13 +351,12 @@
     </table>
 
     <script>
+        var _qparams = [];
         document.onreadystatechange = function () {
             if (document.readyState == "complete") {
                 getDataParam();
             }
         }
-
-        var _qparams = [];
 
         function getDataParam() {
             //Get the any query string parameters and load them
@@ -384,7 +384,6 @@
                 //    noParams();
             }
         }
-
         function setDataValue(datavalue) {
             if (datavalue != "") {
                 var vals = new Array();
@@ -396,7 +395,6 @@
                 }
             }
         }
-
         function qsGetValue(key) {
             getDataParam();
             for (i = 0; i < _qparams.length; i++) {
@@ -409,17 +407,25 @@
         var DELAY = 700, clicks = 0, timer = null;
         var islock = false;
         var isRequired = false;
+
         $(document).ready(function () {
             var title = qsGetValue("title");
             var fieldname = qsGetValue("field");
             var crmfield = window.parent.Xrm.Page.getAttribute(fieldname);
             $(window.frameElement).removeClass("ms-crm-Custom-Read");
 
-            // debugger;
             islock = window.parent.Xrm.Page.getControl(fieldname).getDisabled();
-
+            window.parent.AddSubscribe(function () {
+                if (isRequired && ($("#txtPhone").val() == "" || $("#txtPhone").val() == "--")) {
+                    alert("יש להזין מספר טלפון");
+                    $("#txtPhone").focus();
+                    return true;
+                }
+                return false;
+            });
             //alert("req level" + crmfield.getRequiredLevel());
-            isRequired=crmfield.getRequiredLevel() == "required";
+            isRequired = crmfield.getRequiredLevel() == "required";
+
             $("#title_phone").text(title);
             var phoneNumber = crmfield.getValue() || "";
 
@@ -427,7 +433,7 @@
             $('#txtPhone').val(phoneNumber);
 
             if (isRequired) {
-
+                crmfield.setRequiredLevel("none");
                 $("#telephone_requiredImage").addClass("ms-crm-Inline-RequiredLevel").addClass("ms-crm-ImageStrip-frm_required");
             }
             if (islock) {
@@ -438,10 +444,12 @@
             else {
                 if ($("#txtPhone").val() == "" || $("#txtPhone").val() == "--") {
                     $("#callme").hide();
+                    $("#txtPhone").val("");
+                    $('#lnkcall').text("--");
                     $("#txtPhone").show();
                     $("#txtPhone").removeClass("hasborder");
                     $("#txtPhone").addClass("emptyborder");
-                    $("#txtPhone").val("--");
+                    //  $("#txtPhone").val("--");
                 }
                 else {
                     $('#callme').show();
@@ -451,19 +459,20 @@
                 }
             }
             $("#txtPhone").focusout(function () {
-                $('#lnkcall').text($(this).val());
                 if ($(this).val() == null || $(this).val() == "" || $(this).val() == "--") {
                     $(this).show();
+                    $('#lnkcall').text("--");
+                    $("#txtPhone").val("");
                     $('#callme').hide();
                     $("#txtPhone").removeClass("hasborder");
                     $("#txtPhone").addClass("emptyborder");
                 }
                 else {
+                    $('#lnkcall').text($(this).val());
                     $(this).hide();
                     $('#callme').show();
                     $("#txtPhone").removeClass("emptyborder");
                     $("#txtPhone").addClass("hasborder");
-                  
                 }
                 crmfield.setValue($(this).val());
             });
@@ -494,7 +503,7 @@
         });
 
         function callDialog(phoneNumber) {
-           // alert("phoneNumber:" + phoneNumber);
+            // alert("phoneNumber:" + phoneNumber);
             window.parent.Toto.ConfigurationLogic.GetConfiguration()
                 .done(function (config) {
                     window.parent.xrmjQuery.get(config.CallServiceURL + phoneNumber);
