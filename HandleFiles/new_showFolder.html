@@ -1,0 +1,233 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Light theme visual tests</title>
+    <link rel="stylesheet" href="new_style.min.css">
+    <style>
+        .tree {
+            border: 1px solid black;
+            padding: 10px;
+            width: 300px;
+            margin: 20px;
+            float: left;
+            min-height: 200px;
+        }
+    </style>
+    <script type="text/javascript" src="ClientGlobalContext.js.aspx"></script>
+    <style type="text/css">
+        body {
+            direction: rtl;
+            margin: 0px;
+            border: 0px;
+            cursor: default;
+            font-family: Segoe UI,Tahoma,Arial;
+            font-size: 11px;
+        }
+
+        .ms-crm-RefreshDialog-Header {
+            top: 0px;
+            position: absolute;
+            width: 96%;
+            height: 75px;
+            padding-top: 10px;
+            background-color: #FFFFFF;
+            border-bottom-color: #A4ABB2;
+        }
+
+        DIV.ms-crm-RefreshDialog-Header-Title {
+            font-weight: Lighter;
+            font-size: 27px;
+            font-family: Segoe UI Light, Segoe UI, Tahoma, Arial;
+            margin-left: 30px;
+            margin-right: 30px;
+            color: #262626;
+        }
+
+        .ms-crm-TextAutoEllipsis {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .ms-crm-RefreshDialog-Header-Desc {
+            padding-top: 4px;
+            font-family: Segoe UI,Tahoma,Arial;
+            margin-left: 30px;
+            margin-right: 30px;
+            color: #666666;
+            font-size: 12px;
+        }
+
+        .ms-crm-RefreshDialog-Main {
+            font-size: 12px;
+            top: 90px;
+            position: absolute;
+            bottom: 49px;
+            vertical-align: top;
+            width: 95%;
+            font-family: Segoe UI,Tahoma,Arial;
+            color: #444444;
+            background-color: #FFFFFF;
+            border-bottom-color: #A4ABB2;
+            right: 30px;
+            left: 30px;
+        }
+
+        .ms-crm-RefreshDialog-Footer {
+            position: absolute;
+            bottom: 0px;
+            width: 100%;
+            min-width: 288px;
+            height: 44px;
+            text-align: right;
+            background-color: #F8F8F8;
+            border-top-color: #FFFFFF;
+        }
+
+        .ms-crm-RefreshDialog-Button {
+            color: #444444;
+            background-color: #FFFFFF;
+            height: 24px;
+            font-family: Segoe UI,Tahoma,Arial;
+            border: 1px solid #C6C6C6;
+            background-image: none;
+            margin-top: 10px;
+            width: auto;
+            min-width: 80px;
+            white-space: nowrap;
+            font-size: 12px;
+            line-height: 16px;
+            width: 84px;
+            text-align: center;
+            cursor: pointer;
+            background-repeat: repeat-x;
+            padding-left: 5px;
+            padding-right: 5px;
+        }
+    </style>
+</head>
+
+<body style="background: white;">
+    <div class="ms-crm-RefreshDialog-Main-Container">
+        <div class="ms-crm-RefreshDialog-Header" id="tdDialogHeader">
+            <div id="dialogHeaderTitle" class="ms-crm-RefreshDialog-Header-Title ms-crm-TextAutoEllipsis"
+                title="Your dialog header" style="width: 75%;">
+                הצגת מסמכים מצורפים 
+            </div>
+            <div id="dialogHeaderDesc" class="ms-crm-RefreshDialog-Header-Desc"
+                title="Your dialog additional description">
+                הצגת מסמכים מצורפים שמקושרים לרשומה הנוכחית
+            </div>
+            <div id="DlgHdBodyContainer" class="ms-crm-RefreshDialog-Main">
+                <div id="using_json" class="demo jstree jstree-3 jstree-default" role="tree" aria-multiselectable="true" tabindex="0" aria-activedescendant="j3_1" aria-busy="false">
+                </div>
+                <div id="using_json_2"></div>
+            </div>
+        </div>
+        <div class="ms-crm-RefreshDialog-Footer" id="tdDialogFooter">
+
+            <button id="cmdDialogCancel" onclick="closeWindow();" type="button" class="ms-crm-RefreshDialog-Button"
+                tabindex="1" style="margin-left: 8px; margin-right: 30px">
+                סגור</button>
+        </div>
+    </div>
+    <script src="new_json22.js"></script>
+    <script src="new_jquery_1_9_1.js"></script>
+    <script src="new_jstree.min.js"></script>
+
+
+
+    <script>
+
+        var qs = (function (a) {
+            if (a == "") return {};
+            var b = {};
+            for (var i = 0; i < a.length; ++i) {
+                var p = a[i].split('=', 2);
+                if (p.length == 1)
+                    b[p[0]] = "";
+                else
+                    b[p[0]] = decodeURIComponent(p[1].replace(/\+/g, " "));
+            }
+            return b;
+        })(window.location.search.substr(1).split('&'));
+
+        $().ready(function () {
+            addASHXScript();
+        });
+
+        function addASHXScript() {
+            var id = qs["id"];
+            var code = qs["typename"];
+
+            LoadScript("http://" + window.location.hostname + ":81/documenter/showFolders.ashx?id=" + id + "&code=" + code,
+             function () {
+                 $('#using_json_2').jstree(
+              {
+                  'state': { 'key': 'navtree', 'events': 'activate_node.jstree' },
+                  plugins: ["themes", "xml_data", "ui", "types"]
+                  ,
+                  ui: { select_limit: 1, selected_parent_close: false },
+                  themes: { theme: "default", dots: true, icons: false },
+                  types: { types: { "heading": { select_node: true } } }
+             , 'core': {
+                 'data': g_data
+             }
+              }).bind("select_node.jstree", function (e, data) {
+                  $('#jstree').jstree('save_state');
+              }).on("activate_node.jstree", function (e, data) {
+
+                  if (data.node.a_attr.href != "#")
+                      window.open(data.node.a_attr.href);
+              })
+
+             });
+        }
+
+
+        function LoadScript(src, onloadHandler) {
+            var script = document.createElement('script');
+            script.src = src;
+            document.getElementsByTagName('head')[0].appendChild(script);
+            if (!ifIsIEThenCheckVersionBelow9()) {
+                script.onload = onloadHandler;
+            }
+            else {
+                script.onreadystatechange = function () {
+                    var r = script.readyState;
+                    if (r === 'loaded' || r === 'complete') {
+                        onloadHandler();
+                        script.onreadystatechange = null;
+                    }
+                };
+            }
+        }
+
+
+        function getInternetExplorerVersion()
+            // Returns the version of Internet Explorer or a -1
+            // (indicating the use of another browser).
+        {
+            var rv = -1; // Return value assumes failure.
+            if (navigator.appName == 'Microsoft Internet Explorer') {
+                var ua = navigator.userAgent;
+                var re = new RegExp("MSIE ([0-9]{1,}[\.0-9]{0,})");
+                if (re.exec(ua) != null)
+                    rv = parseFloat(RegExp.$1);
+            }
+            return rv;
+        }
+        function ifIsIEThenCheckVersionBelow9() {
+            var ver = getInternetExplorerVersion();
+            var returnValue = false;
+            if (ver > -1) {
+                if (ver <= 8.0)
+                    return true;
+            }
+            return returnValue;
+        }
+
+    </script>
+</body>
+</html>

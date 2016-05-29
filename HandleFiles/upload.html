@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <title></title>
-    <script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
+    <script src="new_jquery_2_2_3.js"></script>
 
     <script type="text/javascript" src="ClientGlobalContext.js.aspx"></script>
     <style type="text/css">
@@ -131,14 +131,14 @@
             $.ajax(
             {
                 ///server script to process data
-                url: "http://crm15psdnt:81/documenter/FilesUpload.ashx", //web service
+                url: "http://"+window.location.hostname+":81/documenter/FilesUpload.ashx", //web service
                 type: 'POST',
                 success: function (e) {
                     //success event
-                    //closeWindow();
                     alert("המסמך עלה בהצלחה");
-                    //Mscrm.Utilities.setReturnValue("ok");
-
+                  //  closeWindow();
+                   // Mscrm.Utilities.setReturnValue("ok");
+                 
                 },
                 error: function (e) {
                     //errorHandler
@@ -175,16 +175,17 @@
                     <input name="file" id="file" type="file" />
                     <!--    <input id="save" name="save" value="העלה מסמך" type="button" />-->
                 </form>
+                <div></div>
             </div>
         </div>
 
         <div class="ms-crm-RefreshDialog-Footer" id="tdDialogFooter">
             <button id="save" type="button"
                 class="ms-crm-RefreshDialog-Button" tabindex="1" style="margin-left: 8px;">
-              צרף</button>
+                צרף </button>
             <button id="cmdDialogCancel" onclick="closeWindow();" type="button" class="ms-crm-RefreshDialog-Button"
                 tabindex="1" style="margin-left: 8px; margin-right: 30px">
-                סגור</button>
+                ביטול</button>
         </div>
     </div>
 </body>
